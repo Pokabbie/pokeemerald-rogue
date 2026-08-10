@@ -114,5 +114,25 @@
         "GEN3DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUGTRIO": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 120,
+        "SpAttack": 50,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_ARENA_TRAP"
+      ]
+    }
+  }
 }

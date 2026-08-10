@@ -230,5 +230,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHARIZARD": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 84,
+        "Defense": 78,
+        "Speed": 100,
+        "SpAttack": 109,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

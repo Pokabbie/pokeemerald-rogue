@@ -19,6 +19,7 @@
 #include "string_util.h"
 #include "text.h"
 #include "item.h"
+#include "item_menu.h"
 #include "overworld.h"
 #include "menu.h"
 #include "sound.h"
@@ -238,6 +239,7 @@ static void Task_SwapToPage(u8);
 static void Task_PageFadeIn(u8);
 static void Task_PageWaitForKeyPress(u8);
 static void Task_PageFadeOutAndExit(u8);
+static void Task_PageFadeOutExitAndRelaunch(u8);
 static void DisplayTitleScreenCountersText(void);
 static void DisplayTitleDexVariantText(void);
 static void DisplayMonEntryText(void);
@@ -522,6 +524,11 @@ void Rogue_SelectPokemonInSafari()
         Rogue_SelectPokemonInPokedexFromDexVariant(POKEDEX_DYNAMIC_VARIANT_NORMAL_SAFARI, FALSE, FALSE);
 
     sPokedexViewReq.view = DEX_VIEW_SELECT_SAFARI_MON;
+}
+
+bool8 Rogue_IsViewingPokedex()
+{
+    return sPokedexMenu != NULL;
 }
 
 static bool8 IsCurrentlySelectingMon()
@@ -969,6 +976,28 @@ static void Task_PageWaitForKeyPress(u8 taskId)
     }
 }
 
+static void Task_PageFadeOutExitAndRelaunch(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        if(sPokedexViewReq.dexVariantToRestore != POKEDEX_INVALID_VARIANT)
+            RoguePokedex_SetDexVariant(sPokedexViewReq.dexVariantToRestore);
+
+        DestroyPageResources(sPokedexMenu->currentPage, PAGE_NONE);
+
+        Free(sPokedexMenu);
+        sPokedexMenu = NULL;
+
+        Free(sTilemapBufferPtr);
+        sTilemapBufferPtr = NULL;
+        DestroyTask(taskId);
+
+        FreeAllWindowBuffers();
+
+        SetupPokedexViewDefault();
+    }
+}
+
 static void Task_PageFadeOutAndExit(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -986,6 +1015,13 @@ static void Task_PageFadeOutAndExit(u8 taskId)
 
         FreeAllWindowBuffers();
         DestroyTask(taskId);
+
+        if(sPokedexViewReq.inBattleScreen)
+        {
+            // If this is set to a healing item, it thinks we're trying to heal a mon
+            // i.e. it hasn't been cleared since last heal was used
+            gSpecialVar_ItemId = ITEM_NONE;
+        }
 
         if(sPokedexViewReq.view == DEX_VIEW_SPECIFIC_MON)
         {
@@ -1058,7 +1094,6 @@ static bool8 IsDebugAltForm(u16 species)
     switch (species)
     {
     case SPECIES_PICHU_SPIKY_EARED:
-    case SPECIES_FLOETTE_ETERNAL_FLOWER:
     case SPECIES_MIMIKYU_BUSTED:
     case SPECIES_EISCUE_NOICE_FACE:
     case SPECIES_MORPEKO_HANGRY:
@@ -1154,7 +1189,7 @@ static u16 GetDisplayedOverviewSpecies(u16 species)
 		    // Only consider regional variants
             if(gSpeciesInfo[formTable[i]].isAlolanForm || gSpeciesInfo[formTable[i]].isGalarianForm || gSpeciesInfo[formTable[i]].isHisuianForm || gSpeciesInfo[formTable[i]].isPaldeanForm)
             {
-                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN))
+                if(GetSetPokedexSpeciesFlag(formTable[i], FLAG_GET_SEEN) && RoguePokedex_IsSpeciesEnabled(formTable[i]))
                 {
                     return formTable[i];
                 }
@@ -2072,6 +2107,8 @@ static const struct BgTemplate sDiplomaBgTemplates[2] =
 
 static void InitOverviewBg(void)
 {
+    FreeAllWindowBuffers();
+
     ResetBgsAndClearDma3BusyFlags(0);
     InitBgsFromTemplates(0, sDiplomaBgTemplates, ARRAY_COUNT(sDiplomaBgTemplates));
     SetBgTilemapBuffer(1, sTilemapBufferPtr);
@@ -3053,9 +3090,9 @@ static void Overview_HandleInput(u8 taskId)
         }
         else
         {
-            sPokedexMenu->desiredPage = PAGE_TITLE_SCREEN;
-            gTasks[taskId].func = Task_SwapToPage;
-
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_PageFadeOutExitAndRelaunch;
+            
             PlaySE(SE_SELECT);
         }
     }
@@ -3285,7 +3322,7 @@ static void MonInfo_CreateSprites(bool8 includeType)
 
     sPokedexMenu->pageSprites[MON_SPRITE_FRONT_PIC] = CreateMonPicSprite_Affine(
         sPokedexMenu->viewBaseSpecies,
-        NON_SHINY_PLACEHOLDER,
+        sPokedexMenu->viewOtId,
         GetPokedexMonPersonality(sPokedexMenu->viewBaseSpecies),
 #ifdef ROGUE_EXPANSION
         GetGenderForSpecies(sPokedexMenu->viewBaseSpecies, 0),
@@ -3305,10 +3342,10 @@ static void MonInfo_CreateSprites(bool8 includeType)
 
     if(includeType)
     {
-        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0), 138, 24);
+        sPokedexMenu->pageSprites[MON_SPRITE_TYPE1] = CreateMonTypeIcon(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 0, sPokedexMenu->viewOtId), 138, 24);
 
-        if(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 0) != RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1))
-            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(RoguePokedex_GetSpeciesType(sPokedexMenu->viewBaseSpecies, 1), 138 + 33, 24);
+        if(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 0, sPokedexMenu->viewOtId) != GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 1, sPokedexMenu->viewOtId))
+            sPokedexMenu->pageSprites[MON_SPRITE_TYPE2] = CreateMonTypeIcon(GetTypeBySpecies(sPokedexMenu->viewBaseSpecies, 1, sPokedexMenu->viewOtId), 138 + 33, 24);
     }
 }
 
@@ -4109,7 +4146,15 @@ u16 RoguePokedex_RedirectSpeciesGetSetFlag(u16 species)
 bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
 {
 #ifdef ROGUE_EXPANSION
-    species = GET_BASE_SPECIES_ID(species);
+    switch(species)
+    {
+    // It's not but we are treating it as is it is
+    case SPECIES_FLOETTE_ETERNAL_FLOWER:
+        // don't use base species
+        break;
+    default:
+        species = GET_BASE_SPECIES_ID(species);
+    }
 #endif
 
     switch(species)
@@ -4259,6 +4304,9 @@ bool8 RoguePokedex_IsSpeciesLegendary(u16 species)
 
         case SPECIES_TERAPAGOS_TERASTAL:
         case SPECIES_TERAPAGOS_STELLAR:
+
+        // It's not but we are treating it as is it is
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
 #endif
             return TRUE;
     };
@@ -4329,6 +4377,9 @@ bool8 RoguePokedex_IsSpeciesValidBoxLegendary(u16 species)
         case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
         case SPECIES_CALYREX_ICE_RIDER:
         case SPECIES_CALYREX_SHADOW_RIDER:
+
+        // Z-A
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
 #endif
             return TRUE;
     };

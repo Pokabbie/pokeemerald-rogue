@@ -19,7 +19,6 @@
 
 static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry);
 static bool32 BerryTreeGrow(struct BerryTree *tree);
-static u16 BerryTypeToItemId(u16 berry);
 static u8 BerryTreeGetNumStagesWatered(struct BerryTree *tree);
 static u8 GetNumStagesWateredByBerryTreeId(u8 id);
 static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water);
@@ -1095,31 +1094,27 @@ void BerryTreeTimeUpdate(s32 minutes)
 
         if (tree->berry && tree->stage && !tree->stopGrowth)
         {
-            // RogueNote: Don't ever reset tree
-            if (minutes >= GetStageDurationByBerryType(tree->berry) * 71)
-            {
-                // RogueNote: Don't ever reset tree
-                //*tree = gBlankBerryTree;
-                continue;
-            }
-            else
-            {
-                s32 time = minutes;
+            s32 time = minutes;
 
-                while (time != 0)
+            if(i >= BERRY_TREE_DAYCARE_FIRST && i <= BERRY_TREE_DAYCARE_LAST)
+            {
+                // We want to grow daycare berries instantly
+                time = 99999;
+            }
+
+            while (time != 0)
+            {
+                if (tree->minutesUntilNextStage > time)
                 {
-                    if (tree->minutesUntilNextStage > time)
-                    {
-                        tree->minutesUntilNextStage -= time;
-                        break;
-                    }
-                    time -= tree->minutesUntilNextStage;
-                    tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
-                    if (!BerryTreeGrow(tree))
-                        break;
-                    if (tree->stage == BERRY_STAGE_BERRIES)
-                        tree->minutesUntilNextStage *= 4;
+                    tree->minutesUntilNextStage -= time;
+                    break;
                 }
+                time -= tree->minutesUntilNextStage;
+                tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry);
+                if (!BerryTreeGrow(tree))
+                    break;
+                if (tree->stage == BERRY_STAGE_BERRIES)
+                    tree->minutesUntilNextStage *= 4;
             }
         }
     }
@@ -1174,7 +1169,7 @@ u8 ItemIdToBerryType(u16 item)
         return ITEM_TO_BERRY(item);
 }
 
-static u16 BerryTypeToItemId(u16 berry)
+u16 BerryTypeToItemId(u16 berry)
 {
     u16 item = berry - 1;
 
@@ -1306,6 +1301,10 @@ void ObjectEventInteractionGetBerryCountString(void)
     u8 treeId = GetObjectEventBerryTreeId(gSelectedObjectEvent);
     u8 berry = GetBerryTypeByBerryTreeId(treeId);
     u8 count = GetBerryCountByBerryTreeId(treeId);
+
+    if(count == 0)
+        count = 1;
+    
     GetBerryCountStringByBerryType(berry, gStringVar1, count);
 }
 

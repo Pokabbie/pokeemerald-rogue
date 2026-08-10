@@ -137,5 +137,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NIDOQUEEN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 82,
+        "Defense": 87,
+        "Speed": 76,
+        "SpAttack": 75,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

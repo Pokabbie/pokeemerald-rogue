@@ -53,6 +53,7 @@ void SpriteCB_AshLaunch(struct Sprite*);
 void MultiplyPaletteRGBComponents(u16 i, u8 r, u8 g, u8 b);
 void FreeResourcesAndDestroySprite(struct Sprite *sprite, u8 spriteId);
 u8 CreateMonSprite_PicBox(u16 species, s16 x, s16 y, u8 subpriority);
+u8 CreateMonSprite_FieldMove(u16 species, bool8 isShiny, u32 otId, u32 personality, s16 x, s16 y, u8 subpriority);
 void StartEscapeRopeFieldEffect(void);
 
 #endif // GUARD_FIELD_EFFECTS_H

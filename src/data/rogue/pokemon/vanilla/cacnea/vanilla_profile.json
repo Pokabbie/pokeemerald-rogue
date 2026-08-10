@@ -130,5 +130,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CACNEA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 85,
+        "Defense": 40,
+        "Speed": 35,
+        "SpAttack": 85,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

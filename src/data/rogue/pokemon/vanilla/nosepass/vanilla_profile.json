@@ -120,5 +120,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NOSEPASS": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 45,
+        "Defense": 135,
+        "Speed": 30,
+        "SpAttack": 45,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_MAGNET_PULL"
+      ]
+    }
+  }
 }

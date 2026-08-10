@@ -152,5 +152,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOUNDOOM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 50,
+        "Speed": 95,
+        "SpAttack": 110,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
 }

@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_PYROAR"
+    "SPECIES_PYROAR",
+    "SPECIES_PYROAR_MEGA"
   ],
   "LevelUpMoves": [
     {

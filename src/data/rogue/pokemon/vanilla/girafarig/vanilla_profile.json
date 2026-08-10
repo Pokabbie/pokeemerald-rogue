@@ -94,5 +94,25 @@
     "MOVE_TOXIC",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GIRAFARIG": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 80,
+        "Defense": 65,
+        "Speed": 85,
+        "SpAttack": 90,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

@@ -89,5 +89,25 @@
     "MOVE_TORMENT",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NUZLEAF": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 40,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

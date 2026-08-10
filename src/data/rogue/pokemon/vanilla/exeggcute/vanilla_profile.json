@@ -119,5 +119,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EXEGGCUTE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 40,
+        "Defense": 80,
+        "Speed": 40,
+        "SpAttack": 60,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

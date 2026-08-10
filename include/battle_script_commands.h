@@ -9,7 +9,7 @@
 
 void AI_CalcDmg(u8 battlerIdAtk, u8 battlerIdDef);
 u8 TypeCalc(u16 move, u8 battlerIdAtk, u8 battlerIdDef);
-u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility);
+u8 AI_TypeCalc(u16 move, u16 targetSpecies, u8 targetAbility, u32 targetOtId);
 u8 GetBattlerTurnOrderNum(u8 battlerId);
 void SetMoveEffect(bool8 primary, u8 certain);
 void BattleDestroyYesNoCursorAt(u8 cursorPosition);

@@ -1541,7 +1541,13 @@ $(OBJEVENTGFXDIR)/rogue/npc/rival/arven.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/npc/team/flare_grunt_f.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/npc/team/flare_grunt_f_riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/npc/team/flare_grunt_m.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/rogue/npc/team/flare_grunt_m_riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/npc/team/flare_lysander.4bpp: %.4bpp: %.png
@@ -1568,7 +1574,13 @@ $(OBJEVENTGFXDIR)/rogue/npc/team/neo_plasma_colress.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/rogue/npc/team/neo_plasma_grunt_f.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
+$(OBJEVENTGFXDIR)/rogue/npc/team/neo_plasma_grunt_f_riding.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/rogue/npc/team/neo_plasma_grunt_m.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/rogue/npc/team/neo_plasma_grunt_m_riding.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/rogue/npc/team/plasma_ghetsis.4bpp: %.4bpp: %.png

@@ -140,5 +140,25 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MOLTRES": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 100,
+        "Defense": 90,
+        "Speed": 90,
+        "SpAttack": 125,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

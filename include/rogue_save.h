@@ -4,18 +4,23 @@
 extern struct RogueSaveBlock *gRogueSaveBlock;
 
 // The version to use for tracking/updating internal save game data
-// Update "RogueSave_GetVersionIdFor" every time the save structure changes
-#define ROGUE_SAVE_VERSION 3
+#define ROGUE_SAVE_VERSION 6 // (SAVE_VER_ID_2_1_1 - 1)
 
+// Keep this enum sequential inline with ROGUE_SAVE_VERSION
+// otherwise you need to adjust "RogueSave_GetVersionIdFor"
 enum
 {
     SAVE_VER_ID_UNKNOWN,
+
     SAVE_VER_ID_1_X,
     SAVE_VER_ID_2_0_PRERELEASE,
-    SAVE_VER_ID_2_0,
+    SAVE_VER_ID_2_0_0,
     SAVE_VER_ID_2_0_1,
+    SAVE_VER_ID_2_1_0,
+    SAVE_VER_ID_2_1_1,
+    SAVE_VER_ID_2_1_2,
 
-    SAVE_VER_ID_LATEST = SAVE_VER_ID_2_0_1,
+    SAVE_VER_ID_LATEST = SAVE_VER_ID_2_1_2,
 };
 
 void RogueSave_UpdatePointers();

@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_GOLISOPOD"
+    "SPECIES_GOLISOPOD",
+    "SPECIES_GOLISOPOD_MEGA"
   ],
   "LevelUpMoves": [
     {

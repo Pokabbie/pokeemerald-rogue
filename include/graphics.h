@@ -3289,6 +3289,8 @@ extern const u32 gTrainerPalette_PyramidKingBrandon[];
 extern const u32 gTrainerPalette_RubySapphireBrendan[];
 extern const u32 gTrainerPalette_RubySapphireMay[];
 
+extern const u32 gMonPalette_FrontPlaceholder[];
+
 extern const u32 gTrainerPalette_PlayerFrontPlaceholder[];
 extern const u32 gTrainerPalette_PlayerBackPlaceholder[];
 
@@ -3334,8 +3336,12 @@ extern const u32 gTrainerPalette_PlayerRosaFrontLayers[];
 
 extern const u32 gTrainerPalette_PlayerCalemFrontBase[];
 extern const u32 gTrainerPalette_PlayerCalemFrontLayers[];
+extern const u32 gTrainerPalette_PlayerCalemBackBase[];
+extern const u32 gTrainerPalette_PlayerCalemBackLayers[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontBase[];
 extern const u32 gTrainerPalette_PlayerSerenaFrontLayers[];
+extern const u32 gTrainerPalette_PlayerSerenaBackBase[];
+extern const u32 gTrainerPalette_PlayerSerenaBackLayers[];
 
 extern const u32 gTrainerPalette_PlayerElioFrontBase[];
 extern const u32 gTrainerPalette_PlayerElioFrontLayers[];
@@ -3424,6 +3430,21 @@ extern const u32 gTrainerPalette_GalacticGruntF[];
 extern const u32 gTrainerFrontPic_GalacticCyrus[];
 extern const u32 gTrainerPalette_GalacticCyrus[];
 
+
+extern const u32 gTrainerFrontPic_PlasmaGruntM[];
+extern const u32 gTrainerPalette_PlasmaGruntM[];
+extern const u32 gTrainerFrontPic_PlasmaGruntF[];
+extern const u32 gTrainerPalette_PlasmaGruntF[];
+extern const u32 gTrainerFrontPic_PlasmaGhetsis[];
+extern const u32 gTrainerPalette_PlasmaGhetsis[];
+
+extern const u32 gTrainerFrontPic_FlareGruntM[];
+extern const u32 gTrainerPalette_FlareGruntM[];
+extern const u32 gTrainerFrontPic_FlareGruntF[];
+extern const u32 gTrainerPalette_FlareGruntF[];
+extern const u32 gTrainerFrontPic_FlareLysandre[];
+extern const u32 gTrainerPalette_FlareLysandre[];
+
 extern const u32 gTrainerFrontPic_RivalSilver[];
 extern const u32 gTrainerPalette_RivalSilver[];
 extern const u32 gTrainerFrontPic_RivalBarry[];
@@ -3472,6 +3493,8 @@ extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
 extern const u8 gTrainerBackPic_Lucas[];
 extern const u8 gTrainerBackPic_Dawn[];
+extern const u8 gTrainerBackPic_Calem[];
+extern const u8 gTrainerBackPic_Serena[];
 
 extern const u8 gTrainerBackPic_CommunityZefa[];
 extern const u8 gTrainerBackPic_CommunityNacholord[];
@@ -4578,6 +4601,8 @@ extern const u32 gStatusPal_Icons[];
 
 extern const u32 gShopMenu_Gfx[];
 extern const u32 gShopMenu_Tilemap[];
+extern const u32 gShopMenu_TM_Gfx[];
+extern const u32 gShopMenu_TM_Tilemap[];
 extern const u32 gShopMenu_Pal[];
 extern const u32 gShopMenuMoney_Gfx[];
 

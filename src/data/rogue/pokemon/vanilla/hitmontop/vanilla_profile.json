@@ -183,5 +183,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HITMONTOP": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 70,
+        "SpAttack": 35,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

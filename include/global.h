@@ -28,7 +28,7 @@
 #define NAKED __attribute__((naked))
 
 /// IDE support
-#if defined(__APPLE__) || defined(__CYGWIN__) || defined(__INTELLISENSE__)
+#if defined(__APPLE__) || defined(__CYGWIN__) || defined(__INTELLISENSE__) || defined(ROGUE_BAKING)
 // We define these when using certain IDEs to fool preproc
 #define _(x)        (x)
 #define __(x)       (x)
@@ -544,7 +544,9 @@ struct SaveBlock2
              u32 weatherVisuals:1;
              u32 regionMapZoom:1; // whether the map is zoomed in
              u32 optionsFadeSpeed:3; // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
-             u32 settingsReserved:22; // unused/reserved bits
+             u32 optionsOverworldSpeed:3; // OPTIONS_OW_SPEED_[...]
+             u32 optionsItemPickupAutomatic:1; // whether to manually pickup items or automatically
+             u32 settingsReserved:18; // unused/reserved bits
     /*0x18*/ struct Pokedex pokedex;
              s8 playerStyles[8];
              u32 playerOutfitUnlockFlags;
@@ -1007,7 +1009,7 @@ struct SaveBlock1
     /*0x3B14*/ struct RecordMixingGift recordMixingGift;
     /*0x988*/ u8 pokedexBitFlags1[NUM_DEX_FLAG_BYTES];
     /*0x3B24*/ u8 pokedexBitFlags2[NUM_DEX_FLAG_BYTES];
-    /*0x3B58*/ LilycoveLady lilycoveLady;
+    /*0x3B58*/ LilycoveLady lilycoveLady; // the values after here will get stomped if NUM_SPECIES is adjusted during updates
     /*0x3B98*/ struct TrainerNameRecord trainerNameRecords[20];
     /*0x3C88*/ u8 registeredTexts[UNION_ROOM_KB_ROW_COUNT][21];
     /*0x3D70*/ struct WaldaPhrase waldaPhrase;

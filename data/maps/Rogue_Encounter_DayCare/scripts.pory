@@ -8,7 +8,7 @@ mapscripts Rogue_Encounter_DayCare_MapScripts
 
 script Rogue_Encounter_DayCare_OnMapLoad
 {
-    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE0)
     if(var(VAR_RESULT) == TRUE)
     {
         clearflag(FLAG_HIDE_PHONE)

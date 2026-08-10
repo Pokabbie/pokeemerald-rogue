@@ -3,7 +3,6 @@
 #include "battle.h"
 #include "battle_anim.h"
 #include "bg.h"
-#include "contest.h"
 #include "data.h"
 #include "decompress.h"
 #include "dma3.h"
@@ -2296,34 +2295,7 @@ void AnimTask_TransformMon(u8 taskId)
         LoadBgTiles(1, animBg.bgTiles, 0x800, animBg.tilesOffset);
         if (IsContest())
         {
-            if (IsSpeciesNotUnown(gContestResources->moveAnim->species) != IsSpeciesNotUnown(gContestResources->moveAnim->targetSpecies))
-            {
-                bgTilemap = (u16 *)animBg.bgTilemap;
-                for (i = 0; i < 8; i++)
-                {
-                    for (j = 0; j < 4; j++)
-                    {
-                        u16 temp = bgTilemap[j + i * 0x20];
-                        bgTilemap[j + i * 0x20] = bgTilemap[(7 - j) + i * 0x20];
-                        bgTilemap[(7 - j) + i * 0x20] = temp;
-                    }
-                }
-
-                for (i = 0; i < 8; i++)
-                {
-                    for (j = 0; j < 8; j++)
-                    {
-                       bgTilemap[j + i * 0x20] ^= 0x400;
-                    }
-                }
-            }
-
-            if (IsSpeciesNotUnown(gContestResources->moveAnim->targetSpecies))
-                gSprites[gBattlerSpriteIds[gBattleAnimAttacker]].affineAnims = gAffineAnims_BattleSpriteContest;
-            else
-                gSprites[gBattlerSpriteIds[gBattleAnimAttacker]].affineAnims = gAffineAnims_BattleSpriteOpponentSide;
-
-            StartSpriteAffineAnim(&gSprites[gBattlerSpriteIds[gBattleAnimAttacker]], BATTLER_AFFINE_NORMAL);
+            AGB_ASSERT(FALSE);
         }
 
         gTasks[taskId].data[0]++;
@@ -3195,12 +3167,7 @@ void AnimTask_RolePlaySilhouette(u8 taskId)
     GetAnimBattlerSpriteId(ANIM_ATTACKER);
     if (IsContest())
     {
-        isBackPic = TRUE;
-        personality = gContestResources->moveAnim->targetPersonality;
-        otId = gContestResources->moveAnim->otId;
-        species = gContestResources->moveAnim->targetSpecies;
-        xOffset = 20;
-        priority = GetBattlerSpriteBGPriority(gBattleAnimAttacker);
+        AGB_ASSERT(FALSE);
     }
     else
     {
@@ -5106,12 +5073,7 @@ void AnimTask_SnatchOpposingMonMove(u8 taskId)
     case 1:
         if (IsContest())
         {
-            personality = gContestResources->moveAnim->personality;
-            otId = gContestResources->moveAnim->otId;
-            species = gContestResources->moveAnim->species;
-            subpriority = GetBattlerSpriteSubpriority(gBattleAnimAttacker);
-            isBackPic = FALSE;
-            x = -32;
+            AGB_ASSERT(FALSE);
         }
         else
         {

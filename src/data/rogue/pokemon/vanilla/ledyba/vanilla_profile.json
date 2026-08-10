@@ -85,5 +85,25 @@
     "MOVE_THUNDER_PUNCH",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_LEDYBA": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 20,
+        "Defense": 30,
+        "Speed": 55,
+        "SpAttack": 40,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

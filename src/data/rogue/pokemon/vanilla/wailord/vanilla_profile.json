@@ -140,5 +140,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WAILORD": {
+      "BaseStats": {
+        "HP": 170,
+        "Attack": 90,
+        "Defense": 45,
+        "Speed": 60,
+        "SpAttack": 90,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_VEIL",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

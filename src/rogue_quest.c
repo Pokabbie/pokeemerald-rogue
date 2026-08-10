@@ -24,6 +24,7 @@
 #include "rogue_player_customisation.h"
 #include "rogue_pokedex.h"
 #include "rogue_quest.h"
+#include "rogue_save.h"
 #include "rogue_settings.h"
 #include "rogue_popup.h"
 
@@ -364,6 +365,15 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
 
     if(rewardInfo->customPopup != NULL)
     {
+        if(rewardInfo->type == QUEST_REWARD_HUB_UPGRADE)
+        {
+            if(RogueHub_HasUpgrade(rewardInfo->perType.hubUpgrade.upgradeId))
+            {
+                // Already have collected this so early out here
+                return TRUE;
+            }
+        }
+
         mutePopups = TRUE;
         Rogue_PushPopup_CustomPopup(rewardInfo->customPopup);
     }
@@ -453,7 +463,7 @@ static bool8 GiveRewardInternal(struct RogueQuestReward const* rewardInfo)
         break;
 
     case QUEST_REWARD_QUEST_UNLOCK:
-        RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
+        state = RogueQuest_TryUnlockQuest(rewardInfo->perType.questUnlock.questId);
         break;
 
     case QUEST_REWARD_FLAG:
@@ -1138,6 +1148,104 @@ void RogueDebug_FillMonMasteries()
 #endif
 }
 
+static const u8 sText_Popup_QuestUnlocked[] = _("{COLOR LIGHT_GREEN}{SHADOW GREEN}Quest Added");
+static const u8 sText_Popup_QuestReset[] = _("{COLOR LIGHT_BLUE}{SHADOW BLUE}Quest Reset");
+
+static void TryCollectAddedSaveVersionRewards(u16 questId, u16 fromVersion, u16 toVersion)
+{
+    u8 i;
+    struct RogueQuestReward const* rewardInfo;
+    struct RogueQuestState* questState = RogueQuest_GetState(questId);
+    u16 rewardCount = RogueQuest_GetRewardCount(questId);
+    u8 minRewardDifficulty = DIFFICULTY_LEVEL_EASY;
+    u8 maxRewardDifficulty = questState->highestCompleteDifficulty;
+
+    if(maxRewardDifficulty == DIFFICULTY_LEVEL_NONE)
+    {
+        // Not completed
+        return;
+    }
+
+    for(i = 0; i < rewardCount; ++i)
+    {
+        rewardInfo = RogueQuest_GetReward(questId, i);
+
+        if(fromVersion < rewardInfo->addedInVersion)
+        {
+            if(ShouldSkipQuestReward(rewardInfo, minRewardDifficulty, maxRewardDifficulty))
+                continue;
+
+            if(GiveRewardInternal(rewardInfo))
+            {
+                // No popup by default, but we want to draw attention to it here
+                if(rewardInfo->type == QUEST_REWARD_QUEST_UNLOCK)
+                {
+                    struct CustomPopup popup = {0};
+                    popup.itemIcon = ITEM_QUEST_LOG;
+                    popup.soundEffect = 0;
+                    popup.fanfare = 0;
+                    popup.titleStr = RogueQuest_GetTitle(rewardInfo->perType.questUnlock.questId);
+                    popup.subtitleStr = sText_Popup_QuestUnlocked;
+                    Rogue_PushPopup_CustomPopup(&popup);
+                }
+            }
+        }
+    }
+}
+
+void RogueQuest_NotifySaveVersionUpdated(u16 fromVersion, u16 toVersion)
+{
+    u16 i;
+
+    for(i = 0; i < QUEST_ID_COUNT; ++i)
+    {
+        // Give any newly added rewards for quests already completed
+        if(RogueQuest_IsQuestUnlocked(i) && !RogueQuest_HasPendingRewards(i))
+        {   
+            TryCollectAddedSaveVersionRewards(i, fromVersion, toVersion);
+        }
+
+        if(RogueQuest_IsQuestUnlocked(i))
+        {
+            struct RogueQuestEntry const* entry = RogueQuest_GetEntry(i);
+            struct RogueQuestState* state = RogueQuest_GetState(i);
+            
+            if(fromVersion < entry->resetProgressInVersion && RogueQuest_GetStateFlag(i, QUEST_STATE_HAS_COMPLETE))
+            {
+                struct CustomPopup popup = {0};
+                popup.itemIcon = ITEM_QUEST_LOG;
+                popup.soundEffect = 0;
+                popup.fanfare = 0;
+                popup.titleStr = RogueQuest_GetTitle(i);
+                popup.subtitleStr = sText_Popup_QuestReset;
+                Rogue_PushPopup_CustomPopup(&popup);
+
+                RogueQuest_SetStateFlag(i, QUEST_STATE_HAS_COMPLETE, FALSE);
+                RogueQuest_SetStateFlag(i, QUEST_STATE_PENDING_REWARDS, FALSE);
+                state->highestCompleteDifficulty = DIFFICULTY_LEVEL_NONE;
+                state->highestCollectedRewardDifficulty = DIFFICULTY_LEVEL_NONE;
+            }
+        }
+        
+        // Notify of any newly added quests (Ignore masteries)
+        if(RogueQuest_GetConstFlag(i, QUEST_CONST_UNLOCKED_BY_DEFAULT) && !RogueQuest_GetConstFlag(i, QUEST_CONST_IS_MON_MASTERY))
+        {
+            struct RogueQuestEntry const* entry = RogueQuest_GetEntry(i);
+
+            if(fromVersion < entry->addedInVersion)
+            {
+                struct CustomPopup popup = {0};
+                popup.itemIcon = ITEM_QUEST_LOG;
+                popup.soundEffect = 0;
+                popup.fanfare = 0;
+                popup.titleStr = RogueQuest_GetTitle(i);
+                popup.subtitleStr = sText_Popup_QuestUnlocked;
+                Rogue_PushPopup_CustomPopup(&popup);
+            }
+        }
+    }
+}
+
 // QuestCondition
 //
 
@@ -1200,6 +1308,7 @@ static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQu
 {
     u8 i;
     u16 species, targetType;
+    u32 otId;
 
     ASSERT_PARAM_COUNT(1);
     targetType = trigger->params[0];
@@ -1207,8 +1316,9 @@ static bool8 UNUSED QuestCondition_PartyContainsType(u16 questId, struct RogueQu
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        otId = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
 
-        if(RoguePokedex_GetSpeciesType(species, 0) == targetType || RoguePokedex_GetSpeciesType(species, 1) == targetType)
+        if(GetTypeBySpecies(species, 0, otId) == targetType || GetTypeBySpecies(species, 1, otId) == targetType)
         {
             return TRUE;
         }
@@ -1221,6 +1331,7 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
 {
     u8 i;
     u16 species, targetType;
+    u32 otId;
 
     ASSERT_PARAM_COUNT(1);
     targetType = trigger->params[0];
@@ -1228,8 +1339,9 @@ static bool8 QuestCondition_PartyOnlyContainsType(u16 questId, struct RogueQuest
     for(i = 0; i < gPlayerPartyCount; ++i)
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES);
+        otId = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
 
-        if(RoguePokedex_GetSpeciesType(species, 0) != targetType && RoguePokedex_GetSpeciesType(species, 1) != targetType)
+        if(GetTypeBySpecies(species, 0, otId) != targetType && GetTypeBySpecies(species, 1, otId) != targetType)
         {
             return FALSE;
         }
@@ -1492,9 +1604,17 @@ static bool8 QuestCondition_IsPokedexRegion(u16 questId, struct RogueQuestTrigge
 
 static bool8 UNUSED QuestCondition_IsPokedexVariant(u16 questId, struct RogueQuestTrigger const* trigger)
 {
-    u16 variant = trigger->params[0];
-    ASSERT_PARAM_COUNT(1);
-    return RoguePokedex_GetDexVariant() == variant;
+    u16 i;
+
+    for(i = 0; i < trigger->paramCount; ++i)
+    {
+        if(RoguePokedex_GetDexVariant() == trigger->params[i])
+        {
+            return TRUE;
+        }
+    }
+    
+    return FALSE;
 }
 
 static bool8 QuestCondition_CurrentlyInMap(u16 questId, struct RogueQuestTrigger const* trigger)

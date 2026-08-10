@@ -292,6 +292,14 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_GALACTIC_GRUNT_M] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GALACTIC_GRUNT_F] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_GALACTIC_CYRUS] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_PLASMA_GRUNT_M] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PLASMA_GRUNT_F] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_PLASMA_GHETSIS] = {.size = 8, .y_offset = 1},
+
+    [TRAINER_PIC_FLARE_GRUNT_M] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_FLARE_GRUNT_F] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_FLARE_LYSANDRE] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE_CUSTOM(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -589,6 +597,14 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(GALACTIC_GRUNT_M, gTrainerFrontPic_GalacticGruntM),
     TRAINER_SPRITE(GALACTIC_GRUNT_F, gTrainerFrontPic_GalacticGruntF),
     TRAINER_SPRITE(GALACTIC_CYRUS, gTrainerFrontPic_GalacticCyrus),
+
+    TRAINER_SPRITE(PLASMA_GRUNT_M, gTrainerFrontPic_PlasmaGruntM),
+    TRAINER_SPRITE(PLASMA_GRUNT_F, gTrainerFrontPic_PlasmaGruntF),
+    TRAINER_SPRITE(PLASMA_GHETSIS, gTrainerFrontPic_PlasmaGhetsis),
+
+    TRAINER_SPRITE(FLARE_GRUNT_M, gTrainerFrontPic_FlareGruntM),
+    TRAINER_SPRITE(FLARE_GRUNT_F, gTrainerFrontPic_FlareGruntF),
+    TRAINER_SPRITE(FLARE_LYSANDRE, gTrainerFrontPic_FlareLysandre),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -885,4 +901,12 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GALACTIC_GRUNT_M, gTrainerPalette_GalacticGruntM),
     TRAINER_PAL(GALACTIC_GRUNT_F, gTrainerPalette_GalacticGruntF),
     TRAINER_PAL(GALACTIC_CYRUS, gTrainerPalette_GalacticCyrus),
+
+    TRAINER_PAL(PLASMA_GRUNT_M, gTrainerPalette_PlasmaGruntM),
+    TRAINER_PAL(PLASMA_GRUNT_F, gTrainerPalette_PlasmaGruntF),
+    TRAINER_PAL(PLASMA_GHETSIS, gTrainerPalette_PlasmaGhetsis),
+
+    TRAINER_PAL(FLARE_GRUNT_M, gTrainerPalette_FlareGruntM),
+    TRAINER_PAL(FLARE_GRUNT_F, gTrainerPalette_FlareGruntF),
+    TRAINER_PAL(FLARE_LYSANDRE, gTrainerPalette_FlareLysandre),
 };

@@ -78,5 +78,25 @@
     "MOVE_TAKE_DOWN",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SWINUB": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 50,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

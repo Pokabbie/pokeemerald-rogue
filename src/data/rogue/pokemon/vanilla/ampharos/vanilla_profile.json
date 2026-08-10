@@ -145,5 +145,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AMPHAROS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 55,
+        "SpAttack": 115,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

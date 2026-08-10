@@ -145,5 +145,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GOLEM": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 110,
+        "Defense": 130,
+        "Speed": 45,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_ROCK_HEAD",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

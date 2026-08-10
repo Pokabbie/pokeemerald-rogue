@@ -1,6 +1,5 @@
 #include "global.h"
 #include "image_processing_effects.h"
-#include "contest_painting.h"
 #include "constants/rgb.h"
 
 // IWRAM common

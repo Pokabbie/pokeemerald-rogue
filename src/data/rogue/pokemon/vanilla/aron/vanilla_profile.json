@@ -127,5 +127,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARON": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 70,
+        "Defense": 100,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

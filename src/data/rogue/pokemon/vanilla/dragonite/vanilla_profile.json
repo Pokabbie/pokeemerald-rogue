@@ -205,5 +205,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRAGONITE": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 134,
+        "Defense": 95,
+        "Speed": 80,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

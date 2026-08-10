@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PokemonDataGenerator.Pokedex
 {
@@ -40,7 +42,10 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
 				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
 				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
-			}
+
+                // 2.1.1
+                fullDexes.Add(GatherResourceDexData("extras_colosseum", "Colosseum + XD", 3, "Orre Colosseum.csv"));
+            }
 			else
 			{
 				// Purposely order so the most recent regional dex is first
@@ -82,18 +87,28 @@ namespace PokemonDataGenerator.Pokedex
 				fullDexes.Add(GatherDexData("paldea_fulldlc", "Scarlet/Violet + DLC", 9, "paldea", "kitakami", "blueberry"));
 
 				fullDexes.Add(GatherDexData("extras_conquest", "Conquest", 5, "conquest-gallery"));
-				fullDexes.Add(GatherDexData("extras_legendsarceus", "LegendsArceus", 8, "hisui"));
+				fullDexes.Add(GatherDexData("legends_arceus", "Arceus", 8, "hisui"));
 
-				fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
+                fullDexes.Add(GatherDexData("national_gen1", "Gen. 1", 1, "national"));
 				fullDexes.Add(GatherDexData("national_gen2", "Gen. 2", 2, "national"));
 				fullDexes.Add(GatherDexData("national_gen3", "Gen. 3", 3, "national"));
 				fullDexes.Add(GatherDexData("national_gen4", "Gen. 4", 4, "national"));
 				fullDexes.Add(GatherDexData("national_gen5", "Gen. 5", 5, "national"));
-				fullDexes.Add(GatherDexData("national_gen6", "Gen. 6", 6, "national"));
-				fullDexes.Add(GatherDexData("national_gen7", "Gen. 7", 7, "national"));
-				fullDexes.Add(GatherDexData("national_gen8", "Gen. 8", 8, "national"));
+				fullDexes.Add(GatherDexData("national_gen6", "Gen. 6", 6, "national")); // source data fliped for some reason
+				fullDexes.Add(GatherDexData("national_gen7", "Gen. 7", 7, "national")); // source data fliped for some reason
+                fullDexes.Add(GatherDexData("national_gen8", "Gen. 8", 8, "national"));
 				fullDexes.Add(GatherDexData("national_gen9", "Gen. 9", 9, "national"));
-			}
+
+                // 2.1 
+                //
+                fullDexes.Add(GatherDexData("legends_za", "Z-A", 9, "lumiose-city"));
+                //fullDexes.Add(GatherDexData("legends_hyperspace", "Hyperspace", 9, "hyperspace")); // Not enough mons in this dex
+                fullDexes.Add(GatherDexData("legends_zafulldlc", "Z-A + DLC", 9, "lumiose-city", "hyperspace"));
+                //fullDexes.Add(GatherDexData("extras_champions", "Champions", 9, "champions"));
+
+                // 2.1.1
+                fullDexes.Add(GatherResourceDexData("extras_colosseum", "Colosseum + XD", 3, "Orre Colosseum.csv"));
+            }
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
 
@@ -137,11 +152,11 @@ namespace PokemonDataGenerator.Pokedex
 				if (!string.IsNullOrEmpty(nextUri))
 				{
 					dex = ContentCache.GetJsonContent(nextUri.ToString());
-				}
-				else
-					break;
-			}
-		}
+                }
+                else
+                    break;
+            }
+        }
 
 		private static PokedexData GatherDexData(string name, string displayName, int genLimit, params string[] dexIds)
 		{
@@ -194,7 +209,8 @@ namespace PokemonDataGenerator.Pokedex
 			JObject dex = ContentCache.GetJsonContent(uri);
 
 			bool isHGSS = target.InternalName.Equals("johto_HGSS", StringComparison.CurrentCultureIgnoreCase);
-			bool isClassicPlus = target.InternalName.Equals("rogue_classicplus", StringComparison.CurrentCultureIgnoreCase);
+            bool isConquest = target.InternalName.Equals("extras_conquest", StringComparison.CurrentCultureIgnoreCase);
+            bool isClassicPlus = target.InternalName.Equals("rogue_classicplus", StringComparison.CurrentCultureIgnoreCase);
 
 			foreach (JObject entry in dex["pokemon_entries"])
 			{
@@ -239,8 +255,12 @@ namespace PokemonDataGenerator.Pokedex
 							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MELOETTA"))
 								continue;
 							break;
-						case 7:
-							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_VOLCANION"))
+                        case 6:
+                            if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_VOLCANION"))
+                                continue;
+                            break;
+                        case 7:
+							if (GameDataHelpers.GetSpeciesNum(speciesDefine) > GameDataHelpers.GetSpeciesNum("SPECIES_MELMETAL"))
 								continue;
 							break;
 						case 8:
@@ -258,7 +278,9 @@ namespace PokemonDataGenerator.Pokedex
 					// so forcefully insert them here
 					if (isHGSS)
 						AppendDexMon_ExtraHGSS(species, target);
-					else if (isClassicPlus)
+                    else if(isConquest)
+                        AppendDexMon_ExtraConquest(species, target);
+                    else if (isClassicPlus)
 						AppendDexMon_ExtraClassicPlus(species, target);
 
 					if (dexId == "blueberry")
@@ -314,7 +336,16 @@ namespace PokemonDataGenerator.Pokedex
 			return;
 		}
 
-		private static void AppendDexMon_ExtraHGSS(string species, PokedexData target)
+		private static void AppendDexMon_ExtraConquest(string species, PokedexData target)
+        {
+            if (species.Equals("steelix", StringComparison.CurrentCultureIgnoreCase))
+            {
+                target.Mons.Add("weedle");
+                target.Mons.Add("kakuna");
+            }
+        }
+
+        private static void AppendDexMon_ExtraHGSS(string species, PokedexData target)
 		{
 			if (species.Equals("magneton", StringComparison.CurrentCultureIgnoreCase))
 			{

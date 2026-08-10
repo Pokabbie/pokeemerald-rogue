@@ -79,7 +79,7 @@
 #define VAR_REGICE_STEPS_2                   0x403C
 #define VAR_REGICE_STEPS_3                   0x403D
 #define VAR_ROGUE_REMAINING_FLIGHT_CHARGES   0x403E
-#define VAR_UNUSED_0x403F                    0x403F
+#define VAR_ROGUE_DAYCARE_PHONE_REMAINING_CHARGES 0x403F
 #define VAR_DAYS                             0x4040
 #define VAR_ROGUE_FLASK_HEALS_USED           0x4041
 #define VAR_ROGUE_FLASK_HEALS_MAX            0x4042
@@ -90,7 +90,7 @@
 #define VAR_ROGUE_COURIER_ITEM               0x4047
 #define VAR_ROGUE_COURIER_COUNT              0x4048
 #define VAR_ROGUE_ALWAYS_ZERO                0x4049 // used for map scripts in gyms
-#define VAR_UNUSED_0x404A                    0x404A
+#define VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL  0x404A
 #define VAR_UNUSED_0x404B                    0x404B
 #define VAR_UNUSED_0x404C                    0x404C
 #define VAR_UNUSED_0x404D                    0x404D
@@ -300,8 +300,8 @@
 #define VAR_RESULT                    0x800D
 #define VAR_ITEM_ID                   0x800E
 #define VAR_LAST_TALKED               0x800F
-#define VAR_CONTEST_RANK              0x8010
-#define VAR_CONTEST_CATEGORY          0x8011
+#define VAR_UNUSED_0x8010             0x8010
+#define VAR_UNUSED_0x8011             0x8011
 #define VAR_MON_BOX_ID                0x8012
 #define VAR_MON_BOX_POS               0x8013
 #define VAR_UNUSED_0x8014             0x8014

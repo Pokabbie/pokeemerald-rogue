@@ -6,11 +6,7 @@ struct RoguePartyMon
 {
     bool8 hasPendingEvo : 1;
     u8 lastPopupLevel : 7;
-
-    bool8 isSafariIllegal : 1;
-    u8 pad0 : 7;
-
-    u8 pad1[2];
+    u8 pad0[3];
 };
 
 #ifndef ROGUE_BAKING
@@ -237,20 +233,44 @@ struct RoguePokemonFacade
 struct RogueDaycarePokemon
 {
     struct RogueBoxPokemonFacade boxMonFacade;
-    u8 isSafariIllegal : 1;
+    u8 unused : 1;
 };
 
 struct RoguePartySnapshot
 {
     u32 partyPersonalities[PARTY_SIZE];
+    u32 partyOtIds[PARTY_SIZE];
     u16 partySpeciesGfx[PARTY_SIZE];
+};
+
+struct GameModeRules
+{
+    u8 initialLevelOffset;
+    u8 initialLevelOverride;
+    u8 levelOffsetInterval;
+    u8 enterPartySize;
+    u8 adventureGenerator;
+    u8 itemDropRarityInc;
+    u8 trainerBattleWinningsPerc;
+    u8 trainerOrder : 2;
+    u8 disableMainQuests : 1;
+    u8 disableChallengeQuests : 1;
+    u8 disablePerBadgeLvlCaps : 1;
+    u8 forceEndGameTrainers : 1;
+    u8 forceEndGameRouteItems : 1;
+    u8 forceRandomanAlwaysActive : 1;
+    u8 disableRivalEncounters : 1;
+    u8 disableRouteTrainers : 1;
+    u8 forceFullShopInventory : 1;
 };
 
 struct RogueRunData
 {
+    struct GameModeRules gameRules;
     struct RogueWildEncounters wildEncounters;
     struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
     struct RoguePokemonFacade labParty[LAB_MON_COUNT];
+    u16 subSeeds[ROGUE_SUBSEED_COUNT];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
     u16 rivalSpecies[ROGUE_RIVAL_TOTAL_MON_COUNT];
     u16 legendarySpecies[ADVPATH_LEGEND_COUNT];
@@ -262,6 +282,7 @@ struct RogueRunData
     u8 teamEncounterDifficulties[ADVPATH_TEAM_ENCOUNTER_COUNT];
     u8 rivalEncounterDifficulties[ROGUE_RIVAL_MAX_ROUTE_ENCOUNTERS];
     u8 completedBadges[ROGUE_MAX_BOSS_COUNT];
+    u8 lastShopVisitDifficulty[ROGUE_SHOP_COUNT];
     u8 activeEvoItemFlags[8];
     u8 activeFormItemFlags[16]; // technically this isn't needed for Vanilla
     union
@@ -698,6 +719,7 @@ struct RogueSaveBlock
     struct RogueHubMap hubMap;
     struct RogueDifficultyConfig difficultyConfig;
     u16 timeOfDayMinutes;
+    u16 lastKnownNumSpecies;
     u8 seasonCounter;
 };
 

@@ -73,7 +73,8 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 nationalRibbon:1;
  /* 0x0B */ u32 earthRibbon:1;
  /* 0x0B */ u32 worldRibbon:1; // distributed during Pok�mon Festa '04 and '05 to tournament winners
- /* 0x0B */ u32 unusedRibbons:4; // discarded in Gen 4
+ /* 0x0B */ u32 tutorMoveLvl:2;
+ /* 0x0B */ u32 unusedRibbons:2; // discarded in Gen 4
  /* 0x0B */ u32 eventLegal:1; // controls Mew & Deoxys obedience; if set, Pok�mon is a fateful encounter in Gen 4+; set for in-game event island legendaries, some distributed events, and Pok�mon from XD: Gale of Darkness.
 };
 
@@ -436,9 +437,7 @@ void PlayBattleBGM(void);
 void PlayMapChosenOrBattleBGM(u16 songId);
 void CreateTask_PlayMapChosenOrBattleBGM(u16 songId);
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon);
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny);
-const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon);
-const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, bool8 isShiny);
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 otId);
 bool32 IsHMMove2_LearnReplaceCheck(u16 move);
 bool32 CanUseHMMove2(u16 move);
 bool8 IsMonSpriteNotFlipped(u16 species);

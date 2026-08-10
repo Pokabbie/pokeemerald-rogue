@@ -9,5 +9,25 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BELDUM": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 55,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 35,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -9,7 +9,8 @@
             "cppStandard": "c++17",
             "defines": 
             [
-                "ROGUE_DEBUG=1"
+                "ROGUE_DEBUG=1",
+                "MODERN=1"
             ],
             "includePath": 
             [

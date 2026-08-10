@@ -48,6 +48,7 @@ enum ReflectionTypes
 #define GROUND_EFFECT_FLAG_SHORT_GRASS           (1 << 17)
 #define GROUND_EFFECT_FLAG_HOT_SPRINGS           (1 << 18)
 #define GROUND_EFFECT_FLAG_SEAWEED               (1 << 19)
+#define GROUND_EFFECT_SHADOW                     (1 << 20)
 
 struct StepAnimTable
 {
@@ -172,6 +173,7 @@ void ObjectEventMoveDestCoords(struct ObjectEvent *objEvent, u32 direction, s16 
 u8 AddCameraObject(u8 linkedSpriteId);
 void UpdateObjectEventsForCameraUpdate(s16 x, s16 y);
 u8 GetWalkSlowMovementAction(u32);
+u8 GetSpinMovementAction(u32 direction);
 u8 GetJumpMovementAction(u32);
 u8 ElevationToPriority(u8);
 void ObjectEventUpdateElevation(struct ObjectEvent *objEvent);

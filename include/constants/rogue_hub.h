@@ -68,7 +68,7 @@
 #define HUB_UPGRADE_DAY_CARE_BREEDER                    (HUB_UPGRADE_FIRST + 32)
 #define HUB_UPGRADE_DAY_CARE_BREEDER_SEEN_DEX           (HUB_UPGRADE_FIRST + 33)
 #define HUB_UPGRADE_DAY_CARE_BREEDER_LEGENDS            (HUB_UPGRADE_FIRST + 34) // reserved not actually planned to be used
-#define HUB_UPGRADE_DAY_CARE_PHONE                      (HUB_UPGRADE_FIRST + 35)
+#define HUB_UPGRADE_DAY_CARE_PHONE0                     (HUB_UPGRADE_FIRST + 35)
 #define HUB_UPGRADE_DAY_CARE_TEA_SHOP                   (HUB_UPGRADE_FIRST + 36)
 #define HUB_UPGRADE_DAY_CARE_EXP_SHARE0                 (HUB_UPGRADE_FIRST + 37)
 #define HUB_UPGRADE_DAY_CARE_EXP_SHARE1                 (HUB_UPGRADE_FIRST + 38)
@@ -80,7 +80,13 @@
 #define HUB_UPGRADE_MARKET_TREAT_SHOP_STOCK             (HUB_UPGRADE_FIRST + 43)
 #define HUB_UPGRADE_MARKET_BANK                         (HUB_UPGRADE_FIRST + 44)
 
-#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_MARKET_BANK + 1)
+// 2.1
+#define HUB_UPGRADE_DAY_CARE_PHONE1                     (HUB_UPGRADE_FIRST + 45)
+#define HUB_UPGRADE_DAY_CARE_PHONE2                     (HUB_UPGRADE_FIRST + 46)
+
+#define HUB_UPGRADE_LAB_UNIQUE_TYPINGS                  (HUB_UPGRADE_FIRST + 47)
+
+#define HUB_UPGRADE_COUNT                               (HUB_UPGRADE_LAB_UNIQUE_TYPINGS + 1)
 
 // NOTE - Once the next update is out ALWAYS add the upgrades at the bottom of this list
 

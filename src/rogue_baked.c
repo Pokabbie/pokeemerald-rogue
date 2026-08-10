@@ -43,8 +43,11 @@ extern const struct SpeciesInfo gSpeciesInfo[];
 #else
 #define EVOLUTIONS_END 0
 
+#ifndef ROGUE_BAKING
 extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern const struct BaseStats gBaseStats[];
+#endif
+
 #endif
 
 #include "rogue_baked.h"
@@ -91,6 +94,10 @@ extern const u16 gRogueBake_EvoItems[];
 extern const u16 gRogueBake_EvoItems_Count;
 extern const u16 gRogueBake_FormItems[];
 extern const u16 gRogueBake_FormItems_Count;
+
+#ifdef ROGUE_EXPANSION
+extern const u16 gRogueBake_MegaItemToSpecies[];
+#endif
 
 extern const u16 gRogueBake_FinalEvoSpecies[];
 extern const u16 gRogueBake_FinalEvoSpecies_Count;
@@ -993,7 +1000,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
 {
 }
 
-u32 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move, u16 forItemId)
 {
     return 0;
 }
@@ -1173,7 +1180,7 @@ u16 Rogue_GetPrice(u16 itemId)
     if(itemId >= ITEM_TR01 && itemId <= ITEM_TR50)
     {
         u16 move = ItemIdToBattleMoveId(itemId);
-        price = Rogue_CalculateMovePrice(move);
+        price = Rogue_CalculateMovePrice(move, itemId);
     }
 
     if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
@@ -1181,7 +1188,7 @@ u16 Rogue_GetPrice(u16 itemId)
         u16 move = ItemIdToBattleMoveId(itemId);
 
         // increase as these are re-usable
-        price = Rogue_CalculateMovePrice(move) * 4;
+        price = Rogue_CalculateMovePrice(move, itemId);
         applyDefaultHubIncrease = TRUE;
     }
 
@@ -1229,6 +1236,12 @@ u16 Rogue_GetPrice(u16 itemId)
     }
 
     if(itemId >= ITEM_RED_ORB && itemId <= ITEM_DIANCITE)
+    {
+        // Expect price from above
+        price = HELD_ITEM_HIGH_PRICE;
+        applyDefaultHubIncrease = TRUE;
+    }
+    if(itemId >= ITEM_CLEFABLITE && itemId <= ITEM_GLIMMORANITE)
     {
         // Expect price from above
         price = HELD_ITEM_HIGH_PRICE;
@@ -1459,6 +1472,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
             outItem->fieldUseFunc = rogueItem->fieldUseFunc;
             outItem->battleUsage = rogueItem->battleUsage;
             outItem->secondaryId = rogueItem->secondaryId;
+            outItem->importance = 0;
 
             if(IsCharmItem(itemId))
             {
@@ -1537,7 +1551,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 
 #ifdef ROGUE_EXPANSION
-    if(itemId >= ITEM_VENUSAURITE && itemId <= ITEM_DIANCITE)
+    if(IS_MEGA_STONE(itemId))
     {
         outItem->pocket = POCKET_STONES;
     }
@@ -1658,7 +1672,7 @@ void Rogue_ModifyItem(u16 itemId, struct Item* outItem)
     }
 }
 
-u32 Rogue_CalculateMovePrice(u16 move)
+u32 Rogue_CalculateMovePrice(u16 move, u16 itemId)
 {
     // Move cost takes into account high level stats and then modifies based on usage
     u32 cost = 0;
@@ -1744,8 +1758,24 @@ u32 Rogue_CalculateMovePrice(u16 move)
     else if(usageCount >= 100)
         cost += 500;
 
+    cost /= 2; // price experiment
+
     if(cost < 100)
         cost = 100;
+
+    // tutor moves
+    if(itemId == ITEM_NONE)
+    {
+        if(Rogue_IsRunActive())
+            cost *= 2; // price experiment (keep same cost in hub)
+    }
+    else if(itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    {
+        if(Rogue_IsRunActive())
+            cost *= (4 * 6) / 5;
+        else
+            cost *= 4 * 2; // *2 price experiment
+    }
 
     return cost;
 }
@@ -1821,6 +1851,24 @@ static u16 BinarySearchForItem(u16 item, u16 const* data, u16 count)
     // Failed to find
     return count;
 }
+
+bool8 Rogue_IsTreasureItem(u16 itemId)
+{
+#ifndef ROGUE_BAKING
+    if(ItemId_GetPocket(itemId) == POCKET_ITEMS)
+    {
+        if(ItemId_GetFieldFunc(itemId) != ItemUseOutOfBattle_CannotUse)
+            return FALSE;
+
+        if(ItemId_GetBattleFunc(itemId) != NULL)
+            return FALSE;
+
+        return TRUE;
+    }
+#endif
+    return FALSE;
+}
+
 
 bool8 Rogue_IsEvolutionItem(u16 itemId)
 {
@@ -1901,6 +1949,16 @@ u16 Rogue_GetFormItemIndex(u16 itemId)
 #endif
 }
 
+u16 Rogue_GetSpeciesForMegaItem(u16 itemId)
+{
+#ifdef ROGUE_BAKE_VALID
+    if(IS_MEGA_STONE(itemId))
+        return gRogueBake_MegaItemToSpecies[itemId - ITEM_VENUSAURITE];
+#endif
+
+    return SPECIES_NONE;
+}
+
 #else
 
 bool8 Rogue_IsFormItem(u16 itemId)
@@ -1911,6 +1969,11 @@ bool8 Rogue_IsFormItem(u16 itemId)
 u16 Rogue_GetFormItemIndex(u16 itemId)
 {
     return 0;
+}
+
+u16 Rogue_GetSpeciesForMegaItem(u16 itemId)
+{
+    return SPECIES_NONE;
 }
 
 #endif
@@ -1981,6 +2044,7 @@ void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* out
         {
             outStats->abilities[i] = gRogueSpeciesInfo[species].abilities[i];
         }
+        
     }
 }
 

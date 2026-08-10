@@ -19,7 +19,7 @@ script Rogue_AdventurePaths_OnLoad
     //special(SpawnCameraObject)
     //applymovement(OBJ_EVENT_ID_CAMERA, AdventurePaths_OffsetCamera)
 
-    special(RogueAdv_ApplyAdventureMetatiles)
+    //special(RogueAdv_ApplyAdventureMetatiles)
 }
 
 script Rogue_AdventurePaths_PreviewCutscene
@@ -71,6 +71,9 @@ script Rogue_AdventurePaths_InteractRoom
 
         case ADVPATH_ROOM_BATTLE_SIM:
             msgbox(format("It's a Battle Simulator.\nEnter this encounter?"), MSGBOX_YESNO)
+
+        case ADVPATH_ROOM_BATTLE_TOWER:
+            msgbox(format("It's a Battle Tower.\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_RESTSTOP:
             switch(var(VAR_NODE_PARAM1))

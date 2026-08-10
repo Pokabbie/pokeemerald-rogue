@@ -139,3 +139,102 @@ script Rogue_InteractMultiplayerFollowMon
 
     release
 }
+
+script RogueMP_OnHostReloadInRun
+{
+    lock
+    call(RogueMP_PerformReconnect)
+    release
+}
+
+script RogueMP_OnClientReloadInRun
+{
+    lock
+    call(RogueMP_PerformReconnect)
+    release
+}
+
+script RogueMP_OnClientReloadInHub
+{
+    lock
+    warp(MAP_ROGUE_INTERIOR_POKE_CONNECT, 4)
+    release
+}
+
+script RogueMP_PerformReconnect
+{
+    msgbox(format("Would you like to continue this Adventure in Multiplayer?"), MSGBOX_YESNO)
+
+    if(var(VAR_RESULT) == FALSE)
+    {
+        msgbox(format("Are you sure you would like to continue this Adventure by yourself?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == TRUE)
+        {
+            setvar(VAR_RESULT, FALSE)
+        }
+        else
+        {
+            setvar(VAR_RESULT, TRUE)
+        }
+    }
+
+    if(var(VAR_RESULT) == YES)
+    {
+        call(Rogue_Common_WaitForRogueAssistant)
+
+        while(var(VAR_RESULT) == TRUE)
+        {
+            message(format("Please decide which of you will become the Group Host.\pThe other players must then choose Join Group."))
+            waitmessage
+
+            multichoice(16, 6, MULTI_LINK_HOST_JOIN, FALSE)
+
+            switch(var(VAR_RESULT))
+            {
+                case 0: // Join
+                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
+                    waitmessage
+
+                    special(Rogue_JoinMultiplayer)
+                    waitstate
+
+                    if(var(VAR_RESULT) == TRUE)
+                    {
+                        msgbox(format("All set!\nHave fun in your Adventure!"))
+                    }
+
+                case 1: // Host
+                    message(format("Please setup in Rogue Assistant now\n… … B Button: Cancel"))
+                    waitmessage
+
+                    special(Rogue_HostMultiplayer)
+                    waitstate
+
+                    if(var(VAR_RESULT) == TRUE)
+                    {
+                        msgbox(format("All set!\nA friend should now be able to join you for this Adventure!"))
+                    }
+
+                case 2: // Exit
+                    setvar(VAR_RESULT, FALSE)
+            }
+            
+            if(var(VAR_RESULT) == FALSE)
+            {
+                msgbox(format("Are you sure you would like to continue this Adventure by yourself?"), MSGBOX_YESNO)
+                if(var(VAR_RESULT) == TRUE)
+                {
+                    setvar(VAR_RESULT, FALSE) // stop loop
+                }
+                else
+                {
+                    setvar(VAR_RESULT, TRUE) // continue loop
+                }
+            }
+            else
+            {
+                setvar(VAR_RESULT, FALSE) // stop loop
+            }
+        }
+    }
+}

@@ -128,7 +128,7 @@ STATIC_ASSERT(TOTAL_BOXES_COUNT == ASSISTANT_HOME_LOCAL_BOXES, SizeOfAssistantLo
 
 // Make sure to change the same value in RogueAssistant if this ever changes
 // (These numbers must match in order to connect)
-#define ROGUE_ASSISTANT_COMPAT_VERSION 1
+#define ROGUE_ASSISTANT_COMPAT_VERSION 2
 
 const struct RogueAssistantHeader gRogueAssistantHeader =
 {

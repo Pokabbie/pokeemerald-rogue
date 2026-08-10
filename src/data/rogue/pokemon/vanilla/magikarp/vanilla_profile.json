@@ -17,5 +17,25 @@
     }
   ],
   "TutorMoves": [],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MAGIKARP": {
+      "BaseStats": {
+        "HP": 20,
+        "Attack": 10,
+        "Defense": 55,
+        "Speed": 80,
+        "SpAttack": 15,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

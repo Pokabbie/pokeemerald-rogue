@@ -99,5 +99,25 @@
     "MOVE_THUNDER_PUNCH",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TREECKO": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 35,
+        "Speed": 70,
+        "SpAttack": 65,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

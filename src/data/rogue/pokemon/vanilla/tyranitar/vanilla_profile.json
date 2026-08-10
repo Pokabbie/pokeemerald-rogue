@@ -281,5 +281,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYRANITAR": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 134,
+        "Defense": 110,
+        "Speed": 61,
+        "SpAttack": 95,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_STREAM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

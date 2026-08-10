@@ -2085,6 +2085,25 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_BattleSpriteStartSlideLeft,
     },
+    [TRAINER_BACK_PIC_CALEM] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Calem,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+    [TRAINER_BACK_PIC_SERENA] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Serena,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+
     [TRAINER_BACK_PIC_DAWN] = {
         .tileTag = TAG_NONE,
         .paletteTag = 0,
@@ -4158,6 +4177,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_GENDER_FLAG:
         retVal = substruct3->genderFlag;
         break;
+    case MON_DATA_TUTOR_MOVE_LVL:
+        retVal = substruct3->tutorMoveLvl;
+        break;
     case MON_DATA_CUTE_RIBBON:
         retVal = substruct3->cuteRibbon;
         break;
@@ -4551,6 +4573,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_GENDER_FLAG:
         SET8(substruct3->genderFlag);
         break;
+    case MON_DATA_TUTOR_MOVE_LVL:
+        SET8(substruct3->tutorMoveLvl);
+        break;
     case MON_DATA_CUTE_RIBBON:
         SET8(substruct3->cuteRibbon);
         break;
@@ -4848,9 +4873,25 @@ u16 GetAbilityBySpecies_ForRevised(u16 species, u8 abilityNum, u32 otId, bool32 
 
 u8 GetTypeBySpecies(u16 species, u8 typeSlot, u32 otId)
 {
-    struct RoguePokemonBaseStats speciesStats;
-    Rogue_GetPokemonBaseStats(species, &speciesStats);
-    return speciesStats.types[typeSlot];
+    u8 type = TYPE_NONE;
+
+    if(IsOtherTrainer(otId))
+    {
+        u32 customMonId = RogueGift_GetCustomMonIdBySpecies(species, otId);
+        if(customMonId != 0)
+        {
+            type = RogueGift_GetCustomMonType(customMonId, typeSlot);
+        }
+    }
+
+    if(type == TYPE_NONE)
+    {
+        struct RoguePokemonBaseStats speciesStats;
+        Rogue_GetPokemonBaseStats(species, &speciesStats);
+        type = speciesStats.types[typeSlot];
+    }
+
+    return type;
 }
 
 u8 GetMonAbility(struct Pokemon *mon)
@@ -6848,38 +6889,30 @@ static void Task_PlayMapChosenOrBattleBGM(u8 taskId)
 
 const u32 *GetMonFrontSpritePal(struct Pokemon *mon)
 {
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
     u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalFromSpecies(species, shiny);
+    u8 gender = GetMonGender(mon);
+    return GetMonSpritePalFromSpecies(species, gender, shiny, otId);
 }
 
-const u32 *GetMonSpritePalFromSpecies(u16 species, bool8 shiny)
+const u32 *GetMonSpritePalFromSpecies(u16 species, u8 gender, bool8 shiny, u32 otId)
 {
     u32 shinyValue;
+    const u32 * value = NULL;
 
     if (species > NUM_SPECIES)
-        return gMonPaletteTable[SPECIES_NONE].data;
+        value = gMonPaletteTable[SPECIES_NONE].data;
 
     if (shiny)
-        return gMonShinyPaletteTable[species].data;
+        value = gMonShinyPaletteTable[species].data;
     else
-        return gMonPaletteTable[species].data;
+        value = gMonPaletteTable[species].data;
+
+    return Rogue_ModifyMonCompressedPalette(value, species, gender, shiny, otId);
 }
 
-const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
-{
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
-    bool8 isShiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
-    return GetMonSpritePalStructFromSpecies(species, isShiny);
-}
 
-const struct CompressedSpritePalette *GetMonSpritePalStructFromSpecies(u16 species, bool8 isShiny)
-{
-    if (isShiny)
-        return &gMonShinyPaletteTable[species];
-    else
-        return &gMonPaletteTable[species];
-}
 
 bool32 IsHMMove2_LearnReplaceCheck(u16 move)
 {

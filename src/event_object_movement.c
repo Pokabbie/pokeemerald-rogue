@@ -11,6 +11,7 @@
 #include "field_effect.h"
 #include "field_effect_helpers.h"
 #include "field_player_avatar.h"
+#include "field_weather.h"
 #include "fieldmap.h"
 #include "mauville_old_man.h"
 #include "metatile_behavior.h"
@@ -34,6 +35,7 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 #include "constants/metatile_behaviors.h"
+#include "constants/weather.h"
 
 #include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
@@ -50,6 +52,7 @@ enum {
     MOVE_SPEED_FAST_2, // water current / acro bike
     MOVE_SPEED_FASTER, // mach bike's max speed
     MOVE_SPEED_FASTEST,
+    MOVE_SPEED_FASTEST_2, // (sigh...)
 };
 
 enum {
@@ -120,6 +123,7 @@ static void GetGroundEffectFlags_Puddle(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_Seaweed(struct ObjectEvent*, u32*);
 static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent*, u32*);
+static void GetGroundEffectFlags_Shadow(struct ObjectEvent*, u32*);
 static u8 ObjectEventGetNearbyReflectionType(struct ObjectEvent*);
 static u8 GetReflectionTypeByMetatileBehavior(u32);
 static void InitObjectPriorityByElevation(struct Sprite *, u8);
@@ -1204,6 +1208,18 @@ const u8 gTrainerFacingDirectionMovementTypes[] = {
     [DIR_NORTHEAST] = MOVEMENT_TYPE_FACE_UP,
 };
 
+static const u8 sSpinDirectionAnimNums[] = {
+    [DIR_NONE]      = ANIM_SPIN_SOUTH,
+    [DIR_SOUTH]     = ANIM_SPIN_SOUTH,
+    [DIR_NORTH]     = ANIM_SPIN_NORTH,
+    [DIR_WEST]      = ANIM_SPIN_WEST,
+    [DIR_EAST]      = ANIM_SPIN_EAST,
+    [DIR_SOUTHWEST] = ANIM_SPIN_SOUTH,
+    [DIR_SOUTHEAST] = ANIM_SPIN_NORTH,
+    [DIR_NORTHWEST] = ANIM_SPIN_WEST,
+    [DIR_NORTHEAST] = ANIM_SPIN_EAST,
+};
+
 bool8 (*const gOppositeDirectionBlockedMetatileFuncs[])(u8) = {
     MetatileBehavior_IsSouthBlocked,
     MetatileBehavior_IsNorthBlocked,
@@ -1495,6 +1511,14 @@ const u8 gRunSlowMovementActions[] = {
     [DIR_SOUTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SLOW,
     [DIR_NORTHWEST]  = MOVEMENT_ACTION_RUN_LEFT_SLOW,
     [DIR_NORTHEAST]  = MOVEMENT_ACTION_RUN_RIGHT_SLOW,
+};
+
+static const u8 sSpinMovementActions[] = {
+    [DIR_NONE]  = MOVEMENT_ACTION_SPIN_DOWN,
+    [DIR_SOUTH] = MOVEMENT_ACTION_SPIN_DOWN,
+    [DIR_NORTH] = MOVEMENT_ACTION_SPIN_UP,
+    [DIR_WEST]  = MOVEMENT_ACTION_SPIN_LEFT,
+    [DIR_EAST]  = MOVEMENT_ACTION_SPIN_RIGHT,
 };
 
 static const u8 sOppositeDirections[] = {
@@ -2140,13 +2164,6 @@ u8 CreateVirtualObject(u16 graphicsId, u8 virtualObjId, s16 x, s16 y, u8 elevati
     return spriteId;
 }
 
-static bool8 ShouldSpawnObjectEventsLeftToRight()
-{
-    // If adventure path screen, there can sometimes be too many objects
-    // so prioritise spawning earliest objects
-    return RogueAdv_IsViewingPath();
-}
-
 void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
 {
     u8 i;
@@ -2166,22 +2183,26 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else
             objectCount = gSaveBlock1Ptr->objectEventTemplatesCount;
 
-        if(ShouldSpawnObjectEventsLeftToRight())
+        // Spawn rows at a time, focusing on rows in the centre of the screen
+        if(RogueAdv_IsViewingPath())
         {
-            s16 currX;
-            s16 minX = 0;
-            s16 maxX = 0;
+            s16 centreHeight = gSaveBlock1Ptr->pos.y + 8;
+            s16 maxHeightRadius = 0;
+            s16 currHeightRadius;
+
+            // Make narrower 
+            left  += +2;
+            right += -2;
 
             for (i = 0; i < objectCount; i++)
             {
                 const struct ObjectEventTemplate *template = &gSaveBlock1Ptr->objectEventTemplates[i];
-                s16 npcX = template->x + MAP_OFFSET;
-                minX = min(minX, npcX);
-                maxX = max(maxX, npcX);
+                s16 npcY = template->y + MAP_OFFSET;
+                maxHeightRadius = max(maxHeightRadius, abs(centreHeight - npcY));
             }
 
             // Process coord at a time
-            for(currX = minX; currX <= maxX; ++currX)
+            for(currHeightRadius = 0; currHeightRadius <= maxHeightRadius; ++currHeightRadius)
             {
                 for (i = 0; i < objectCount; i++)
                 {
@@ -2189,7 +2210,7 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
                     s16 npcX = template->x + MAP_OFFSET;
                     s16 npcY = template->y + MAP_OFFSET;
 
-                    if(currX == npcX)
+                    if(npcY >= centreHeight - currHeightRadius && npcY <= centreHeight + currHeightRadius)
                     {
                         if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX
                             && !FlagGet(template->flagId))
@@ -2243,6 +2264,21 @@ static void RemoveObjectEventIfOutsideView(struct ObjectEvent *objectEvent)
     s16 right =  gSaveBlock1Ptr->pos.x + 17;
     s16 top =    gSaveBlock1Ptr->pos.y;
     s16 bottom = gSaveBlock1Ptr->pos.y + 16;
+
+    if(RogueAdv_IsViewingPath())
+    {
+        top     = gSaveBlock1Ptr->pos.y + 1;
+        bottom  = gSaveBlock1Ptr->pos.y + 13;
+
+        // Apply tighter bounds once still (e.g. at end of movement)
+        if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        {
+            left    += +2;
+            right   += -3;
+            top     += +1;
+            bottom  += -1;
+        }        
+    }
 
     if (objectEvent->currentCoords.x >= left && objectEvent->currentCoords.x <= right
      && objectEvent->currentCoords.y >= top && objectEvent->currentCoords.y <= bottom)
@@ -2858,8 +2894,28 @@ static bool8 ObjectEventDoesElevationMatch(struct ObjectEvent *objectEvent, u8 e
 void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
 {
     UpdateObjectEventCoordsForCameraUpdate();
-    TrySpawnObjectEvents(x, y);
-    RemoveObjectEventsOutsideView();
+
+    if(RogueAdv_IsViewingPath())
+    {
+        RemoveObjectEventsOutsideView();
+        TrySpawnObjectEvents(x, y);
+
+        // Do this once we finish the movement, not start
+        //if(gFieldCamera.movementSpeedX == 0 && gFieldCamera.movementSpeedY == 0)
+        //{
+        //    RemoveObjectEventsOutsideView();
+        //    TrySpawnObjectEvents(x, y);
+        //}
+        //else
+        //{
+//
+        //}
+    }
+    else
+    {
+        TrySpawnObjectEvents(x, y);
+        RemoveObjectEventsOutsideView();
+    }
 }
 
 #define sLinkedSpriteId data[0]
@@ -5218,6 +5274,11 @@ u8 GetRunningDirectionAnimNum(u8 direction)
     return sRunningDirectionAnimNums[direction];
 }
 
+u8 GetSpinDirectionAnimNum(u8 direction)
+{
+    return sSpinDirectionAnimNums[direction];
+}
+
 static const struct StepAnimTable *GetStepAnimTable(const union AnimCmd *const *anims)
 {
     const struct StepAnimTable *stepTable;
@@ -5807,6 +5868,7 @@ u8 name(u32 idx)\
 dirn_to_anim(GetFaceDirectionMovementAction, gFaceDirectionMovementActions);
 dirn_to_anim(GetWalkSlowMovementAction, gWalkSlowMovementActions);
 dirn_to_anim(GetPlayerRunSlowMovementAction, gRunSlowMovementActions);
+dirn_to_anim(GetSpinMovementAction, sSpinMovementActions);
 dirn_to_anim(GetWalkNormalMovementAction, gWalkNormalMovementActions);
 dirn_to_anim(GetWalkFastMovementAction, gWalkFastMovementActions);
 dirn_to_anim(GetRideWaterCurrentMovementAction, gRideWaterCurrentMovementActions);
@@ -5963,6 +6025,9 @@ void InitNpcForMovement(struct ObjectEvent *objectEvent, struct Sprite *sprite, 
 {
     s16 x;
     s16 y;
+
+    // Speed up
+    //speed += 1;
 
     x = objectEvent->currentCoords.x;
     y = objectEvent->currentCoords.y;
@@ -8443,6 +8508,9 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+    GetGroundEffectFlags_Shadow(objEvent, flags);
+#endif
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -8457,6 +8525,9 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+    GetGroundEffectFlags_Shadow(objEvent, flags);
+#endif
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -8470,6 +8541,9 @@ static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u
     GetGroundEffectFlags_HotSprings(objEvent, flags);
     GetGroundEffectFlags_Seaweed(objEvent, flags);
     GetGroundEffectFlags_JumpLanding(objEvent, flags);
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+    GetGroundEffectFlags_Shadow(objEvent, flags);
+#endif
 }
 
 static void ObjectEventUpdateMetatileBehaviors(struct ObjectEvent *objEvent)
@@ -8664,6 +8738,90 @@ static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent *objEvent, u32 *
             }
         }
     }
+}
+
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+static const u8 sDisallowedIds[] = {
+    OBJ_EVENT_GFX_TRUCK,
+    OBJ_EVENT_GFX_SS_TIDAL,
+};
+
+static const u8 sDisallowedWeathers[] = {
+    WEATHER_RAIN,
+    WEATHER_FOG_HORIZONTAL,
+};
+
+typedef bool8 (*MetatileFunc)(u8);
+static const MetatileFunc sDisallowedMetatiles[] = {
+    MetatileBehavior_IsTallGrass,
+    MetatileBehavior_IsLongGrass,
+};
+
+static bool8 IsShadowAllowedInId(struct ObjectEvent *objEvent) {
+    u8 i;
+
+    for (i = 0; i < ARRAY_COUNT(sDisallowedIds); i++) {
+        if (sDisallowedIds[i] == objEvent->graphicsId) 
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static bool8 IsShadowAllowedInWeather() {
+    u8 i;
+    bool8 currWeatherDisallowed = FALSE;
+    bool8 nextWeatherDisallowed = FALSE;
+
+    for (i = 0; i < ARRAY_COUNT(sDisallowedWeathers); i++) {
+        if(gWeather.currWeather == sDisallowedWeathers[i]) {
+            currWeatherDisallowed = TRUE;
+            //If the weather hasn't changed completely, no shadow will show
+            //Force "nextWeatherDisallowed" to avoid duplicated return statements
+            if(!gWeather.weatherChangeComplete)
+                nextWeatherDisallowed = TRUE;
+        }
+        if(gWeather.nextWeather == sDisallowedWeathers[i])
+            nextWeatherDisallowed = TRUE;
+
+        if (currWeatherDisallowed && nextWeatherDisallowed) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static bool8 IsShadowAllowedInMetatile(struct ObjectEvent *objEvent) {
+    u8 i;
+
+    for (i = 0; i < ARRAY_COUNT(sDisallowedMetatiles); i++) {
+        if (sDisallowedMetatiles[i](objEvent->currentMetatileBehavior)) 
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
+static void GetGroundEffectFlags_Shadow(struct ObjectEvent *objEvent, u32 *flags) {
+    if(objEvent->invisible || !objEvent->active 
+        || !IsShadowAllowedInId(objEvent) || !IsShadowAllowedInWeather() || !IsShadowAllowedInMetatile(objEvent)){
+        objEvent->hasShadow = FALSE;
+        return;
+    }
+
+    if(objEvent->hasShadow)
+        return;
+
+    *flags |= GROUND_EFFECT_SHADOW;
+}
+#endif
+
+void GroundEffect_Shadow(struct ObjectEvent *objEvent, struct Sprite *sprite) {
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+    objEvent->hasShadow = TRUE;
+    StartFieldEffectForObjectEvent(FLDEFF_SHADOW, objEvent);
+#endif
 }
 
 #define RETURN_REFLECTION_TYPE_AT(x, y)              \
@@ -9125,7 +9283,8 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_JumpLandingDust,       // GROUND_EFFECT_FLAG_LAND_ON_NORMAL_GROUND
     GroundEffect_ShortGrass,            // GROUND_EFFECT_FLAG_SHORT_GRASS
     GroundEffect_HotSprings,            // GROUND_EFFECT_FLAG_HOT_SPRINGS
-    GroundEffect_Seaweed                // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_Seaweed,               // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_Shadow                 // GROUND_EFFECT_FLAG_SHADOW
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)
@@ -9292,6 +9451,11 @@ static void Step8(struct Sprite *sprite, u8 dir)
     sprite->x += 8 * (u16) sDirectionToVectors[dir].x;
     sprite->y += 8 * (u16) sDirectionToVectors[dir].y;
 }
+static void Step16(struct Sprite *sprite, u8 dir)
+{
+    sprite->x += 16 * (u16) sDirectionToVectors[dir].x;
+    sprite->y += 16 * (u16) sDirectionToVectors[dir].y;
+}
 
 #define sSpeed data[4]
 #define sTimer data[5]
@@ -9356,12 +9520,17 @@ static const SpriteStepFunc sStep8Funcs[] = {
     Step8,
 };
 
+static const SpriteStepFunc sStep16Funcs[] = {
+    Step16,
+};
+
 static const SpriteStepFunc *const sNpcStepFuncTables[] = {
     [MOVE_SPEED_NORMAL] = sStep1Funcs,
     [MOVE_SPEED_FAST_1] = sStep2Funcs,
     [MOVE_SPEED_FAST_2] = sStep3Funcs,
     [MOVE_SPEED_FASTER] = sStep4Funcs,
     [MOVE_SPEED_FASTEST] = sStep8Funcs,
+    [MOVE_SPEED_FASTEST_2] = sStep16Funcs,
 };
 
 static const s16 sStepTimes[] = {
@@ -9370,16 +9539,33 @@ static const s16 sStepTimes[] = {
     [MOVE_SPEED_FAST_2] = ARRAY_COUNT(sStep3Funcs),
     [MOVE_SPEED_FASTER] = ARRAY_COUNT(sStep4Funcs),
     [MOVE_SPEED_FASTEST] = ARRAY_COUNT(sStep8Funcs),
+    [MOVE_SPEED_FASTEST_2] = ARRAY_COUNT(sStep16Funcs),
 };
 
 static bool8 NpcTakeStep(struct Sprite *sprite)
 {
+    u32 i, count;
+
+    count = Rogue_GetOverworldSpeedScale();
+
     if (sprite->sTimer >= sStepTimes[sprite->sSpeed])
         return FALSE;
 
-    sNpcStepFuncTables[sprite->sSpeed][sprite->sTimer](sprite, sprite->sDirection);
+    for(i = 0; i < count; ++i)
+    {
+        sNpcStepFuncTables[sprite->sSpeed][sprite->sTimer](sprite, sprite->sDirection);
 
-    sprite->sTimer++;
+        sprite->sTimer++;
+
+        // Anim speed up hack
+        if(i != 0 && sprite->animDelayCounter > 0)
+        {
+            --sprite->animDelayCounter;
+        }
+
+        if (sprite->sTimer == sStepTimes[sprite->sSpeed])
+            break;
+    }
 
     if (sprite->sTimer < sStepTimes[sprite->sSpeed])
         return FALSE;
@@ -9536,6 +9722,7 @@ static void SetJumpSpriteData(struct Sprite *sprite, u8 direction, u8 distance, 
 
 static u8 DoJumpSpriteMovement(struct Sprite *sprite)
 {
+    u32 i, count;
     s16 distanceToTime[] = {
         [JUMP_DISTANCE_IN_PLACE] = 16,
         [JUMP_DISTANCE_NORMAL] = 16,
@@ -9548,20 +9735,33 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
     };
     u8 result = 0;
 
-    if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE)
-        Step1(sprite, sprite->sDirection);
+    count = Rogue_GetOverworldSpeedScale();
 
-    sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
-
-    sprite->sTimer++;
-
-    if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
-        result = JUMP_HALFWAY;
-
-    if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+    if(sprite->anims == sAnimTable_GenericOverworldMon)
     {
-        sprite->y2 = 0;
-        result = JUMP_FINISHED;
+        count *= 3;
+    }
+
+    for(i = 0; i < count; ++i)
+    {
+        if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE)
+            Step1(sprite, sprite->sDirection);
+
+        sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
+
+        sprite->sTimer++;
+
+        if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
+            result = JUMP_HALFWAY;
+
+        if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+        {
+            sprite->y2 = 0;
+            result = JUMP_FINISHED;
+        }
+
+        if(result != 0)
+            break;
     }
 
     return result;
@@ -9569,6 +9769,7 @@ static u8 DoJumpSpriteMovement(struct Sprite *sprite)
 
 static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
 {
+    u32 i, count;
     s16 distanceToTime[] = {
         [JUMP_DISTANCE_IN_PLACE] = 32,
         [JUMP_DISTANCE_NORMAL] = 32,
@@ -9581,20 +9782,33 @@ static u8 DoJumpSpecialSpriteMovement(struct Sprite *sprite)
     };
     u8 result = 0;
 
-    if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE && !(sprite->sTimer & 1))
-        Step1(sprite, sprite->sDirection);
+    count = Rogue_GetOverworldSpeedScale();
 
-    sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
-
-    sprite->sTimer++;
-
-    if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
-        result = JUMP_HALFWAY;
-
-    if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+    if(sprite->anims == sAnimTable_GenericOverworldMon)
     {
-        sprite->y2 = 0;
-        result = JUMP_FINISHED;
+        count *= 3;
+    }
+
+    for(i = 0; i < count; ++i)
+    {
+        if (sprite->sDistance != JUMP_DISTANCE_IN_PLACE && !(sprite->sTimer & 1))
+            Step1(sprite, sprite->sDirection);
+
+        sprite->y2 = GetJumpY(sprite->sTimer >> distanceToShift[sprite->sDistance], sprite->sJumpType);
+
+        sprite->sTimer++;
+
+        if (sprite->sTimer == distanceToTime[sprite->sDistance] >> 1)
+            result = JUMP_HALFWAY;
+
+        if (sprite->sTimer >= distanceToTime[sprite->sDistance])
+        {
+            sprite->y2 = 0;
+            result = JUMP_FINISHED;
+        }
+
+        if(result != 0)
+            break;
     }
 
     return result;
@@ -10130,6 +10344,77 @@ bool8 MovementActionFunc_RunSlow_Step1(struct ObjectEvent *objectEvent, struct S
     if (UpdateMovementNormal(objectEvent, sprite))
     {
         sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void InitSpin(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction, u8 speed)
+{
+    InitNpcForMovement(objectEvent, sprite, direction, speed);
+    SetStepAnimHandleAlternation(objectEvent, sprite, GetSpinDirectionAnimNum(objectEvent->facingDirection));
+    SeekSpriteAnim(sprite, 0);
+}
+
+bool8 MovementAction_SpinDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitSpin(objectEvent, sprite, DIR_SOUTH, MOVE_SPEED_FAST_1);
+    return MovementAction_SpinDown_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_SpinDown_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_SpinUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitSpin(objectEvent, sprite, DIR_NORTH, MOVE_SPEED_FAST_1);
+    return MovementAction_SpinUp_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_SpinUp_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_SpinLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitSpin(objectEvent, sprite, DIR_WEST, MOVE_SPEED_FAST_1);
+    return MovementAction_SpinLeft_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_SpinLeft_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+bool8 MovementAction_SpinRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitSpin(objectEvent, sprite, DIR_EAST, MOVE_SPEED_FAST_1);
+    return MovementAction_SpinRight_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_SpinRight_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    if (UpdateMovementNormal(objectEvent, sprite))
+    {
+        sprite->data[2] = 2;
         return TRUE;
     }
     return FALSE;

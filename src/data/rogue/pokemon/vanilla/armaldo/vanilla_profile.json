@@ -149,5 +149,25 @@
         "GEN31V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARMALDO": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 45,
+        "SpAttack": 70,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

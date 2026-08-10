@@ -1,0 +1,374 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "GRUNT",
+        "type_assignment": "NONE",
+        "trainer_class": "TRAINER_CLASS_TEAM_PLASMA",
+        "music_player": "team_plasma",
+        "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+        "class_flags": [ "TEAM_PLASMA" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 2,
+                    "include_types": [ "NORMAL", "DRAGON", "GHOST" ],
+                    "excluded_types": [ "FAIRY" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "NORMAL", "DARK", "GHOST", "DRAGON" ],
+                    "excluded_types": [ "FAIRY" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+            ]
+        }
+    },
+    "trainers":
+    {
+        "boss":
+        [
+            {
+                "name": "GHETSIS",
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GHETSIS",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GHETSIS",
+                "trainer_class": "TRAINER_CLASS_TEAM_PLASMA_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_GHETSIS_ACE",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: I never would have thought a Trainer like you could interfere with my plans.\\pThis doesn't change my goal.\\pCome on! Now you'll face ME in battle!",
+                        "PRE_BATTLE_TAUNT": "I can't wait to see the look on your face when you've lost all hope!",
+                        "POST_BATTLE_TAUNT": "My careful schemes!\\nThe world should be mine!",
+                        "POST_BATTLE_CLOSER": "What?!\\pI created Team Plasma with my own hands. I'm absolutely perfect! I AM PERFECTION!\\pI am the perfect ruler of a perfect new world!\\pThis won't stop me from attaining my goal.\\pJust you wait and see!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "GROUND", "STEEL" ],
+                            "excluded_types": [ "FAIRY" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_RESHIRAM",
+                                    "SPECIES_ZEKROM",
+                                    "SPECIES_KYUREM",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        },
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "DRAGON", "DARK", "GHOST" ],
+                            "excluded_types": [ "FAIRY" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_RESHIRAM",
+                                    "SPECIES_ZEKROM",
+                                    "SPECIES_KYUREM",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_GHETSIS_ACE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "5", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        "route":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "All Trainer's my willing Liberate their Pokémon!",
+                        "POST_BATTLE_TAUNT": "Calm down and follow our orders!",
+                        "POST_BATTLE_CLOSER": "It's a lot harder to Liberate your Pokémon if you battle me like that!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "People don't deserve Pokémon!",
+                        "POST_BATTLE_TAUNT": "Pokémon should be free!",
+                        "POST_BATTLE_CLOSER": "Pokémon should be free from the influence of people!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ],
+        
+        "hideout":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You shouldn't be here!",
+                        "POST_BATTLE_TAUNT": "What!?",
+                        "POST_BATTLE_CLOSER": "How did you do that?!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for kids!",
+                        "POST_BATTLE_TAUNT": "Nevermind.",
+                        "POST_BATTLE_CLOSER": "I guess you'll be fine."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Intruder!?\\nHere!?",
+                        "POST_BATTLE_TAUNT": "Darn it!",
+                        "POST_BATTLE_CLOSER": "You still shouldn't be here!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "The use of Pokémon for such selfish whims! I cannot believe you!",
+                        "POST_BATTLE_TAUNT": "This changes nothing!",
+                        "POST_BATTLE_CLOSER": "Maybe not today… But ONE DAY your Pokémon will be liberated!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're supposed to be here.",
+                        "POST_BATTLE_TAUNT": "I guess I was wrong",
+                        "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I don't really understand our Leader's grand ambition, but surely he can't be wrong!",
+                        "POST_BATTLE_TAUNT": "I still believe!",
+                        "POST_BATTLE_CLOSER": "Our Leader simply cannot be wrong!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "To Liberate all Pokémon is Team Plasma's ultimate goal!",
+                        "POST_BATTLE_TAUNT": "It is just a matter of time…",
+                        "POST_BATTLE_CLOSER": "To Liberate all Pokémon is Team Plasma's ultimate goal!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm pretty sure we don't let snot nosed kids into our operation.",
+                        "POST_BATTLE_TAUNT": "Maybe I was wrong?",
+                        "POST_BATTLE_CLOSER": "Sorry, I thought you were a spy or something."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You don't seem too interested in our grand ambition.\\pHere, let me explain it for you.",
+                        "POST_BATTLE_TAUNT": "Do you get it now?",
+                        "POST_BATTLE_CLOSER": "No!?\\nGaah, why do I even bother."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Stop right there!",
+                        "POST_BATTLE_TAUNT": "S-stop!",
+                        "POST_BATTLE_CLOSER": "I- I mean it!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You're the one knocking out the newbies, huh?",
+                        "POST_BATTLE_TAUNT": "Ouch!",
+                        "POST_BATTLE_CLOSER": "You're knocking us all out!?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I will not allow you to torment Pokémon any further",
+                        "POST_BATTLE_TAUNT": "ALL Pokémon will be liberated!",
+                        "POST_BATTLE_CLOSER": "ALL Pokémon will be liberated!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Pokémon deserve to be free!",
+                        "POST_BATTLE_TAUNT": "Freedom…",
+                        "POST_BATTLE_CLOSER": "Freedom… I can only dream."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I trust in our King and his grand ambition!",
+                        "POST_BATTLE_TAUNT": "Trust the King!",
+                        "POST_BATTLE_CLOSER": "Trust the King!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "If I don't understand what's going on here, what makes you think you do?!",
+                        "POST_BATTLE_TAUNT": "This proves nothing!",
+                        "POST_BATTLE_CLOSER": "Something about Liberation?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm here for some work experience.\\pLet's see how I manage!",
+                        "POST_BATTLE_TAUNT": "Youch…",
+                        "POST_BATTLE_CLOSER": "I hope that doesn't go into my report."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_PLASMA_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_PLASMA_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for snot nosed kids!",
+                        "POST_BATTLE_TAUNT": "Wha!!",
+                        "POST_BATTLE_CLOSER": "Wipe your nose!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ]
+    }
+}

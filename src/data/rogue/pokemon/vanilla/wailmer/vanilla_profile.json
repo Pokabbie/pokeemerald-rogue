@@ -206,5 +206,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WAILMER": {
+      "BaseStats": {
+        "HP": 130,
+        "Attack": 70,
+        "Defense": 35,
+        "Speed": 60,
+        "SpAttack": 70,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_VEIL",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

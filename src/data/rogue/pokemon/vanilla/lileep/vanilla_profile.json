@@ -109,5 +109,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LILEEP": {
+      "BaseStats": {
+        "HP": 66,
+        "Attack": 41,
+        "Defense": 77,
+        "Speed": 23,
+        "SpAttack": 61,
+        "SpDefense": 87
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_SUCTION_CUPS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -530,6 +530,12 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_TEAM_ROCKET_LEADER, 10},
     {TRAINER_CLASS_TEAM_GALACTIC, 5},
     {TRAINER_CLASS_TEAM_GALACTIC_LEADER, 10},
+    {TRAINER_CLASS_TEAM_PLASMA, 5},
+    {TRAINER_CLASS_TEAM_PLASMA_LEADER, 10},
+    {TRAINER_CLASS_TEAM_NEOPLASMA, 5},
+    {TRAINER_CLASS_TEAM_NEOPLASMA_LEADER, 10},
+    {TRAINER_CLASS_TEAM_FLARE, 5},
+    {TRAINER_CLASS_TEAM_FLARE_LEADER, 10},
     {TRAINER_CLASS_BIKER, 4},
     {0xFF, 5}, // Any trainer class not listed above uses this
 };
@@ -3142,6 +3148,17 @@ bool8 InBattleRunningActions()
     return gBattleMainFunc == RunTurnActionsFunctions;
 }
 
+bool8 Rogue_InBattleChoosingMoves()
+{
+    // Make sure we're actually in the battle scene
+    return gMain.callback2 == BattleMainCB2 && InBattleChoosingMoves();
+}
+
+bool8 Rogue_InBattleRunningActions()
+{
+    // Make sure we're actually in the battle scene
+    return gMain.callback2 == BattleMainCB2 && InBattleRunningActions();
+}
 
 static void BattleMainCB1(void)
 {
@@ -3234,6 +3251,8 @@ static void BattleStartClearSetData(void)
     gBattleStruct->safariEscapeFactor = 3;
     gBattleStruct->wildVictorySong = 0;
     gBattleStruct->moneyMultiplier = 1;
+    gBattleStruct->moneyMultiplierItem = 0;
+    gBattleStruct->moneyMultiplierMove = 0;
 
     for (i = 0; i < 8; i++)
     {
@@ -4747,6 +4766,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     u8 holdEffectParam = 0;
     u16 moveBattler1 = 0, moveBattler2 = 0;
 
+    // Probably don't need this check, but better safe than sorry
+    if(gBattleTypeFlags & BATTLE_TYPE_ROAMER)
+    {
+        if(gChosenActionByBattler[battler1] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler1) == B_SIDE_PLAYER ? battler1 : battler2;
+        }
+        if(gChosenActionByBattler[battler2] == B_ACTION_RUN)
+        {
+            return GetBattlerSide(battler2) == B_SIDE_PLAYER ? battler2 : battler1;
+        }
+    }
+
     if (WEATHER_HAS_EFFECT)
     {
         if ((gBattleMons[battler1].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
@@ -5119,7 +5151,7 @@ static void HandleEndTurn_BattleWon(void)
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
-        // RogueNote: Too late for Rogue_ApplyFinalQuestFinalBossTeamSwap
+        // RogueNote: Too late for Rogue_TryApplyFinalQuestFinalBossTeamSwap
         struct Trainer trainer;
         struct RogueBattleMusic music;
 

@@ -75,5 +75,25 @@
     "MOVE_SWAGGER",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PHANPY": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 40,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

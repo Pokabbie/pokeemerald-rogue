@@ -150,5 +150,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PINSIR": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 85,
+        "SpAttack": 55,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

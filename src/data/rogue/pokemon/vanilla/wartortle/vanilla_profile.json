@@ -126,5 +126,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WARTORTLE": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 63,
+        "Defense": 80,
+        "Speed": 58,
+        "SpAttack": 65,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

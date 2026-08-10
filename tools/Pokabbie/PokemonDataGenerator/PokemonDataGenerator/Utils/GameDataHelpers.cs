@@ -12,7 +12,8 @@ namespace PokemonDataGenerator.Utils
 		private static string s_RootDirectory = Path.GetFullPath(@"..\\..\\..\\..\\..\\..\\");
 
 		private static Dictionary<string, string> s_SpeciesDefines = null;
-		private static Dictionary<string, string> s_ItemDefines = null;
+        private static Dictionary<string, string> s_RawSpeciesDefines = null;
+        private static Dictionary<string, string> s_ItemDefines = null;
 		private static Dictionary<string, string> s_TutorMoveDefines = null;
 		private static Dictionary<string, string> s_MoveDefines = null;
 		private static Dictionary<string, string> s_AbilitiesDefines = null;
@@ -71,9 +72,14 @@ namespace PokemonDataGenerator.Utils
 					s_RootDirectory = Path.GetFullPath(s_RootDirectory);
 				}
 			}
-		}
+        }
 
-		public static Dictionary<string, string> SpeciesDefines
+        public static string PokemonProfilesDirectory
+		{
+            get => Path.Combine(RootDirectory, "src\\data\\rogue\\pokemon", IsVanillaVersion ? "vanilla" : "expansion");
+        }
+
+        public static Dictionary<string, string> SpeciesDefines
 		{
 			get
 			{
@@ -165,8 +171,14 @@ namespace PokemonDataGenerator.Utils
 
 		public static int GetSpeciesNum(string define)
 		{
-			string value = SpeciesDefines[define];
-			return int.Parse(value);
+			if(s_RawSpeciesDefines == null)
+			{
+				s_RawSpeciesDefines = new Dictionary<string, string>();
+                ParseFileDefines("#define ", SpeciesDefinesPath, s_RawSpeciesDefines);
+
+            }
+
+			return ResolveLookupToConstant(s_RawSpeciesDefines, define);
 		}
 
 		public static Dictionary<string, string> ItemDefines
@@ -343,7 +355,7 @@ namespace PokemonDataGenerator.Utils
 			string key = "";
 			string value = "";
 
-			line = line.Substring("#define ".Length);
+			line = line.Substring("#define ".Length).TrimStart();
 			int splitIdx = line.IndexOf(' ');
 
 			if(splitIdx == -1)

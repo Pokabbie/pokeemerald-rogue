@@ -1,7 +1,8 @@
 {
   "Species": [
     "SPECIES_LUCARIO",
-    "SPECIES_LUCARIO_MEGA"
+    "SPECIES_LUCARIO_MEGA",
+    "SPECIES_LUCARIO_MEGA_Z"
   ],
   "LevelUpMoves": [
     {

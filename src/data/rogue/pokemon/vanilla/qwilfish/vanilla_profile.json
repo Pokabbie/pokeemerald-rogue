@@ -164,5 +164,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_QWILFISH": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 95,
+        "Defense": 75,
+        "Speed": 85,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

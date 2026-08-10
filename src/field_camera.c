@@ -12,6 +12,7 @@
 #include "sprite.h"
 #include "text.h"
 
+#include "rogue_adventurepaths.h"
 #include "rogue_controller.h"
 
 EWRAM_DATA bool8 gUnusedBikeCameraAheadPanback = FALSE;
@@ -365,9 +366,15 @@ void CameraUpdate(void)
     int curMovementOffsetX;
     int movementSpeedX;
     int movementSpeedY;
+    int startMovementSpeedX;
+    int startMovementSpeedY;
+
+    startMovementSpeedX = gFieldCamera.movementSpeedX;
+    startMovementSpeedY = gFieldCamera.movementSpeedY;
 
     if (gFieldCamera.callback != NULL)
         gFieldCamera.callback(&gFieldCamera);
+
     movementSpeedX = gFieldCamera.movementSpeedX;
     movementSpeedY = gFieldCamera.movementSpeedY;
     deltaX = 0;
@@ -418,6 +425,11 @@ void CameraUpdate(void)
         SetBerryTreesSeen();
         AddCameraTileOffset(&sFieldCameraOffset, deltaX * 2, deltaY * 2);
         RedrawMapSlicesForCameraUpdate(&sFieldCameraOffset, deltaX * 2, deltaY * 2);
+    }
+    else if(RogueAdv_IsViewingPath() && (startMovementSpeedX != movementSpeedX || startMovementSpeedY != movementSpeedY))
+    {
+        // Stopped moving
+        UpdateObjectEventsForCameraUpdate(deltaX, deltaY);
     }
 
     AddCameraPixelOffset(&sFieldCameraOffset, movementSpeedX, movementSpeedY);

@@ -98,5 +98,25 @@
     "MOVE_TRICK",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ZIGZAGOON": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 30,
+        "Defense": 41,
+        "Speed": 60,
+        "SpAttack": 30,
+        "SpDefense": 41
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

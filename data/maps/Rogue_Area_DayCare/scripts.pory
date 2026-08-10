@@ -37,7 +37,7 @@ script Rogue_Area_DayCare_OnMapLoad
         setflag(FLAG_HIDE_BREEDER)
     }
 
-    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE)
+    hubupgradeunlocked(HUB_UPGRADE_DAY_CARE_PHONE0)
     if(var(VAR_RESULT) == TRUE)
     {
         clearflag(FLAG_HIDE_PHONE)

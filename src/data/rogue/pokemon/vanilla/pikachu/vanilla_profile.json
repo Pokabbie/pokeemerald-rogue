@@ -143,5 +143,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIKACHU": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 55,
+        "Defense": 30,
+        "Speed": 90,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

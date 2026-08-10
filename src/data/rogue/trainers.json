@@ -19,7 +19,10 @@
         "trainers/team_rocket.json",
         "trainers/team_aqua.json",
         "trainers/team_magma.json",
-        "trainers/team_galactic.json"
+        "trainers/team_galactic.json",
+        "trainers/team_plasma.json",
+        "trainers/team_neoplasma.json",
+        "trainers/team_flare.json"
     ],
     "defaults":
     {
@@ -30,7 +33,7 @@
         "#if defined(ROGUE_DEBUG)":
         [
             {
-                "name": "DEBUG",
+                "name": "TRAINER",
                 "gfx_suffix": "DEBUG_NPC",
                 "trainer_class": "TRAINER_CLASS_COOLTRAINER",
                 "music_player": "kanto_boss",

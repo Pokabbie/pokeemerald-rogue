@@ -173,5 +173,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEAKING": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 92,
+        "Defense": 65,
+        "Speed": 68,
+        "SpAttack": 65,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }
