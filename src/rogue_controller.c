@@ -3854,7 +3854,7 @@ static void TryAutoItemPickup()
         if (!gObjectEvents[i].active || i == gPlayerAvatar.objectEventId)
             continue;
 
-        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y || gObjectEvents[i].currentElevation != elevation)
+        if(gObjectEvents[i].currentCoords.x != x || gObjectEvents[i].currentCoords.y != y || gObjectEvents[i].currentElevation != elevation || gObjectEvents[i].invisible)
             continue;
 
         // Object is directly infront of player
@@ -6279,6 +6279,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_RARE_CANDY;
                         }
+                        else if(itemId == ITEM_ESCAPE_ROPE)
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_ESCAPE_ROPE;
+                        }
 #ifdef ROGUE_EXPANSION
                         else if(itemId >= ITEM_LONELY_MINT && itemId <= ITEM_SERIOUS_MINT)
                         {
@@ -6292,6 +6296,10 @@ void Rogue_ModifyObjectEvents(struct MapHeader *mapHeader, bool8 loadingFromSave
                         else if(Rogue_IsEvolutionItem(itemId))
                         {
                             objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_EVO_STONE;
+                        }
+                        else if(Rogue_IsTreasureItem(itemId))
+                        {
+                            objectEvents[write].graphicsId = OBJ_EVENT_GFX_ITEM_TREASURE;
                         }
                         else
                         {

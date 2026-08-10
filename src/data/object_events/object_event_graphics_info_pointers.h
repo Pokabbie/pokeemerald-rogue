@@ -497,6 +497,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemDynamaxBall;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemHealing;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraOrb;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTeraShard;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemEscapeRope;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemTreasure;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GrassDefault;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GoldGrass;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FlagAdventure;
@@ -1064,6 +1066,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ITEM_HEALING] =             &gObjectEventGraphicsInfo_ItemHealing,
     [OBJ_EVENT_GFX_ITEM_TERA_ORB] =            &gObjectEventGraphicsInfo_ItemTeraOrb,
     [OBJ_EVENT_GFX_ITEM_TERA_SHARD] =          &gObjectEventGraphicsInfo_ItemTeraShard,
+    [OBJ_EVENT_GFX_ITEM_ESCAPE_ROPE] =         &gObjectEventGraphicsInfo_ItemEscapeRope,
+    [OBJ_EVENT_GFX_ITEM_TREASURE] =            &gObjectEventGraphicsInfo_ItemTreasure,
     [OBJ_EVENT_GFX_GRASS_DEFAULT] =            &gObjectEventGraphicsInfo_GrassDefault,
     [OBJ_EVENT_GFX_GOLD_GRASS] =               &gObjectEventGraphicsInfo_GoldGrass,
     [OBJ_EVENT_GFX_FLAG_ADVENTURE] =           &gObjectEventGraphicsInfo_FlagAdventure,
