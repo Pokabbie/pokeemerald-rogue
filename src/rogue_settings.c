@@ -60,11 +60,11 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
         .forceFullShopInventory = TRUE,
         .adventureGenerator = ADV_GENERATOR_GAUNTLET,
     },
-    [ROGUE_GAME_MODE_EXPERIMENTAL] = 
+    [ROGUE_GAME_MODE_FAST_PATH] = 
     {
         .itemDropRarityInc = 1,
         .trainerBattleWinningsPerc = 125,
-        .adventureGenerator = ADV_GENERATOR_EXPERIMENTAL,
+        .adventureGenerator = ADV_GENERATOR_FAST_PATH,
     }
 };
 
