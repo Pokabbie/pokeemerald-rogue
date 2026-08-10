@@ -643,21 +643,21 @@
     },
     "SPECIES_SCRAFTY_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 135,
+        "Speed": 68,
+        "SpAttack": 55,
+        "SpDefense": 135
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_DARK",
+        "TYPE_FIGHTING"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE"
       ]
     }
   }

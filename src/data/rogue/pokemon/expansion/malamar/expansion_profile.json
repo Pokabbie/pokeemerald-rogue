@@ -526,21 +526,21 @@
     },
     "SPECIES_MALAMAR_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 86,
+        "Attack": 102,
+        "Defense": 88,
+        "Speed": 88,
+        "SpAttack": 98,
+        "SpDefense": 120
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_DARK",
+        "TYPE_PSYCHIC"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY"
       ]
     }
   }

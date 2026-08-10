@@ -406,21 +406,21 @@
     },
     "SPECIES_PYROAR_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 86,
+        "Attack": 88,
+        "Defense": 92,
+        "Speed": 126,
+        "SpAttack": 129,
+        "SpDefense": 86
       },
       "Types": [
-        "TYPE_NORMAL",
+        "TYPE_FIRE",
         "TYPE_NORMAL"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_FIRE_MANE",
+        "ABILITY_FIRE_MANE",
+        "ABILITY_FIRE_MANE"
       ]
     }
   }

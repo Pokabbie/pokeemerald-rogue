@@ -752,40 +752,40 @@
     },
     "SPECIES_RAICHU_MEGA_X": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 60,
+        "Attack": 135,
+        "Defense": 95,
+        "Speed": 110,
+        "SpAttack": 90,
+        "SpDefense": 95
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_ELECTRIC_SURGE",
+        "ABILITY_ELECTRIC_SURGE",
+        "ABILITY_ELECTRIC_SURGE"
       ]
     },
     "SPECIES_RAICHU_MEGA_Y": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 60,
+        "Attack": 100,
+        "Defense": 55,
+        "Speed": 130,
+        "SpAttack": 160,
+        "SpDefense": 80
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD",
+        "ABILITY_NO_GUARD"
       ]
     }
   }
