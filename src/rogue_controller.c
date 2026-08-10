@@ -3947,11 +3947,20 @@ static void TryAutoItemPickup()
                     }
                 }
             }
-            else if(template->graphicsId == OBJ_EVENT_GFX_BREAKABLE_ROCK || template->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE || template->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            else if(template->graphicsId == OBJ_EVENT_GFX_BREAKABLE_ROCK || template->graphicsId == OBJ_EVENT_GFX_CUTTABLE_TREE)
             {
                 gSelectedObjectEvent = i;
                 gSpecialVar_LastTalked = gObjectEvents[i].localId;
                 ScriptContext_SetupScript(template->script);
+            }
+            else if(template->graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
+            {
+                if(!FlagGet(FLAG_SYS_USE_STRENGTH))
+                {
+                    gSelectedObjectEvent = i;
+                    gSpecialVar_LastTalked = gObjectEvents[i].localId;
+                    ScriptContext_SetupScript(template->script);
+                }
             }
         }
 
