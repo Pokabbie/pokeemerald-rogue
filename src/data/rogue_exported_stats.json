@@ -19042,7 +19042,7 @@
 			"baseSpAttack":90,
 			"baseSpDefense":55,
 			"types": [6, 16],
-			"abilities": [26, 26, 14]
+			"abilities": [26, 14, 321]
 		},
 		{
 			"baseHP":90,
@@ -19052,7 +19052,7 @@
 			"baseSpAttack":130,
 			"baseSpDefense":85,
 			"types": [6, 16],
-			"abilities": [26, 26, 14]
+			"abilities": [26, 14, 321]
 		},
 		{
 			"baseHP":50,
