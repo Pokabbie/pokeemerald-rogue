@@ -5979,6 +5979,11 @@ void SetTypeBeforeUsingMove(u32 move, u32 battlerAtk)
     {
         gBattleStruct->dynamicMoveType = TYPE_DARK | F_DYNAMIC_TYPE_SET;
     }
+    else if (gBattleMoves[move].type == TYPE_DRAGON && attackerAbility == ABILITY_DRAGON_FLY)
+    {
+        gBattleStruct->dynamicMoveType = TYPE_BUG | F_DYNAMIC_TYPE_SET;
+        gBattleStruct->ateBoost[battlerAtk] = 1;
+    }
 
     GET_MOVE_TYPE(move, moveType);
     if ((gFieldStatuses & STATUS_FIELD_ION_DELUGE && moveType == TYPE_NORMAL)

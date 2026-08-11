@@ -308,6 +308,7 @@ static const u8 sSpicySprayDescription[] = _("Burns the foe when damaged.");
 static const u8 sFireManeDescription[] = _("Ups Fire-type moves.");
 
 static const u8 sForecastPriorityDescription[] = _("Weather moves go first.");
+static const u8 sDragonFlyDescription[] = _("Dragon moves are Bug. Bug moves Boosted.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -632,6 +633,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
+    [ABILITY_DRAGON_FLY] = _("Dragon Fly"),
 };
 #else   // 12 characters
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -956,6 +958,7 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
+    [ABILITY_DRAGON_FLY] = _("Dragon Fly"),
 };
 #endif
 
@@ -1279,5 +1282,7 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_FIRE_MANE] = sFireManeDescription,
     [ABILITY_317] = sNoneDescription,
     [ABILITY_SPICY_SPRAY] = sSpicySprayDescription,
+
     [ABILITY_FORECAST_PRIORITY] = sForecastPriorityDescription,
+    [ABILITY_DRAGON_FLY] = sDragonFlyDescription,
 };

@@ -12,8 +12,8 @@
       ],
       "Abilities": [
         "ABILITY_LEVITATE",
-        "ABILITY_LEVITATE",
-        "ABILITY_COMPOUND_EYES"
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_DRAGON_FLY"
       ],
       "BaseStats": {
         "HP": 90,
