@@ -64,7 +64,7 @@ static const struct GameModeRules sGameModeRules[ROGUE_GAME_MODE_COUNT] =
     {
         .itemDropRarityInc = 1,
         .trainerBattleWinningsPerc = 125,
-        .adventureGenerator = ADV_GENERATOR_EXPERIMENTAL,
+        .adventureGenerator = ADV_GENERATOR_FAST_PATH,
     }
 };
 

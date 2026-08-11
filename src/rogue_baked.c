@@ -1860,8 +1860,13 @@ bool8 Rogue_IsTreasureItem(u16 itemId)
         if(ItemId_GetFieldFunc(itemId) != ItemUseOutOfBattle_CannotUse)
             return FALSE;
 
+#ifdef ROGUE_EXPANSION
+        if(ItemId_GetBattleUsage(itemId) != 0)
+            return FALSE;
+#else
         if(ItemId_GetBattleFunc(itemId) != NULL)
             return FALSE;
+#endif
 
         return TRUE;
     }
