@@ -2002,6 +2002,18 @@ struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species)
     }
 }
 
+struct RoguePokemonProfile const* Rogue_GetPokemonProfileFor(u32 species, bool8 isRevised)
+{
+    if(isRevised)
+    {
+        return &gRoguePokemonProfiles_Revised[species];
+    }
+    else
+    {
+        return &gRoguePokemonProfiles[species];
+    }
+}
+
 void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats)
 {
     Rogue_GetPokemonBaseStatsFor(species, outStats, Rogue_GetRevisionModeActive());
@@ -2053,6 +2065,86 @@ void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* out
     }
 }
 
+static bool8 AreLevelUpMovesSame(struct LevelUpMove const* movesA, struct LevelUpMove const* movesB)
+{
+    u32 i;
+
+    if (movesA == movesB)
+        return TRUE;
+    if (movesA == NULL || movesB == NULL)
+        return FALSE;
+
+
+    for (i = 0; TRUE; i++)
+    {
+        if (memcmp(&movesA[i], &movesB[i], sizeof(struct LevelUpMove)) != 0)
+        {
+            return FALSE;
+        }
+
+        if (movesA[i].move == MOVE_NONE || movesB[i].move == MOVE_NONE)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static bool8 AreEvolutionsSame(struct Evolution const* evosA, struct Evolution const* evosB)
+{
+    u32 i;
+
+    if (evosA == evosB)
+        return TRUE;
+    if (evosA == NULL || evosB == NULL)
+        return FALSE;
+
+
+    for (i = 0; TRUE; i++)
+    {
+        if (memcmp(&evosA[i], &evosB[i], sizeof(struct Evolution)) != 0)
+        {
+            return FALSE;
+        }
+
+        if (evosA[i].method == EVOLUTIONS_END || evosB[i].method == EVOLUTIONS_END)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+
+bool8 Rogue_HaSpeciesBeenRevised(u16 species)
+{
+#ifndef ROGUE_BAKING
+    if (Rogue_GetRevisionModeActive())
+#endif
+    {
+        struct RoguePokemonProfile const* ogProfile = Rogue_GetPokemonProfileFor(species, FALSE);
+        struct RoguePokemonProfile const* revisedProfile = Rogue_GetPokemonProfileFor(species, TRUE);
+
+        if (
+            ogProfile->monFlags != revisedProfile->monFlags ||
+            ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount ||
+            ogProfile->evolutionCount != revisedProfile->evolutionCount ||
+            memcmp(&ogProfile->baseStats, &revisedProfile->baseStats, sizeof(struct RoguePokemonBaseStats)) != 0 ||
+            memcmp(ogProfile->evolutions, revisedProfile->evolutions, sizeof(struct Evolution) * ogProfile->evolutionCount) != 0 ||
+            memcmp(ogProfile->competitiveSets, revisedProfile->competitiveSets, sizeof(struct RoguePokemonCompetitiveSet) * ogProfile->competitiveSetCount) != 0 ||
+            !AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves) ||
+            !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions)
+            )
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 u16 Rogue_GetPokemonHeldItemUsage(u16 item)
 {
     if(Rogue_GetRevisionModeActive())
@@ -2093,10 +2185,10 @@ bool8 Rogue_HasMoveBeenRevised(u16 move)
 {
 #ifndef ROGUE_BAKING
     if(Rogue_GetRevisionModeActive())
+#endif
     {
         return memcmp(&gBattleMoves_Mainline[move], &gBattleMoves_Revised[move], sizeof(struct BattleMove)) != 0;
     }
-#endif
 
     return FALSE;
 }

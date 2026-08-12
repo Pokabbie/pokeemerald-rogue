@@ -123,7 +123,9 @@ struct DisableStruct
 
 struct ProtectStruct
 {
+#ifndef ROGUE_BAKING
     u32 protected:1;
+#endif
     u32 spikyShielded:1;
     u32 kingsShielded:1;
     u32 banefulBunkered:1;
