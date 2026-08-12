@@ -21,6 +21,8 @@ bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
 u16 SelectIndexFromWeights(u16* weights, u16 count, u16 rngValue);
 
+u8 SpeciesToGen(u16 species);
+
 // Semi-baked methods
 bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result);
 
