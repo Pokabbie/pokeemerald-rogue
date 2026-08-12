@@ -385,6 +385,7 @@ int main(int argc, char* argv[])
 
 	WriteFileIfChanged(c_OutputHeaderPath, output.str());
 
+	// Output all stats into json file, so we can re-export
 	if (!c_OutputJsonPath.empty())
 	{
 		output = std::stringstream();
@@ -431,6 +432,81 @@ int main(int argc, char* argv[])
 		WriteFileIfChanged(c_OutputJsonPath, output.str());
 	}
 
+	// Print stats for revised mode
+	{
+		std::vector<bool> isEvoLineRevised;
+		std::vector<u16> eggSpeciesList;
+		std::set<u16> alreadyAddedSpecies;
+
+		isEvoLineRevised.resize(NUM_SPECIES, false);
+
+		int totalValidSpecies = 0;
+		int totalRevisedSpecies = 0;
+
+		for (int species = SPECIES_NONE; species < NUM_SPECIES; ++species)
+		{
+#ifdef ROGUE_EXPANSION
+			if (gRogueSpeciesInfo[species].baseHP != 0)
+#else
+			if (!(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z) && gRogueSpeciesInfo[species].baseHP != 0)
+#endif
+			{
+				++totalValidSpecies;
+
+				u16 eggSpecies = eggLookup[species];
+
+				if(alreadyAddedSpecies.find(eggSpecies) == alreadyAddedSpecies.end())
+				{
+					eggSpeciesList.push_back(eggSpecies);
+					alreadyAddedSpecies.insert(eggSpecies);
+				}
+
+				if(Rogue_HaSpeciesBeenRevised(species))
+				{
+					isEvoLineRevised[eggSpecies] = true;
+					++totalRevisedSpecies;
+				}
+			}
+		}
+
+		int totalValidEvoLines = 0;
+		int totalRevisedEvoLines = 0;
+
+		for(u16 species : eggSpeciesList)
+		{
+#ifdef ROGUE_EXPANSION
+			if(gRogueSpeciesInfo[species].baseHP != 0)
+#else
+			if (!(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z) && gRogueSpeciesInfo[species].baseHP != 0)
+#endif
+			{
+				++totalValidEvoLines;
+
+				if(isEvoLineRevised[species])
+				{
+					++totalRevisedEvoLines;
+				}
+			}
+		}
+
+		int totalValidMoves = 0;
+		int totalRevisedMovess = 0;
+
+		for (int move = MOVE_NONE + 1; move < MOVES_COUNT; ++move)
+		{
+			++totalValidMoves;
+
+			if (Rogue_HasMoveBeenRevised(move))
+			{
+				++totalRevisedMovess;
+			}
+		}
+
+		std::cout << "===Revised Stats===\n";
+		std::cout << "Species:   [" << totalRevisedSpecies << " / " << totalValidSpecies << "]\t[" << ((totalRevisedSpecies * 100) / totalValidSpecies) << "%]\n";
+		std::cout << "Evo Lines: [" << totalRevisedEvoLines << " / " << totalValidEvoLines << "]\t[" << ((totalRevisedEvoLines * 100) / totalValidEvoLines) << "%]\n";
+		std::cout << "Moves:     [" << totalRevisedMovess << " / " << totalValidMoves << "]\t[" << ((totalRevisedEvoLines * 100) / totalValidMoves) << "%]\n";
+	}
 
 	return 0;
 }
