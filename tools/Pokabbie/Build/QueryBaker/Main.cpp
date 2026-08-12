@@ -505,7 +505,7 @@ static void PrintRevisionStatsFor(int gen)
 	}
 
 	int totalValidMoves = 0;
-	int totalRevisedMovess = 0;
+	int totalRevisedMoves = 0;
 
 	for (int move = MOVE_NONE + 1; move < MOVES_COUNT; ++move)
 	{
@@ -513,13 +513,13 @@ static void PrintRevisionStatsFor(int gen)
 
 		if (Rogue_HasMoveBeenRevised(move))
 		{
-			++totalRevisedMovess;
+			++totalRevisedMoves;
 		}
 	}
 
 	if (gen == 0)
 	{
-		std::cout << "Moves: " << totalRevisedMovess << " / " << totalValidMoves << " (" << ((totalRevisedEvoLines * 100) / totalValidMoves) << "%)\n";
+		std::cout << "Moves: " << totalRevisedMoves << " / " << totalValidMoves << " (" << ((totalRevisedMoves * 100) / totalValidMoves) << "%)\n";
 	}
 
 	if(gen == 0)
