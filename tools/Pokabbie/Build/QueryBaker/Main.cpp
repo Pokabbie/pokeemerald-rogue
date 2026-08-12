@@ -517,16 +517,17 @@ static void PrintRevisionStatsFor(int gen)
 		}
 	}
 
-	if(gen == 0)
-		std::cout << "=Total=\n";
-	else
-		std::cout << "=Gen " << gen << "=\n";
-
-	std::cout << "Species:   [" << totalRevisedSpecies << " / " << totalValidSpecies << "] [" << ((totalRevisedSpecies * 100) / totalValidSpecies) << "%]\n";
-	std::cout << "Evo Lines: [" << totalRevisedEvoLines << " / " << totalValidEvoLines << "] [" << ((totalRevisedEvoLines * 100) / totalValidEvoLines) << "%]\n";
-
 	if (gen == 0)
 	{
-		std::cout << "Moves:     [" << totalRevisedMovess << " / " << totalValidMoves << "] [" << ((totalRevisedEvoLines * 100) / totalValidMoves) << "%]\n";
+		std::cout << "Moves: " << totalRevisedMovess << " / " << totalValidMoves << " (" << ((totalRevisedEvoLines * 100) / totalValidMoves) << "%)\n";
 	}
+
+	if(gen == 0)
+		std::cout << "[Total]   ";
+	else
+		std::cout << "[Gen " << gen << "]   ";
+
+	std::cout << "Species: " << totalRevisedSpecies << " / " << totalValidSpecies << " (" << ((totalRevisedSpecies * 100) / totalValidSpecies) << "%)   ";
+	std::cout << "Evo Lines: " << totalRevisedEvoLines << " / " << totalValidEvoLines << " (" << ((totalRevisedEvoLines * 100) / totalValidEvoLines) << "%)\n";
+
 }
