@@ -2178,12 +2178,48 @@ static bool8 AreLevelUpMovesSame(struct LevelUpMove const* movesA, struct LevelU
 
     for (i = 0; TRUE; i++)
     {
-        if (memcmp(&movesA[i], &movesB[i], sizeof(struct LevelUpMove)) != 0)
+        if (movesA[i].move == MOVE_NONE && movesB[i].move == MOVE_NONE)
+        {
+            break;
+        }
+
+        if (movesA[i].move == MOVE_NONE || movesB[i].move == MOVE_NONE)
         {
             return FALSE;
         }
 
-        if (movesA[i].move == MOVE_NONE || movesB[i].move == MOVE_NONE)
+        if (memcmp(&movesA[i], &movesB[i], sizeof(struct LevelUpMove)) != 0)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static bool8 AreTutorMovesSame(u16 const* movesA, u16 const* movesB)
+{
+    u32 i;
+
+    if (movesA == movesB)
+        return TRUE;
+    if (movesA == NULL || movesB == NULL)
+        return FALSE;
+
+
+    for (i = 0; TRUE; i++)
+    {
+        if (movesA[i] == MOVE_NONE && movesB[i] == MOVE_NONE)
+        {
+            break;
+        }
+
+        if (movesA[i] == MOVE_NONE || movesB[i] == MOVE_NONE)
+        {
+            return FALSE;
+        }
+
+        if (movesA[i] != movesB[i])
         {
             return FALSE;
         }
@@ -2204,18 +2240,33 @@ static bool8 AreEvolutionsSame(struct Evolution const* evosA, struct Evolution c
 
     for (i = 0; TRUE; i++)
     {
-        if (memcmp(&evosA[i], &evosB[i], sizeof(struct Evolution)) != 0)
+        if (evosA[i].method == EVOLUTIONS_END && evosB[i].method == EVOLUTIONS_END)
         {
-            return FALSE;
+            break;
         }
 
         if (evosA[i].method == EVOLUTIONS_END || evosB[i].method == EVOLUTIONS_END)
         {
             return FALSE;
         }
+
+        if (memcmp(&evosA[i], &evosB[i], sizeof(struct Evolution)) != 0)
+        {
+            return FALSE;
+        }
     }
 
     return TRUE;
+}
+
+static bool8 AreCompetitiveSetsSame(struct RoguePokemonCompetitiveSet const* setsA, struct RoguePokemonCompetitiveSet const* setsB, u32 count)
+{
+    if (setsA == setsB)
+        return TRUE;
+    if (setsA == NULL || setsB == NULL)
+        return FALSE;
+
+    return memcmp(setsA, setsB, sizeof(struct RoguePokemonCompetitiveSet) * count) == 0;
 }
 
 
@@ -2225,22 +2276,33 @@ bool8 Rogue_HaSpeciesBeenRevised(u16 species)
     if (Rogue_GetRevisionModeActive())
 #endif
     {
+        struct RoguePokemonBaseStats ogBaseStats;
+        struct RoguePokemonBaseStats revisedBaseStats;
         struct RoguePokemonProfile const* ogProfile = Rogue_GetPokemonProfileFor(species, FALSE);
         struct RoguePokemonProfile const* revisedProfile = Rogue_GetPokemonProfileFor(species, TRUE);
 
-        if (
-            ogProfile->monFlags != revisedProfile->monFlags ||
-            ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount ||
-            ogProfile->evolutionCount != revisedProfile->evolutionCount ||
-            memcmp(&ogProfile->baseStats, &revisedProfile->baseStats, sizeof(struct RoguePokemonBaseStats)) != 0 ||
-            memcmp(ogProfile->evolutions, revisedProfile->evolutions, sizeof(struct Evolution) * ogProfile->evolutionCount) != 0 ||
-            memcmp(ogProfile->competitiveSets, revisedProfile->competitiveSets, sizeof(struct RoguePokemonCompetitiveSet) * ogProfile->competitiveSetCount) != 0 ||
-            !AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves) ||
-            !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions)
-            )
-        {
+        Rogue_GetPokemonBaseStatsFor(species, &ogBaseStats, FALSE);
+        Rogue_GetPokemonBaseStatsFor(species, &revisedBaseStats, TRUE);
+
+        // Different base stats
+        if (ogProfile->monFlags != revisedProfile->monFlags || memcmp(&ogBaseStats, &revisedBaseStats, sizeof(struct RoguePokemonBaseStats)) != 0)
             return TRUE;
-        }
+
+        // Different evos
+        if (ogProfile->evolutionCount != revisedProfile->evolutionCount || !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions))
+            return TRUE;
+
+        // Level up moves
+        if (!AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves))
+            return TRUE;
+
+        // Tutor moves
+        if (!AreTutorMovesSame(ogProfile->tutorMoves, revisedProfile->tutorMoves))
+            return TRUE;
+
+        // Competitive sets
+        if (ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount || !AreCompetitiveSetsSame(ogProfile->competitiveSets, revisedProfile->competitiveSets, ogProfile->competitiveSetCount))
+            return TRUE;
     }
 
     return FALSE;
