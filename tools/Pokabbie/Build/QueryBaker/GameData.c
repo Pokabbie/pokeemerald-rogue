@@ -16,6 +16,8 @@ const union AnimCmd sAnim_GeneralFrame0[] =
 #include "data/pokemon/base_stats.h"
 #include "data/graphics/pokemon.h"
 #endif
+#include "data/battle_moves.h"
+#include "data/battle_moves_revised.h"
 #include "data/rogue_pokedex.h"
 
 #ifdef ROGUE_EXPANSION
