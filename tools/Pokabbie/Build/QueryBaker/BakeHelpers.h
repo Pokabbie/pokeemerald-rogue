@@ -22,6 +22,7 @@
 #endif
 
 #include "gba/gba.h"
+#include "sprite.h"
 #include "constants/global.h"
 #include "constants/rogue.h"
 
