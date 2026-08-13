@@ -142,5 +142,25 @@
         "GEN3PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MASQUERAIN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 62,
+        "Speed": 60,
+        "SpAttack": 80,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

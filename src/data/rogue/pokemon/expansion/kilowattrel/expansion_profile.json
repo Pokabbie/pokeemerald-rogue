@@ -233,5 +233,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KILOWATTREL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 70,
+        "Defense": 60,
+        "Speed": 125,
+        "SpAttack": 105,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_WIND_POWER",
+        "ABILITY_VOLT_ABSORB",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  }
 }

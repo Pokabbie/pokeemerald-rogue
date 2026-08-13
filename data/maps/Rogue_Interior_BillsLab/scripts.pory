@@ -67,7 +67,7 @@ script Rogue_Interior_BillsLab_TalkPC
 
         if(var(VAR_RESULT) != SPECIES_NONE)
         {
-            showmonpic(VAR_RESULT, 2, 2)
+            showenemypartypic(0, 2, 2)
             playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
 
             callnative(ScriptMenu_DisplayUniqueMonInfo)
@@ -83,7 +83,7 @@ script Rogue_Interior_BillsLab_TalkPC
             waitstate
             hidemonpic
         }
-
+        
         addvar(VAR_0x8004, 1)
     }
 

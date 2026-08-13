@@ -143,5 +143,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ODDISH": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 50,
+        "Defense": 55,
+        "Speed": 30,
+        "SpAttack": 75,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_RUN_AWAY"
+      ]
+    }
+  }
 }

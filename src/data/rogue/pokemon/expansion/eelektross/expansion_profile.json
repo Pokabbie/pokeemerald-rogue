@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_EELEKTROSS"
+    "SPECIES_EELEKTROSS",
+    "SPECIES_EELEKTROSS_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -267,6 +268,196 @@
       "SourceTiers": [
         "GEN9ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_COIL",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_PROTECT",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_GRASS_KNOT",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DISCHARGE",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_FLAMETHROWER",
+        "MOVE_PROTECT",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_EELEVATE",
+      "Item": "ITEM_EELEKTROSSITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EELEKTROSS": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 115,
+        "Defense": 80,
+        "Speed": 50,
+        "SpAttack": 105,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_EELEKTROSS_MEGA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 145,
+        "Defense": 80,
+        "Speed": 80,
+        "SpAttack": 135,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_EELEVATE",
+        "ABILITY_EELEVATE",
+        "ABILITY_EELEVATE"
+      ]
+    }
+  }
 }

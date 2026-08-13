@@ -160,5 +160,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRAVIARY_HISUIAN": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 83,
+        "Defense": 70,
+        "Speed": 65,
+        "SpAttack": 112,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

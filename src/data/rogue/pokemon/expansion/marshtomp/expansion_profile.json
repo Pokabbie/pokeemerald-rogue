@@ -137,5 +137,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MARSHTOMP": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 70,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

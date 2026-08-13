@@ -848,7 +848,6 @@ BattleScript_CorrosiveGasFail:
 
 BattleScript_EffectMakeItRain::
 	setmoveeffect MOVE_EFFECT_SP_ATK_MINUS_1 | MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN
-	seteffectprimary
 	goto BattleScript_SetEffectPrimaryReturn
 
 BattleScript_EffectClangingScales::
@@ -1195,7 +1194,7 @@ BattleScript_FirstChargingTurnMeteorBeam::
 	printfromtable gFirstTurnOfTwoStringIds
 	waitmessage B_WAIT_TIME_LONG
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_MOVE
 	return
 
 BattleScript_EffectElectroShot::
@@ -1222,7 +1221,7 @@ BattleScript_FirstChargingTurnElectroShot::
 	printfromtable gFirstTurnOfTwoStringIds
 	waitmessage B_WAIT_TIME_LONG
 	setmoveeffect MOVE_EFFECT_SP_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_MOVE
 	return
 
 BattleScript_EffectSkyDrop:
@@ -7934,7 +7933,7 @@ BattleScript_WishComesTrue::
 	playanimation BS_TARGET, B_ANIM_WISH_HEAL
 	printstring STRINGID_PKMNWISHCAMETRUE
 	waitmessage B_WAIT_TIME_LONG
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_IGNORE_DISGUISE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	printstring STRINGID_PKMNREGAINEDHEALTH
@@ -9752,7 +9751,7 @@ BattleScript_SpikyShieldRet::
 BattleScript_KingsShieldEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_PROTECT
 	setmoveeffect 0
 	copybyte sBATTLER, gBattlerTarget
 	copybyte gBattlerTarget, gBattlerAttacker
@@ -9763,7 +9762,7 @@ BattleScript_KingsShieldEffect::
 BattleScript_BanefulBunkerEffect::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_STATUS_ABILITY_EFFECT | HITMARKER_PASSIVE_DAMAGE
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_PROTECT
 	setmoveeffect 0
 	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	return
@@ -9771,7 +9770,7 @@ BattleScript_BanefulBunkerEffect::
 BattleScript_ShelterEffect_Revised::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
 	bichalfword gMoveResultFlags, MOVE_RESULT_NO_EFFECT
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_PROTECT
 	setmoveeffect 0
 	orhalfword gMoveResultFlags, MOVE_RESULT_MISSED
 	return
@@ -9788,14 +9787,14 @@ BattleScript_GooeyActivates::
 	waitstate
 	call BattleScript_AbilityPopUp
 	swapattackerwithtarget  @ for defiant, mirror armor
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_MOVE
 	swapattackerwithtarget @ kleen: restore the target/attacker, for knock off and I imagine others 
 	return
 
 BattleScript_AbilityStatusEffect::
 	waitstate
 	call BattleScript_AbilityPopUp
-	seteffectsecondary
+	seteffectsecondary TRIGGER_ON_ABILITY
 	return
 
 BattleScript_BattleBondActivatesOnMoveEndAttacker::

@@ -115,5 +115,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CROCALOR": {
+      "BaseStats": {
+        "HP": 81,
+        "Attack": 55,
+        "Defense": 78,
+        "Speed": 49,
+        "SpAttack": 90,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_UNAWARE"
+      ]
+    }
+  }
 }

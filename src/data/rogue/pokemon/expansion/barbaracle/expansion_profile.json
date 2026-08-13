@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_BARBARACLE"
+    "SPECIES_BARBARACLE",
+    "SPECIES_BARBARACLE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -255,6 +256,181 @@
       "SourceTiers": [
         "GEN8MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_POISON_JAB",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_BLAST",
+        "MOVE_SHELL_SMASH"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_LIQUIDATION",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_WATERFALL"
+      ],
+      "Ability": "ABILITY_TOUGH_CLAWS",
+      "Item": "ITEM_BARBARACITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BARBARACLE": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 105,
+        "Defense": 115,
+        "Speed": 68,
+        "SpAttack": 54,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_SNIPER",
+        "ABILITY_PICKPOCKET"
+      ]
+    },
+    "SPECIES_BARBARACLE_MEGA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 140,
+        "Defense": 130,
+        "Speed": 88,
+        "SpAttack": 64,
+        "SpDefense": 106
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS"
+      ]
+    }
+  }
 }

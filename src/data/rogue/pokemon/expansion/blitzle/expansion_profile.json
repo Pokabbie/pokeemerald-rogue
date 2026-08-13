@@ -152,5 +152,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BLITZLE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 32,
+        "Speed": 76,
+        "SpAttack": 50,
+        "SpDefense": 32
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_MOTOR_DRIVE",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

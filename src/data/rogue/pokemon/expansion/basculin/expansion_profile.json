@@ -252,5 +252,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BASCULIN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 92,
+        "Defense": 65,
+        "Speed": 98,
+        "SpAttack": 80,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_RECKLESS",
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

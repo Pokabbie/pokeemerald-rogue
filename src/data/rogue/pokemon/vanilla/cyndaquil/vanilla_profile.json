@@ -92,5 +92,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CYNDAQUIL": {
+      "BaseStats": {
+        "HP": 39,
+        "Attack": 52,
+        "Defense": 43,
+        "Speed": 65,
+        "SpAttack": 60,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

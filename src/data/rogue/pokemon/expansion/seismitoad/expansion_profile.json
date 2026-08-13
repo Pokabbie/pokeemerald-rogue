@@ -659,5 +659,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEISMITOAD": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 95,
+        "Defense": 75,
+        "Speed": 74,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

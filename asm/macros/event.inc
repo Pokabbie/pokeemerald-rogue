@@ -1006,15 +1006,27 @@
 	.byte \obscured
 	.endm
 
+	@ Displays a box containing the accurate front sprite for the specified Pokemon in the Enemy Party.
+	.macro showplayerpartypic index:req, x:req, y:req, obscured=FALSE
+	.byte 0xcb
+	.2byte \index
+	.byte \x
+	.byte \y
+	.byte \obscured
+	.endm
+
+	@ Displays a box containing the accurate front sprite for the specified Pokemon in the Enemy Party.
+	.macro showenemypartypic index:req, x:req, y:req, obscured=FALSE
+	.byte 0xca
+	.2byte \index
+	.byte \x
+	.byte \y
+	.byte \obscured
+	.endm
+
 	@ Hides the box displayed by showmonpic.
 	.macro hidemonpic
 	.byte 0x76
-	.endm
-
-	@ Draws an image of the winner of the contest. winnerId is any CONTEST_WINNER_* constant.
-	.macro showcontestpainting winnerId:req
-	.byte 0x77
-	.byte \winnerId
 	.endm
 
 	@ Displays the given string as braille text in a standard message box. The string should use the .braille directive
@@ -1195,6 +1207,12 @@
 	.2byte \category
 	.endm
 
+	.macro rogue_custompokemart products:req currency:req
+	.byte 0xf6
+	.4byte \products
+	.2byte \currency
+	.endm
+
 	@ Starts up the slot machine minigame. id is a SLOT_MACHINE_* value that influences probabilities of certain reel outcomes.
 	.macro playslotmachine id:req
 	.byte 0x89
@@ -1208,26 +1226,6 @@
 	.byte \treeId
 	.byte \berry
 	.byte \growthStage
-	.endm
-
-	@ Opens the party menu to select a Pokemon for a contest.
-	.macro choosecontestmon
-	.byte 0x8b
-	.endm
-
-	@ Starts the appeals round of a contest.
-	.macro startcontest
-	.byte 0x8c
-	.endm
-
-	@ Shows the results screen of a contest.
-	.macro showcontestresults
-	.byte 0x8d
-	.endm
-
-	@ Starts communication to initialize a link contest.
-	.macro contestlinktransfer
-	.byte 0x8e
 	.endm
 
 	@ Stores a random integer between 0 and limit (exclusive of limit) in VAR_RESULT.
@@ -1808,14 +1806,6 @@
 	.macro warpwhitefade map:req, a, b, c
 	.byte 0xe0
 	formatwarp \map, \a, \b, \c
-	.endm
-
-	@ Buffers the name of the contest category to the buffer.
-	@ For example a category of CONTEST_CATEGORY_COOL will buffer the string "COOLNESS CONTEST".
-	.macro buffercontestname stringVarId:req, category:req
-	.byte 0xe1
-	stringvar \stringVarId
-	.2byte \category
 	.endm
 
 	@ Writes the name of the specified item to the specified buffer. If 'item' is a Berry or ITEM_POKE_BALL

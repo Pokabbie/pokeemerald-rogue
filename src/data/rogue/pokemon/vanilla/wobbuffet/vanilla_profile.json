@@ -72,5 +72,25 @@
         "GEN3UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WOBBUFFET": {
+      "BaseStats": {
+        "HP": 190,
+        "Attack": 33,
+        "Defense": 58,
+        "Speed": 33,
+        "SpAttack": 33,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SHADOW_TAG",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -179,5 +179,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JYNX": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 50,
+        "Defense": 35,
+        "Speed": 95,
+        "SpAttack": 115,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

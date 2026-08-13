@@ -112,5 +112,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIDGEY": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 56,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_TANGLED_FEET",
+        "ABILITY_BIG_PECKS"
+      ]
+    }
+  }
 }

@@ -154,5 +154,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLETCHINDER": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 73,
+        "Defense": 55,
+        "Speed": 84,
+        "SpAttack": 56,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_GALE_WINGS"
+      ]
+    }
+  }
 }

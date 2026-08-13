@@ -179,5 +179,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SOLGALEO": {
+      "BaseStats": {
+        "HP": 137,
+        "Attack": 137,
+        "Defense": 107,
+        "Speed": 97,
+        "SpAttack": 113,
+        "SpDefense": 89
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_FULL_METAL_BODY",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

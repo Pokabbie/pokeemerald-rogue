@@ -100,5 +100,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARCTIBAX": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 95,
+        "Defense": 66,
+        "Speed": 62,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THERMAL_EXCHANGE",
+        "ABILITY_NONE",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  }
 }

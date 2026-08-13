@@ -23,5 +23,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_UNOWN": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 72,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 72,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -179,5 +179,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHIMCHAR": {
+      "BaseStats": {
+        "HP": 44,
+        "Attack": 58,
+        "Defense": 44,
+        "Speed": 61,
+        "SpAttack": 58,
+        "SpDefense": 44
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

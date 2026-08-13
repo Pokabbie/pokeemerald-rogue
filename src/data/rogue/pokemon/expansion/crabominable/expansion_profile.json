@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_CRABOMINABLE"
+    "SPECIES_CRABOMINABLE",
+    "SPECIES_CRABOMINABLE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -211,6 +212,151 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BULK_UP",
+        "MOVE_ICE_HAMMER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_EARTHQUAKE"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_LEFTOVERS",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_WATER",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_EARTHQUAKE",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_IRON_FIST",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "TeraType": "TYPE_ICE",
+      "SourceTiers": [
+        "GEN9ZU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CRABOMINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CRABOMINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_PUNCH",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_MACH_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CRABOMINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ICE_HAMMER",
+        "MOVE_PROTECT",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_MACH_PUNCH"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CRABOMINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_ICE_HAMMER",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_THUNDER_PUNCH"
+      ],
+      "Ability": "ABILITY_HYPER_CUTTER",
+      "Item": "ITEM_CRABOMINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRABOMINABLE": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 132,
+        "Defense": 77,
+        "Speed": 43,
+        "SpAttack": 62,
+        "SpDefense": 67
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_IRON_FIST",
+        "ABILITY_ANGER_POINT"
+      ]
+    },
+    "SPECIES_CRABOMINABLE_MEGA": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 157,
+        "Defense": 122,
+        "Speed": 33,
+        "SpAttack": 62,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_FIST",
+        "ABILITY_IRON_FIST",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

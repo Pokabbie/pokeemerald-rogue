@@ -95,5 +95,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SLAKOTH": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 30,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TRUANT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

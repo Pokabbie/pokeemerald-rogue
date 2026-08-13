@@ -536,5 +536,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ARAQUANID": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 70,
+        "Defense": 92,
+        "Speed": 42,
+        "SpAttack": 50,
+        "SpDefense": 132
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_BUBBLE",
+        "ABILITY_NONE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

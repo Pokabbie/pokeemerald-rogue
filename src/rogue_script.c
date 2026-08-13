@@ -7,6 +7,7 @@
 
 #include "battle_main.h"
 #include "battle_message.h"
+#include "battle_setup.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
@@ -516,9 +517,9 @@ void RogueDebug_GiveDynamicUniqueMon()
 {
 #ifdef ROGUE_DEBUG
     struct Pokemon* mon = &gEnemyParty[0];
-    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AIPOM);
+    u32 customMonId = RogueGift_CreateDynamicMonId(gSpecialVar_0x8004, SPECIES_AERODACTYL);
 
-    RogueGift_CreateMon(customMonId, mon, SPECIES_AIPOM, STARTER_MON_LEVEL, 0);
+    RogueGift_CreateMon(customMonId, mon, SPECIES_AERODACTYL, STARTER_MON_LEVEL, 0);
     GiveTradedMonToPlayer(mon);
 #endif
 }
@@ -529,7 +530,10 @@ void Rogue_GetDynamicUniqueMonSpecies()
 
     if(RogueGift_IsDynamicMonSlotEnabled(gSpecialVar_0x8004))
     {
-        gSpecialVar_Result = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004)->species;
+        struct UniqueMon* mon = RogueGift_GetDynamicUniqueMon(gSpecialVar_0x8004);
+        
+        gSpecialVar_Result = mon->species;
+        RogueGift_CreateMon(mon->customMonId, &gEnemyParty[0], mon->species, 1, 0);
     }
     else
     {
@@ -1076,6 +1080,22 @@ void Rogue_GetTrainerNum(void)
     else
     {
         gSpecialVar_Result = FALSE;
+    }
+}
+
+void Rogue_HasDefeatedAllRouteTrainers()
+{
+    u32 i;
+    gSpecialVar_Result = TRUE;
+    
+    for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
+    {
+        u16 trainerNum = Rogue_GetDynamicTrainer(i);
+        if(trainerNum != TRAINER_NONE && !HasTrainerBeenFought(trainerNum))
+        {
+            gSpecialVar_Result = FALSE;
+            return;
+        }
     }
 }
 
@@ -1697,7 +1717,11 @@ void Rogue_SwapDaycareMon()
 {
     u16 partySlot = gSpecialVar_0x8004;
     u8 daycareSlot = gSpecialVar_0x8005;
+    u8 isDaycarePhone = gSpecialVar_0x8006 == 0;
     Rogue_SwapMonInDaycare(&gPlayerParty[partySlot], daycareSlot);
+
+    if(isDaycarePhone)
+        Rogue_OnDayCareChargeUsed();
 
     // Resetup followmon
     if(partySlot == 0)
@@ -1727,7 +1751,7 @@ void Rogue_SetupDaycareSpeciesGraphics()
         {
             // FLAG_HIDE_SPECIES_0, FLAG_HIDE_SPECIES_1, FLAG_HIDE_SPECIES_1
             FlagClear(FLAG_TEMP_5 + i);
-            FollowMon_SetGraphicsRaw(i, FollowMon_GetBoxMonGraphics(mon));
+            FollowMon_SetGraphicsFromBoxMon(i, mon);
         }
         else
         {
@@ -1783,10 +1807,12 @@ void Rogue_OnHealWithNurse()
     }
 
     Rogue_RefillFlightCharges(TRUE);
+    Rogue_RefillDayCareCharges(TRUE);
 }
 
-#define VAR_CATCH_CONTEST_TYPE VAR_TEMP_2
-#define VAR_CATCH_CONTEST_STAT VAR_TEMP_3
+#define VAR_CATCH_CONTEST_STATE VAR_ROGUE_SPECIAL_ENCOUNTER_DATA
+#define VAR_CATCH_CONTEST_TYPE VAR_ROGUE_SPECIAL_ENCOUNTER_DATA1
+#define VAR_CATCH_CONTEST_STAT VAR_ROGUE_SPECIAL_ENCOUNTER_DATA2
 
 void Rogue_SelectCatchingContestMode()
 {
@@ -1796,8 +1822,31 @@ void Rogue_SelectCatchingContestMode()
     while(!IS_STANDARD_TYPE(type))
     {
         type = Random() % NUMBER_OF_MON_TYPES;
+
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_KANTO_RBY)
+        {
+            switch (type)
+            {
+            case TYPE_DARK:
+            case TYPE_STEEL:
+                type = TYPE_NONE;
+                break;
+            }
+        }
+#ifdef ROGUE_EXPANSION
+        else if(RoguePokedex_GetDexGenLimit() < 6)
+        {
+            switch (type)
+            {
+            case TYPE_FAIRY:
+                type = TYPE_NONE;
+                break;
+            }
+        }
+#endif
     }
 
+    VarSet(VAR_CATCH_CONTEST_STATE, 0);
     VarSet(VAR_CATCH_CONTEST_TYPE, type);
     VarSet(VAR_CATCH_CONTEST_STAT, stat);
 }
@@ -1905,7 +1954,7 @@ void Rogue_AppendMultichoicePokeblockItems()
         u16 const* itemsList;
         RogueListQuery_Begin();
 
-        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE, NULL);
 
         for(;*itemsList != ITEM_NONE; ++itemsList)
         {
@@ -1946,7 +1995,7 @@ void Rogue_AppendMultichoiceBerriesForPokeblock()
         u16 const* itemsList;
         RogueListQuery_Begin();
 
-        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE);
+        itemsList = RogueListQuery_CollapseItems(ITEM_SORT_MODE_NAME, FALSE, NULL);
 
         for(;*itemsList != ITEM_NONE; ++itemsList)
         {
@@ -2155,6 +2204,10 @@ void Rogue_BattleSim_WagerItem()
     {
         amount = 1;
     }
+    else if(itemId == ITEM_RARE_CANDY)
+    {
+        amount = 5;
+    }
     else
     {
         u32 targetAmount = ItemId_GetPrice(ITEM_RARE_CANDY) * 10;
@@ -2289,6 +2342,41 @@ void Rogue_BattleSim_HandleItemMoney()
         RemoveMoney(&gSaveBlock1Ptr->money, money);
         Rogue_PushPopup_LostMoney(money);
     }
+}
+
+void Rogue_BattleTower_GiveReward()
+{
+    RAND_TYPE rngSeedToRestore = gRngRogueValue;
+
+    SeedRogueRng(VarGet(VAR_ROGUE_SPECIAL_ENCOUNTER_DATA));
+
+    if(RogueRandomChance(1, 0) && AddBagItem(ITEM_ESCAPE_ROPE, 1))
+    {
+        Rogue_PushPopup_AddItem(ITEM_ESCAPE_ROPE, 1);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_MAX_POTION, 3))
+    {
+        Rogue_PushPopup_AddItem(ITEM_MAX_POTION, 3);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_ULTRA_BALL, 10))
+    {
+        Rogue_PushPopup_AddItem(ITEM_ULTRA_BALL, 10);
+    }
+    else if(RogueRandomChance(20, 0) && AddBagItem(ITEM_RARE_CANDY, 5))
+    {
+        Rogue_PushPopup_AddItem(ITEM_RARE_CANDY, 5);
+    }
+    else if(AddBagItem(ITEM_POKE_BALL, 20))
+    {
+        Rogue_PushPopup_AddItem(ITEM_POKE_BALL, 20);
+    }
+    else
+    {
+        AddMoney(&gSaveBlock1Ptr->money, 8000);
+        Rogue_PushPopup_AddMoney(8000);
+    }
+    
+    gRngRogueValue = rngSeedToRestore;
 }
 
 #undef VAR_WAGER_PARAM0

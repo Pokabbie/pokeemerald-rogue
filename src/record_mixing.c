@@ -25,7 +25,6 @@
 #include "fldeff_misc.h"
 #include "script.h"
 #include "event_data.h"
-#include "lilycove_lady.h"
 #include "strings.h"
 #include "string_util.h"
 #include "record_mixing.h"
@@ -681,32 +680,7 @@ static void ReceiveBattleTowerData(void *records, size_t recordSize, u8 multipla
 
 static void ReceiveLilycoveLadyData(LilycoveLady *records, size_t recordSize, u8 multiplayerId)
 {
-    LilycoveLady *lilycoveLady;
-    u32 mixIndices[MAX_LINK_PLAYERS];
-
-    ShufflePlayerIndices(mixIndices);
-    memcpy((void *)records + recordSize * multiplayerId, sLilycoveLadySave, sizeof(LilycoveLady));
-
-    if (GetLilycoveLadyId() == 0)
-    {
-        lilycoveLady = Alloc(sizeof(*lilycoveLady));
-        if (lilycoveLady == NULL)
-            return;
-
-        memcpy(lilycoveLady, sLilycoveLadySave, sizeof(LilycoveLady));
-    }
-    else
-    {
-        lilycoveLady = NULL;
-    }
-
-    memcpy(sLilycoveLadySave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(LilycoveLady));
-    ResetLilycoveLadyForRecordMix();
-    if (lilycoveLady != NULL)
-    {
-        QuizLadyClearQuestionForRecordMix(lilycoveLady);
-        Free(lilycoveLady);
-    }
+    AGB_ASSERT(FALSE);
 }
 
 static u8 GetDaycareMailItemId(struct DaycareMail *mail)

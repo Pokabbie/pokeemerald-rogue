@@ -190,5 +190,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZAPDOS": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 90,
+        "Defense": 85,
+        "Speed": 100,
+        "SpAttack": 125,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRESSURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

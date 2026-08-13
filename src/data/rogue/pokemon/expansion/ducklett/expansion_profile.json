@@ -112,5 +112,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DUCKLETT": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 44,
+        "Defense": 50,
+        "Speed": 55,
+        "SpAttack": 44,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_BIG_PECKS",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  }
 }

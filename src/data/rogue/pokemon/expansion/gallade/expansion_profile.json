@@ -799,5 +799,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GALLADE": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 125,
+        "Defense": 65,
+        "Speed": 80,
+        "SpAttack": 65,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_STEADFAST",
+        "ABILITY_SHARPNESS",
+        "ABILITY_JUSTIFIED"
+      ]
+    },
+    "SPECIES_GALLADE_MEGA": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 165,
+        "Defense": 95,
+        "Speed": 110,
+        "SpAttack": 65,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

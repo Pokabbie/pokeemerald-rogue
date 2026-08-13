@@ -276,5 +276,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LILLIGANT_HISUIAN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 105,
+        "Defense": 75,
+        "Speed": 105,
+        "SpAttack": 50,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_HUSTLE",
+        "ABILITY_LEAF_GUARD"
+      ]
+    }
+  }
 }

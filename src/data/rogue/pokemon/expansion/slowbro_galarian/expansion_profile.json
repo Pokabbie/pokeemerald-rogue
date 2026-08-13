@@ -337,5 +337,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLOWBRO_GALARIAN": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 100,
+        "Defense": 95,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUICK_DRAW",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

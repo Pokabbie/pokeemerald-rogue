@@ -724,5 +724,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RILLABOOM": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_GRASSY_SURGE"
+      ]
+    },
+    "SPECIES_RILLABOOM_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 85,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_GRASSY_SURGE"
+      ]
+    }
+  }
 }

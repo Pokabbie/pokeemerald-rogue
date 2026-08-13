@@ -279,5 +279,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STUNKY": {
+      "BaseStats": {
+        "HP": 63,
+        "Attack": 63,
+        "Defense": 47,
+        "Speed": 74,
+        "SpAttack": 41,
+        "SpDefense": 41
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_STENCH",
+        "ABILITY_AFTERMATH",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

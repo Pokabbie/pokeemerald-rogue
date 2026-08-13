@@ -431,5 +431,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZAPDOS_GALARIAN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 125,
+        "Defense": 90,
+        "Speed": 100,
+        "SpAttack": 85,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

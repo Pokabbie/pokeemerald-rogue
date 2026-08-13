@@ -363,5 +363,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VAPOREON": {
+      "BaseStats": {
+        "HP": 130,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 65,
+        "SpAttack": 110,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  }
 }

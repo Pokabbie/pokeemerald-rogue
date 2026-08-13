@@ -605,7 +605,60 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         ICON(Staraptor, 0),
         .footprint = gMonFootprint_Staraptor,
         LEARNSETS(Staraptor),
+        .formSpeciesIdTable = sStaraptorFormSpeciesIdTable,
+        .formChangeTable = sStaraptorFormChangeTable,
     },
+
+    [SPECIES_STARAPTOR_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 140,
+        .baseDefense   = 100,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 90,
+        .types = { TYPE_FIGHTING, TYPE_FLYING },
+        .catchRate = 45,
+        .expYield = 218,
+        .evYield_Attack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .abilities = { ABILITY_CONTRARY, ABILITY_CONTRARY, ABILITY_CONTRARY },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Staraptor"),
+        .cryId = CRY_STARAPTOR,
+        .natDexNum = NATIONAL_DEX_STARAPTOR,
+        .categoryName = _("Predator"),
+        .height = 12,
+        .weight = 249,
+        .description = POKEDEX_DESC_STRING(
+            "When Staravia evolve into StaraptorMega,\n"
+            "they leave the flock to live alone. It has\n"
+            "a savage nature. It will courageously\n"
+            "challenge foes that are much larger."),
+        .pokemonScale = 282,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(StaraptorMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_StaraptorMega,
+        .frontAnimId = ANIM_V_SHAKE,
+        BACK_PIC(StaraptorMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        PALETTES(StaraptorMega),
+        ICON(StaraptorMega,  0),
+        .footprint = gMonFootprint_Staraptor,
+        LEARNSETS(StaraptorMega),
+        .formSpeciesIdTable = sStaraptorFormSpeciesIdTable,
+        .formChangeTable = sStaraptorFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_STARLY
 
 #if P_FAMILY_BIDOOF

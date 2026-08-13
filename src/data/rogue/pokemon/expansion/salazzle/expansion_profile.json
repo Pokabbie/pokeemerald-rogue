@@ -590,5 +590,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SALAZZLE": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 64,
+        "Defense": 60,
+        "Speed": 117,
+        "SpAttack": 111,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_CORROSION",
+        "ABILITY_NONE",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

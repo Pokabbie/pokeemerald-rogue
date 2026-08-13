@@ -119,7 +119,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_drawboxtext                       @ 0x74
 	.4byte ScrCmd_showmonpic                        @ 0x75
 	.4byte ScrCmd_hidemonpic                        @ 0x76
-	.4byte ScrCmd_showcontestpainting               @ 0x77
+	.4byte ScrCmd_nop1                	 	       @ 0x77
 	.4byte ScrCmd_braillemessage                    @ 0x78
 	.4byte ScrCmd_givemon                           @ 0x79
 	.4byte ScrCmd_giveegg                           @ 0x7a
@@ -139,10 +139,10 @@ gScriptCmdTable::
 	.4byte ScrCmd_pokemartdecoration2               @ 0x88
 	.4byte ScrCmd_playslotmachine                   @ 0x89
 	.4byte ScrCmd_setberrytree                      @ 0x8a
-	.4byte ScrCmd_choosecontestmon                  @ 0x8b
-	.4byte ScrCmd_startcontest                      @ 0x8c
-	.4byte ScrCmd_showcontestresults                @ 0x8d
-	.4byte ScrCmd_contestlinktransfer               @ 0x8e
+	.4byte ScrCmd_nop1      				        @ 0x8b
+	.4byte ScrCmd_nop1      				        @ 0x8c
+	.4byte ScrCmd_nop1      				        @ 0x8d
+	.4byte ScrCmd_nop1      				        @ 0x8e
 	.4byte ScrCmd_random                            @ 0x8f
 	.4byte ScrCmd_addmoney                          @ 0x90
 	.4byte ScrCmd_removemoney                       @ 0x91
@@ -202,8 +202,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_begindynamicmultichoice           @ 0xc7
 	.4byte ScrCmd_appenddynamicmultichoice          @ 0xc8
 	.4byte ScrCmd_showtextbox                       @ 0xc9
-	.4byte ScrCmd_nop1                              @ 0xca
-	.4byte ScrCmd_nop1                              @ 0xcb
+	.4byte ScrCmd_showenemypartypic                 @ 0xca
+	.4byte ScrCmd_showplayerpartypic                @ 0xcb
 	.4byte ScrCmd_nop1                              @ 0xcc
 	.4byte ScrCmd_setmonmodernfatefulencounter      @ 0xcd
 	.4byte ScrCmd_checkmonmodernfatefulencounter    @ 0xce
@@ -225,7 +225,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_buffertrainername                 @ 0xde
 	.4byte ScrCmd_pokenavcall                       @ 0xdf
 	.4byte ScrCmd_warpwhitefade                     @ 0xe0
-	.4byte ScrCmd_buffercontestname                 @ 0xe1
+	.4byte ScrCmd_nop1      				        @ 0xe1
 	.4byte ScrCmd_bufferitemnameplural              @ 0xe2
 	.4byte ScrCmd_fillmetatile                      @ 0xe3
 	.4byte ScrCmd_pokemartwithminprice              @ 0xe4
@@ -246,6 +246,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_checkfollower                     @ 0xf3
 	.4byte ScrCmd_multichoicedynamic                @ 0xf4
 	.4byte ScrCmd_hubupgradeunlocked                @ 0xf5
+	.4byte ScrCmd_rogue_custompokemart              @ 0xf6
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

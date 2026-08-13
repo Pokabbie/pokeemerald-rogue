@@ -186,5 +186,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CAMERUPT": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 40,
+        "SpAttack": 105,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_MAGMA_ARMOR",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

@@ -359,5 +359,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GHOLDENGO": {
+      "BaseStats": {
+        "HP": 87,
+        "Attack": 60,
+        "Defense": 95,
+        "Speed": 84,
+        "SpAttack": 133,
+        "SpDefense": 91
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_GOOD_AS_GOLD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

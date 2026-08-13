@@ -321,5 +321,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEOWSCARADA": {
+      "BaseStats": {
+        "HP": 76,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 123,
+        "SpAttack": 81,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_PROTEAN"
+      ]
+    }
+  }
 }

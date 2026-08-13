@@ -140,5 +140,26 @@
         "GEN8BATTLESTADIUMSINGLES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SIRFETCHD": {
+      "BaseStats": {
+        "HP": 62,
+        "Attack": 135,
+        "Defense": 95,
+        "Speed": 65,
+        "SpAttack": 68,
+        "SpDefense": 82
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_STEADFAST",
+        "ABILITY_NONE",
+        "ABILITY_SCRAPPY"
+      ]
+    }
+  }
 }

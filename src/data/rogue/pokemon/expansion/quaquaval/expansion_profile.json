@@ -237,5 +237,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_QUAQUAVAL": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 120,
+        "Defense": 80,
+        "Speed": 85,
+        "SpAttack": 85,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_MOXIE"
+      ]
+    }
+  }
 }

@@ -343,5 +343,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GIRATINA_ORIGIN": {
+      "BaseStats": {
+        "HP": 150,
+        "Attack": 120,
+        "Defense": 100,
+        "Speed": 90,
+        "SpAttack": 120,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

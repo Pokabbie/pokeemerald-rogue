@@ -192,5 +192,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TYPE_NULL": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 95,
+        "Defense": 95,
+        "Speed": 59,
+        "SpAttack": 95,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

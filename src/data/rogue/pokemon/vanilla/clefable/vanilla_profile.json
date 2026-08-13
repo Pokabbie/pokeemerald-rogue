@@ -316,5 +316,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLEFABLE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 70,
+        "Defense": 73,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

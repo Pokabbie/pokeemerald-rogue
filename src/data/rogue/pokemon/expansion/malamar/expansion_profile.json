@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_MALAMAR"
+    "SPECIES_MALAMAR",
+    "SPECIES_MALAMAR_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -351,6 +352,196 @@
       "SourceTiers": [
         "GEN9ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_SUPERPOWER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SUPERPOWER",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SUPERPOWER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCH_UP",
+        "MOVE_REST",
+        "MOVE_STORED_POWER",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_SUPERPOWER",
+        "MOVE_TRICK_ROOM"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCH_UP",
+        "MOVE_REST",
+        "MOVE_STORED_POWER",
+        "MOVE_SUPERPOWER"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_RELAXED",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_PSYCHO_CUT",
+        "MOVE_SUPERPOWER",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_SASSY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SUPERPOWER",
+        "MOVE_THROAT_CHOP",
+        "MOVE_ZEN_HEADBUTT"
+      ],
+      "Ability": "ABILITY_CONTRARY",
+      "Item": "ITEM_MALAMARITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MALAMAR": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 92,
+        "Defense": 88,
+        "Speed": 73,
+        "SpAttack": 68,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CONTRARY",
+        "ABILITY_SUCTION_CUPS",
+        "ABILITY_INFILTRATOR"
+      ]
+    },
+    "SPECIES_MALAMAR_MEGA": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 102,
+        "Defense": 88,
+        "Speed": 88,
+        "SpAttack": 98,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

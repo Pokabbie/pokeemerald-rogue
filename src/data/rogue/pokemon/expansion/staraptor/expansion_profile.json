@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_STARAPTOR"
+    "SPECIES_STARAPTOR",
+    "SPECIES_STARAPTOR_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -295,6 +296,191 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_RAIN_DANCE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_PROTECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_PROTECT",
+        "MOVE_ROOST"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_DUAL_WINGBEAT",
+        "MOVE_PROTECT",
+        "MOVE_TAILWIND"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_BRAVE_BIRD",
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_PROTECT",
+        "MOVE_U_TURN"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_STARAPTITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_STARAPTOR": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 120,
+        "Defense": 70,
+        "Speed": 100,
+        "SpAttack": 50,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_NONE",
+        "ABILITY_RECKLESS"
+      ]
+    },
+    "SPECIES_STARAPTOR_MEGA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 140,
+        "Defense": 100,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

@@ -210,5 +210,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BASCULEGION_FEMALE": {
+      "BaseStats": {
+        "HP": 120,
+        "Attack": 92,
+        "Defense": 65,
+        "Speed": 78,
+        "SpAttack": 100,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_ADAPTABILITY",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

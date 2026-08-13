@@ -326,5 +326,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FORRETRESS": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 90,
+        "Defense": 140,
+        "Speed": 40,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

@@ -89,5 +89,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_NIDORAN_F": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 47,
+        "Defense": 52,
+        "Speed": 41,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

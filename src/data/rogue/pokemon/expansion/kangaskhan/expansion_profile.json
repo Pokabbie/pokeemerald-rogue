@@ -726,5 +726,45 @@
         "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KANGASKHAN": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 95,
+        "Defense": 80,
+        "Speed": 90,
+        "SpAttack": 40,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_SCRAPPY",
+        "ABILITY_INNER_FOCUS"
+      ]
+    },
+    "SPECIES_KANGASKHAN_MEGA": {
+      "BaseStats": {
+        "HP": 105,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 60,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_PARENTAL_BOND",
+        "ABILITY_PARENTAL_BOND",
+        "ABILITY_PARENTAL_BOND"
+      ]
+    }
+  }
 }

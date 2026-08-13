@@ -174,5 +174,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MANTYKE": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 20,
+        "Defense": 50,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_WATER_VEIL"
+      ]
+    }
+  }
 }

@@ -515,5 +515,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_EMPOLEON": {
+      "BaseStats": {
+        "HP": 84,
+        "Attack": 86,
+        "Defense": 88,
+        "Speed": 60,
+        "SpAttack": 111,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_COMPETITIVE"
+      ]
+    }
+  }
 }

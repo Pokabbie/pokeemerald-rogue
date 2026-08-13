@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_CHANDELURE"
+    "SPECIES_CHANDELURE",
+    "SPECIES_CHANDELURE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -536,6 +537,166 @@
       "SourceTiers": [
         "GEN9NATIONALDEXAG"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_CALM_MIND",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_TRICK"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHOICE_SCARF",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_GRASS",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEAT_WAVE",
+        "MOVE_TRICK_ROOM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SHADOW_BALL",
+        "MOVE_HEAT_WAVE",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_ENERGY_BALL",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_SHADOW_BALL",
+        "MOVE_SUBSTITUTE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_SHADOW_BALL"
+      ],
+      "Ability": "ABILITY_FLASH_FIRE",
+      "Item": "ITEM_CHANDELURITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHANDELURE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 90,
+        "Speed": 80,
+        "SpAttack": 145,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_INFILTRATOR"
+      ]
+    },
+    "SPECIES_CHANDELURE_MEGA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 75,
+        "Defense": 110,
+        "Speed": 90,
+        "SpAttack": 175,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_INFILTRATOR",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

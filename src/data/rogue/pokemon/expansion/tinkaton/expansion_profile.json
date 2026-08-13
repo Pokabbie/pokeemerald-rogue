@@ -230,5 +230,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TINKATON": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 75,
+        "Defense": 77,
+        "Speed": 94,
+        "SpAttack": 70,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

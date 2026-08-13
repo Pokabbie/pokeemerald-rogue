@@ -143,5 +143,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PURRLOIN": {
+      "BaseStats": {
+        "HP": 41,
+        "Attack": 50,
+        "Defense": 37,
+        "Speed": 66,
+        "SpAttack": 50,
+        "SpDefense": 37
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_UNBURDEN",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

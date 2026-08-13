@@ -21,5 +21,26 @@
     "MOVE_SUCKER_PUNCH",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_APPLIN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 80,
+        "Speed": 20,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIPEN",
+        "ABILITY_GLUTTONY",
+        "ABILITY_BULLETPROOF"
+      ]
+    }
+  }
 }

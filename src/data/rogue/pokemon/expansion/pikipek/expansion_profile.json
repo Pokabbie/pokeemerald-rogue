@@ -136,5 +136,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIKIPEK": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 75,
+        "Defense": 30,
+        "Speed": 65,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SKILL_LINK",
+        "ABILITY_PICKUP"
+      ]
+    }
+  }
 }

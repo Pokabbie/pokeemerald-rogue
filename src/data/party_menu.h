@@ -806,6 +806,7 @@ struct
     [MENU_RELEASE_FIELD] = {gText_Release, CursorCb_ReleaseField},
     [MENU_RENAME] = {gText_Rename, CursorCb_RenameField},
     [MENU_RELEARN_MOVE] = {gText_RelearnMove, CursorCb_RelearnMoves},
+    [MENU_QUICK_HEAL] = {gText_QuickHealMove, CursorCb_QuickHeal},
     [MENU_EVOLVE] = {gText_Evolve, CursorCb_Evolve},
     [MENU_CYCLE_SUBMENU] = {gText_CycleSubMenu, CursorCb_CycleSubMenu},
     [MENU_POKEDEX] = {gText_PokedexEntry, CursorCb_Pokedex},

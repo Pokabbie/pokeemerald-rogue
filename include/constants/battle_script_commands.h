@@ -279,6 +279,10 @@
 #define BIT_ACC                     (1 << 6)
 #define BIT_EVASION                 (1 << 7)
 
+#define TRIGGER_ON_MOVE             0
+#define TRIGGER_ON_ABILITY          1
+#define TRIGGER_ON_PROTECT          2
+
 #define PARTY_SCREEN_OPTIONAL (1 << 7) // Flag for first argument to openpartyscreen
 
 // cases for Cmd_moveend

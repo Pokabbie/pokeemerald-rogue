@@ -219,5 +219,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_POLIWRATH": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 85,
+        "Defense": 95,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

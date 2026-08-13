@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_DRAGALGE"
+    "SPECIES_DRAGALGE",
+    "SPECIES_DRAGALGE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -480,6 +481,196 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_HAZE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDER"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLIP_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_THUNDERBOLT"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_FLIP_TURN",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRACO_METEOR",
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_QUIET",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SLUDGE_BOMB",
+        "MOVE_TOXIC"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_PULSE",
+        "MOVE_PROTECT",
+        "MOVE_SCALD",
+        "MOVE_SLUDGE_BOMB"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_DRAGALGITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRAGALGE": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 75,
+        "Defense": 90,
+        "Speed": 44,
+        "SpAttack": 97,
+        "SpDefense": 123
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_ADAPTABILITY"
+      ]
+    },
+    "SPECIES_DRAGALGE_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 85,
+        "Defense": 105,
+        "Speed": 44,
+        "SpAttack": 132,
+        "SpDefense": 163
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_REGENERATOR",
+        "ABILITY_REGENERATOR",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

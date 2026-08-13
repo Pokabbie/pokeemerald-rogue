@@ -356,5 +356,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDSLASH_ALOLAN": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 100,
+        "Defense": 120,
+        "Speed": 65,
+        "SpAttack": 25,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_NONE",
+        "ABILITY_SLUSH_RUSH"
+      ]
+    }
+  }
 }

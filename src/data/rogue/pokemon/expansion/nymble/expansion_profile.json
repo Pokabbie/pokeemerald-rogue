@@ -111,5 +111,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NYMBLE": {
+      "BaseStats": {
+        "HP": 33,
+        "Attack": 46,
+        "Defense": 40,
+        "Speed": 45,
+        "SpAttack": 21,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

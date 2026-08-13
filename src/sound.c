@@ -383,6 +383,14 @@ void PlayCryInternal(u16 species, s8 pan, s8 volume, u8 priority, u8 mode)
     if(species >= FOLLOWMON_SHINY_OFFSET)
         species -= FOLLOWMON_SHINY_OFFSET;
 
+#if !P_USE_EXTRA_MEGA_CRY
+    // save on cry
+    if (gRogueSpeciesInfo[species].isMegaEvolution)
+    {
+        mode = CRY_MODE_HIGH_PITCH;
+    }
+#endif
+
     // Set default values
     // May be overridden depending on mode.
     length = 210;

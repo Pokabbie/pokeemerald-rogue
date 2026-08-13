@@ -305,5 +305,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_CROWN": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 72,
+        "Defense": 100,
+        "Speed": 98,
+        "SpAttack": 122,
+        "SpDefense": 108
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

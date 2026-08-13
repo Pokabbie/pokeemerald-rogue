@@ -557,5 +557,45 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PINSIR": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 85,
+        "SpAttack": 55,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_MOXIE"
+      ]
+    },
+    "SPECIES_PINSIR_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 155,
+        "Defense": 120,
+        "Speed": 105,
+        "SpAttack": 65,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_AERILATE",
+        "ABILITY_AERILATE",
+        "ABILITY_AERILATE"
+      ]
+    }
+  }
 }

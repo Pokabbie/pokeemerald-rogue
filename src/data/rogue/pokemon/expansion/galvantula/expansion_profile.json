@@ -443,5 +443,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GALVANTULA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 77,
+        "Defense": 60,
+        "Speed": 108,
+        "SpAttack": 97,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_UNNERVE",
+        "ABILITY_SWARM"
+      ]
+    }
+  }
 }

@@ -304,5 +304,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SAMUROTT": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 100,
+        "Defense": 85,
+        "Speed": 70,
+        "SpAttack": 108,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

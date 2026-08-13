@@ -976,5 +976,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FERROTHORN": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 94,
+        "Defense": 131,
+        "Speed": 20,
+        "SpAttack": 54,
+        "SpDefense": 116
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_IRON_BARBS",
+        "ABILITY_NONE",
+        "ABILITY_ANTICIPATION"
+      ]
+    }
+  }
 }

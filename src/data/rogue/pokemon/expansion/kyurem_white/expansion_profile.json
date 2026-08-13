@@ -279,5 +279,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KYUREM_WHITE": {
+      "BaseStats": {
+        "HP": 125,
+        "Attack": 120,
+        "Defense": 90,
+        "Speed": 95,
+        "SpAttack": 170,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_TURBOBLAZE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

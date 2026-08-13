@@ -445,5 +445,45 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_URSHIFU": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 130,
+        "Defense": 100,
+        "Speed": 97,
+        "SpAttack": 63,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_UNSEEN_FIST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_URSHIFU_SINGLE_STRIKE_STYLE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 130,
+        "Defense": 100,
+        "Speed": 97,
+        "SpAttack": 63,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_UNSEEN_FIST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

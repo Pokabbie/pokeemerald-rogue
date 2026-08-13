@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_MEOWSTIC_FEMALE"
+    "SPECIES_MEOWSTIC_FEMALE",
+    "SPECIES_MEOWSTIC_FEMALE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -189,6 +190,91 @@
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_ALLURING_VOICE",
+        "MOVE_DARK_PULSE",
+        "MOVE_NASTY_PLOT"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_EXPANDING_FORCE",
+        "MOVE_ALLURING_VOICE",
+        "MOVE_DARK_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PSYCHIC",
+        "MOVE_CHARGE_BEAM",
+        "MOVE_DARK_PULSE",
+        "MOVE_CALM_MIND"
+      ],
+      "Ability": "ABILITY_INFILTRATOR",
+      "Item": "ITEM_MEOWSTICITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEOWSTIC_FEMALE": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 48,
+        "Defense": 76,
+        "Speed": 104,
+        "SpAttack": 83,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_COMPETITIVE"
+      ]
+    },
+    "SPECIES_MEOWSTIC_FEMALE_MEGA": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 48,
+        "Defense": 76,
+        "Speed": 124,
+        "SpAttack": 143,
+        "SpDefense": 101
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TRACE",
+        "ABILITY_TRACE",
+        "ABILITY_TRACE"
+      ]
+    }
+  }
 }

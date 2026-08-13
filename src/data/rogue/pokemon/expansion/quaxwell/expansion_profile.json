@@ -115,5 +115,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_QUAXWELL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 85,
+        "Defense": 65,
+        "Speed": 65,
+        "SpAttack": 65,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_MOXIE"
+      ]
+    }
+  }
 }

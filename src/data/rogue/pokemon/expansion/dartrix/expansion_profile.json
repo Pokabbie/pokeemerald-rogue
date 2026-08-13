@@ -107,5 +107,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_TRAILBLAZE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DARTRIX": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 52,
+        "SpAttack": 70,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_LONG_REACH"
+      ]
+    }
+  }
 }

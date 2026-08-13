@@ -101,5 +101,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DELCATTY": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 90,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NORMALIZE",
+        "ABILITY_WONDER_SKIN"
+      ]
+    }
+  }
 }

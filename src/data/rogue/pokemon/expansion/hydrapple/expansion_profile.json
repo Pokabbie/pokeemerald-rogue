@@ -226,5 +226,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HYDRAPPLE": {
+      "BaseStats": {
+        "HP": 106,
+        "Attack": 80,
+        "Defense": 110,
+        "Speed": 44,
+        "SpAttack": 120,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_SUPERSWEET_SYRUP",
+        "ABILITY_REGENERATOR",
+        "ABILITY_STICKY_HOLD"
+      ]
+    }
+  }
 }

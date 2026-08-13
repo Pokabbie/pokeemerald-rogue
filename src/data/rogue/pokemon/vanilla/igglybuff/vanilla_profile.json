@@ -75,5 +75,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_IGGLYBUFF": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 30,
+        "Defense": 15,
+        "Speed": 15,
+        "SpAttack": 40,
+        "SpDefense": 20
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

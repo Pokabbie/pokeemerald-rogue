@@ -250,5 +250,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CARRACOSTA": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 108,
+        "Defense": 133,
+        "Speed": 32,
+        "SpAttack": 83,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_STURDY",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

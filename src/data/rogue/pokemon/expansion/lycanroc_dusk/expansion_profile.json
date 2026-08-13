@@ -331,5 +331,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LYCANROC_DUSK": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 117,
+        "Defense": 65,
+        "Speed": 110,
+        "SpAttack": 55,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

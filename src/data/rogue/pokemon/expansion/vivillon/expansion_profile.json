@@ -270,5 +270,387 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VIVILLON": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_POLAR": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_TUNDRA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_CONTINENTAL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_GARDEN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_ELEGANT": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_MEADOW": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_MODERN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_MARINE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_ARCHIPELAGO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_HIGH_PLAINS": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_SANDSTORM": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_RIVER": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_MONSOON": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_SAVANNA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_SUN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_OCEAN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_JUNGLE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_FANCY": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    },
+    "SPECIES_VIVILLON_POKE_BALL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 52,
+        "Defense": 50,
+        "Speed": 89,
+        "SpAttack": 90,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    }
+  }
 }

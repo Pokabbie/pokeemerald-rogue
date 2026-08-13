@@ -119,5 +119,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CROCONAW": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 80,
+        "Defense": 80,
+        "Speed": 58,
+        "SpAttack": 59,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

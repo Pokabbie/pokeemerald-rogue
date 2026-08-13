@@ -112,5 +112,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEWPIDER": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 40,
+        "Defense": 52,
+        "Speed": 27,
+        "SpAttack": 40,
+        "SpDefense": 72
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_BUBBLE",
+        "ABILITY_NONE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

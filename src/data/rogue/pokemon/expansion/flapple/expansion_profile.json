@@ -185,5 +185,45 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FLAPPLE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIPEN",
+        "ABILITY_GLUTTONY",
+        "ABILITY_HUSTLE"
+      ]
+    },
+    "SPECIES_FLAPPLE_GIGANTAMAX": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIPEN",
+        "ABILITY_GLUTTONY",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

@@ -274,5 +274,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAGMORTAR": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 95,
+        "Defense": 67,
+        "Speed": 83,
+        "SpAttack": 125,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  }
 }

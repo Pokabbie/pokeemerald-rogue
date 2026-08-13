@@ -310,5 +310,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PYUKUMUKU": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 60,
+        "Defense": 130,
+        "Speed": 5,
+        "SpAttack": 30,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_INNARDS_OUT",
+        "ABILITY_NONE",
+        "ABILITY_UNAWARE"
+      ]
+    }
+  }
 }

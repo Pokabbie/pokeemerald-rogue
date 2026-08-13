@@ -717,5 +717,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAMOSWINE": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 80,
+        "SpAttack": 70,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

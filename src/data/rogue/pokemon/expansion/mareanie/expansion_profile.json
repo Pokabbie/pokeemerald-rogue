@@ -221,5 +221,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MAREANIE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 53,
+        "Defense": 62,
+        "Speed": 45,
+        "SpAttack": 43,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MERCILESS",
+        "ABILITY_LIMBER",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

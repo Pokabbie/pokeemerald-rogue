@@ -100,8 +100,9 @@
 	.byte 0x16
 	.endm
 
-	.macro seteffectsecondary
+	.macro seteffectsecondary trigger:req
 	.byte 0x17
+	.byte \trigger
 	.endm
 
 	.macro clearstatusfromeffect battler:req

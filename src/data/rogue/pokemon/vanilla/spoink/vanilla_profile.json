@@ -155,5 +155,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPOINK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 25,
+        "Defense": 35,
+        "Speed": 60,
+        "SpAttack": 70,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_OWN_TEMPO"
+      ]
+    }
+  }
 }

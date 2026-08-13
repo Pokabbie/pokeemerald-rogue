@@ -105,5 +105,26 @@
     "MOVE_WISH",
     "MOVE_YAWN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FIDOUGH": {
+      "BaseStats": {
+        "HP": 37,
+        "Attack": 55,
+        "Defense": 70,
+        "Speed": 65,
+        "SpAttack": 30,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_NONE",
+        "ABILITY_KLUTZ"
+      ]
+    }
+  }
 }

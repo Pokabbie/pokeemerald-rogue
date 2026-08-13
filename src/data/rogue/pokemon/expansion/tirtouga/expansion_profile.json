@@ -234,5 +234,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TIRTOUGA": {
+      "BaseStats": {
+        "HP": 54,
+        "Attack": 78,
+        "Defense": 103,
+        "Speed": 22,
+        "SpAttack": 53,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_SOLID_ROCK",
+        "ABILITY_STURDY",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

@@ -157,5 +157,45 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WISHIWASHI": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 20,
+        "Defense": 20,
+        "Speed": 40,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SCHOOLING",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_WISHIWASHI_SCHOOL": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 140,
+        "Defense": 130,
+        "Speed": 30,
+        "SpAttack": 140,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SCHOOLING",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

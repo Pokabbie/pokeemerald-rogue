@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_SCOVILLAIN"
+    "SPECIES_SCOVILLAIN",
+    "SPECIES_SCOVILLAIN_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -166,6 +167,160 @@
       "SourceTiers": [
         "GEN9MONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_BLAST",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_GIGA_DRAIN"
+      ],
+      "Ability": "ABILITY_CHLOROPHYLL",
+      "Item": "ITEM_CHOICE_SPECS",
+      "Nature": "NATURE_TIMID",
+      "TeraType": "TYPE_FIRE",
+      "SourceTiers": [
+        "GEN9NU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_FIRE_SPIN",
+        "MOVE_LEECH_SEED",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SPICY_EXTRACT",
+        "MOVE_RAGE_POWDER",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_FLAMETHROWER"
+      ],
+      "Ability": "ABILITY_SPICY_SPRAY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_LEECH_SEED",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_LEAF_STORM",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LEAF_STORM",
+        "MOVE_LEECH_SEED",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_MOODY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_LEECH_SEED",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPICY_SPRAY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_OVERHEAT",
+        "MOVE_GIGA_DRAIN",
+        "MOVE_RAGE_POWDER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SPICY_SPRAY",
+      "Item": "ITEM_SCOVILLAINITE",
+      "Nature": "NATURE_CALM",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCOVILLAIN": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 108,
+        "Defense": 65,
+        "Speed": 75,
+        "SpAttack": 108,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_INSOMNIA",
+        "ABILITY_MOODY"
+      ]
+    },
+    "SPECIES_SCOVILLAIN_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 138,
+        "Defense": 85,
+        "Speed": 75,
+        "SpAttack": 138,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_SPICY_SPRAY",
+        "ABILITY_SPICY_SPRAY",
+        "ABILITY_SPICY_SPRAY"
+      ]
+    }
+  }
 }

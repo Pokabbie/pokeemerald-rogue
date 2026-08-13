@@ -813,7 +813,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         // check ground immunities
         if (moveType == TYPE_GROUND
           && !IsBattlerGrounded(battlerDef)
-          && ((aiData->abilities[battlerDef] == ABILITY_LEVITATE
+          && (((aiData->abilities[battlerDef] == ABILITY_LEVITATE || aiData->abilities[battlerDef] == ABILITY_EELEVATE)
           && DoesBattlerIgnoreAbilityChecks(aiData->abilities[battlerAtk], move))
           || aiData->holdEffects[battlerDef] == HOLD_EFFECT_AIR_BALLOON
           || (gStatuses3[battlerDef] & (STATUS3_MAGNET_RISE | STATUS3_TELEKINESIS)))
@@ -873,12 +873,15 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 if (moveType == TYPE_WATER)
                     RETURN_SCORE_MINUS(20);
                 break;
+            case ABILITY_LEVITATE:
+            case ABILITY_EELEVATE:
             case ABILITY_EARTH_EATER:
                 if (moveType == TYPE_GROUND)
                     RETURN_SCORE_MINUS(20);
                 break;
             case ABILITY_FLASH_FIRE:
             case ABILITY_WELL_BAKED_BODY:
+            case ABILITY_THERMAL_EXCHANGE:
                 if (moveType == TYPE_FIRE)
                     RETURN_SCORE_MINUS(20);
                 break;
@@ -1709,7 +1712,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_MAGNITUDE:
-            if (aiData->abilities[battlerDef] == ABILITY_LEVITATE)
+            if (aiData->abilities[battlerDef] == ABILITY_LEVITATE || aiData->abilities[battlerDef] == ABILITY_EELEVATE)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_PARTING_SHOT:
@@ -2082,7 +2085,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 {
                     if (GetBattlerSecondaryDamage(battlerAtk) >= gBattleMons[battlerAtk].hp
                       && aiData->abilities[battlerDef] != ABILITY_MOXIE
-                      && aiData->abilities[battlerDef] != ABILITY_BEAST_BOOST)
+                      && aiData->abilities[battlerDef] != ABILITY_BEAST_BOOST
+                      && aiData->abilities[battlerDef] != ABILITY_EELEVATE)
                     {
                         ADJUST_SCORE(-10); //Don't protect if you're going to faint after protecting
                     }
@@ -2202,7 +2206,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             return AI_CheckBadMove(battlerAtk, battlerDef, GetNaturePowerMove(), score);
         case EFFECT_TAUNT:
             if (gDisableStructs[battlerDef].tauntTimer > 0
-              || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
+              || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || aiData->abilities[battlerDef] == ABILITY_OBLIVIOUS)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_BESTOW:
@@ -2945,8 +2949,11 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 break;
             case ABILITY_WATER_ABSORB:
             case ABILITY_DRY_SKIN:
+            case ABILITY_LEVITATE:
+            case ABILITY_EELEVATE:
             case ABILITY_EARTH_EATER:
             case ABILITY_WELL_BAKED_BODY:
+            case ABILITY_THERMAL_EXCHANGE:
                 if (!(AI_THINKING_STRUCT->aiFlags & AI_FLAG_HP_AWARE))
                 {
                     RETURN_SCORE_MINUS(10);
@@ -5233,7 +5240,7 @@ static s32 AI_HPAware(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
          || (moveType == TYPE_ELECTRIC && AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_VOLT_ABSORB)
          || (moveType == TYPE_WATER && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_DRY_SKIN || AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_WATER_ABSORB))
          || (moveType == TYPE_GROUND && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_EARTH_EATER))
-         || (moveType == TYPE_FIRE && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_WELL_BAKED_BODY))
+         || (moveType == TYPE_FIRE && (AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_WELL_BAKED_BODY || AI_DATA->abilities[BATTLE_PARTNER(battlerAtk)] == ABILITY_THERMAL_EXCHANGE))
         )
         {
             if (gStatuses3[battlerDef] & STATUS3_HEAL_BLOCK)

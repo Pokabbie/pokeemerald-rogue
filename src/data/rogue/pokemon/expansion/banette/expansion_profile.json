@@ -384,5 +384,45 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BANETTE": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 65,
+        "SpAttack": 83,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_FRISK",
+        "ABILITY_CURSED_BODY"
+      ]
+    },
+    "SPECIES_BANETTE_MEGA": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 165,
+        "Defense": 75,
+        "Speed": 75,
+        "SpAttack": 93,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_PRANKSTER",
+        "ABILITY_PRANKSTER"
+      ]
+    }
+  }
 }

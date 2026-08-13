@@ -135,5 +135,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TURTWIG": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 68,
+        "Defense": 64,
+        "Speed": 31,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

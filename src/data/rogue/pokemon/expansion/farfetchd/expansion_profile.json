@@ -160,5 +160,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FARFETCHD": {
+      "BaseStats": {
+        "HP": 52,
+        "Attack": 90,
+        "Defense": 55,
+        "Speed": 60,
+        "SpAttack": 58,
+        "SpDefense": 62
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

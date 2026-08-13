@@ -307,5 +307,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IRON_HANDS": {
+      "BaseStats": {
+        "HP": 154,
+        "Attack": 140,
+        "Defense": 108,
+        "Speed": 50,
+        "SpAttack": 50,
+        "SpDefense": 68
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_QUARK_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

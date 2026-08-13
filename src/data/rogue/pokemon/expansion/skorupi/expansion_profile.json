@@ -148,5 +148,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKORUPI": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 50,
+        "Defense": 90,
+        "Speed": 65,
+        "SpAttack": 30,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_SNIPER",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

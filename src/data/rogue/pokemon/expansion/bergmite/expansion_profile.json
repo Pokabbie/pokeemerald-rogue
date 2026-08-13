@@ -131,5 +131,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BERGMITE": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 69,
+        "Defense": 85,
+        "Speed": 28,
+        "SpAttack": 32,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_ICE_BODY",
+        "ABILITY_STURDY"
+      ]
+    }
+  }
 }

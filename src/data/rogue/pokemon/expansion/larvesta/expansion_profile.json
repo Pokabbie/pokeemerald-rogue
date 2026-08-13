@@ -201,5 +201,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LARVESTA": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 85,
+        "Defense": 55,
+        "Speed": 60,
+        "SpAttack": 50,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_SWARM"
+      ]
+    }
+  }
 }

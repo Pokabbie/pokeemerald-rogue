@@ -90,6 +90,8 @@ extern const struct SpriteFrameImage gTrainerBackPicTable_Wally[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Steven[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Lucas[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Dawn[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Calem[];
+extern const struct SpriteFrameImage gTrainerBackPicTable_Serena[];
 
 extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_CommunityNacholord[];

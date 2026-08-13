@@ -150,5 +150,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ORICORIO_PAU": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 70,
+        "Defense": 70,
+        "Speed": 93,
+        "SpAttack": 98,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_DANCER",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

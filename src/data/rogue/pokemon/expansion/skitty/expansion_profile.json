@@ -152,5 +152,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKITTY": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 45,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NORMALIZE",
+        "ABILITY_WONDER_SKIN"
+      ]
+    }
+  }
 }

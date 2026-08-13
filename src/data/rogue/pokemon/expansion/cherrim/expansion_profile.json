@@ -141,5 +141,45 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHERRIM": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 85,
+        "SpAttack": 87,
+        "SpDefense": 78
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_GIFT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_CHERRIM_SUNSHINE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 60,
+        "Defense": 70,
+        "Speed": 85,
+        "SpAttack": 87,
+        "SpDefense": 78
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_FLOWER_GIFT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

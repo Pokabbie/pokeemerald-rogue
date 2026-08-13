@@ -81,5 +81,26 @@
     "MOVE_THIEF",
     "MOVE_U_TURN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ROOKIDEE": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 47,
+        "Defense": 35,
+        "Speed": 57,
+        "SpAttack": 33,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_FLYING",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_UNNERVE",
+        "ABILITY_BIG_PECKS"
+      ]
+    }
+  }
 }

@@ -510,5 +510,45 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_XERNEAS": {
+      "BaseStats": {
+        "HP": 126,
+        "Attack": 131,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 131,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FAIRY_AURA",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_XERNEAS_ACTIVE": {
+      "BaseStats": {
+        "HP": 126,
+        "Attack": 131,
+        "Defense": 95,
+        "Speed": 99,
+        "SpAttack": 131,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_FAIRY_AURA",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

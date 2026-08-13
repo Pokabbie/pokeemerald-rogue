@@ -178,5 +178,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CRANIDOS": {
+      "BaseStats": {
+        "HP": 67,
+        "Attack": 125,
+        "Defense": 40,
+        "Speed": 58,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

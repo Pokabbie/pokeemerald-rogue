@@ -237,5 +237,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWAMPERT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 110,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

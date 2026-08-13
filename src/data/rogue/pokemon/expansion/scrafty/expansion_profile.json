@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_SCRAFTY"
+    "SPECIES_SCRAFTY",
+    "SPECIES_SCRAFTY_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -468,6 +469,196 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DETECT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_FAKE_OUT",
+        "MOVE_IRON_HEAD",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_BRAVE",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DETECT",
+        "MOVE_DRAIN_PUNCH",
+        "MOVE_FAKE_OUT",
+        "MOVE_KNOCK_OFF"
+      ],
+      "Ability": "ABILITY_INTIMIDATE",
+      "Item": "ITEM_SCRAFTINITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SCRAFTY": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 115,
+        "Speed": 58,
+        "SpAttack": 45,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_MOXIE",
+        "ABILITY_INTIMIDATE"
+      ]
+    },
+    "SPECIES_SCRAFTY_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 130,
+        "Defense": 135,
+        "Speed": 68,
+        "SpAttack": 55,
+        "SpDefense": 135
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

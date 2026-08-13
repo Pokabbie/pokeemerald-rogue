@@ -538,7 +538,7 @@ static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
     genderFlag = GetGenderForSpecies(species, GetBoxOrPartyMonData(boxId, monId, MON_DATA_GENDER_FLAG, NULL));
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
     LoadSpecialPokePic(menu->monPicGfx[loadId], species, personality, GetGenderForSpecies(species, genderFlag), TRUE);
-    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, GetGenderForSpecies(species, genderFlag), isShiny), menu->monPal[loadId]);
+    LZ77UnCompWram(GetMonSpritePalFromSpecies(species, GetGenderForSpecies(species, genderFlag), isShiny, 0), menu->monPal[loadId]);
 }
 
 u16 GetMonListCount(void)

@@ -802,6 +802,7 @@ static void Task_ShowAiPoints(u8 taskId)
             }
         }
         data->aiMonSpriteId = CreateMonPicSprite(gBattleMons[data->aiBattlerId].species,
+                                                 FALSE,
                                                  gBattleMons[data->aiBattlerId].otId,
                                                  gBattleMons[data->aiBattlerId].personality,
                                                  GetGenderForSpecies(gBattleMons[data->aiBattlerId].species, gBattleMons[data->aiBattlerId].genderFlag),
@@ -961,6 +962,7 @@ static void Task_ShowAiKnowledge(u8 taskId)
             }
         }
         data->aiMonSpriteId = CreateMonPicSprite(gBattleMons[data->aiBattlerId].species,
+                                                 FALSE,
                                                  gBattleMons[data->aiBattlerId].otId,
                                                  gBattleMons[data->aiBattlerId].personality,
                                                  GetGenderForSpecies(gBattleMons[data->aiBattlerId].species, gBattleMons[data->aiBattlerId].genderFlag),

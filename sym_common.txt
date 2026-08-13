@@ -52,10 +52,9 @@ gReservedSpritePaletteCount:
 	.include "contest.o"
 	.include "tv.o"
 	.include "image_processing_effects.o"
-
+	
 	.space 0x4
-
-	.include "contest_painting.o"
+	
 	.include "field_specials.o"
 	.include "evolution_scene.o"
 	.include "pokedex_cry_screen.o"

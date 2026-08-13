@@ -237,5 +237,45 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MORPEKO": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 95,
+        "Defense": 58,
+        "Speed": 97,
+        "SpAttack": 70,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_HUNGER_SWITCH",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_MORPEKO_HANGRY": {
+      "BaseStats": {
+        "HP": 58,
+        "Attack": 95,
+        "Defense": 58,
+        "Speed": 97,
+        "SpAttack": 70,
+        "SpDefense": 58
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_HUNGER_SWITCH",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

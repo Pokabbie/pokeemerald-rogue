@@ -304,5 +304,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ENAMORUS": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 115,
+        "Defense": 70,
+        "Speed": 106,
+        "SpAttack": 135,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_NONE",
+        "ABILITY_CONTRARY"
+      ]
+    }
+  }
 }

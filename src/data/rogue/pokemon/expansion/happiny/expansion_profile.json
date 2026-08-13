@@ -65,5 +65,26 @@
     "MOVE_THUNDER_WAVE",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_HAPPINY": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 5,
+        "Defense": 5,
+        "Speed": 30,
+        "SpAttack": 15,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_SERENE_GRACE",
+        "ABILITY_FRIEND_GUARD"
+      ]
+    }
+  }
 }

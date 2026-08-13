@@ -2452,7 +2452,7 @@ static int GetTypeEffectivenessPoints(int move, int targetSpecies, int mode)
     defAbility = gSpeciesInfo[targetSpecies].abilities[0];
     moveType = gBattleMoves[move].type;
 
-    if (defAbility == ABILITY_LEVITATE && moveType == TYPE_GROUND)
+    if ((defAbility == ABILITY_LEVITATE || defAbility == ABILITY_EELEVATE) && moveType == TYPE_GROUND)
     {
         // They likely meant to return here, as 8 is the number of points normally used in this mode for moves with no effect.
         // Because there's no return the value instead gets interpreted by the switch, and the number of points becomes 0.
@@ -5174,7 +5174,7 @@ static u16 GetWinningMove(int winnerTournamentId, int loserTournamentId, u8 roun
                 else
                     targetAbility = gSpeciesInfo[targetSpecies].abilities[0];
 
-                typeMultiplier = CalcPartyMonTypeEffectivenessMultiplier(moveIds[i * 4 + j], targetSpecies, targetAbility);
+                typeMultiplier = CalcPartyMonTypeEffectivenessMultiplier(moveIds[i * 4 + j], targetSpecies, targetAbility, 0);
                 if (typeMultiplier == UQ_4_12(0))
                     moveScores[i * MAX_MON_MOVES + j] += 0;
                 else if (typeMultiplier >= UQ_4_12(2))

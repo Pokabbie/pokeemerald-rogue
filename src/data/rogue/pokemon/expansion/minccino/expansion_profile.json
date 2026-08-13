@@ -192,5 +192,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MINCCINO": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 50,
+        "Defense": 40,
+        "Speed": 75,
+        "SpAttack": 40,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_TECHNICIAN",
+        "ABILITY_SKILL_LINK"
+      ]
+    }
+  }
 }

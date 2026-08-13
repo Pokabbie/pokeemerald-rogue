@@ -88,5 +88,26 @@
     "MOVE_STONE_EDGE",
     "MOVE_SUBSTITUTE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BOLDORE": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 105,
+        "Defense": 105,
+        "Speed": 20,
+        "SpAttack": 50,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_SAND_FORCE"
+      ]
+    }
+  }
 }

@@ -91,5 +91,26 @@
     "MOVE_UPROAR",
     "MOVE_WORK_UP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PIDGEOTTO": {
+      "BaseStats": {
+        "HP": 63,
+        "Attack": 60,
+        "Defense": 55,
+        "Speed": 71,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_TANGLED_FEET",
+        "ABILITY_BIG_PECKS"
+      ]
+    }
+  }
 }

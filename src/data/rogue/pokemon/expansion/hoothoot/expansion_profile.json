@@ -127,5 +127,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOOTHOOT": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 30,
+        "Defense": 30,
+        "Speed": 50,
+        "SpAttack": 36,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

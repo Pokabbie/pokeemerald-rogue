@@ -143,5 +143,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WORMADAM": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 59,
+        "Defense": 85,
+        "Speed": 36,
+        "SpAttack": 79,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

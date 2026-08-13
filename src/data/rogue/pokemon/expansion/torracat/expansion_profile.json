@@ -103,5 +103,26 @@
     "MOVE_U_TURN",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TORRACAT": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 85,
+        "Defense": 50,
+        "Speed": 90,
+        "SpAttack": 80,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

@@ -161,5 +161,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KINGLER": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 130,
+        "Defense": 115,
+        "Speed": 75,
+        "SpAttack": 50,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_HYPER_CUTTER",
+        "ABILITY_SHELL_ARMOR"
+      ]
+    }
+  }
 }

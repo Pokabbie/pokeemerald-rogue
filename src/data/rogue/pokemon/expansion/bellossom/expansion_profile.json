@@ -265,5 +265,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BELLOSSOM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 95,
+        "Speed": 50,
+        "SpAttack": 90,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE",
+        "ABILITY_HEALER"
+      ]
+    }
+  }
 }

@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_CLEFABLE"
+    "SPECIES_CLEFABLE",
+    "SPECIES_CLEFABLE_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -960,6 +961,116 @@
       "SourceTiers": [
         "GEN9NATIONALDEXMONOTYPE"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_HELPING_HAND",
+        "MOVE_MOONBLAST",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CLEFABLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FOLLOW_ME",
+        "MOVE_MOONBLAST",
+        "MOVE_CALM_MIND",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CLEFABLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
+        "MOVE_FOLLOW_ME"
+      ],
+      "Ability": "ABILITY_MAGIC_BOUNCE",
+      "Item": "ITEM_CLEFABLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT",
+        "MOVE_LIFE_DEW"
+      ],
+      "Ability": "ABILITY_MAGIC_GUARD",
+      "Item": "ITEM_CLEFABLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_MOONBLAST",
+        "MOVE_AIR_SLASH",
+        "MOVE_FOLLOW_ME",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_UNAWARE",
+      "Item": "ITEM_CLEFABLITE",
+      "Nature": "NATURE_BOLD",
+      "SourceTiers": [
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CLEFABLE": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 70,
+        "Defense": 73,
+        "Speed": 60,
+        "SpAttack": 95,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_CUTE_CHARM",
+        "ABILITY_MAGIC_GUARD",
+        "ABILITY_UNAWARE"
+      ]
+    },
+    "SPECIES_CLEFABLE_MEGA": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 80,
+        "Defense": 93,
+        "Speed": 70,
+        "SpAttack": 135,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_PYROAR"
+    "SPECIES_PYROAR",
+    "SPECIES_PYROAR_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -231,6 +232,196 @@
       "SourceTiers": [
         "GEN9ZU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_TAUNT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT",
+        "MOVE_YAWN"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_HEAT_WAVE",
+        "MOVE_HYPER_VOICE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_OVERHEAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_FLAMETHROWER",
+        "MOVE_HEAT_WAVE",
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM"
+      ],
+      "Ability": "ABILITY_FIRE_MANE",
+      "Item": "ITEM_PYROARITE",
+      "Nature": "NATURE_TIMID",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PYROAR": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 68,
+        "Defense": 72,
+        "Speed": 106,
+        "SpAttack": 109,
+        "SpDefense": 66
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_UNNERVE",
+        "ABILITY_MOXIE"
+      ]
+    },
+    "SPECIES_PYROAR_MEGA": {
+      "BaseStats": {
+        "HP": 86,
+        "Attack": 88,
+        "Defense": 92,
+        "Speed": 126,
+        "SpAttack": 129,
+        "SpDefense": 86
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_FIRE_MANE",
+        "ABILITY_FIRE_MANE",
+        "ABILITY_FIRE_MANE"
+      ]
+    }
+  }
 }

@@ -1138,5 +1138,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWAMPERT": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 110,
+        "Defense": 90,
+        "Speed": 60,
+        "SpAttack": 85,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_DAMP"
+      ]
+    },
+    "SPECIES_SWAMPERT_MEGA": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 150,
+        "Defense": 110,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

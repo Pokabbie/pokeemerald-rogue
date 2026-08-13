@@ -72,12 +72,29 @@ extern const u8 gText_DifficultyLegendariesDesc[];
 // Task data
 enum
 {
+    TD_SUBMENU,
     TD_MENUSELECTION,
     TD_MENUSELECTION_TOP,
-    TD_SUBMENU,
-    TD_PREVIOUS_MENUSELECTION,
-    TD_PREVIOUS_MENUSELECTION_TOP,
+    TD_MENUSELECTION_DEPTH,
+
+    // History stack
+    TD_SUBMENU_STACK_0,
+    TD_SUBMENU_STACK_1,
+    TD_SUBMENU_STACK_2,
+    TD_MENUSELECTION_STACK_0,
+    TD_MENUSELECTION_STACK_1,
+    TD_MENUSELECTION_STACK_2,
+    TD_MENUSELECTION_TOP_STACK_0,
+    TD_MENUSELECTION_TOP_STACK_1,
+    TD_MENUSELECTION_TOP_STACK_2,
+
+    // cannot be above 16
+
+    TD_MENUSELECTION_STACK_SIZE = 3,
 };
+
+
+static u8 const sMenu_SparkleIcon[] = _("{SPARKLE_ICON}");
 
 static u8 const sMenuName_Back[] = _("Back");
 static u8 const sMenuName_SaveAndExit[] = _("Save & Exit");
@@ -91,21 +108,14 @@ static u8 const sMenuName_BattleFormatSingles[] = _("{COLOR GREEN}{SHADOW LIGHT_
 static u8 const sMenuName_BattleFormatDoubles[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Doubles");
 static u8 const sMenuName_BattleFormatMixed[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Mixed");
 
-static u8 const sMenuName_RevisionMode[] = _("Revision Mode");
-static u8 const sMenuName_RevisionModeNever[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Never");
-static u8 const sMenuName_RevisionModeAlwaysOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Always On");
-static u8 const sMenuName_RevisionModeInRun[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Adventures Only");
+static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
+static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
+static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
+static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
 
-//static u8 const sMenuName_TrainerOrder[] = _("Trainer Order");
-//static u8 const sMenuName_TrainerOrderDefault[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Default");
-//static u8 const sMenuName_TrainerOrderRainbow[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Rainbow");
-//static u8 const sMenuName_TrainerOrderOfficial[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Official");
-
-static u8 const sMenuName_GameMode_Standard[] = _("Standard");
-static u8 const sMenuName_GameMode_Rainbow[] = _("Rainbow");
-static u8 const sMenuName_GameMode_Official[] = _("Official");
-static u8 const sMenuName_GameMode_Gauntlet[] = _("Gauntlet");
-static u8 const sMenuName_GameMode_RainbowGauntlet[] = _("Rainbow Gauntlet");
+static u8 const sMenuName_GameMode_Standard[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Classic");
+static u8 const sMenuName_GameMode_Gauntlet[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Gauntlet");
+static u8 const sMenuName_GameMode_FastPath[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Fast Path");
 
 static u8 const sMenuName_Affection[] = _("Affection FX");
 static u8 const sMenuName_ReleaseMons[] = _("Release Fainted {PKMN}");
@@ -208,6 +218,29 @@ static u8 const* const sMenuNameDesc_BattleFormat[] =
     [BATTLE_FORMAT_MIXED] = sMenuNameDesc_BattleFormatMixed,
 };
 
+static u8 const sMenuNameDesc_TrainerOrderDefault[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainers appear somewhat randomly\n"
+    "based on their Trainer Class."
+);
+static u8 const sMenuNameDesc_TrainerOrderDoubles[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainers appear randomly without\n"
+    "repeating types e.g. E4 can be Gyms."
+);
+static u8 const sMenuNameDesc_TrainerOrderOfficial[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Trainers appear in the order they appear\n"
+    "in official games. (Disables Challenges)"
+);
+
+static u8 const* const sMenuNameDesc_TrainerOrder[] = 
+{
+    [TRAINER_ORDER_DEFAULT] = sMenuNameDesc_TrainerOrderDefault,
+    [TRAINER_ORDER_RAINBOW] = sMenuNameDesc_TrainerOrderDoubles,
+    [TRAINER_ORDER_OFFICIAL] = sMenuNameDesc_TrainerOrderOfficial,
+};
+
 const u8 sMenuNameDesc_Affection[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "{PKMN} with high friendship may have special\n"
@@ -302,19 +335,9 @@ static u8 const sMenuNameDesc_Paldea[] = _(
 
 static u8 const sMenuNameDesc_GameMode_Standard[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Typical Adventure with no custom rules."
-);
-static u8 const sMenuNameDesc_GameMode_Rainbow[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in any order but\n"
-    "will never repeat type specialties.\n"
-    "eg. E4 can be Gym Leaders and vice versa"
-);
-static u8 const sMenuNameDesc_GameMode_Official[] = _(
-    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Mighty Trainers appear in the order they\n"
-    "appear in their official games.\n"
-    "(Disables Challenges)"
+    "Standard Adventure with with slow\n"
+    "pacing. Provides decent Encounters,\n"
+    "Items and {PKMN} at the cost of slower Runs."
 );
 static u8 const sMenuNameDesc_GameMode_Gauntlet[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
@@ -322,10 +345,11 @@ static u8 const sMenuNameDesc_GameMode_Gauntlet[] = _(
     "Trainers back to back without a chance\n"
     "to catch any {PKMN}. (Disables Challenges)"
 );
-static u8 const sMenuNameDesc_GameMode_RainbowGauntlet[] = _(
+static u8 const sMenuNameDesc_GameMode_FastPath[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Combined effects of both Rainbow and\n"
-    "Gauntlet modes."
+    "Standard Adventure with with fast\n"
+    "pacing. Provides fast Runs at the cost\n"
+    "of fewer Encounters, Items and {PKMN}."
 );
 
 
@@ -412,6 +436,45 @@ static u8 const* const sText_DifficultyBagWipeDesc[] =
     sText_DifficultyBagWipeDescOn,
 };
 
+static u8 const sMenuName_RevisionMode[] = _("Revised Mode");
+static u8 const sMenuName_RevisionModeNever[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Disabled");
+static u8 const sMenuName_RevisionModeInRun[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Enabled in Runs");
+static u8 const sMenuName_RevisionModeAlwaysOn[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Enabled Always");
+static u8 const sMenuName_RevisionModeYes[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Yes");
+//static u8 const sMenuName_RevisionModeNo[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}No");
+
+const u8 sText_RevisionModeDesc[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enable custom {PKMN} rebalancing.\n"
+    "Revised Typings, Abilities, Moves etc."
+);
+
+const u8 sText_RevisionModeNeverDesc[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "No changes active.\n"
+);
+
+const u8 sText_RevisionModeInRunDesc[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Changes are only active while on an\n"
+    "Adventure.\n"
+    "(Can be viewed in the Pokédex)"
+);
+
+const u8 sText_RevisionModeAlwaysOnDesc[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Changes are always active.\n"
+    "This cannot be turned off once Enabled.\n"
+    "(Can be viewed in the Pokédex)"
+);
+
+const u8 sText_RevisionModeYesDesc[] = _(
+    "Are you sure?\n"
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Your save file will be permanently\n"
+    "locked to this setting."
+);
+
 
 #ifdef ROGUE_DEBUG
 static u8 const sMenuName_Debug[] = _("DEBUG");
@@ -430,6 +493,7 @@ static u8 const sMenuName_DebugToggleHideFollower[] = _("Hide Follower");
 static u8 const sMenuName_DebugToggleStopWildSpawning[] = _("Stop Wild Spawn");
 static u8 const sMenuName_DebugToggleDisableAssistantTimeout[] = _("Disable Assist Timeout");
 static u8 const sMenuName_DebugToggleFullBattleHud[] = _("Full Battle HUD");
+static u8 const sMenuName_DebugToggleSpriteLayers[] = _("Sprite Layers");
 
 static u8 const sMenuName_DebugRangeStartDifficulty[] = _("START DIFFICULTY");
 static u8 const sMenuName_DebugRangeForcedRoute[] = _("FORCED ROUTE");
@@ -445,6 +509,8 @@ enum
     MENUITEM_MENU_ADVENTURE_SUBMENU,
     MENUITEM_MENU_TRAINERS_SUBMENU,
     MENUITEM_MENU_GAME_MODES_SUBMENU,
+    MENUITEM_MENU_REVISION_MODE_SUBMENU,
+    MENUITEM_MENU_REVISION_MODE_ALWAYS_CONFIRM_SUBMENU,
 
     MENUITEM_MENU_TOGGLE_EXP_ALL,
     MENUITEM_MENU_TOGGLE_OVER_LVL,
@@ -473,13 +539,15 @@ enum
     MENUITEM_MENU_SLIDER_ITEM,
     MENUITEM_MENU_SLIDER_LEGENDARY,
     MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
-    MENUITEM_MENU_SLIDER_REVISION_MODE,
+    MENUITEM_MENU_SLIDER_TRAINER_ORDER,
 
     MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
-    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
-    MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
     MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
-    MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
+    MENUITEM_MENU_SLIDER_GAME_MODE_FAST_PATH,
+
+    MENUITEM_MENU_REVISION_MODE_NEVER,
+    MENUITEM_MENU_REVISION_MODE_ADVENTURE_ONLY,
+    MENUITEM_MENU_REVISION_MODE_ALWAYS_ON_YES,
 
 #ifdef ROGUE_DEBUG
     MENUITEM_MENU_DEBUG_SUBMENU,
@@ -498,6 +566,7 @@ enum
     MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING,
     MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT,
     MENUITEM_MENU_DEBUG_TOGGLE_FULL_BATTLE_HUD,
+    MENUITEM_MENU_DEBUG_TOGGLE_SPRITE_LAYERS,
 
     MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
     MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -515,6 +584,8 @@ enum
     SUBMENUITEM_ADVENTURE,
     SUBMENUITEM_TRAINERS,
     SUBMENUITEM_GAME_MODES,
+    SUBMENUITEM_REVISION_MODE,
+    SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM,
 #ifdef ROGUE_DEBUG
     SUBMENUITEM_DEBUG,
 #endif
@@ -569,6 +640,9 @@ static u8 GameMode_ProcessInput(u8 menuOffset, u8 selection);
 static void GameMode_DrawChoices(u8 menuOffset, u8 selection);
 static u8 RevisionMode_ProcessInput(u8 menuOffset, u8 selection);
 static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection);
+static void RevisionMode_ArrowRight_DrawChoices(u8 menuOffset, u8 selection);
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection);
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection);
 
 #ifdef ROGUE_DEBUG
 static u8 DebugToggle_ProcessInput(u8 menuOffset, u8 selection);
@@ -643,6 +717,20 @@ static const struct MenuEntry sOptionMenuItems[] =
     {
         .itemName = sMenuName_GameModesSubmenu,
         .SINGLE_DESC(sMenuNameDesc_GameModesSubmenu),
+        .processInput = Empty_ProcessInput,
+        .drawChoices = ArrowRight_DrawChoices
+    },
+    [MENUITEM_MENU_REVISION_MODE_SUBMENU] = 
+    {
+        .itemName = sMenuName_RevisionMode,
+        .SINGLE_DESC(sText_RevisionModeDesc),
+        .processInput = Empty_ProcessInput,
+        .drawChoices = RevisionMode_ArrowRight_DrawChoices
+    },
+    [MENUITEM_MENU_REVISION_MODE_ALWAYS_CONFIRM_SUBMENU] = 
+    {
+        .itemName = sMenuName_RevisionModeAlwaysOn,
+        .SINGLE_DESC(sText_RevisionModeAlwaysOnDesc),
         .processInput = Empty_ProcessInput,
         .drawChoices = ArrowRight_DrawChoices
     },
@@ -815,32 +903,19 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = BattleFormat_ProcessInput,
         .drawChoices = BattleFormat_DrawChoices
     },
-    [MENUITEM_MENU_SLIDER_REVISION_MODE] = 
+
+    [MENUITEM_MENU_SLIDER_TRAINER_ORDER] = 
     {
-        .itemName = sMenuName_RevisionMode,
-        .MULTI_DESC(sMenuNameDesc_BattleFormat),
-        .processInput = RevisionMode_ProcessInput,
-        .drawChoices = RevisionMode_DrawChoices
+        .itemName = sMenuName_TrainerOrder,
+        .MULTI_DESC(sMenuNameDesc_TrainerOrder),
+        .processInput = TrainerOrder_ProcessInput,
+        .drawChoices = TrainerOrder_DrawChoices
     },
 
     [MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD] = 
     {
         .itemName = sMenuName_GameMode_Standard,
         .SINGLE_DESC(sMenuNameDesc_GameMode_Standard),
-        .processInput = GameMode_ProcessInput,
-        .drawChoices = GameMode_DrawChoices
-    },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW] = 
-    {
-        .itemName = sMenuName_GameMode_Rainbow,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_Rainbow),
-        .processInput = GameMode_ProcessInput,
-        .drawChoices = GameMode_DrawChoices
-    },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL] = 
-    {
-        .itemName = sMenuName_GameMode_Official,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_Official),
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
@@ -851,12 +926,34 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
     },
-    [MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET] = 
+    [MENUITEM_MENU_SLIDER_GAME_MODE_FAST_PATH] = 
     {
-        .itemName = sMenuName_GameMode_RainbowGauntlet,
-        .SINGLE_DESC(sMenuNameDesc_GameMode_RainbowGauntlet),
+        .itemName = sMenuName_GameMode_FastPath,
+        .SINGLE_DESC(sMenuNameDesc_GameMode_FastPath),
         .processInput = GameMode_ProcessInput,
         .drawChoices = GameMode_DrawChoices
+    },
+
+    [MENUITEM_MENU_REVISION_MODE_NEVER] = 
+    {
+        .itemName = sMenuName_RevisionModeNever,
+        .SINGLE_DESC(sText_RevisionModeNeverDesc),
+        .processInput = RevisionMode_ProcessInput,
+        .drawChoices = RevisionMode_DrawChoices
+    },
+    [MENUITEM_MENU_REVISION_MODE_ADVENTURE_ONLY] = 
+    {
+        .itemName = sMenuName_RevisionModeInRun,
+        .SINGLE_DESC(sText_RevisionModeInRunDesc),
+        .processInput = RevisionMode_ProcessInput,
+        .drawChoices = RevisionMode_DrawChoices
+    },
+    [MENUITEM_MENU_REVISION_MODE_ALWAYS_ON_YES] = 
+    {
+        .itemName = sMenuName_RevisionModeYes,
+        .SINGLE_DESC(sText_RevisionModeYesDesc),
+        .processInput = RevisionMode_ProcessInput,
+        .drawChoices = RevisionMode_DrawChoices
     },
 
 #ifdef ROGUE_DEBUG
@@ -951,6 +1048,12 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = DebugToggle_ProcessInput,
         .drawChoices = DebugToggle_DrawChoices
     },
+    [MENUITEM_MENU_DEBUG_TOGGLE_SPRITE_LAYERS] = 
+    {
+        .itemName = sMenuName_DebugToggleSpriteLayers,
+        .processInput = DebugToggle_ProcessInput,
+        .drawChoices = DebugToggle_DrawChoices
+    },
 
     [MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY] = 
     {
@@ -1030,15 +1133,12 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+#ifdef ROGUE_FEATURE_REVISED_MODE
+            MENUITEM_MENU_REVISION_MODE_SUBMENU,
+#endif
             MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
-
-#ifdef ROGUE_FEATURE_REVISED_MODE
-            // TODO - Move
-            MENUITEM_MENU_SLIDER_REVISION_MODE,
-#endif
-
             MENUITEM_CANCEL
         }
     },
@@ -1047,6 +1147,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+            MENUITEM_MENU_SLIDER_TRAINER_ORDER,
             MENUITEM_MENU_TOGGLE_TRAINER_KANTO,
             MENUITEM_MENU_TOGGLE_TRAINER_JOHTO,
             MENUITEM_MENU_TOGGLE_TRAINER_HOENN,
@@ -1066,11 +1167,27 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+            MENUITEM_MENU_SLIDER_GAME_MODE_FAST_PATH,
             MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD,
-            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW,
-            MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL,
             MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET,
-            MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_REVISION_MODE] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_REVISION_MODE_NEVER,
+            MENUITEM_MENU_REVISION_MODE_ADVENTURE_ONLY,
+            MENUITEM_MENU_REVISION_MODE_ALWAYS_CONFIRM_SUBMENU,
+            MENUITEM_CANCEL
+        }
+    },
+    [SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM] = 
+    {
+        .menuOptions = 
+        {
+            MENUITEM_MENU_REVISION_MODE_ALWAYS_ON_YES,
             MENUITEM_CANCEL
         }
     },
@@ -1093,6 +1210,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_DEBUG_TOGGLE_STOP_WILD_SPAWNING,
             MENUITEM_MENU_DEBUG_TOGGLE_DISABLE_ASSISTANT_TIMEOUT,
             MENUITEM_MENU_DEBUG_TOGGLE_FULL_BATTLE_HUD,
+            MENUITEM_MENU_DEBUG_TOGGLE_SPRITE_LAYERS,
 
             MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY,
             MENUITEM_MENU_DEBUG_RANGE_FORCED_ROUTE,
@@ -1267,6 +1385,7 @@ void CB2_InitDifficultyConfigMenu(void)
 
         gTasks[taskId].data[TD_MENUSELECTION] = 0;
         gTasks[taskId].data[TD_MENUSELECTION_TOP] = 0;
+        gTasks[taskId].data[TD_MENUSELECTION_DEPTH] = 0;
         gTasks[taskId].data[TD_SUBMENU] = 0;
 
         DrawOptionMenuTexts(gTasks[taskId].data[TD_SUBMENU], 0);
@@ -1291,19 +1410,106 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
-static bool8 IsMenuOptionActive(u8 menuOption)
+enum
+{
+    SETTINGS_UNLOCK_LEVEL_DEFAULT,
+    SETTINGS_UNLOCK_LEVEL_POST_GAME,
+    SETTINGS_UNLOCK_LEVEL_FINAL_QUEST,
+};
+
+u8 GetPrevMenuUnlockLevel()
+{
+    return VarGet(VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL);
+}
+
+u8 GetActiveMenuUnlockLevel()
+{
+    if(RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST))
+        return SETTINGS_UNLOCK_LEVEL_FINAL_QUEST;
+
+    if(FlagGet(FLAG_ROGUE_MET_POKABBIE))
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
+
+    return SETTINGS_UNLOCK_LEVEL_DEFAULT;
+}
+
+u8 GetMenuItemUnlockLevel(u8 menuOption)
 {
     switch (menuOption)
     {
+        // Sub menus
     case MENUITEM_MENU_TRAINERS_SUBMENU:
-    case MENUITEM_MENU_GAME_MODES_SUBMENU:
-        return FlagGet(FLAG_ROGUE_MET_POKABBIE);
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
+
+        // Options
+    case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+    case MENUITEM_MENU_TOGGLE_TRAINER_KANTO:
+    case MENUITEM_MENU_TOGGLE_TRAINER_JOHTO:
+    case MENUITEM_MENU_TOGGLE_TRAINER_HOENN:
+#ifdef ROGUE_EXPANSION
+    case MENUITEM_MENU_TOGGLE_TRAINER_SINNOH:
+    case MENUITEM_MENU_TOGGLE_TRAINER_UNOVA:
+    case MENUITEM_MENU_TOGGLE_TRAINER_KALOS:
+    case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
+    case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
+    case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+#endif
+        return SETTINGS_UNLOCK_LEVEL_POST_GAME;
 
     case MENUITEM_MENU_TOGGLE_TRAINER_ROGUE:
-        return RogueQuest_HasCollectedRewards(QUEST_ID_ONE_LAST_QUEST);
+        return SETTINGS_UNLOCK_LEVEL_FINAL_QUEST;
     }
 
-    return TRUE;
+    return SETTINGS_UNLOCK_LEVEL_DEFAULT;
+}
+
+static bool8 IsMenuOptionActive(u8 menuOption)
+{
+    u8 curr = GetActiveMenuUnlockLevel();
+
+    return GetMenuItemUnlockLevel(menuOption) <= curr;
+}
+
+static bool8 ShowMenuSparkles(u8 menuOption)
+{
+    u8 prev = GetPrevMenuUnlockLevel();
+    u8 curr = GetActiveMenuUnlockLevel();
+    u8 unlockLevel = GetMenuItemUnlockLevel(menuOption);
+
+    // Options to highlight for this patch
+    if(FlagGet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT))
+    {
+        if(menuOption == MENUITEM_MENU_REVISION_MODE_SUBMENU)
+            return TRUE;
+    }
+
+    if(prev != curr)
+    {
+        if(unlockLevel > prev)
+            return TRUE;
+    }
+
+    if(prev != curr || FlagGet(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT))
+    {
+        // Show sparkle if new item in sub menu is highlighted
+        if(menuOption >= MENUITEM_MENU_DIFFICULTY_SUBMENU && menuOption <= MENUITEM_MENU_REVISION_MODE_ALWAYS_CONFIRM_SUBMENU)
+        {
+            u8 i;
+            u8 submenu = SUBMENUITEM_DIFFICULTY + menuOption - MENUITEM_MENU_DIFFICULTY_SUBMENU;
+
+            for(i = 0; i < MAX_MENUITEM_COUNT; ++i)
+            {
+                if(menuOption == MENUITEM_CANCEL)
+                    break;
+
+                if(IsMenuOptionActive(sOptionMenuEntries[submenu].menuOptions[i]) && ShowMenuSparkles(sOptionMenuEntries[submenu].menuOptions[i]))
+                    return TRUE;
+            }
+        }
+    }
+
+    return FALSE;
 }
 
 static u8 GetMenuItemFor(u8 submenu, u8 index)
@@ -1383,8 +1589,14 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     u8 menuSelectionTop = gTasks[taskId].data[TD_MENUSELECTION_TOP];
     u8 submenuSelection = gTasks[taskId].data[TD_SUBMENU];
     u8 menuItem = GetMenuItemFor(submenuSelection, menuSelection);
-
-    if ((CanExitWithB(submenuSelection) && JOY_NEW(B_BUTTON)) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
+    
+    // forcefully back out of these sub menus if we end up in them with always on active
+    if ((submenuSelection == SUBMENUITEM_REVISION_MODE || submenuSelection == SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM) && Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_ALWAYS_ON)
+    {
+        submenuSelection = SUBMENUITEM_NONE;
+        submenuChanged = TRUE;
+    }
+    else if ((CanExitWithB(submenuSelection) && JOY_NEW(B_BUTTON)) || (JOY_NEW(A_BUTTON) && (menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)))
     {
         if(submenuSelection != SUBMENUITEM_NONE)
         {
@@ -1405,7 +1617,7 @@ static void Task_OptionMenuProcessInput(u8 taskId)
         else
             gTasks[taskId].func = Task_OptionMenuSave;
     }
-    else if(JOY_NEW(A_BUTTON) && submenuSelection == SUBMENUITEM_NONE)
+    else if(JOY_NEW(A_BUTTON))
     {
         switch (menuItem)
         {
@@ -1429,6 +1641,24 @@ static void Task_OptionMenuProcessInput(u8 taskId)
             submenuChanged = TRUE;
             break;
 
+        case MENUITEM_MENU_REVISION_MODE_SUBMENU:
+            
+            if (Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_ALWAYS_ON)
+            {
+                PlaySE(SE_FAILURE);
+            }
+            else
+            {
+                submenuSelection = SUBMENUITEM_REVISION_MODE;
+                submenuChanged = TRUE;
+            }
+            break;
+
+        case MENUITEM_MENU_REVISION_MODE_ALWAYS_CONFIRM_SUBMENU:
+            submenuSelection = SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM;
+            submenuChanged = TRUE;
+            break;
+
 #ifdef ROGUE_DEBUG
         case MENUITEM_MENU_DEBUG_SUBMENU:
             submenuSelection = SUBMENUITEM_DEBUG;
@@ -1437,93 +1667,97 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 #endif
         }
     }
-    else if (JOY_REPEAT(DPAD_UP | L_BUTTON))
+
+    if(!submenuChanged)
     {
-        u8 i;
-        u8 repeatAmount = JOY_REPEAT(L_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
-
-        for(i = 0; i < repeatAmount; ++i)
+        if (JOY_REPEAT(DPAD_UP | L_BUTTON))
         {
-            if(menuSelection != 0)
-            {
-                menuSelection--;
+            u8 i;
+            u8 repeatAmount = JOY_REPEAT(L_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
 
-                if(menuSelection < menuSelectionTop)
+            for(i = 0; i < repeatAmount; ++i)
+            {
+                if(menuSelection != 0)
                 {
-                    menuSelectionTop = menuSelection;
+                    menuSelection--;
+
+                    if(menuSelection < menuSelectionTop)
+                    {
+                        menuSelectionTop = menuSelection;
+                    }
                 }
-            }
-            else
-                break;
-        }
-
-        DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
-        DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
-
-        HighlightOptionMenuItem(menuSelection, menuSelectionTop);
-        gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
-        gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
-    }
-    else if (JOY_REPEAT(DPAD_DOWN | R_BUTTON))
-    {
-        u8 i;
-        u8 repeatAmount = JOY_REPEAT(R_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
-        
-        for(i = 0; i < repeatAmount; ++i)
-        {
-            if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
-            {
-                menuSelection++;
-                menuItem = GetMenuItemFor(submenuSelection, menuSelection);
-
-                if(menuSelection >= menuSelectionTop + MAX_MENUITEM_TO_DISPLAY)
-                {
-                    menuSelectionTop = menuSelection - MAX_MENUITEM_TO_DISPLAY + 1;
-                }
-            }
-            else
-                break;
-        }
-
-        DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
-        DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
-
-        HighlightOptionMenuItem(menuSelection, menuSelectionTop);
-        gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
-        gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
-    }
-    else if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
-    {
-        u8 currOption;
-        u8 prevOption;
-
-        prevOption = GetMenuItemValue(menuItem);
-
-        currOption = sOptionMenuItems[menuItem].processInput(menuSelection, prevOption);
-
-        if(prevOption != currOption)
-        {
-            // Redraw all options in Game Modes, as changing one setting can toggle other settings
-            if(submenuSelection == SUBMENUITEM_GAME_MODES)
-            {
-                SetMenuItemValue(menuItem, currOption);
-                DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
-            }
-            else
-            {
-                sOptionMenuItems[menuItem].drawChoices(menuSelection - menuSelectionTop, currOption);
-                SetMenuItemValue(menuItem, currOption);
+                else
+                    break;
             }
 
-            // Update the description
             DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
-        }
+            DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
 
-        if (sArrowPressed)
+            HighlightOptionMenuItem(menuSelection, menuSelectionTop);
+            gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
+            gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
+        }
+        else if (JOY_REPEAT(DPAD_DOWN | R_BUTTON))
         {
-            sArrowPressed = FALSE;
-            CopyWindowToVram(WIN_OPTIONS, COPYWIN_GFX);
-            //CopyWindowToVram(WIN_OPTIONS, COPYWIN_FULL);
+            u8 i;
+            u8 repeatAmount = JOY_REPEAT(R_BUTTON) ? QUICK_JUMP_AMOUNT : 1;
+            
+            for(i = 0; i < repeatAmount; ++i)
+            {
+                if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
+                {
+                    menuSelection++;
+                    menuItem = GetMenuItemFor(submenuSelection, menuSelection);
+
+                    if(menuSelection >= menuSelectionTop + MAX_MENUITEM_TO_DISPLAY)
+                    {
+                        menuSelectionTop = menuSelection - MAX_MENUITEM_TO_DISPLAY + 1;
+                    }
+                }
+                else
+                    break;
+            }
+
+            DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
+            DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
+
+            HighlightOptionMenuItem(menuSelection, menuSelectionTop);
+            gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
+            gTasks[taskId].data[TD_MENUSELECTION_TOP] = menuSelectionTop;
+        }
+        else if(menuItem != MENUITEM_CANCEL && menuItem != MENUITEM_SAVE_AND_EXIT)
+        {
+            u8 currOption;
+            u8 prevOption;
+
+            prevOption = GetMenuItemValue(menuItem);
+
+            currOption = sOptionMenuItems[menuItem].processInput(menuSelection, prevOption);
+
+            if(prevOption != currOption)
+            {
+                // Redraw all options in Game Modes, as changing one setting can toggle other settings
+                if(submenuSelection == SUBMENUITEM_GAME_MODES || submenuSelection == SUBMENUITEM_REVISION_MODE || submenuSelection == SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM)
+                {
+                    SetMenuItemValue(menuItem, currOption);
+                    DrawOptionMenuTexts(submenuSelection, menuSelectionTop);
+                }
+                else
+                {
+                    sOptionMenuItems[menuItem].drawChoices(menuSelection - menuSelectionTop, currOption);
+                    SetMenuItemValue(menuItem, currOption);
+                }
+
+                // Update the description
+                DrawDescriptionOptionMenuText(submenuSelection, menuSelection);
+            }
+
+            if (sArrowPressed)
+            {
+                sArrowPressed = FALSE;
+                CopyWindowToVram(WIN_OPTIONS, COPYWIN_GFX);
+                //CopyWindowToVram(WIN_OPTIONS, COPYWIN_FULL);
+            }
         }
     }
 
@@ -1531,15 +1765,23 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     {
         if(submenuSelection == SUBMENUITEM_NONE)
         {
-            menuSelection = gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION];
-            menuSelectionTop = gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION_TOP];
+            AGB_ASSERT(gTasks[taskId].data[TD_MENUSELECTION_DEPTH] > 0);
+            --gTasks[taskId].data[TD_MENUSELECTION_DEPTH];
+
+            submenuSelection = gTasks[taskId].data[TD_SUBMENU_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]];
+            menuSelection = gTasks[taskId].data[TD_MENUSELECTION_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]];
+            menuSelectionTop = gTasks[taskId].data[TD_MENUSELECTION_TOP_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]];
         }
         else
         {
-            gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION] = menuSelection;
-            gTasks[taskId].data[TD_PREVIOUS_MENUSELECTION_TOP] = menuSelectionTop;
+            gTasks[taskId].data[TD_SUBMENU_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]] = gTasks[taskId].data[TD_SUBMENU]; // store original submenu
+            gTasks[taskId].data[TD_MENUSELECTION_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]] = menuSelection;
+            gTasks[taskId].data[TD_MENUSELECTION_TOP_STACK_0 + gTasks[taskId].data[TD_MENUSELECTION_DEPTH]] = menuSelectionTop;
             menuSelection = 0;
             menuSelectionTop = 0;
+
+            ++gTasks[taskId].data[TD_MENUSELECTION_DEPTH];
+            AGB_ASSERT(gTasks[taskId].data[TD_MENUSELECTION_DEPTH] <= TD_MENUSELECTION_STACK_SIZE);
         }
         
         gTasks[taskId].data[TD_MENUSELECTION] = menuSelection;
@@ -1570,6 +1812,9 @@ static void Task_OptionMenuFadeOut(u8 taskId)
         FreeAllWindowBuffers();
         SetMainCallback2(gMain.savedCallback);
         // ScriptContext_Enable(); <- handled in savedCallback
+
+        VarSet(VAR_ROGUE_SETTINGS_MENU_DISPLAY_LVL, GetActiveMenuUnlockLevel());
+        FlagClear(FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT);
     }
 }
 
@@ -1831,18 +2076,33 @@ static void GameMode_DrawChoices(u8 menuOffset, u8 selection)
 
 static u8 RevisionMode_ProcessInput(u8 menuOffset, u8 selection)
 {
-    return ProcessInputRange(menuOffset, selection, REVISION_MODE_COUNT);
+    if(ShouldSkipInput())
+        return selection;
+
+    if (!selection && JOY_NEW(A_BUTTON))
+    {
+        selection ^= 1;
+        sArrowPressed = TRUE;
+    }
+
+    return selection;
 }
 
 static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection)
 {
-    const u8* text = NULL;
-    u8 style = 0;
-
     // Hack to wipe tiles????
     DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
 
-    switch (selection)
+    // Only draw enabled
+
+    if(selection != 0)
+        DrawOptionMenuChoice(gText_DifficultyModeActive, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+}
+
+static void RevisionMode_ArrowRight_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text = NULL;
+    switch (Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE))
     {
     case REVISION_MODE_NEVER:
         text = sMenuName_RevisionModeNever;
@@ -1854,6 +2114,38 @@ static void RevisionMode_DrawChoices(u8 menuOffset, u8 selection)
 
     case REVISION_MODE_ALWAYS_ON:
         text = sMenuName_RevisionModeAlwaysOn;
+        break;
+    }
+    
+    DrawOptionMenuChoice(text, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+    DrawOptionMenuChoice(gText_DifficultyArrowRight, XPOS_CHOICES + 92, menuOffset * YPOS_SPACING, 0);
+}
+
+static u8 TrainerOrder_ProcessInput(u8 menuOffset, u8 selection)
+{
+    return ProcessInputRange(menuOffset, selection, TRAINER_ORDER_COUNT);
+}
+
+static void TrainerOrder_DrawChoices(u8 menuOffset, u8 selection)
+{
+    const u8* text = NULL;
+    u8 style = 0;
+
+    // Hack to wipe tiles????
+    DrawOptionMenuChoice(gText_32Spaces, XPOS_CHOICES, menuOffset * YPOS_SPACING, 0);
+
+    switch (selection)
+    {
+    case TRAINER_ORDER_DEFAULT:
+        text = sMenuName_TrainerOrderDefault;
+        break;
+
+    case TRAINER_ORDER_RAINBOW:
+        text = sMenuName_TrainerOrderRainbow;
+        break;
+
+    case TRAINER_ORDER_OFFICIAL:
+        text = sMenuName_TrainerOrderOfficial;
         break;
     }
 
@@ -2012,14 +2304,11 @@ static void Empty_DrawChoices(u8 menuOffset, u8 selection)
 
 static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
 {
-    u8 text[64];
-    u8* str;
-
     u8 menuItem = GetMenuItemFor(submenu, selection);
 
     FillWindowPixelBuffer(WIN_TEXT_OPTION, PIXEL_FILL(1));
 
-    if(submenu == SUBMENUITEM_GAME_MODES)
+    if(submenu == SUBMENUITEM_GAME_MODES || submenu == SUBMENUITEM_REVISION_MODE || submenu == SUBMENUITEM_REVISION_MODE_ALWAYS_CONFIRM)
     {
         // Use entire box for the mode description
 
@@ -2039,9 +2328,17 @@ static void DrawDescriptionOptionMenuText(u8 submenu, u8 selection)
     }
     else
     {
+        u8 text[64];
+        u8* str;
+
         // Element name
-        str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
-        //str = StringAppend(str, gText_DifficultyDoesntAffectReward); // TODO - hookup hint?
+        if(ShowMenuSparkles(menuItem))
+        {
+            str = StringCopy(text, sMenu_SparkleIcon);
+            str = StringCopy(str, sOptionMenuItems[menuItem].itemName);
+        }
+        else
+            str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
 
         AddTextPrinterParameterized(WIN_TEXT_OPTION, FONT_NORMAL, text, 8, 1, TEXT_SKIP_DRAW, NULL);
 
@@ -2099,9 +2396,20 @@ static void DrawOptionMenuTexts(u8 submenu, u8 topIndex)
 
     for (i = 0; i < MAX_MENUITEM_TO_DISPLAY; i++)
     {
+        u8 text[64];
+        u8* str;
         u8 menuItem = GetMenuItemFor(submenu, i + topIndex);
 
-        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, sOptionMenuItems[menuItem].itemName, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
+        // Element name
+        if(ShowMenuSparkles(menuItem))
+        {
+            str = StringCopy(text, sMenu_SparkleIcon);
+            str = StringCopy(str, sOptionMenuItems[menuItem].itemName);
+        }
+        else
+            str = StringCopy(text, sOptionMenuItems[menuItem].itemName);
+            
+        AddTextPrinterParameterized(WIN_OPTIONS, FONT_NORMAL, text, XPOS_TITLES, (i * YPOS_SPACING) + 1, TEXT_SKIP_DRAW, NULL);
 
         if(menuItem == MENUITEM_CANCEL || menuItem == MENUITEM_SAVE_AND_EXIT)
             break;
@@ -2190,7 +2498,7 @@ static u8 GetMenuItemValue(u8 menuItem)
 
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER);
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL);
 
     case MENUITEM_MENU_SLIDER_ITEM:
         return Rogue_GetConfigRange(CONFIG_RANGE_ITEM);
@@ -2201,15 +2509,20 @@ static u8 GetMenuItemValue(u8 menuItem)
     case MENUITEM_MENU_SLIDER_BATTLE_FORMAT:
         return Rogue_GetConfigRange(CONFIG_RANGE_BATTLE_FORMAT);
 
-    case MENUITEM_MENU_SLIDER_REVISION_MODE:
-        return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE);
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        return Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_ORDER);
 
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_FAST_PATH:
         return Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == (ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
+
+    case MENUITEM_MENU_REVISION_MODE_NEVER:
+        return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_NEVER;
+    case MENUITEM_MENU_REVISION_MODE_ADVENTURE_ONLY:
+        return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_IN_RUN;
+    case MENUITEM_MENU_REVISION_MODE_ALWAYS_ON_YES:
+        return Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_ALWAYS_ON;
 
 #ifdef ROGUE_DEBUG
     case MENUITEM_MENU_DEBUG_TOGGLE_INFO_PANEL:
@@ -2253,6 +2566,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_DEBUG_TOGGLE_FULL_BATTLE_HUD:
         return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD);
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_SPRITE_LAYERS:
+        return RogueDebug_GetConfigToggle(DEBUG_TOGGLE_SPRITE_LAYERS);
 
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:
@@ -2358,7 +2674,7 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 #endif
 
     case MENUITEM_MENU_SLIDER_TRAINER:
-        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER, value);
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_LVL, value);
         break;
 
     case MENUITEM_MENU_SLIDER_ITEM:
@@ -2373,19 +2689,32 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
         Rogue_SetConfigRange(CONFIG_RANGE_BATTLE_FORMAT, value);
         break;
 
-    case MENUITEM_MENU_SLIDER_REVISION_MODE:
-        Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, value);
+    case MENUITEM_MENU_SLIDER_TRAINER_ORDER:
+        Rogue_SetConfigRange(CONFIG_RANGE_TRAINER_ORDER, value);
         break;
 
     case MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_OFFICIAL:
     case MENUITEM_MENU_SLIDER_GAME_MODE_GAUNTLET:
-    case MENUITEM_MENU_SLIDER_GAME_MODE_RAINBOW_GAUNTLET:
+    case MENUITEM_MENU_SLIDER_GAME_MODE_FAST_PATH:
         if(value != 0)
             Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD + menuItem - MENUITEM_MENU_SLIDER_GAME_MODE_STANDARD);
         else
             Rogue_SetConfigRange(CONFIG_RANGE_GAME_MODE_NUM, ROGUE_GAME_MODE_STANDARD);
+        break;
+
+    case MENUITEM_MENU_REVISION_MODE_NEVER:
+        if(value != 0)
+            Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, REVISION_MODE_NEVER);
+        break;
+
+    case MENUITEM_MENU_REVISION_MODE_ADVENTURE_ONLY:
+        if(value != 0)
+            Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, REVISION_MODE_IN_RUN);
+        break;
+
+    case MENUITEM_MENU_REVISION_MODE_ALWAYS_ON_YES:
+        if(value != 0)
+            Rogue_SetConfigRange(CONFIG_RANGE_REVISION_MODE, REVISION_MODE_ALWAYS_ON);
         break;
 
 #ifdef ROGUE_DEBUG
@@ -2443,6 +2772,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_DEBUG_TOGGLE_FULL_BATTLE_HUD:
         RogueDebug_SetConfigToggle(DEBUG_TOGGLE_FULL_BATTLE_HUD, value);
+        break;
+
+    case MENUITEM_MENU_DEBUG_TOGGLE_SPRITE_LAYERS:
+        RogueDebug_SetConfigToggle(DEBUG_TOGGLE_SPRITE_LAYERS, value);
         break;
 
     case MENUITEM_MENU_DEBUG_RANGE_START_DIFFICULTY:

@@ -273,5 +273,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WHISCASH": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 78,
+        "Defense": 73,
+        "Speed": 60,
+        "SpAttack": 76,
+        "SpDefense": 71
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  }
 }

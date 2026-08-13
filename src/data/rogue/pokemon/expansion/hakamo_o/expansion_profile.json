@@ -128,5 +128,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HAKAMO_O": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 75,
+        "Defense": 90,
+        "Speed": 65,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BULLETPROOF",
+        "ABILITY_SOUNDPROOF",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

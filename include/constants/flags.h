@@ -676,7 +676,7 @@
 #define FLAG_ROGUE_EXPANSION_ACTIVE          0x26F
 #define FLAG_ROGUE_RARE_ITEM_MART_DISABLED   0x270
 #define FLAG_ROGUE_ASSISTANT_TUTORIAL        0x271
-#define FLAG_UNUSED_0x272                    0x272
+#define FLAG_ROGUE_SETTINGS_MENU_DISPLAY_HIGHLIGHT  0x272 // highlight for newly added settings this update
 #define FLAG_ROGUE_SCOTT_GIFTED_EXTRAS       0x273
 #define FLAG_ROGUE_DEBUG_DISABLED            0x274
 #define FLAG_ROGUE_MET_BERRY_MERCHANT        0x275
@@ -687,10 +687,10 @@
 #define FLAG_ROGUE_RANDOM_TRADE_DISABLED     0x27A
 #define FLAG_ROGUE_RANDOM_TRADE_WAS_ACTIVE   0x27B
 #define FLAG_ROGUE_RANDOM_TRADE_WAS_FULL_PARTY 0x27C
-#define FLAG_ROGUE_DAYCARE_PHONE_CHARGED     0x27D
+#define FLAG_UNUSED_0x27D                    0x27D
 #define FLAG_ROGUE_MYSTERIOUS_SIGN_KNOWN     0x27E
-#define FLAG_UNUSED_0x27F                    0x27F
-#define FLAG_UNUSED_0x280                    0x280
+#define FLAG_ROGUE_MULTIPLAYER_IS_HOST       0x27F
+#define FLAG_ROGUE_MULTIPLAYER_IS_CLIENT     0x280
 #define FLAG_ROGUE_TRAINERS_WEAK_LEGENDARIES    0x281
 #define FLAG_ROGUE_TRAINERS_STRONG_LEGENDARIES  0x282
 #define FLAG_ROGUE_PRE_RELEASE_COMPAT_WARNING   0x283
@@ -1047,7 +1047,7 @@
 #define FLAG_HIDE_ROUTE_119_KECLEON_2                               0x3DE
 #define FLAG_HIDE_ROUTE_101_BOY                                     0x3DF
 #define FLAG_HIDE_WEATHER_INSTITUTE_2F_AQUA_GRUNT_M                 0x3E0
-#define FLAG_HIDE_LILYCOVE_POKEMON_CENTER_CONTEST_LADY_MON          0x3E1
+#define FLAG_UNUSED_0x3E1                                           0x3E1
 #define FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY                       0x3E2
 #define FLAG_HIDE_PETALBURG_CITY_SCOTT                              0x3E3
 #define FLAG_HIDE_SOOTOPOLIS_CITY_RAYQUAZA                          0x3E4

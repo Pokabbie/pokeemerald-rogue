@@ -13,5 +13,26 @@
     "MOVE_ELECTROWEB",
     "MOVE_IRON_DEFENSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CASCOON": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 35,
+        "Defense": 55,
+        "Speed": 15,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_BUG"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

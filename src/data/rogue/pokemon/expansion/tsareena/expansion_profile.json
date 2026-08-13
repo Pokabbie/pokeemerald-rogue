@@ -352,5 +352,26 @@
         "GEN9DOUBLESOU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TSAREENA": {
+      "BaseStats": {
+        "HP": 72,
+        "Attack": 120,
+        "Defense": 98,
+        "Speed": 72,
+        "SpAttack": 50,
+        "SpDefense": 98
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_QUEENLY_MAJESTY",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
 }

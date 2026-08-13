@@ -146,5 +146,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRAMBLIN": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 65,
+        "Defense": 30,
+        "Speed": 60,
+        "SpAttack": 45,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WIND_RIDER",
+        "ABILITY_NONE",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

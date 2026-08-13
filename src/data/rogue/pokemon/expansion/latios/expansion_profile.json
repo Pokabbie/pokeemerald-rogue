@@ -933,5 +933,45 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LATIOS": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 90,
+        "Defense": 80,
+        "Speed": 110,
+        "SpAttack": 130,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    },
+    "SPECIES_LATIOS_MEGA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 130,
+        "Defense": 100,
+        "Speed": 110,
+        "SpAttack": 160,
+        "SpDefense": 120
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
 }

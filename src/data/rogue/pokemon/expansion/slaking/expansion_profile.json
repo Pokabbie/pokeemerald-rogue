@@ -357,5 +357,26 @@
         "GEN91V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLAKING": {
+      "BaseStats": {
+        "HP": 150,
+        "Attack": 160,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 95,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_TRUANT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

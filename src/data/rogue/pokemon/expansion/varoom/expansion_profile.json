@@ -104,5 +104,26 @@
     "MOVE_VENOSHOCK",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_VAROOM": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 70,
+        "Defense": 63,
+        "Speed": 47,
+        "SpAttack": 30,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_NONE",
+        "ABILITY_SLOW_START"
+      ]
+    }
+  }
 }

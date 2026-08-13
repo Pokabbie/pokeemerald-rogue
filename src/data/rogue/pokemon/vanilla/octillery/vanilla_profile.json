@@ -129,5 +129,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OCTILLERY": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 105,
+        "Defense": 75,
+        "Speed": 45,
+        "SpAttack": 105,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SUCTION_CUPS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

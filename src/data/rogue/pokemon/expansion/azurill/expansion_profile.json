@@ -148,5 +148,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AZURILL": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 20,
+        "Defense": 40,
+        "Speed": 20,
+        "SpAttack": 20,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_HUGE_POWER",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

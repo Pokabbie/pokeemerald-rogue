@@ -200,5 +200,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BANETTE": {
+      "BaseStats": {
+        "HP": 64,
+        "Attack": 115,
+        "Defense": 65,
+        "Speed": 65,
+        "SpAttack": 83,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_INSOMNIA",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

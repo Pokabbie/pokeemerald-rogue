@@ -1,0 +1,11 @@
+{
+    "includes":
+    [
+        "2.1.0_challenges.json",
+        "2.1.0_region_style.json",
+        "2.1.0_masteries.json"
+    ],
+    "quest_groups":
+    {
+    }
+}

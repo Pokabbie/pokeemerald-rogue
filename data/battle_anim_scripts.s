@@ -17782,46 +17782,168 @@ ElectroShotUnleash:
 	end
 
 Move_TERA_BLAST::
+	goto Move_HYPER_BEAM
+
 Move_AXE_KICK::
+	loadspritegfx ANIM_TAG_SLAM_HIT_2 @Cut
+	loadspritegfx ANIM_TAG_ROCKS
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
+	createsprite gSpriteTemplate_StoneAxeSlash, ANIM_TARGET, 2, 50, -10, 100, 8, 1 @;Move left
+	delay 0x5
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 0, 4, 16, 1
+	playsewithpan SE_M_RAZOR_WIND, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	end
+
 Move_ORDER_UP::
+	goto Move_DRAGON_RUSH
+
 Move_SPICY_EXTRACT::
+	goto Move_ENERGY_BALL
+
 Move_SPIN_OUT::
+	goto Move_RAPID_SPIN
+
 Move_POPULATION_BOMB::
+	goto Move_FLING
+
 Move_GLAIVE_RUSH::
+	goto Move_DRAGON_RUSH
+
 Move_REVIVAL_BLESSING::
+	goto Move_WISH
+
 Move_SALT_CURE::
+	goto Move_SAND_ATTACK
+
 Move_TRIPLE_DIVE::
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_DEF_PARTNER
+	setalpha 12, 8
+	playsewithpan SE_M_VITAL_THROW2, 0x3f
+	jumpifmoveturn 0, TripleDiveTurn0
+	jumpifmoveturn 1, TripleDiveTurn1
+	goto TripleDiveTurn2
+TripleDiveTurn0:
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0xfff0, 0xfff0, 0x1, 0x2
+	call DiveAttackWaterDroplets
+	call DiveAttackWaterDroplets
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 4, 1
+	goto TripleDiveEnd
+TripleDiveTurn1:
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0x8, 0x0, 0x1, 0x2
+	call DiveAttackWaterDroplets
+	call DiveAttackWaterDroplets
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 4, 0, 6, 1
+	goto TripleDiveEnd
+TripleDiveTurn2:
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 3, 0x0, 0xfff8, 0x1, 0x1
+	call DiveAttackWaterDroplets
+	call DiveAttackWaterDroplets
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 6, 0, 8, 1
+TripleDiveEnd:
+	delay 4
+	playsewithpan SE_M_WATERFALL, 0x3f
+	waitforvisualfinish
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
 Move_MORTAL_SPIN::
+	goto Move_RAPID_SPIN
+
 Move_DOODLE::
+	goto Move_SKETCH
+
 Move_FILLET_AWAY::
+	goto Move_FOCUS_ENERGY
+
 Move_FLOWER_TRICK::
+	goto Move_PETAL_DANCE
+
 Move_MAKE_IT_RAIN::
+	goto Move_PAY_DAY
+
 Move_RUINATION::
+	goto Move_DARK_PULSE
+
 Move_COLLISION_COURSE::
+	goto Move_DOUBLE_EDGE
+
 Move_ELECTRO_DRIFT::
+	goto Move_VOLT_TACKLE
+
 Move_SHED_TAIL::
+	loadspritegfx ANIM_TAG_POKEBALL
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_MonToSubstitute, 2
+	waitforvisualfinish
+	playsewithpan SE_M_BATON_PASS, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendColorCycle, 2, (F_PAL_BG | F_PAL_BATTLERS), 1, 2, 0, 11, RGB(31, 22, 30)
+	createsprite gBatonPassPokeballSpriteTemplate, ANIM_ATTACKER, 2
+	end
+
 Move_HYPER_DRILL::
+	goto Move_HORN_DRILL
+
 Move_TWIN_BEAM::
+	goto Move_SIGNAL_BEAM
+
 Move_ARMOR_CANNON::
+	goto Move_MYSTICAL_FIRE
+
 Move_COMEUPPANCE::
+	goto Move_SUCKER_PUNCH
+
+Move_PSYBLADE::
+	goto Move_PSYCHO_CUT
+
+Move_BLOOD_MOON::
+	goto Move_MOONLIGHT
+
+Move_MATCHA_GOTCHA::
+	goto Move_PETAL_BLIZZARD
+
+Move_IVY_CUDGEL::
+	goto Move_HAMMER_ARM
+
+Move_TERA_STARSTORM::
+	goto Move_DRACO_METEOR
+
+Move_FICKLE_BEAM::
+	goto Move_SIGNAL_BEAM
+
+Move_THUNDERCLAP::
+	goto Move_THUNDER
+
+Move_MIGHTY_CLEAVE::
+	goto Move_CUT
+
+Move_TACHYON_CUTTER::
+	goto Move_SLASH
+
+Move_HARD_PRESS::
+	goto Move_HEAVY_SLAM
+
+Move_DRAGON_CHEER::
+	goto Move_HELPING_HAND
+
+Move_SUPERCELL_SLAM::
+	goto Move_VOLT_TACKLE
+
+Move_MALIGNANT_CHAIN::
+	goto Move_TOXIC
+
 Move_BLAZING_TORQUE::
 Move_WICKED_TORQUE::
 Move_NOXIOUS_TORQUE::
 Move_COMBAT_TORQUE::
 Move_MAGICAL_TORQUE::
-Move_PSYBLADE::
-Move_BLOOD_MOON::
-Move_MATCHA_GOTCHA::
-Move_IVY_CUDGEL::
-Move_TERA_STARSTORM::
-Move_FICKLE_BEAM::
-Move_THUNDERCLAP::
-Move_MIGHTY_CLEAVE::
-Move_TACHYON_CUTTER::
-Move_HARD_PRESS::
-Move_DRAGON_CHEER::
-Move_SUPERCELL_SLAM::
-Move_MALIGNANT_CHAIN::
 	end @to do
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@

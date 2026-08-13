@@ -343,5 +343,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MIRAIDON": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 85,
+        "Defense": 100,
+        "Speed": 135,
+        "SpAttack": 135,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_HADRON_ENGINE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

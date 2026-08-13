@@ -172,5 +172,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MACHOKE": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 70,
+        "Speed": 45,
+        "SpAttack": 50,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_NO_GUARD",
+        "ABILITY_STEADFAST"
+      ]
+    }
+  }
 }

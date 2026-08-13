@@ -113,5 +113,26 @@
     "MOVE_YAWN",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DARUMAKA_GALARIAN": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 90,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 15,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_HUSTLE",
+        "ABILITY_NONE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

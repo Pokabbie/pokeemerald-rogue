@@ -134,5 +134,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHIKORITA": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 49,
+        "Defense": 65,
+        "Speed": 45,
+        "SpAttack": 49,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_LEAF_GUARD"
+      ]
+    }
+  }
 }

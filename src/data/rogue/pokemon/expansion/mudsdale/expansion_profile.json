@@ -270,5 +270,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MUDSDALE": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 100,
+        "Speed": 35,
+        "SpAttack": 55,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_STAMINA",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

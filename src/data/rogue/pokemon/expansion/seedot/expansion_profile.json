@@ -112,5 +112,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SEEDOT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 40,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 30,
+        "SpDefense": 30
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_PICKPOCKET"
+      ]
+    }
+  }
 }

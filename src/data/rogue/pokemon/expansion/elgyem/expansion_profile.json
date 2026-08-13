@@ -137,5 +137,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELGYEM": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 55,
+        "Speed": 30,
+        "SpAttack": 85,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_TELEPATHY",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

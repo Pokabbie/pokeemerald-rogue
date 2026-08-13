@@ -87,5 +87,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHEWTLE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 64,
+        "Defense": 50,
+        "Speed": 44,
+        "SpAttack": 38,
+        "SpDefense": 38
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SWIFT_SWIM"
+      ]
+    }
+  }
 }

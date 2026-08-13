@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_FERALIGATR"
+    "SPECIES_FERALIGATR",
+    "SPECIES_FERALIGATR_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -239,6 +240,121 @@
       "SourceTiers": [
         "GEN9RU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_LIQUIDATION",
+        "MOVE_AQUA_JET",
+        "MOVE_DOUBLE_EDGE"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_FERALIGITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_DRAGON_DANCE",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_FERALIGITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_ICE_PUNCH",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_FERALIGITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_LIQUIDATION",
+        "MOVE_DOUBLE_EDGE",
+        "MOVE_SWORDS_DANCE",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_SHEER_FORCE",
+      "Item": "ITEM_FERALIGITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DRAGON_DANCE",
+        "MOVE_PROTECT",
+        "MOVE_LIQUIDATION",
+        "MOVE_BODY_SLAM"
+      ],
+      "Ability": "ABILITY_TORRENT",
+      "Item": "ITEM_FERALIGITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FERALIGATR": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 105,
+        "Defense": 100,
+        "Speed": 78,
+        "SpAttack": 79,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    },
+    "SPECIES_FERALIGATR_MEGA": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 160,
+        "Defense": 125,
+        "Speed": 78,
+        "SpAttack": 89,
+        "SpDefense": 93
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_DRAGONIZE",
+        "ABILITY_DRAGONIZE",
+        "ABILITY_DRAGONIZE"
+      ]
+    }
+  }
 }

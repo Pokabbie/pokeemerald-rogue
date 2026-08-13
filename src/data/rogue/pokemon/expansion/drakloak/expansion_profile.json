@@ -116,5 +116,26 @@
     "MOVE_U_TURN",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DRAKLOAK": {
+      "BaseStats": {
+        "HP": 68,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 102,
+        "SpAttack": 60,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_CLEAR_BODY",
+        "ABILITY_INFILTRATOR",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

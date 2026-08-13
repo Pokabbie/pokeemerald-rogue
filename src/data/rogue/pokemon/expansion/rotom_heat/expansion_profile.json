@@ -732,5 +732,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROTOM_HEAT": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 107,
+        "Speed": 86,
+        "SpAttack": 105,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

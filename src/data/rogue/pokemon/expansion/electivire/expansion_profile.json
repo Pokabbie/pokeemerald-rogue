@@ -285,5 +285,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELECTIVIRE": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 123,
+        "Defense": 67,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MOTOR_DRIVE",
+        "ABILITY_NONE",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  }
 }

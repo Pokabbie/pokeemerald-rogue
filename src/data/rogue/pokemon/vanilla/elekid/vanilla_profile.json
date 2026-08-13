@@ -132,5 +132,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELEKID": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 63,
+        "Defense": 37,
+        "Speed": 95,
+        "SpAttack": 65,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

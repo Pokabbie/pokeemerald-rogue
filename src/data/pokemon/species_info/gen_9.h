@@ -2379,7 +2379,60 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Scovillain, 1),
         //.footprint = gMonFootprint_Scovillain,
         LEARNSETS(Scovillain),
+        .formSpeciesIdTable = sScovillainFormSpeciesIdTable,
+        .formChangeTable = sScovillainFormChangeTable,
     },
+
+    [SPECIES_SCOVILLAIN_MEGA] =
+    {
+        .baseHP        = 65,
+        .baseAttack    = 138,
+        .baseDefense   = 85,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 138,
+        .baseSpDefense = 85,
+        .types = { TYPE_GRASS, TYPE_FIRE },
+        .catchRate = 75,
+        .expYield = 170,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS },
+        .abilities = { ABILITY_SPICY_SPRAY, ABILITY_SPICY_SPRAY, ABILITY_SPICY_SPRAY },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Scovillain"),
+        .cryId = CRY_SCOVILLAIN,
+        .natDexNum = NATIONAL_DEX_SCOVILLAIN,
+        .categoryName = _("Spicy Pepper"),
+        .height = 9,
+        .weight = 150,
+        .description = POKEDEX_DESC_STRING(
+            "The green head has turned vicious\n"
+            "due to the spicy chemicals\n"
+            "stimulating its brain. Once it goes on a\n"
+            "rampage, there is no stopping it."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(ScovillainMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_ScovillainMega,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(ScovillainMega, 64, 64),
+        .backPicYOffset = 8,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(ScovillainMega),
+        ICON(ScovillainMega, 1),
+        //.footprint = gMonFootprint_Scovillain,
+        LEARNSETS(ScovillainMega),
+        .formSpeciesIdTable = sScovillainFormSpeciesIdTable,
+        .formChangeTable = sScovillainFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_CAPSAKID
 
 #if P_FAMILY_RELLOR
@@ -3286,7 +3339,61 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Glimmora, 0),
         //.footprint = gMonFootprint_Glimmora,
         LEARNSETS(Glimmora),
+        .formSpeciesIdTable = sGlimmoraFormSpeciesIdTable,
+        .formChangeTable = sGlimmoraFormChangeTable,
     },
+
+    [SPECIES_GLIMMORA_MEGA] =
+    {
+        .baseHP        = 83,
+        .baseAttack    = 90,
+        .baseDefense   = 105,
+        .baseSpeed     = 101,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 96,
+        .types = { TYPE_ROCK, TYPE_POISON },
+        .catchRate = 25,
+        .expYield = 184,
+        .evYield_SpAttack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 30,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+        .abilities = { ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Glimmora"),
+        .cryId = CRY_GLIMMORA,
+        .natDexNum = NATIONAL_DEX_GLIMMORA,
+        .categoryName = _("Ore"),
+        .height = 15,
+        .weight = 450,
+        .description = POKEDEX_DESC_STRING(
+            "GlimmoraMega's petals are made of\n"
+            "crystallized poison energy. It has\n"
+            "recently become evident that these\n"
+            "petals resemble Tera Jewels."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(GlimmoraMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_GlimmoraMega,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 8,
+        BACK_PIC(GlimmoraMega, 64, 64),
+        .backPicYOffset = 12,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(GlimmoraMega),
+        ICON(GlimmoraMega, 0),
+        //.footprint = gMonFootprint_Glimmora,
+        LEARNSETS(GlimmoraMega),
+        .formSpeciesIdTable = sGlimmoraFormSpeciesIdTable,
+        .formChangeTable = sGlimmoraFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_GLIMMET
 
 #if P_FAMILY_GREAVARD
@@ -5370,7 +5477,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #endif //P_FAMILY_FEZANDIPITI
 
 #if P_FAMILY_OGERPON
-#define OGERPON_SPECIES_INFO(Form, type, ability, color, iconpalette, isTeraform)       \
+#define OGERPON_SPECIES_INFO(Form, PicForm, type, ability, color, iconpalette, isTeraform) \
     {                                                                                   \
         .baseHP        = 80,                                                            \
         .baseAttack    = 120,                                                           \
@@ -5401,15 +5508,15 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .pokemonOffset = 17,                                                            \
         .trainerScale = 256,                                                            \
         .trainerOffset = 0,                                                             \
-        FRONT_PIC(Ogerpon##Form, 64, 64),                                               \
+        FRONT_PIC(Ogerpon##PicForm, 64, 64),                                            \
         .frontPicYOffset = 0,                                                           \
         .frontAnimFrames = sAnims_Ogerpon,                                              \
         /*.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,*/                                    \
-        BACK_PIC(Ogerpon##Form, 64, 64),                                                \
+        BACK_PIC(Ogerpon##PicForm, 64, 64),                                             \
         .backPicYOffset = 16,                                                           \
         /*.backAnimId = BACK_ANIM_NONE,*/                                               \
-        .palette = gMonPalette_Ogerpon##Form,                                           \
-        .shinyPalette = gMonShinyPalette_Ogerpon##Form,                                 \
+        .palette = gMonPalette_Ogerpon##PicForm,                                        \
+        .shinyPalette = gMonShinyPalette_Ogerpon##PicForm,                              \
         ICON(Ogerpon##Form, iconpalette), /* Each form should have its own icon */      \
         /*.footprint = gMonFootprint_Ogerpon,*/                                         \
         LEARNSETS(Ogerpon),                                                             \
@@ -5419,15 +5526,15 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .isTeraForm = isTeraform,                                                       \
     }
 
-    [SPECIES_OGERPON_TEAL_MASK]             = OGERPON_SPECIES_INFO(TealMask,        TYPE_GRASS, ABILITY_DEFIANT,                   BODY_COLOR_GREEN, 1, FALSE),
-    [SPECIES_OGERPON_WELLSPRING_MASK]       = OGERPON_SPECIES_INFO(WellspringMask,  TYPE_WATER, ABILITY_WATER_ABSORB,              BODY_COLOR_BLUE,  0, FALSE),
-    [SPECIES_OGERPON_HEARTHFLAME_MASK]      = OGERPON_SPECIES_INFO(HearthflameMask, TYPE_FIRE,  ABILITY_MOLD_BREAKER,              BODY_COLOR_RED,   0, FALSE),
-    [SPECIES_OGERPON_CORNERSTONE_MASK]      = OGERPON_SPECIES_INFO(CornerstoneMask, TYPE_ROCK,  ABILITY_STURDY,                    BODY_COLOR_GRAY,  0, FALSE),
+    [SPECIES_OGERPON_TEAL_MASK]             = OGERPON_SPECIES_INFO(TealMask,        TealMask,               TYPE_GRASS, ABILITY_DEFIANT,                   BODY_COLOR_GREEN, 1, FALSE),
+    [SPECIES_OGERPON_WELLSPRING_MASK]       = OGERPON_SPECIES_INFO(WellspringMask,  WellspringMask,         TYPE_WATER, ABILITY_WATER_ABSORB,              BODY_COLOR_BLUE,  0, FALSE),
+    [SPECIES_OGERPON_HEARTHFLAME_MASK]      = OGERPON_SPECIES_INFO(HearthflameMask, HearthflameMask,        TYPE_FIRE,  ABILITY_MOLD_BREAKER,              BODY_COLOR_RED,   0, FALSE),
+    [SPECIES_OGERPON_CORNERSTONE_MASK]      = OGERPON_SPECIES_INFO(CornerstoneMask, CornerstoneMask,        TYPE_ROCK,  ABILITY_STURDY,                    BODY_COLOR_GRAY,  0, FALSE),
 #if P_TERA_FORMS
-    [SPECIES_OGERPON_TEAL_MASK_TERA]        = OGERPON_SPECIES_INFO(TealMask,        TYPE_GRASS, ABILITY_EMBODY_ASPECT_TEAL,        BODY_COLOR_GREEN, 1, TRUE),
-    [SPECIES_OGERPON_WELLSPRING_MASK_TERA]  = OGERPON_SPECIES_INFO(WellspringMask,  TYPE_WATER, ABILITY_EMBODY_ASPECT_WELLSPRING,  BODY_COLOR_BLUE,  0, TRUE),
-    [SPECIES_OGERPON_HEARTHFLAME_MASK_TERA] = OGERPON_SPECIES_INFO(HearthflameMask, TYPE_FIRE,  ABILITY_EMBODY_ASPECT_HEARTHFLAME, BODY_COLOR_RED,   0, TRUE),
-    [SPECIES_OGERPON_CORNERSTONE_MASK_TERA] = OGERPON_SPECIES_INFO(CornerstoneMask, TYPE_ROCK,  ABILITY_EMBODY_ASPECT_CORNERSTONE, BODY_COLOR_GRAY,  0, TRUE),
+    [SPECIES_OGERPON_TEAL_MASK_TERA]        = OGERPON_SPECIES_INFO(TealMask,        TealMaskTera,           TYPE_GRASS, ABILITY_EMBODY_ASPECT_TEAL,        BODY_COLOR_GREEN, 1, TRUE),
+    [SPECIES_OGERPON_WELLSPRING_MASK_TERA]  = OGERPON_SPECIES_INFO(WellspringMask,  WellspringMaskTera,     TYPE_WATER, ABILITY_EMBODY_ASPECT_WELLSPRING,  BODY_COLOR_BLUE,  0, TRUE),
+    [SPECIES_OGERPON_HEARTHFLAME_MASK_TERA] = OGERPON_SPECIES_INFO(HearthflameMask, HearthflameMaskTera,    TYPE_FIRE,  ABILITY_EMBODY_ASPECT_HEARTHFLAME, BODY_COLOR_RED,   0, TRUE),
+    [SPECIES_OGERPON_CORNERSTONE_MASK_TERA] = OGERPON_SPECIES_INFO(CornerstoneMask, CornerstoneMaskTera,    TYPE_ROCK,  ABILITY_EMBODY_ASPECT_CORNERSTONE, BODY_COLOR_GRAY,  0, TRUE),
 #endif //P_TERA_FORMS
 
 #endif //P_FAMILY_OGERPON
@@ -5805,7 +5912,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .trainerOffset = 7,
         .frontPic = gMonFrontPic_TerapagosStellar,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
-        .frontPicYOffset = 8,
+        .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_TerapagosStellar,
         .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .enemyMonElevation = 1,

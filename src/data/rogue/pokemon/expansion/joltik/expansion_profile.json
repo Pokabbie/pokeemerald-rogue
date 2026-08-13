@@ -183,5 +183,26 @@
         "GEN8LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_JOLTIK": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 47,
+        "Defense": 50,
+        "Speed": 65,
+        "SpAttack": 57,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_UNNERVE",
+        "ABILITY_SWARM"
+      ]
+    }
+  }
 }

@@ -91,5 +91,25 @@
     "MOVE_WATER_PULSE",
     "MOVE_WATERFALL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WOOPER": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 45,
+        "Defense": 45,
+        "Speed": 15,
+        "SpAttack": 25,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_DAMP",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
 }

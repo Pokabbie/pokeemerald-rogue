@@ -108,5 +108,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BELLOSSOM": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 80,
+        "Defense": 85,
+        "Speed": 50,
+        "SpAttack": 90,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

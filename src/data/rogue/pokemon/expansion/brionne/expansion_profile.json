@@ -100,5 +100,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BRIONNE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 69,
+        "Defense": 69,
+        "Speed": 50,
+        "SpAttack": 91,
+        "SpDefense": 81
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_LIQUID_VOICE"
+      ]
+    }
+  }
 }

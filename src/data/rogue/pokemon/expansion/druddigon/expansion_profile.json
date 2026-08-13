@@ -284,5 +284,26 @@
         "GEN8PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRUDDIGON": {
+      "BaseStats": {
+        "HP": 77,
+        "Attack": 120,
+        "Defense": 90,
+        "Speed": 48,
+        "SpAttack": 60,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_ROUGH_SKIN",
+        "ABILITY_SHEER_FORCE",
+        "ABILITY_MOLD_BREAKER"
+      ]
+    }
+  }
 }

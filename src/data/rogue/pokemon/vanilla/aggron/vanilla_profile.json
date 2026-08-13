@@ -211,5 +211,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AGGRON": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 110,
+        "Defense": 180,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_STEEL",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_ROCK_HEAD"
+      ]
+    }
+  }
 }

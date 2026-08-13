@@ -4009,7 +4009,10 @@ static void LoadDisplayMonGfx(u16 species, u32 pid, u8 gender)
     if (species != SPECIES_NONE)
     {
         LoadSpecialPokePic(sStorage->tileBuffer, species, pid, gender, TRUE);
-        LZ77UnCompWram(sStorage->displayMonPalette, sStorage->displayMonPalBuffer);
+
+        if(!Rogue_ModifyPaletteDecompress(sStorage->displayMonPalette, sStorage->displayMonPalBuffer))
+            LZ77UnCompWram(sStorage->displayMonPalette, sStorage->displayMonPalBuffer);
+
         CpuCopy32(sStorage->tileBuffer, sStorage->displayMonTilePtr, MON_PIC_SIZE);
         LoadPalette(sStorage->displayMonPalBuffer, sStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
         sStorage->displayMonSprite->invisible = FALSE;
@@ -7019,7 +7022,7 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
             sStorage->displayMonLevel = GetLevelFromBoxMonExp(boxMon);
             sStorage->displayMonMarkings = GetBoxMonData(boxMon, MON_DATA_MARKINGS);
             sStorage->displayMonPersonality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
-            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, sStorage->displayMonGender, sStorage->displayMonIsShiny);
+            sStorage->displayMonPalette = GetMonSpritePalFromSpecies(sStorage->displayMonSpecies, sStorage->displayMonGender, sStorage->displayMonIsShiny,  GetMonData(pokemon, MON_DATA_OT_ID));
             gender = GetBoxMonGender(boxMon);
             sStorage->displayMonItemId = GetBoxMonData(boxMon, MON_DATA_HELD_ITEM);
         }
@@ -10225,11 +10228,12 @@ void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
     bool8 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY);
     u32 pid = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
+    u32 otId = GetBoxMonData(boxMon, MON_DATA_OT_ID);
     u8 gender = GetBoxMonGender(boxMon);
 
     // Update front sprite
     sStorage->displayMonSpecies = species;
-    sStorage->displayMonPalette = GetMonSpritePalFromSpecies(species, gender, isShiny);
+    sStorage->displayMonPalette = GetMonSpritePalFromSpecies(species, gender, isShiny, otId);
     if (!sJustOpenedBag)
     {
         LoadDisplayMonGfx(species, pid, gender);

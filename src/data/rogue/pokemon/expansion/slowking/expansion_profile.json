@@ -472,5 +472,26 @@
         "GEN9UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SLOWKING": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 75,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 100,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

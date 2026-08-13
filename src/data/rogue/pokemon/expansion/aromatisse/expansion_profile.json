@@ -288,5 +288,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_AROMATISSE": {
+      "BaseStats": {
+        "HP": 101,
+        "Attack": 72,
+        "Defense": 72,
+        "Speed": 29,
+        "SpAttack": 99,
+        "SpDefense": 89
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    }
+  }
 }

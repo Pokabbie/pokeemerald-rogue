@@ -180,5 +180,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_OVERQWIL": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 115,
+        "Defense": 95,
+        "Speed": 85,
+        "SpAttack": 65,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_INTIMIDATE"
+      ]
+    }
+  }
 }

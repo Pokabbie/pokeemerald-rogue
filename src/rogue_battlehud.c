@@ -13,6 +13,7 @@
 #include "string_util.h"
 #include "sprite.h"
 #include "trig.h"
+#include "text.h"
 
 #include "rogue_battlehud.h"
 #include "rogue_settings.h"
@@ -24,20 +25,19 @@
 #define HUD_TAG_PALETTE_0                   0x1100
 #define HUD_TAG_PALETTE_1                   0x1101
 
-#define HUD_TAG_SPRITE_BLUE_LIGHT_WALL      0x1200
-#define HUD_TAG_SPRITE_GREEN_LIGHT_WALL     0x1201
-#define HUD_TAG_SPRITE_WHIRLWIND            0x1202
-#define HUD_TAG_SPRITE_SPIDER_WEB           0x1203
-#define HUD_TAG_SPRITE_SPIKES               0x1204
-#define HUD_TAG_SPRITE_TOXIC_SPIKES         0x1205
-#define HUD_TAG_SPRITE_STEALTH_ROCK         0x1206
-#define HUD_TAG_SPRITE_RAIN                 0x1207
-#define HUD_TAG_SPRITE_SUN                  0x1208
-#define HUD_TAG_SPRITE_SNOW                 0x1209
-#define HUD_TAG_SPRITE_SANDSTORM            0x120A
-#define HUD_TAG_SPRITE_DEX_PROMPT           0x120B
+#define HUD_TAG_SPRITE_LIGHT_WALL           0x1200
+#define HUD_TAG_SPRITE_WHIRLWIND            0x1201
+#define HUD_TAG_SPRITE_SPIDER_WEB           0x1202
+#define HUD_TAG_SPRITE_SPIKES               0x1203
+#define HUD_TAG_SPRITE_TOXIC_SPIKES         0x1204
+#define HUD_TAG_SPRITE_STEALTH_ROCK         0x1205
+#define HUD_TAG_SPRITE_RAIN                 0x1206
+#define HUD_TAG_SPRITE_SUN                  0x1207
+#define HUD_TAG_SPRITE_SNOW                 0x1208
+#define HUD_TAG_SPRITE_SANDSTORM            0x1209
+#define HUD_TAG_SPRITE_DEX_PROMPT           0x120A
 
-#define MAX_OVERLAY_SPRITES 32
+#define MAX_OVERLAY_SPRITES 42
 
 // Want to sit at default priority (2) so we sort  
 
@@ -51,8 +51,7 @@
 //
 
 static const u8 sSpriteGfx_DexPrompt[] = INCBIN_U8("graphics/rogue_battlehud/sprites/dex_prompt.4bpp");
-static const u8 sSpriteGfx_BlueLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/blue_light_wall.4bpp");
-static const u8 sSpriteGfx_GreenLightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/green_light_wall.4bpp");
+static const u8 sSpriteGfx_LightWall[] = INCBIN_U8("graphics/rogue_battlehud/sprites/light_wall.4bpp");
 static const u8 sSpriteGfx_Whirlwind[] = INCBIN_U8("graphics/rogue_battlehud/sprites/whirlwind.4bpp");
 static const u8 sSpriteGfx_SpiderWeb[] = INCBIN_U8("graphics/rogue_battlehud/sprites/spider_web.4bpp");
 static const u8 sSpriteGfx_Spikes[] = INCBIN_U8("graphics/rogue_battlehud/sprites/spikes.4bpp");
@@ -71,8 +70,7 @@ static const u16 sSpritePal_1[] = INCBIN_U16("graphics/rogue_battlehud/palettes/
 static const struct SpriteSheet sSpriteSheet_Overlay[] =
 {
     { sSpriteGfx_DexPrompt, sizeof(sSpriteGfx_DexPrompt), HUD_TAG_SPRITE_DEX_PROMPT },
-    { sSpriteGfx_BlueLightWall, sizeof(sSpriteGfx_BlueLightWall), HUD_TAG_SPRITE_BLUE_LIGHT_WALL },
-    { sSpriteGfx_GreenLightWall, sizeof(sSpriteGfx_GreenLightWall), HUD_TAG_SPRITE_GREEN_LIGHT_WALL },
+    { sSpriteGfx_LightWall, sizeof(sSpriteGfx_LightWall), HUD_TAG_SPRITE_LIGHT_WALL },
     { sSpriteGfx_Whirlwind, sizeof(sSpriteGfx_Whirlwind), HUD_TAG_SPRITE_WHIRLWIND },
     { sSpriteGfx_SpiderWeb, sizeof(sSpriteGfx_Whirlwind), HUD_TAG_SPRITE_SPIDER_WEB },
     { sSpriteGfx_Spikes, sizeof(sSpriteGfx_Spikes), HUD_TAG_SPRITE_SPIKES },
@@ -114,8 +112,8 @@ static void SpriteCallbackTailwind(struct Sprite *sprite);
 
 static const struct SpriteTemplate sReflectWallSpriteTemplate =
 {
-    .tileTag = HUD_TAG_SPRITE_BLUE_LIGHT_WALL,
-    .paletteTag = HUD_TAG_PALETTE_1,
+    .tileTag = HUD_TAG_SPRITE_LIGHT_WALL,
+    .paletteTag = HUD_TAG_PALETTE_0,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
@@ -125,7 +123,7 @@ static const struct SpriteTemplate sReflectWallSpriteTemplate =
 
 static const struct SpriteTemplate sLightScreenWallSpriteTemplate =
 {
-    .tileTag = HUD_TAG_SPRITE_GREEN_LIGHT_WALL,
+    .tileTag = HUD_TAG_SPRITE_LIGHT_WALL,
     .paletteTag = HUD_TAG_PALETTE_1,
     .oam = &gOamData_AffineOff_ObjNormal_64x64,
     .anims = gDummySpriteAnimTable,
@@ -138,7 +136,7 @@ static const struct SpriteTemplate sWhirlwindSpriteTemplate =
 {
     .tileTag = HUD_TAG_SPRITE_WHIRLWIND,
     .paletteTag = HUD_TAG_PALETTE_1,
-    .oam = &gOamData_AffineOff_ObjNormal_64x64,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
     .anims = gDummySpriteAnimTable,
     .images = NULL,
     .affineAnims = gDummySpriteAffineAnimTable,
@@ -453,8 +451,9 @@ void RogueBH_CreateBattleOverlay()
             // Stealth Rock
             if(hasStealthRock)
             {
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 16, 83, SUBPRIORITY_PLAYER_ABOVE);
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 106, 93, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 41, 107, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 66, 107, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 91, 107, SUBPRIORITY_PLAYER_ABOVE);
             }
 
 
@@ -482,7 +481,10 @@ void RogueBH_CreateBattleOverlay()
 
             // Tailwind
             if(hasTailwind)
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -64, 82, SUBPRIORITY_PLAYER_ABOVE);
+            {
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -54, 72, SUBPRIORITY_PLAYER_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, -64, 92, SUBPRIORITY_PLAYER_ABOVE);
+            }
         }
 
         // Opponent
@@ -533,8 +535,9 @@ void RogueBH_CreateBattleOverlay()
             // Stealth Rock
             if(hasStealthRock)
             {
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 126, 18, SUBPRIORITY_ENEMY_ABOVE);
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 216, 38, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 151, 63, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 176, 63, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sStealthRockSpriteTemplate, 201, 63, SUBPRIORITY_ENEMY_ABOVE);
             }
 
 
@@ -562,7 +565,10 @@ void RogueBH_CreateBattleOverlay()
 
             // Tailwind
             if(hasTailwind)
-                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 264, 32, SUBPRIORITY_ENEMY_ABOVE);
+            {
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 254, 22, SUBPRIORITY_ENEMY_ABOVE);
+                gRogueBattleOverlay->sprites[spriteCount++] = CreateSprite(&sWhirlwindSpriteTemplate, 264, 42, SUBPRIORITY_ENEMY_ABOVE);
+            }
         }
 
         AGB_ASSERT(spriteCount <= MAX_OVERLAY_SPRITES);
@@ -574,11 +580,16 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
 {
     if(gRogueBattleOverlay != NULL)
     {
+        u32 i;
+
+        for(i = 0; i < gRogueBattleOverlay->spriteCount; ++i)
+        {
+            FreeSpriteOamMatrix(&gSprites[gRogueBattleOverlay->sprites[i]]);
+        }
+
         // Remove sprites manually, as the scene is not being fully reset
         if(!fromResetSprites)
         {
-            u8 i;
-
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Rain.tag);
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sandstorm.tag);
             FreeSpriteTilesByTag(sSpriteSheet_Overlay_Sun.tag);
@@ -599,6 +610,7 @@ void RogueBH_RemoveBattleOverlay(bool32 fromResetSprites)
                 DestroySprite(&gSprites[gRogueBattleOverlay->sprites[i]]);
             }
         }
+
 
         FREE_AND_SET_NULL(gRogueBattleOverlay);
     }
@@ -801,7 +813,7 @@ void RogueBH_PrintStatView()
         ptr = StringAppend(ptr, sText_Evasion);
         ptr = AppendBoostString(ptr, mon->statStages[STAT_EVASION]);
 
-        BattlePutTextOnWindow(gStringVar4, B_WIN_MSG);
+        BattlePutTextOnWindowWithSpeed(gStringVar4, B_WIN_MSG, TEXT_INSTANT_DRAW);
     }
 }
 

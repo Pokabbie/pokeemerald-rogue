@@ -91,5 +91,25 @@
     "MOVE_TRICK",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SENTRET": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 46,
+        "Defense": 34,
+        "Speed": 20,
+        "SpAttack": 35,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_KEEN_EYE"
+      ]
+    }
+  }
 }

@@ -325,5 +325,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HITMONLEE": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 120,
+        "Defense": 53,
+        "Speed": 87,
+        "SpAttack": 35,
+        "SpDefense": 110
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_RECKLESS",
+        "ABILITY_UNBURDEN"
+      ]
+    }
+  }
 }

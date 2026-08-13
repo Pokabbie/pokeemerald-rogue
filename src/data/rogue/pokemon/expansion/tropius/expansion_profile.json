@@ -177,5 +177,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TROPIUS": {
+      "BaseStats": {
+        "HP": 99,
+        "Attack": 68,
+        "Defense": 83,
+        "Speed": 51,
+        "SpAttack": 72,
+        "SpDefense": 87
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_SOLAR_POWER",
+        "ABILITY_HARVEST"
+      ]
+    }
+  }
 }

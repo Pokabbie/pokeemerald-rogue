@@ -99,5 +99,26 @@
     "MOVE_WATERFALL",
     "MOVE_WHIRLPOOL"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_POPPLIO": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 54,
+        "Defense": 54,
+        "Speed": 40,
+        "SpAttack": 66,
+        "SpDefense": 56
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_TORRENT",
+        "ABILITY_NONE",
+        "ABILITY_LIQUID_VOICE"
+      ]
+    }
+  }
 }

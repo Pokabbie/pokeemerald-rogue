@@ -343,5 +343,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WALKING_WAKE": {
+      "BaseStats": {
+        "HP": 99,
+        "Attack": 83,
+        "Defense": 91,
+        "Speed": 109,
+        "SpAttack": 125,
+        "SpDefense": 83
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

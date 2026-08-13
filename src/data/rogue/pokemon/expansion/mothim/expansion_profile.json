@@ -151,5 +151,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MOTHIM": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 94,
+        "Defense": 50,
+        "Speed": 66,
+        "SpAttack": 94,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_NONE",
+        "ABILITY_TINTED_LENS"
+      ]
+    }
+  }
 }

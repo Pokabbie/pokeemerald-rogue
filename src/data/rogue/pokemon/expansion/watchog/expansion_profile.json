@@ -155,5 +155,26 @@
         "GEN7PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WATCHOG": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 85,
+        "Defense": 69,
+        "Speed": 77,
+        "SpAttack": 60,
+        "SpDefense": 69
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUMINATE",
+        "ABILITY_KEEN_EYE",
+        "ABILITY_ANALYTIC"
+      ]
+    }
+  }
 }

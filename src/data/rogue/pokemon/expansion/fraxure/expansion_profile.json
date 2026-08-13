@@ -239,5 +239,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FRAXURE": {
+      "BaseStats": {
+        "HP": 66,
+        "Attack": 117,
+        "Defense": 70,
+        "Speed": 67,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

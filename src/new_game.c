@@ -11,7 +11,6 @@
 #include "play_time.h"
 #include "mauville_old_man.h"
 #include "match_call.h"
-#include "lilycove_lady.h"
 #include "load_save.h"
 #include "pokeblock.h"
 #include "dewford_trend.h"
@@ -38,7 +37,6 @@
 #include "string_util.h"
 #include "link_rfu.h"
 #include "main.h"
-#include "contest.h"
 #include "item_menu.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
@@ -100,10 +98,12 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsSoundChannelBGM = 10;
     gSaveBlock2Ptr->optionsSoundChannelSE = 10;
     gSaveBlock2Ptr->optionsSoundChannelBattleSE = 10;
-    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_2X;
-    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsWildBattleScene = OPTIONS_BATTLE_SCENE_3X;
+    gSaveBlock2Ptr->optionsTrainerBattleScene = OPTIONS_BATTLE_SCENE_2X;
     gSaveBlock2Ptr->optionsBossBattleScene = OPTIONS_BATTLE_SCENE_1X;
+    gSaveBlock2Ptr->optionsOverworldSpeed = OPTIONS_OW_SPEED_1X;
     gSaveBlock2Ptr->optionsAutoRunToggle = FALSE;
+    gSaveBlock2Ptr->optionsItemPickupAutomatic = FALSE;
     gSaveBlock2Ptr->optionsNicknameMode = OPTIONS_NICKNAME_MODE_ASK;
     gSaveBlock2Ptr->optionsLowHealthBeep = OPTIONS_HEALTH_BEEP_3_BEEPS;
     gSaveBlock2Ptr->timeOfDayVisuals = TRUE;
@@ -117,11 +117,6 @@ static void SetDefaultOptions(void)
 static void ClearPokedexFlags(void)
 {
     gUnusedPokedexU8 = 0;
-}
-
-void ClearAllContestWinnerPics(void)
-{
-    ClearContestWinnerPicsInContestHall();
 }
 
 static void ClearFrontierRecord(void)
@@ -185,9 +180,7 @@ void NewGameInitData(void)
     ClearBerryTrees();
     SetMoney(&gSaveBlock1Ptr->money, 3000);
     SetCoins(0);
-    ResetLinkContestBoolean();
     ResetGameStats();
-    ClearAllContestWinnerPics();
     ClearPlayerLinkBattleRecords();
     InitSeedotSizeRecord();
     InitLotadSizeRecord();
@@ -210,14 +203,12 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     ResetMiniGamesRecords();
     InitUnionRoomChatRegisteredTexts();
-    InitLilycoveLady();
     ResetAllApprenticeData();
     ClearRankingHallRecords();
     InitMatchCallCounters();
     ClearMysteryGift();
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
-    ResetContestLinkResults();
     Rogue_OnNewGame();
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));

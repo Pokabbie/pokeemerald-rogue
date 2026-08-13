@@ -142,5 +142,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RABSCA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 50,
+        "Defense": 85,
+        "Speed": 45,
+        "SpAttack": 115,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

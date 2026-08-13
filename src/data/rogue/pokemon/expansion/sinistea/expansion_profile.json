@@ -85,5 +85,45 @@
     "MOVE_TRICK_ROOM",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SINISTEA": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 74,
+        "SpDefense": 54
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    },
+    "SPECIES_SINISTEA_ANTIQUE": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 45,
+        "Speed": 50,
+        "SpAttack": 74,
+        "SpDefense": 54
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

@@ -121,5 +121,26 @@
         "GEN9NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BRUTE_BONNET": {
+      "BaseStats": {
+        "HP": 111,
+        "Attack": 127,
+        "Defense": 99,
+        "Speed": 55,
+        "SpAttack": 79,
+        "SpDefense": 99
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_PROTOSYNTHESIS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

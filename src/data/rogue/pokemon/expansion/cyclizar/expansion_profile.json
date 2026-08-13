@@ -170,5 +170,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CYCLIZAR": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 95,
+        "Defense": 65,
+        "Speed": 121,
+        "SpAttack": 85,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DRAGON",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_SHED_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
 }

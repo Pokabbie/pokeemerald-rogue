@@ -162,5 +162,26 @@
         "GEN6ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PIGNITE": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 93,
+        "Defense": 55,
+        "Speed": 55,
+        "SpAttack": 70,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_THICK_FAT"
+      ]
+    }
+  }
 }

@@ -117,5 +117,26 @@
     "MOVE_WISH",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_BRAIXEN": {
+      "BaseStats": {
+        "HP": 59,
+        "Attack": 59,
+        "Defense": 58,
+        "Speed": 73,
+        "SpAttack": 90,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_BLAZE",
+        "ABILITY_NONE",
+        "ABILITY_MAGICIAN"
+      ]
+    }
+  }
 }

@@ -99,5 +99,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FEAROW": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 90,
+        "Defense": 65,
+        "Speed": 100,
+        "SpAttack": 61,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

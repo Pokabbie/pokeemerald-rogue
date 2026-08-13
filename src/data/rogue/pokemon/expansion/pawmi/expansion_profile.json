@@ -106,5 +106,26 @@
     "MOVE_WILD_CHARGE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PAWMI": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 50,
+        "Defense": 20,
+        "Speed": 60,
+        "SpAttack": 40,
+        "SpDefense": 25
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_IRON_FIST"
+      ]
+    }
+  }
 }

@@ -136,5 +136,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROSELIA": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 60,
+        "Defense": 45,
+        "Speed": 65,
+        "SpAttack": 100,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_POISON_POINT"
+      ]
+    }
+  }
 }

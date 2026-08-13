@@ -145,5 +145,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VULPIX_ALOLAN": {
+      "BaseStats": {
+        "HP": 38,
+        "Attack": 41,
+        "Defense": 40,
+        "Speed": 65,
+        "SpAttack": 50,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_NONE",
+        "ABILITY_SNOW_WARNING"
+      ]
+    }
+  }
 }

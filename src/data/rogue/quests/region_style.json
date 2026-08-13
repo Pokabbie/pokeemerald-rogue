@@ -73,6 +73,7 @@
                 [
                     { "money": "QUEST_REWARD_SMALL_MONEY" },
                     { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_LARGE_BUILD_AMOUNT" },
+                    { "#if": "defined(ROGUE_EXPANSION)", "quest": "Z-A Royale", "added_in_version": "SAVE_VER_ID_2_1_0" },
                     { 
                         "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_MON_LAB",
                         "custom_popup":
@@ -309,17 +310,16 @@
                 ],
                 "rewards":
                 [
-                    { "money": "QUEST_REWARD_MEDIUM_MONEY" },
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
                     {
                         "species": "SPECIES_LOTAD",
                         "custom_mon_id": "CUSTOM_MON_EXOTIC_LOTAD"
-                    },
+                    },      
                     {
                         "species": "SPECIES_UMBREON",
                         "shiny": true,
                         "difficulty": "HARD"
-                    },
-                    {
+                    },                    {
                         "species": "SPECIES_ESPEON",
                         "shiny": true,
                         "difficulty": "HARD"

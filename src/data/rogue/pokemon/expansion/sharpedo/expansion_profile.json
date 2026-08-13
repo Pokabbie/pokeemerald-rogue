@@ -431,5 +431,45 @@
         "GEN8RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SHARPEDO": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 120,
+        "Defense": 40,
+        "Speed": 95,
+        "SpAttack": 95,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_ROUGH_SKIN",
+        "ABILITY_NONE",
+        "ABILITY_SPEED_BOOST"
+      ]
+    },
+    "SPECIES_SHARPEDO_MEGA": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 140,
+        "Defense": 70,
+        "Speed": 105,
+        "SpAttack": 110,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_STRONG_JAW",
+        "ABILITY_STRONG_JAW"
+      ]
+    }
+  }
 }

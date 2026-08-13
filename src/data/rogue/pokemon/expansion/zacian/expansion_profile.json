@@ -150,5 +150,26 @@
         "GEN9UBERS"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZACIAN": {
+      "BaseStats": {
+        "HP": 92,
+        "Attack": 120,
+        "Defense": 115,
+        "Speed": 138,
+        "SpAttack": 80,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_INTREPID_SWORD",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

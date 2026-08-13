@@ -207,5 +207,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GRIMER_ALOLAN": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 80,
+        "Defense": 50,
+        "Speed": 25,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_GLUTTONY",
+        "ABILITY_POWER_OF_ALCHEMY"
+      ]
+    }
+  }
 }

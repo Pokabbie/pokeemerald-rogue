@@ -153,5 +153,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MINUN": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 40,
+        "Defense": 50,
+        "Speed": 95,
+        "SpAttack": 75,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MINUS",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

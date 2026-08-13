@@ -223,5 +223,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HOUNDOUR": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 60,
+        "Defense": 30,
+        "Speed": 65,
+        "SpAttack": 80,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_EARLY_BIRD",
+        "ABILITY_FLASH_FIRE",
+        "ABILITY_UNNERVE"
+      ]
+    }
+  }
 }

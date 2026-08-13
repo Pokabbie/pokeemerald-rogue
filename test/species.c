@@ -56,6 +56,8 @@ TEST("Form change targets have the appropriate species flags")
         if (gSpeciesInfo[i].formChangeTable) PARAMETRIZE { species = i; }
     }
 
+    DebugPrintf(":N Testing Species: %d", species);
+
     const struct FormChange *formChangeTable = gSpeciesInfo[species].formChangeTable;
     for (i = 0; formChangeTable[i].method != FORM_CHANGE_TERMINATOR; i++)
     {

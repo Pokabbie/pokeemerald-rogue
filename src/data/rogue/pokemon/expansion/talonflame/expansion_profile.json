@@ -649,5 +649,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TALONFLAME": {
+      "BaseStats": {
+        "HP": 78,
+        "Attack": 81,
+        "Defense": 71,
+        "Speed": 126,
+        "SpAttack": 74,
+        "SpDefense": 69
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_FLAME_BODY",
+        "ABILITY_NONE",
+        "ABILITY_GALE_WINGS"
+      ]
+    }
+  }
 }

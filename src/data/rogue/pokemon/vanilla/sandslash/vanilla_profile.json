@@ -149,5 +149,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDSLASH": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 100,
+        "Defense": 110,
+        "Speed": 65,
+        "SpAttack": 45,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GROUND",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_SAND_VEIL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

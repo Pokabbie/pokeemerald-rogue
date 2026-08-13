@@ -440,5 +440,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRIFBLIM": {
+      "BaseStats": {
+        "HP": 150,
+        "Attack": 80,
+        "Defense": 44,
+        "Speed": 80,
+        "SpAttack": 90,
+        "SpDefense": 54
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_AFTERMATH",
+        "ABILITY_UNBURDEN",
+        "ABILITY_FLARE_BOOST"
+      ]
+    }
+  }
 }

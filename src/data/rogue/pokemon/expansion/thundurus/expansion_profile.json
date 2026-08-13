@@ -671,5 +671,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_THUNDURUS": {
+      "BaseStats": {
+        "HP": 79,
+        "Attack": 115,
+        "Defense": 70,
+        "Speed": 111,
+        "SpAttack": 125,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_PRANKSTER",
+        "ABILITY_NONE",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

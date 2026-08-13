@@ -154,5 +154,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SUNFLORA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 75,
+        "Defense": 55,
+        "Speed": 30,
+        "SpAttack": 105,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

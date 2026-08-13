@@ -968,7 +968,61 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         ICON(Crabominable, 2),
         .footprint = gMonFootprint_Crabominable,
         LEARNSETS(Crabominable),
+        .formSpeciesIdTable = sCrabominableFormSpeciesIdTable,
+        .formChangeTable = sCrabominableFormChangeTable,
     },
+
+    [SPECIES_CRABOMINABLE_MEGA] =
+    {
+        .baseHP        = 97,
+        .baseAttack    = 157,
+        .baseDefense   = 122,
+        .baseSpeed     = 33,
+        .baseSpAttack  = 62,
+        .baseSpDefense = 107,
+        .types = { TYPE_FIGHTING, TYPE_ICE },
+        .catchRate = 60,
+        .expYield = 167,
+        .evYield_Attack = 2,
+        .itemRare = ITEM_CHERI_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
+        .abilities = { ABILITY_IRON_FIST, ABILITY_IRON_FIST, ABILITY_IRON_FIST },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Crabminabl"),
+        .cryId = CRY_CRABOMINABLE,
+        .natDexNum = NATIONAL_DEX_CRABOMINABLE,
+        .categoryName = _("Woolly Crab"),
+        .height = 17,
+        .weight = 1800,
+        .description = POKEDEX_DESC_STRING(
+            "It aimed for the top but got lost and\n"
+            "ended up on a snowy mountain. Being forced\n"
+            "to endure the cold, this Pokémon evolved\n"
+            "and grew thick fur."),
+        .pokemonScale = 259,
+        .pokemonOffset = 0,
+        .trainerScale = 290,
+        .trainerOffset = 1,
+        FRONT_PIC(CrabominableMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_CrabominableMega,
+        .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
+        BACK_PIC(CrabominableMega, 64, 64),
+        .backPicYOffset = 3,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(CrabominableMega),
+        ICON(CrabominableMega, 2),
+        .footprint = gMonFootprint_Crabominable,
+        LEARNSETS(CrabominableMega),
+        .formSpeciesIdTable = sCrabominableFormSpeciesIdTable,
+        .formChangeTable = sCrabominableFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_CRABRAWLER
 
 #if P_FAMILY_ORICORIO
@@ -3212,7 +3266,61 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         ICON(Drampa, 0),
         .footprint = gMonFootprint_Drampa,
         LEARNSETS(Drampa),
+        .formSpeciesIdTable = sDrampaFormSpeciesIdTable,
+        .formChangeTable = sDrampaFormChangeTable,
     },
+
+    [SPECIES_DRAMPA_MEGA] =
+    {
+        .baseHP        = 78,
+        .baseAttack    = 85,
+        .baseDefense   = 110,
+        .baseSpeed     = 36,
+        .baseSpAttack  = 160,
+        .baseSpDefense = 116,
+        .types = { TYPE_NORMAL, TYPE_DRAGON },
+        .catchRate = 70,
+        .expYield = 170,
+        .evYield_SpAttack = 2,
+        .itemRare = ITEM_PERSIM_BERRY,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_DRAGON },
+        .abilities = { ABILITY_BERSERK, ABILITY_BERSERK, ABILITY_BERSERK },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Drampa"),
+        .cryId = CRY_DRAMPA,
+        .natDexNum = NATIONAL_DEX_DRAMPA,
+        .categoryName = _("Placid"),
+        .height = 30,
+        .weight = 1850,
+        .description = POKEDEX_DESC_STRING(
+            "This Pokémon is friendly to people and\n"
+            "loves children most of all. It comes from\n"
+            "deep in the mountains to play with\n"
+            "children it likes in town."),
+        .pokemonScale = 275,
+        .pokemonOffset = 7,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(DrampaMega, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_DrampaMega,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        BACK_PIC(DrampaMega, 64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_H_SLIDE,
+        PALETTES(DrampaMega),
+        ICON(DrampaMega, 0),
+        .footprint = gMonFootprint_Drampa,
+        LEARNSETS(DrampaMega),
+        .formSpeciesIdTable = sDrampaFormSpeciesIdTable,
+        .formChangeTable = sDrampaFormChangeTable,
+        .isMegaEvolution = TRUE,
+    },
+
 #endif //P_FAMILY_DRAMPA
 
 #if P_FAMILY_DHELMISE

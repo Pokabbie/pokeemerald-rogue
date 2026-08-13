@@ -128,5 +128,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GREAVARD": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 61,
+        "Defense": 60,
+        "Speed": 34,
+        "SpAttack": 30,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_PICKUP",
+        "ABILITY_NONE",
+        "ABILITY_FLUFFY"
+      ]
+    }
+  }
 }

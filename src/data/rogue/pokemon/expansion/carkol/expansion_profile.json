@@ -98,5 +98,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CARKOL": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 60,
+        "Defense": 90,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_STEAM_ENGINE",
+        "ABILITY_FLAME_BODY",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
 }

@@ -1,0 +1,375 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "name": "GRUNT",
+        "type_assignment": "NONE",
+        "trainer_class": "TRAINER_CLASS_TEAM_FLARE",
+        "music_player": "team_flare",
+        "trainer_flags": [ "REGION_ANY", "CLASS_TEAM" ],
+        "class_flags": [ "TEAM_FLARE" ],
+        "team_generator":
+        {
+            "subsets": 
+            [
+                {
+                    "max_samples": 2,
+                    "include_types": [ "NORMAL", "FIRE", "FAIRY" ],
+                    "excluded_types": [ "DRAGON" ]
+                },
+                {
+                    "max_samples": 6,
+                    "include_types": [ "NORMAL", "FIRE", "FAIRY", "DARK" ],
+                    "excluded_types": [ "DRAGON" ]
+                }
+            ],
+            "weight_script":
+            [
+                "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+            ]
+        }
+    },
+    "trainers":
+    {
+        "boss":
+        [
+            {
+                "name": "LYSANDRE",
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_LYSANDER",
+                "trainer_pic": "TRAINER_PIC_FLARE_LYSANDRE",
+                "trainer_class": "TRAINER_CLASS_TEAM_FLARE_LEADER",
+                "trainer_flags": [ "REGION_ANY", "CLASS_TEAM_BOSS" ],
+                "shiny_species": "SPECIES_LYSANDER_ACE",
+                "weather": "DROUGHT",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Pokémon are wonderful beings.\\pHumans have worked with Pokémon, and we have helped each other flourish.\\pBut precisely because of that, they will inevitably become tools for war and theft!\\pEnough of this.",
+                        "PRE_BATTLE_TAUNT": "I won't allow you to befoul this beautiful world!",
+                        "POST_BATTLE_TAUNT": "Fools with no vision will continue to befoul this beautiful world.",
+                        "POST_BATTLE_CLOSER": "I can only see one future.\\pOne where selfish foolish humans think about nothing other than themselves and steal more and more from one another…\\pThey will go on until the only thing left to do is squabble over the remaining scraps of hope…\\pI won't sit idle and wait for us to reach such a future.\\pTeam Flare's ambition will not end, with this defeat!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator":
+                {
+                    "subsets":
+                    [
+                        {
+                            "max_samples": 1,
+                            "include_types": [ "NORMAL", "FIRE" ],
+                            "excluded_types": [ "DRAGON" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_XERNEAS",
+                                    "SPECIES_YVELTAL",
+                                    "SPECIES_ZYGARDE",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        },
+                        {
+                            "max_samples": 10,
+                            "include_types": [ "FAIRY", "FIRE", "DARK" ],
+                            "excluded_types": [ "DRAGON" ],
+                            "extra_species":
+                            [
+                                "#ifdef ROGUE_EXPANSION",
+                                    "SPECIES_XERNEAS",
+                                    "SPECIES_YVELTAL",
+                                    "SPECIES_ZYGARDE",
+                                "#else",
+                                    "SPECIES_KYOGRE",
+                                    "SPECIES_GROUDON",
+                                    "SPECIES_RAYQUAZA",
+                                "#endif"
+                            ]
+                        }
+                    ],
+                    "weight_script":
+                    [
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_LYSANDER_ACE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_GENERATION", "6", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
+                        "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
+                        "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
+                    ]
+                }
+            }
+        ],
+        "route":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "How dare you sully this beautiful world!",
+                        "POST_BATTLE_TAUNT": "Ergh…",
+                        "POST_BATTLE_CLOSER": "It wasn't supposed to go like this."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "trainer_flags": [ "REGION_ANY", "CLASS_ROUTE" ],
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "We will ensure the world's beauty above all else!",
+                        "POST_BATTLE_TAUNT": "What a waste.",
+                        "POST_BATTLE_CLOSER": "Think of how beautiful the world could be, if you were to join us!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ],
+        
+        "hideout":
+        [
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I've got no time for dumb looking kids getting in our way!",
+                        "POST_BATTLE_TAUNT": "You're still dumb.",
+                        "POST_BATTLE_CLOSER": "If you weren't dumb, you wouldn't be getting in our way!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You shouldn't be here!",
+                        "POST_BATTLE_TAUNT": "What!?",
+                        "POST_BATTLE_CLOSER": "How did you do that?!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for kids!",
+                        "POST_BATTLE_TAUNT": "Nevermind.",
+                        "POST_BATTLE_CLOSER": "I guess you'll be fine."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Intruder!?\\nHere!?",
+                        "POST_BATTLE_TAUNT": "Darn it!",
+                        "POST_BATTLE_CLOSER": "You still shouldn't be here!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Yikes! Outfits like THAT are the exact reason I joined Team Flare.",
+                        "POST_BATTLE_TAUNT": "Your outfit is still hideous…",
+                        "POST_BATTLE_CLOSER": "Your outfit is still hideous…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Erm… you don't look like you're supposed to be here.",
+                        "POST_BATTLE_TAUNT": "I guess I was wrong",
+                        "POST_BATTLE_CLOSER": "Sorry. You're not wearing the correct uniform so I got confused."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I don't really understand our Leader's grand ambition, but surely he can't be wrong!",
+                        "POST_BATTLE_TAUNT": "I still believe!",
+                        "POST_BATTLE_CLOSER": "Our Leader simply cannot be wrong!"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "B-E-A-UTIFUL!",
+                        "POST_BATTLE_TAUNT": "B- B- B-",
+                        "POST_BATTLE_CLOSER": "B- B- B-\\nNevermind…"
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_M",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_M",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm pretty sure we don't let snot nosed kids into our operation.",
+                        "POST_BATTLE_TAUNT": "Maybe I was wrong?",
+                        "POST_BATTLE_CLOSER": "Sorry, I thought you were a spy or something."
+                    }
+                ],
+                "preferred_mon_gender": "MALE"
+            },
+
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You don't seem too interested in our grand ambition.\\pHere, let me explain it for you.",
+                        "POST_BATTLE_TAUNT": "Do you get it now?",
+                        "POST_BATTLE_CLOSER": "No!?\\nGaah, why do I even bother."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Stop right there!",
+                        "POST_BATTLE_TAUNT": "S-stop!",
+                        "POST_BATTLE_CLOSER": "I- I mean it!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "You're the one knocking out the newbies, huh?",
+                        "POST_BATTLE_TAUNT": "Ouch!",
+                        "POST_BATTLE_CLOSER": "You're knocking us all out!?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "People really do make the world uglier with their every action.",
+                        "POST_BATTLE_TAUNT": "Case and point.",
+                        "POST_BATTLE_CLOSER": "Case and point."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "What do you think?\\nAm I ROCKING this look?",
+                        "POST_BATTLE_TAUNT": "Sheesh…\\nYou've could've just said no.",
+                        "POST_BATTLE_CLOSER": "I do miss my long hair.\\pI do wonder why we all have to get the same hair style."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "Wow.\\nThat outfit is SO last season.",
+                        "POST_BATTLE_TAUNT": "Now I get a closer look at it…",
+                        "POST_BATTLE_CLOSER": "Now I get a closer look at it…\\nIt's OK. I guess."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "If I don't understand what's going on here, what makes you think you do?!",
+                        "POST_BATTLE_TAUNT": "This proves nothing!",
+                        "POST_BATTLE_CLOSER": "Something about beauty?"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "I'm here for some work experience.\\pLet's see how I manage!",
+                        "POST_BATTLE_TAUNT": "Youch…",
+                        "POST_BATTLE_CLOSER": "I hope that doesn't go into my report."
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            },
+            {
+                "object_event": "OBJ_EVENT_GFX_TEAM_FLARE_GRUNT_F",
+                "trainer_pic": "TRAINER_PIC_FLARE_GRUNT_F",
+                "encounter_text":
+                [
+                    {
+                        "PRE_BATTLE_TAUNT": "This is no place for snot nosed kids!",
+                        "POST_BATTLE_TAUNT": "Wha!!",
+                        "POST_BATTLE_CLOSER": "Wipe your nose!"
+                    }
+                ],
+                "preferred_mon_gender": "FEMALE"
+            }
+        ]
+    }
+}

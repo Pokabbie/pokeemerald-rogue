@@ -179,5 +179,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BASTIODON": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 52,
+        "Defense": 168,
+        "Speed": 30,
+        "SpAttack": 47,
+        "SpDefense": 138
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_STURDY",
+        "ABILITY_NONE",
+        "ABILITY_SOUNDPROOF"
+      ]
+    }
+  }
 }

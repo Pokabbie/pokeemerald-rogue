@@ -73,5 +73,25 @@
     "MOVE_TOXIC",
     "MOVE_WATER_PULSE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SURSKIT": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 30,
+        "Defense": 32,
+        "Speed": 65,
+        "SpAttack": 50,
+        "SpDefense": 52
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_SWIFT_SWIM",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

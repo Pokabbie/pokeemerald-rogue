@@ -175,5 +175,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZEBSTRIKA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 100,
+        "Defense": 63,
+        "Speed": 116,
+        "SpAttack": 80,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_MOTOR_DRIVE",
+        "ABILITY_SAP_SIPPER"
+      ]
+    }
+  }
 }

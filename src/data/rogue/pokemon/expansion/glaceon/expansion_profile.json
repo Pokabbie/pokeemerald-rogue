@@ -321,5 +321,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GLACEON": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 60,
+        "Defense": 110,
+        "Speed": 65,
+        "SpAttack": 130,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_SNOW_CLOAK",
+        "ABILITY_ICE_BODY"
+      ]
+    }
+  }
 }

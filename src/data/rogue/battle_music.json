@@ -210,7 +210,7 @@
         "rogue_boss":
         {
             "encounter": "MUS_DP_ENCOUNTER_INTENSE",
-            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
+            "battle": "MUS_DP_VS_GALACTIC_COMMANDER",
             "victory": "MUS_HG_VICTORY_GYM_LEADER",
             "conditional_redirects":
             [
@@ -231,7 +231,7 @@
         "rogue_elite":
         {
             "encounter": "MUS_DP_ENCOUNTER_ELITE_FOUR",
-            "battle": "MUS_DP_VS_ELITE_FOUR",
+            "battle": "MUS_HG_VS_GYM_LEADER_KANTO",
             "victory": "MUS_DP_VICTORY_ELITE_FOUR"
         },
         "rogue_champion":
@@ -452,6 +452,66 @@
                 {
                     "trainer_class": "TEAM_GALACTIC_LEADER",
                     "music_player": "team_galactic_leader"
+                }
+            ]
+        },
+
+        "team_plasma_leader":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GALACTIC_BOSS",
+            "victory": "MUS_DP_VICTORY_GALACTIC"
+        },
+        "team_plasma":
+        {
+            "encounter": "MUS_ENCOUNTER_MAGMA",
+            "battle": "MUS_VS_AQUA_MAGMA",
+            "victory": "MUS_VICTORY_AQUA_MAGMA",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_PLASMA_LEADER",
+                    "music_player": "team_plasma_leader"
+                }
+            ]
+        },
+
+        "team_neoplasma_leader":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_GYM_LEADER",
+            "battle": "MUS_VS_AQUA_MAGMA_LEADER",
+            "victory": "MUS_VICTORY_AQUA_MAGMA"
+        },
+        "team_neoplasma":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_GALACTIC",
+            "battle": "MUS_DP_VS_GALACTIC",
+            "victory": "MUS_DP_VICTORY_GALACTIC",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_NEOPLASMA_LEADER",
+                    "music_player": "team_neoplasma_leader"
+                }
+            ]
+        },
+
+        "team_flare_leader":
+        {
+            "encounter": "MUS_DP_ENCOUNTER_INTENSE",
+            "battle": "MUS_DP_VS_GALACTIC_COMMANDER",
+            "victory": "MUS_DP_VICTORY_GALACTIC"
+        },
+        "team_flare":
+        {
+            "encounter": "MUS_RG_ENCOUNTER_ROCKET",
+            "battle": "MUS_RG_VS_TRAINER",
+            "victory": "MUS_RG_VICTORY_TRAINER",
+            "conditional_redirects":
+            [
+                {
+                    "trainer_class": "TEAM_FLARE_LEADER",
+                    "music_player": "team_flare_leader"
                 }
             ]
         },

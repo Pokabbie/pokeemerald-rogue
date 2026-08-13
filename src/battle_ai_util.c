@@ -296,8 +296,12 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_GORILLA_TACTICS] = 4,
     [ABILITY_EARTH_EATER] = 7,
     [ABILITY_WELL_BAKED_BODY] = 7,
+    [ABILITY_THERMAL_EXCHANGE] = 7,
+    [ABILITY_DRAGONIZE] = 8,
+    [ABILITY_EELEVATE] = 7,
 
     [ABILITY_FORECAST_PRIORITY] = 9,
+    [ABILITY_DRAGON_FLY] = 6,
 };
 
 static const u16 sEncouragedEncoreEffects[] =
@@ -529,20 +533,21 @@ void SetBattlerData(u32 battlerId)
 {
     if (!BattlerHasAi(battlerId))
     {
-        u32 i, species, illusionSpecies, side;
+        u32 i, species, illusionSpecies, side, otId;
         side = GetBattlerSide(battlerId);
 
         // Simulate Illusion
         species = gBattleMons[battlerId].species;
+        otId = gBattleMons[battlerId].otId;
         illusionSpecies = GetIllusionMonSpecies(battlerId);
         if (illusionSpecies != SPECIES_NONE && ShouldFailForIllusion(illusionSpecies, battlerId))
         {
             // If the battler's type has not been changed, AI assumes the types of the illusion mon.
-            if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, 0)
-                && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, 0))
+            if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, otId)
+                && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, otId))
             {
-                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, 0);
-                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, 0);
+                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, otId);
+                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, otId);
             }
             species = illusionSpecies;
         }
@@ -1366,6 +1371,8 @@ bool32 AI_IsBattlerGrounded(u32 battlerId)
         return FALSE;
     else if (AI_DATA->abilities[battlerId] == ABILITY_LEVITATE)
         return FALSE;
+    else if (AI_DATA->abilities[battlerId] == ABILITY_EELEVATE)
+        return FALSE;
     else if (IS_BATTLER_OF_TYPE(battlerId, TYPE_FLYING))
         return FALSE;
     else
@@ -1397,7 +1404,7 @@ u32 AI_GetWeather(struct AiLogicData *aiData)
         return B_WEATHER_NONE;
     if (!AI_WeatherHasEffect(aiData))
         return B_WEATHER_NONE;
-    return gBattleWeather;
+    return GetWeather();
 }
 
 u32 AI_GetBattlerMoveTargetType(u32 battlerId, u32 move)
@@ -2550,7 +2557,7 @@ static bool32 PartyBattlerShouldAvoidHazards(u32 currBattler, u32 switchBattler)
         hazardDamage += GetStealthHazardDamageByTypesAndHP(gBattleMoves[MOVE_STEALTH_ROCK].type, type1, type2, maxHp);
 
     if (flags & SIDE_STATUS_SPIKES && ((type1 != TYPE_FLYING && type2 != TYPE_FLYING
-        && ability != ABILITY_LEVITATE && holdEffect != HOLD_EFFECT_AIR_BALLOON)
+        && ability != ABILITY_LEVITATE && ability != ABILITY_EELEVATE && holdEffect != HOLD_EFFECT_AIR_BALLOON)
         || holdEffect == HOLD_EFFECT_IRON_BALL || gFieldStatuses & STATUS_FIELD_GRAVITY))
     {
         s32 spikesDmg = maxHp / ((5 - gSideTimers[GetBattlerSide(currBattler)].spikesAmount) * 2);

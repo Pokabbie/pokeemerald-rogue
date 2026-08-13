@@ -388,5 +388,26 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NECROZMA": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 107,
+        "Defense": 101,
+        "Speed": 79,
+        "SpAttack": 127,
+        "SpDefense": 89
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PRISM_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

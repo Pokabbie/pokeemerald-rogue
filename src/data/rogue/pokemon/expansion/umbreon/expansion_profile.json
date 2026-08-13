@@ -453,5 +453,26 @@
         "GEN9NATIONALDEXAG"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_UMBREON": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 65,
+        "Defense": 110,
+        "Speed": 65,
+        "SpAttack": 60,
+        "SpDefense": 130
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_SYNCHRONIZE",
+        "ABILITY_INNER_FOCUS"
+      ]
+    }
+  }
 }

@@ -430,5 +430,26 @@
         "GEN8ANYTHINGGOES"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PHEROMOSA": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 137,
+        "Defense": 37,
+        "Speed": 151,
+        "SpAttack": 137,
+        "SpDefense": 37
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BEAST_BOOST",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

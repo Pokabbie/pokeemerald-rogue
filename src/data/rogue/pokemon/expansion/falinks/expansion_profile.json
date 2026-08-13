@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_FALINKS"
+    "SPECIES_FALINKS",
+    "SPECIES_FALINKS_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -158,6 +159,196 @@
       "SourceTiers": [
         "GEN9PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_BODY_PRESS",
+        "MOVE_FIRST_IMPRESSION",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_UPPER_HAND"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_ROCK_SLIDE"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_IRON_HEAD",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_NO_RETREAT",
+        "MOVE_PROTECT",
+        "MOVE_THROAT_CHOP"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_CLOSE_COMBAT",
+        "MOVE_KNOCK_OFF",
+        "MOVE_PROTECT",
+        "MOVE_UPPER_HAND"
+      ],
+      "Ability": "ABILITY_DEFIANT",
+      "Item": "ITEM_FALINKSITE",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S2",
+        "CHAMPIONS_DOUBLES_S2"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_FALINKS": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 75,
+        "SpAttack": 70,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_BATTLE_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_DEFIANT"
+      ]
+    },
+    "SPECIES_FALINKS_MEGA": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 135,
+        "Defense": 135,
+        "Speed": 100,
+        "SpAttack": 70,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_DEFIANT",
+        "ABILITY_DEFIANT",
+        "ABILITY_DEFIANT"
+      ]
+    }
+  }
 }

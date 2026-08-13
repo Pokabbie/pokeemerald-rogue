@@ -90,5 +90,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_BOUNSWEET": {
+      "BaseStats": {
+        "HP": 42,
+        "Attack": 30,
+        "Defense": 38,
+        "Speed": 32,
+        "SpAttack": 30,
+        "SpDefense": 38
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_OBLIVIOUS",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
 }

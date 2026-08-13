@@ -204,5 +204,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ENAMORUS_THERIAN": {
+      "BaseStats": {
+        "HP": 74,
+        "Attack": 115,
+        "Defense": 110,
+        "Speed": 46,
+        "SpAttack": 135,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_OVERCOAT",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

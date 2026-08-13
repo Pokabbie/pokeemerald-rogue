@@ -86,5 +86,25 @@
     "MOVE_THIEF",
     "MOVE_TOXIC"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SWABLU": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 40,
+        "Defense": 60,
+        "Speed": 50,
+        "SpAttack": 40,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_NATURAL_CURE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

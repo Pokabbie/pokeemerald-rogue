@@ -316,5 +316,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROTOM_FROST": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 65,
+        "Defense": 107,
+        "Speed": 86,
+        "SpAttack": 105,
+        "SpDefense": 107
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

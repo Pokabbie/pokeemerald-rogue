@@ -60,5 +60,26 @@
     "MOVE_WONDER_ROOM",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_DOTTLER": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 35,
+        "Defense": 80,
+        "Speed": 30,
+        "SpAttack": 50,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_COMPOUND_EYES",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

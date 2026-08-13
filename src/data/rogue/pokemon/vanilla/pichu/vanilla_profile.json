@@ -69,5 +69,25 @@
     "MOVE_VOLT_TACKLE",
     "MOVE_WISH"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PICHU": {
+      "BaseStats": {
+        "HP": 20,
+        "Attack": 40,
+        "Defense": 15,
+        "Speed": 60,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

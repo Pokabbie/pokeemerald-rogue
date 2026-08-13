@@ -456,5 +456,26 @@
         "GEN9NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RIBOMBEE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 55,
+        "Defense": 60,
+        "Speed": 124,
+        "SpAttack": 95,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_HONEY_GATHER",
+        "ABILITY_SHIELD_DUST",
+        "ABILITY_SWEET_VEIL"
+      ]
+    }
+  }
 }

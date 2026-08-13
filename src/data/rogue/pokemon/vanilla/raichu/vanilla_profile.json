@@ -231,5 +231,25 @@
         "GEN3RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAICHU": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 90,
+        "Defense": 55,
+        "Speed": 100,
+        "SpAttack": 90,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

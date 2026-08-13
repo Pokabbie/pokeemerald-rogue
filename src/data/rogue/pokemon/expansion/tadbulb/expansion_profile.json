@@ -91,5 +91,26 @@
     "MOVE_WEATHER_BALL",
     "MOVE_WILD_CHARGE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TADBULB": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 31,
+        "Defense": 41,
+        "Speed": 45,
+        "SpAttack": 59,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_OWN_TEMPO",
+        "ABILITY_STATIC",
+        "ABILITY_DAMP"
+      ]
+    }
+  }
 }

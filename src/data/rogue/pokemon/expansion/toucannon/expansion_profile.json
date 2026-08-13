@@ -171,5 +171,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_TOUCANNON": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 75,
+        "Speed": 60,
+        "SpAttack": 75,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_SKILL_LINK",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

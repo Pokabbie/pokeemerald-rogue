@@ -70,5 +70,26 @@
     "MOVE_SUBSTITUTE",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MILCERY": {
+      "BaseStats": {
+        "HP": 45,
+        "Attack": 40,
+        "Defense": 40,
+        "Speed": 34,
+        "SpAttack": 50,
+        "SpDefense": 61
+      },
+      "Types": [
+        "TYPE_FAIRY",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_SWEET_VEIL",
+        "ABILITY_NONE",
+        "ABILITY_AROMA_VEIL"
+      ]
+    }
+  }
 }

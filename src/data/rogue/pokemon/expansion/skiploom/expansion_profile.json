@@ -116,5 +116,26 @@
     "MOVE_TRAILBLAZE",
     "MOVE_U_TURN"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SKIPLOOM": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 45,
+        "Defense": 50,
+        "Speed": 80,
+        "SpAttack": 45,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_CHLOROPHYLL",
+        "ABILITY_LEAF_GUARD",
+        "ABILITY_INFILTRATOR"
+      ]
+    }
+  }
 }

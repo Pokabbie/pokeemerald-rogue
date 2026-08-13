@@ -110,5 +110,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPEAROW": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 60,
+        "Defense": 30,
+        "Speed": 70,
+        "SpAttack": 31,
+        "SpDefense": 31
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_NONE",
+        "ABILITY_SNIPER"
+      ]
+    }
+  }
 }

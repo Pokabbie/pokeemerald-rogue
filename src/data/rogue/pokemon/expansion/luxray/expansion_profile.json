@@ -267,5 +267,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LUXRAY": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 79,
+        "Speed": 70,
+        "SpAttack": 95,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_RIVALRY",
+        "ABILITY_INTIMIDATE",
+        "ABILITY_GUTS"
+      ]
+    }
+  }
 }

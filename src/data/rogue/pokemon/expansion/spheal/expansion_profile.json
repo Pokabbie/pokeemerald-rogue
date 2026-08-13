@@ -120,5 +120,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SPHEAL": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 40,
+        "Defense": 50,
+        "Speed": 25,
+        "SpAttack": 55,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_ICE_BODY",
+        "ABILITY_OBLIVIOUS"
+      ]
+    }
+  }
 }

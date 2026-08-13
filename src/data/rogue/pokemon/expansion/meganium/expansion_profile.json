@@ -1,6 +1,7 @@
 {
   "Species": [
-    "SPECIES_MEGANIUM"
+    "SPECIES_MEGANIUM",
+    "SPECIES_MEGANIUM_MEGA"
   ],
   "LevelUpMoves": [
     {
@@ -210,6 +211,121 @@
       "SourceTiers": [
         "GEN7PU"
       ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_MEGANIUMITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_MEGANIUMITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_PROTECT",
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_SYNTHESIS"
+      ],
+      "Ability": "ABILITY_OVERGROW",
+      "Item": "ITEM_MEGANIUMITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_DAZZLING_GLEAM",
+        "MOVE_PROTECT",
+        "MOVE_EARTH_POWER"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_MEGANIUMITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SOLAR_BEAM",
+        "MOVE_WEATHER_BALL",
+        "MOVE_EARTH_POWER",
+        "MOVE_PROTECT"
+      ],
+      "Ability": "ABILITY_LEAF_GUARD",
+      "Item": "ITEM_MEGANIUMITE",
+      "Nature": "NATURE_MODEST",
+      "SourceTiers": [
+        "CHAMPIONS_SINGLES_S1",
+        "CHAMPIONS_DOUBLES_S1"
+      ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEGANIUM": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 82,
+        "Defense": 100,
+        "Speed": 80,
+        "SpAttack": 83,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_LEAF_GUARD"
+      ]
+    },
+    "SPECIES_MEGANIUM_MEGA": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 92,
+        "Defense": 115,
+        "Speed": 80,
+        "SpAttack": 143,
+        "SpDefense": 115
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FAIRY"
+      ],
+      "Abilities": [
+        "ABILITY_MEGA_SOL",
+        "ABILITY_MEGA_SOL",
+        "ABILITY_MEGA_SOL"
+      ]
+    }
+  }
 }

@@ -251,5 +251,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_LYCANROC_MIDNIGHT": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 115,
+        "Defense": 75,
+        "Speed": 82,
+        "SpAttack": 55,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_VITAL_SPIRIT",
+        "ABILITY_NO_GUARD"
+      ]
+    }
+  }
 }

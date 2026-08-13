@@ -80,5 +80,26 @@
     "MOVE_TERA_BLAST",
     "MOVE_WILL_O_WISP"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ROLYCOLY": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 40,
+        "Defense": 50,
+        "Speed": 30,
+        "SpAttack": 40,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_STEAM_ENGINE",
+        "ABILITY_HEATPROOF",
+        "ABILITY_FLASH_FIRE"
+      ]
+    }
+  }
 }

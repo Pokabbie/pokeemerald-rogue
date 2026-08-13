@@ -455,5 +455,45 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEDICHAM": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 60,
+        "Defense": 75,
+        "Speed": 80,
+        "SpAttack": 60,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PURE_POWER",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    },
+    "SPECIES_MEDICHAM_MEGA": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 100,
+        "Defense": 85,
+        "Speed": 100,
+        "SpAttack": 80,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PURE_POWER",
+        "ABILITY_PURE_POWER",
+        "ABILITY_PURE_POWER"
+      ]
+    }
+  }
 }

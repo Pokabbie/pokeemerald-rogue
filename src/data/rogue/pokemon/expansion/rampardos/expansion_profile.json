@@ -239,5 +239,26 @@
         "GEN71V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_RAMPARDOS": {
+      "BaseStats": {
+        "HP": 97,
+        "Attack": 165,
+        "Defense": 60,
+        "Speed": 58,
+        "SpAttack": 65,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_MOLD_BREAKER",
+        "ABILITY_NONE",
+        "ABILITY_SHEER_FORCE"
+      ]
+    }
+  }
 }

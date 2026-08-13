@@ -382,5 +382,26 @@
         "GEN81V1"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ESCAVALIER": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 135,
+        "Defense": 105,
+        "Speed": 20,
+        "SpAttack": 60,
+        "SpDefense": 105
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_SWARM",
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

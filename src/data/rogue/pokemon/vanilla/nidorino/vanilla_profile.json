@@ -99,5 +99,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_NIDORINO": {
+      "BaseStats": {
+        "HP": 61,
+        "Attack": 72,
+        "Defense": 57,
+        "Speed": 65,
+        "SpAttack": 55,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

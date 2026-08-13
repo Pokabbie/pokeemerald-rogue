@@ -227,5 +227,25 @@
         "GEN3OU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_GENGAR": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 60,
+        "Speed": 110,
+        "SpAttack": 130,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

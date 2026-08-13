@@ -46,6 +46,7 @@ bool8 Rogue_EnableExpGain(void);
 bool8 Rogue_EnableAffectionMechanics(void);
 bool8 Rogue_ShouldReleaseFaintedMons(void);
 bool8 Rogue_FastBattleAnims(void);
+u8 Rogue_GetOverworldSpeedScale();
 u8 Rogue_GetBattleSpeedScale(bool8 forHealthbar);
 bool8 Rogue_UseKeyBattleAnims(void);
 bool8 Rogue_GetBattleAnimsEnabled(void);
@@ -53,7 +54,7 @@ bool8 Rogue_GetRevisionModeActive(void);
 bool8 Rogue_UseFinalQuestEffects(void);
 bool8 Rogue_AssumeFinalQuestFakeChamp(void);
 bool8 Rogue_IsFinalQuestFinalBoss(void);
-bool8 Rogue_ApplyFinalQuestFinalBossTeamSwap(void);
+bool8 Rogue_TryApplyFinalQuestFinalBossTeamSwap(void);
 bool8 Rogue_Use100PercEffects(void);
 bool8 Rogue_Use200PercEffects(void);
 
@@ -77,6 +78,7 @@ u16 Rogue_ModifyItemPickupAmount(u16 itemId, u16 amount);
 u8 Rogue_ModifyGenderRatio(u8 genderRatio);
 
 const void* Rogue_ModifyPaletteLoad(const void* input);
+const u32 * Rogue_ModifyMonCompressedPalette(const u32 * compressedPal, u16 species, u8 gender, bool8 isShiny, u32 otId);
 bool8 Rogue_ModifyPaletteDecompress(const u32* input, void* writeBuffer);
 bool8 Rogue_ModifyObjectPaletteSlot(u16 graphicsId, u8* palSlot);
 
@@ -207,6 +209,8 @@ struct BoxPokemon* Rogue_GetDaycareBoxMon(u8 slot);
 u8 Rogue_GetCurrentDaycareSlotCount();
 void Rogue_SwapMonInDaycare(struct Pokemon* partyMon, u8 daycareSlot);
 void Rogue_DaycareMultichoiceCallback(struct MenuAction* outList, u8* outCount, u8 listCapacity);
+void Rogue_RefillDayCareCharges(bool8 createPopup);
+void Rogue_OnDayCareChargeUsed();
 void Rogue_BeginCatchingContest(u8 type, u8 stat);
 void Rogue_EndCatchingContest();
 bool8 Rogue_IsCatchingContestActive();
@@ -219,11 +223,12 @@ u16 Rogue_GetTRMove(u16 trNumber);
 void Rogue_CopyLabEncounterMonNickname(u16 index, u8* dst);
 bool8 Rogue_GiveLabEncounterMon(u16 index);
 
-void Rogue_OpenMartQuery(u16 itemCategory, u16* minSalePrice);
+void Rogue_OpenMartQuery(u16 difficulty, u16 itemCategory, u16* minSalePrice);
 void Rogue_CloseMartQuery();
-void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u8* hiddenCount, u16* moves);
+void Rogue_ModifyTutorMoves(struct Pokemon* mon, u8 tutorType, u8* count, u16* moves);
 
 void Rogue_CorrectMonDetails(struct Pokemon* party, u8 count);
 void Rogue_CorrectBoxMonDetails(struct BoxPokemon* mon);
+
 
 #endif

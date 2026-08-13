@@ -126,5 +126,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ELECTRIKE": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 45,
+        "Defense": 40,
+        "Speed": 65,
+        "SpAttack": 65,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_STATIC",
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_MINUS"
+      ]
+    }
+  }
 }

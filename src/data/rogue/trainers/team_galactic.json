@@ -89,7 +89,7 @@
                     ],
                     "weight_script":
                     [
-                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_KYOGRE", "INC_FAVOUR", "INC_FAVOUR",
+                        "EQUAL_TO", "VAR_MON_EGG_SPECIES", "SPECIES_CYRUS_ACE", "INC_FAVOUR", "INC_FAVOUR",
                         "EQUAL_TO", "VAR_MON_GENERATION", "4", "INC_FAVOUR", "ELSE", "DEC_FAVOUR",
                         "HAS_UNIQUE_TYPE_IN_TEAM", "INC_FAVOUR",
                         "IS_BANNED_SPECIES", "IMPOSSIBLE_FAVOUR"
@@ -107,7 +107,7 @@
                 [
                     {
                         "PRE_BATTLE_TAUNT": "Hey!\\nYou're in my personal Space!",
-                        "POST_BATTLE_TAUNT": "My bubbule is gone…",
+                        "POST_BATTLE_TAUNT": "My bubble is gone…",
                         "POST_BATTLE_CLOSER": "Do you really have to stand that close!?"
                     }
                 ],

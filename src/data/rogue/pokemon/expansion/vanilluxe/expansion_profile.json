@@ -312,5 +312,26 @@
         "GEN8VGC2020"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VANILLUXE": {
+      "BaseStats": {
+        "HP": 71,
+        "Attack": 95,
+        "Defense": 85,
+        "Speed": 79,
+        "SpAttack": 110,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_ICE_BODY",
+        "ABILITY_SNOW_WARNING",
+        "ABILITY_WEAK_ARMOR"
+      ]
+    }
+  }
 }

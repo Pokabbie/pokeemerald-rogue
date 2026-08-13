@@ -169,5 +169,26 @@
         "GEN7LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PANSEAR": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 53,
+        "Defense": 48,
+        "Speed": 64,
+        "SpAttack": 53,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_FIRE",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_GLUTTONY",
+        "ABILITY_NONE",
+        "ABILITY_BLAZE"
+      ]
+    }
+  }
 }

@@ -226,5 +226,45 @@
         "GEN9NATIONALDEX"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_POLTEAGEIST": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 134,
+        "SpDefense": 114
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    },
+    "SPECIES_POLTEAGEIST_ANTIQUE": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 65,
+        "Defense": 65,
+        "Speed": 70,
+        "SpAttack": 134,
+        "SpDefense": 114
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_WEAK_ARMOR",
+        "ABILITY_NONE",
+        "ABILITY_CURSED_BODY"
+      ]
+    }
+  }
 }

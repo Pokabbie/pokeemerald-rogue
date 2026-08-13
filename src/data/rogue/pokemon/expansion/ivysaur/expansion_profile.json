@@ -177,5 +177,26 @@
         "GEN8ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_IVYSAUR": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 62,
+        "Defense": 63,
+        "Speed": 60,
+        "SpAttack": 80,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_OVERGROW",
+        "ABILITY_NONE",
+        "ABILITY_CHLOROPHYLL"
+      ]
+    }
+  }
 }

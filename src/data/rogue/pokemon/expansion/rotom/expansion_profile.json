@@ -417,5 +417,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ROTOM": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 50,
+        "Defense": 77,
+        "Speed": 91,
+        "SpAttack": 95,
+        "SpDefense": 77
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

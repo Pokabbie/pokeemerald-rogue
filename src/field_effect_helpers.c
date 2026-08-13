@@ -273,7 +273,17 @@ u32 FldEff_Shadow(void)
         gSprites[spriteId].sMapNum = gFieldEffectArguments[1];
         gSprites[spriteId].sMapGroup = gFieldEffectArguments[2];
         gSprites[spriteId].sYOffset = (graphicsInfo->height >> 1) - gShadowVerticalOffsets[graphicsInfo->shadowSize];
+
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+#endif
     }
+    
+#ifdef ROGUE_FEATURE_OVERWORLD_SHADOWS
+    SetGpuReg(REG_OFFSET_DISPCNT, 0x1F40);
+    SetGpuReg(REG_OFFSET_BLDALPHA, 0x0A10);
+#endif
+
     return 0;
 }
 

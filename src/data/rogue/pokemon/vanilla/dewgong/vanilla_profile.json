@@ -122,5 +122,25 @@
         "GEN3NU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DEWGONG": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 70,
+        "Defense": 80,
+        "Speed": 70,
+        "SpAttack": 70,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

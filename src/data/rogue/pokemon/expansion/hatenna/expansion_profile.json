@@ -106,5 +106,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_HATENNA": {
+      "BaseStats": {
+        "HP": 42,
+        "Attack": 30,
+        "Defense": 45,
+        "Speed": 39,
+        "SpAttack": 56,
+        "SpDefense": 53
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_HEALER",
+        "ABILITY_ANTICIPATION",
+        "ABILITY_MAGIC_BOUNCE"
+      ]
+    }
+  }
 }

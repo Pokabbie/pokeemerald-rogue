@@ -131,5 +131,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DRIFLOON": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 50,
+        "Defense": 34,
+        "Speed": 70,
+        "SpAttack": 60,
+        "SpDefense": 44
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_AFTERMATH",
+        "ABILITY_UNBURDEN",
+        "ABILITY_FLARE_BOOST"
+      ]
+    }
+  }
 }

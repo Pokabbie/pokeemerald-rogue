@@ -155,5 +155,25 @@
         "GEN3LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DODUO": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 85,
+        "Defense": 45,
+        "Speed": 75,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_RUN_AWAY",
+        "ABILITY_EARLY_BIRD"
+      ]
+    }
+  }
 }

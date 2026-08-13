@@ -329,5 +329,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VIRIZION": {
+      "BaseStats": {
+        "HP": 91,
+        "Attack": 90,
+        "Defense": 72,
+        "Speed": 108,
+        "SpAttack": 90,
+        "SpDefense": 129
+      },
+      "Types": [
+        "TYPE_GRASS",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_JUSTIFIED",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

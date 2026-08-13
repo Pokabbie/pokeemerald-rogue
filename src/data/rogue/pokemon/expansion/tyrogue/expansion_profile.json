@@ -51,5 +51,26 @@
     "MOVE_UPROAR",
     "MOVE_VACUUM_WAVE"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_TYROGUE": {
+      "BaseStats": {
+        "HP": 35,
+        "Attack": 35,
+        "Defense": 35,
+        "Speed": 35,
+        "SpAttack": 35,
+        "SpDefense": 35
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_GUTS",
+        "ABILITY_STEADFAST",
+        "ABILITY_VITAL_SPIRIT"
+      ]
+    }
+  }
 }

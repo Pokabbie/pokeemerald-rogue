@@ -98,5 +98,26 @@
     "MOVE_U_TURN",
     "MOVE_ZEN_HEADBUTT"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_KUBFU": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 90,
+        "Defense": 60,
+        "Speed": 72,
+        "SpAttack": 53,
+        "SpDefense": 50
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
+      ],
+      "Abilities": [
+        "ABILITY_INNER_FOCUS",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

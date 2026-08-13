@@ -232,5 +232,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_PINCURCHIN": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 101,
+        "Defense": 95,
+        "Speed": 15,
+        "SpAttack": 91,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_LIGHTNING_ROD",
+        "ABILITY_NONE",
+        "ABILITY_ELECTRIC_SURGE"
+      ]
+    }
+  }
 }

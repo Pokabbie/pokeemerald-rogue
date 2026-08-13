@@ -560,5 +560,26 @@
         "GEN8NATIONALDEXMONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_VICTINI": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 100,
+        "Defense": 100,
+        "Speed": 100,
+        "SpAttack": 100,
+        "SpDefense": 100
+      },
+      "Types": [
+        "TYPE_PSYCHIC",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_VICTORY_STAR",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

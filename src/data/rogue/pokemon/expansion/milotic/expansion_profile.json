@@ -565,5 +565,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MILOTIC": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 60,
+        "Defense": 79,
+        "Speed": 81,
+        "SpAttack": 100,
+        "SpDefense": 125
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_MARVEL_SCALE",
+        "ABILITY_COMPETITIVE",
+        "ABILITY_CUTE_CHARM"
+      ]
+    }
+  }
 }

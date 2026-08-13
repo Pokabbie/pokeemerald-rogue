@@ -175,5 +175,26 @@
         "GEN9ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_MEDITITE": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 40,
+        "Defense": 55,
+        "Speed": 60,
+        "SpAttack": 40,
+        "SpDefense": 55
+      },
+      "Types": [
+        "TYPE_FIGHTING",
+        "TYPE_PSYCHIC"
+      ],
+      "Abilities": [
+        "ABILITY_PURE_POWER",
+        "ABILITY_NONE",
+        "ABILITY_TELEPATHY"
+      ]
+    }
+  }
 }

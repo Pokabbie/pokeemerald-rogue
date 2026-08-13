@@ -1,0 +1,80 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "display_group": "region_challenges",
+        "added_in_version": "SAVE_VER_ID_2_1_1"
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Z-A Royale",
+                "description": "Enable all Trainers and Rainbow Mode in the Config Lab, then win a full Run with the Mega Ring equipped and the Pokédex set to any Legend's Z-A variant.",
+                "flags": 
+                [
+                    "CHALLENGE_DEFAULT",
+                    "ACTIVE_IN_RUN"
+                ],
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsPokedexVariant",
+                        "fail": "FAIL",
+                        "params": [ "POKEDEX_VARIANT_LEGENDS_ZA", "POKEDEX_VARIANT_LEGENDS_ZAFULLDLC" ]
+                    },
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsConfigRangeEqualToAny",
+                        "params": [ "CONFIG_RANGE_TRAINER_ORDER", "TRAINER_ORDER_RAINBOW" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "requirements":
+                [
+                    { "item": "ITEM_MEGA_RING", "count": 1 },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KANTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_JOHTO", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_HOENN", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_SINNOH", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_UNOVA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_KALOS", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_ALOLA", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_GALAR", "state": true },
+                    { "config_toggle": "CONFIG_TOGGLE_TRAINER_PALDEA", "state": true }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_LARGE_MONEY" },
+                    {
+                        "species": "SPECIES_TRAPINCH",
+                        "custom_mon_id": "CUSTOM_MON_EXOTIC_TRAPINCH"
+                    },
+                    { 
+                        "hub_upgrade": "HUB_UPGRADE_LAB_UNIQUE_TYPINGS",
+                        "custom_popup":
+                        {
+                            "item_icon": "ITEM_TOWN_MAP",
+                            "title": "Unique{PKMN}",
+                            "subtitle": "{COLOR LIGHT_BLUE}{SHADOW BLUE}Typings Unlocked",
+                            "fanfare": "MUS_RG_OBTAIN_KEY_ITEM"
+                        }
+                    },
+                    {
+                        "species": "SPECIES_RIOLU",
+                        "shiny": true,
+                        "difficulty": "HARD"
+                    }
+                ]
+            }
+        ]
+    }
+}

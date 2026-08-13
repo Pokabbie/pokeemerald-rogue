@@ -332,5 +332,26 @@
         "GEN9MONOTYPE"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_CHIEN_PAO": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 80,
+        "Speed": 135,
+        "SpAttack": 90,
+        "SpDefense": 65
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_ICE"
+      ],
+      "Abilities": [
+        "ABILITY_SWORD_OF_RUIN",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

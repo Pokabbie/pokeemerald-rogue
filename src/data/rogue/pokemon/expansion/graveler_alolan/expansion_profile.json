@@ -127,5 +127,26 @@
     "MOVE_WILD_CHARGE",
     "MOVE_ZAP_CANNON"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_GRAVELER_ALOLAN": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 95,
+        "Defense": 115,
+        "Speed": 35,
+        "SpAttack": 45,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_ELECTRIC"
+      ],
+      "Abilities": [
+        "ABILITY_MAGNET_PULL",
+        "ABILITY_STURDY",
+        "ABILITY_GALVANIZE"
+      ]
+    }
+  }
 }

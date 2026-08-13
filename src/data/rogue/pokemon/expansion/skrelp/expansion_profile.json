@@ -189,5 +189,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SKRELP": {
+      "BaseStats": {
+        "HP": 50,
+        "Attack": 60,
+        "Defense": 60,
+        "Speed": 30,
+        "SpAttack": 60,
+        "SpDefense": 60
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_POISON_POINT",
+        "ABILITY_POISON_TOUCH",
+        "ABILITY_ADAPTABILITY"
+      ]
+    }
+  }
 }

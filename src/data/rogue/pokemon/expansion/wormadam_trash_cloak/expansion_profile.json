@@ -160,5 +160,26 @@
         "GEN7ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WORMADAM_TRASH_CLOAK": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 69,
+        "Defense": 95,
+        "Speed": 36,
+        "SpAttack": 69,
+        "SpDefense": 95
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_ANTICIPATION",
+        "ABILITY_NONE",
+        "ABILITY_OVERCOAT"
+      ]
+    }
+  }
 }

@@ -31,5 +31,26 @@
     "MOVE_STRUGGLE_BUG",
     "MOVE_TERA_BLAST"
   ],
-  "CompetitiveSets": []
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_COMBEE": {
+      "BaseStats": {
+        "HP": 30,
+        "Attack": 30,
+        "Defense": 42,
+        "Speed": 70,
+        "SpAttack": 30,
+        "SpDefense": 42
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_HONEY_GATHER",
+        "ABILITY_NONE",
+        "ABILITY_HUSTLE"
+      ]
+    }
+  }
 }

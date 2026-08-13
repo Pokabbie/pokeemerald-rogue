@@ -158,5 +158,25 @@
         "GEN3UU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_WALREIN": {
+      "BaseStats": {
+        "HP": 110,
+        "Attack": 80,
+        "Defense": 90,
+        "Speed": 65,
+        "SpAttack": 95,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_ICE",
+        "TYPE_WATER"
+      ],
+      "Abilities": [
+        "ABILITY_THICK_FAT",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

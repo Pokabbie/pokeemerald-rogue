@@ -165,5 +165,25 @@
         "GEN3ZU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_KOFFING": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 65,
+        "Defense": 95,
+        "Speed": 35,
+        "SpAttack": 60,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_POISON"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

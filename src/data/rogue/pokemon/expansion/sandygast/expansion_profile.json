@@ -184,5 +184,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SANDYGAST": {
+      "BaseStats": {
+        "HP": 55,
+        "Attack": 55,
+        "Defense": 80,
+        "Speed": 15,
+        "SpAttack": 70,
+        "SpDefense": 45
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_GROUND"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_COMPACTION",
+        "ABILITY_NONE",
+        "ABILITY_SAND_VEIL"
+      ]
+    }
+  }
 }

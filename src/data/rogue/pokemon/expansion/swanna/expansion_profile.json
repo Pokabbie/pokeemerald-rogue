@@ -233,5 +233,26 @@
         "GEN9PU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_SWANNA": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 87,
+        "Defense": 63,
+        "Speed": 98,
+        "SpAttack": 87,
+        "SpDefense": 63
+      },
+      "Types": [
+        "TYPE_WATER",
+        "TYPE_FLYING"
+      ],
+      "Abilities": [
+        "ABILITY_KEEN_EYE",
+        "ABILITY_BIG_PECKS",
+        "ABILITY_HYDRATION"
+      ]
+    }
+  }
 }

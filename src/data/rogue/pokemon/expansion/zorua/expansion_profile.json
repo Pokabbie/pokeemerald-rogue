@@ -214,5 +214,26 @@
         "GEN9LC"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_ZORUA": {
+      "BaseStats": {
+        "HP": 40,
+        "Attack": 65,
+        "Defense": 40,
+        "Speed": 65,
+        "SpAttack": 80,
+        "SpDefense": 40
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_ILLUSION",
+        "ABILITY_NONE",
+        "ABILITY_NONE"
+      ]
+    }
+  }
 }

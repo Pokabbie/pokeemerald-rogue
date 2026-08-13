@@ -173,5 +173,26 @@
         "GEN9RU"
       ]
     }
-  ]
+  ],
+  "PerSpecies": {
+    "SPECIES_DITTO": {
+      "BaseStats": {
+        "HP": 48,
+        "Attack": 48,
+        "Defense": 48,
+        "Speed": 48,
+        "SpAttack": 48,
+        "SpDefense": 48
+      },
+      "Types": [
+        "TYPE_NORMAL",
+        "TYPE_NORMAL"
+      ],
+      "Abilities": [
+        "ABILITY_LIMBER",
+        "ABILITY_NONE",
+        "ABILITY_IMPOSTER"
+      ]
+    }
+  }
 }

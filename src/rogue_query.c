@@ -26,14 +26,14 @@
 #include "rogue_trainers.h"
 
 #ifdef ROGUE_EXPANSION
-#define QUERY_NUM_SPECIES           PLACEHOLDER_START
+#define QUERY_NUM_SPECIES           (PLACEHOLDER_START + 1)
 #else
 #define QUERY_NUM_SPECIES           NUM_SPECIES
 #endif
 
 #define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
-#define QUERY_NUM_TRAINERS          320 // just a vague guess that needs to at least match gRogueTrainerCount
+#define QUERY_NUM_TRAINERS          360 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
 #define QUERY_NUM_MOVES             MOVES_COUNT
 
@@ -42,9 +42,8 @@
 
 // Old API
 //
-EWRAM_DATA u16 gRogueQueryBufferSize = 0;
-EWRAM_DATA u8 gRogueQueryBits[MAX_QUERY_BYTE_COUNT];
-EWRAM_DATA u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
+u8 gRogueQueryBits[MAX_QUERY_BYTE_COUNT];
+u16 gRogueQueryBuffer[QUERY_BUFFER_COUNT];
 
 // 2.0 API
 //
@@ -75,7 +74,7 @@ struct RogueQueryData
 #endif
 };
 
-EWRAM_DATA static struct RogueQueryData sRogueQuery = {0};
+static struct RogueQueryData sRogueQuery = {0};
 
 #define ASSERT_NO_QUERY         AGB_ASSERT(sRogueQuery.queryType == QUERY_TYPE_NONE)
 #define ASSERT_ANY_QUERY        AGB_ASSERT(sRogueQuery.queryType != QUERY_TYPE_NONE)
@@ -95,6 +94,7 @@ static u16 Query_GetEggSpecies(u16 species);
 static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 removeWhenEvo);
 
 static u16 Query_MaxBitCount();
+static u16 Query_MaxByteCount();
 static u16 Query_GetWeightArrayCount();
 
 static void AllocQuery(u8 type)
@@ -247,6 +247,17 @@ static bool8 GetQueryBitFlag(u16 elem)
     return (sRogueQuery.bitFlags[idx] & bitMask) != 0;
 }
 
+static bool8 GetQueryBitFlagCustom(u16 elem, u8* bitFlags)
+{
+    u32 idx = elem / 8;
+    u8 bit = elem % 8;
+    u8 bitMask = 1 << bit;
+
+    AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
+
+    return (bitFlags[idx] & bitMask) != 0;
+}
+
 // MISC QUERY
 //
 void RogueQuery_Init()
@@ -279,6 +290,11 @@ bool8 RogueMiscQuery_CheckState(u16 elem)
     return GetQueryBitFlag(elem);
 }
 
+bool8 RogueMiscQuery_CheckStateCustom(u16 elem, u8* bitFlags)
+{
+    return GetQueryBitFlagCustom(elem, bitFlags);
+}
+
 bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId)
 {
     u32 i;
@@ -294,6 +310,7 @@ bool8 RogueMiscQuery_AnyActiveStates(u16 fromId, u16 toId)
 
 void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 {
+    bool8 state;
     u32 elem;
     u32 count = Query_MaxBitCount();
     RAND_TYPE startSeed = gRngRogueValue;
@@ -304,18 +321,20 @@ void RogueMiscQuery_FilterByChance(u16 rngSeed, u8 func, u8 chance, u8 minCount)
 
     for(elem = 1; elem < count && sRogueQuery.bitCount > minCount; ITERATOR_INC(elem))
     {
+        state = RogueRandomChance(chance, 0);
+
         if(GetQueryBitFlag(elem))
         {
             if(func == QUERY_FUNC_INCLUDE)
             {
-                if(!RogueRandomChance(chance, 0))
+                if(!state)
                 {
                     SetQueryBitFlag(elem, FALSE);
                 }
             }
             else if(func == QUERY_FUNC_EXCLUDE)
             {
-                if(RogueRandomChance(chance, 0))
+                if(state)
                 {
                     SetQueryBitFlag(elem, FALSE);
                 }
@@ -588,16 +607,6 @@ static void Query_ApplyEvolutions(u16 species, u8 level, bool8 items, bool8 remo
                 AGB_ASSERT(FALSE);
                 break;
         }
-
-#ifdef ROGUE_EXPANSION
-        if(evo.targetSpecies == SPECIES_GIMMIGHOUL_ROAMING)
-        {
-		    // Speculative dev code
-            DebugPrintf("Gimmighoul edge case: %i > %i", species, evo.targetSpecies);
-            AGB_ASSERT(FALSE);
-            continue;
-        }
-#endif
 
         // If we reach here we're allowed to evolve
         SetQueryBitFlag(evo.targetSpecies, TRUE);
@@ -951,6 +960,16 @@ static u16 Query_GetEggSpecies(u16 inSpecies)
     u32 genLimit = RoguePokedex_GetDexGenLimit();
     u32 species = Rogue_GetEggSpecies(inSpecies);
 
+#ifdef ROGUE_EXPANSION
+    // Edge case ;-;
+    switch (species)
+    {
+    case SPECIES_GIMMIGHOUL_ROAMING:
+        species = SPECIES_GIMMIGHOUL_CHEST;
+        break;
+    }
+#endif
+
     if(genLimit == 1)
     {
         // Check egg species
@@ -1059,7 +1078,7 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
     if(speciesStats.baseHP != 0)
     {
 #ifdef ROGUE_EXPANSION
-        if(species > GEN9_START && species < PLACEHOLDER_START)
+        if(species > GEN9_START && species <= SPECIES_PECHARUNT)
         {
             // Gen 9 section is after the forms start
             // Illegal species for either wild or trainers
@@ -1115,8 +1134,8 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
             if(species >= SPECIES_NECROZMA_DUSK_MANE && species <= SPECIES_NECROZMA_DAWN_WINGS)
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
 
-            if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR)
-                return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
+            if(species == SPECIES_MAGEARNA_ORIGINAL_COLOR) // never let this spawn
+                return FALSE;
 
             // Gen8
             if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_POLTEAGEIST_ANTIQUE)
@@ -1130,6 +1149,29 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
 
             if(species >= SPECIES_CALYREX_ICE_RIDER && species <= SPECIES_CALYREX_SHADOW_RIDER)
                 return Query_IsSpeciesEnabledInDexInternal(species, forceDexCheck);
+
+            // Z-A
+            if(species == SPECIES_FLOETTE_ETERNAL_FLOWER)
+            {
+                switch (RoguePokedex_GetDexRegion())
+                {
+                    case POKEDEX_REGION_NATIONAL:
+                        // Only enable when on Gen9+
+                        if(RoguePokedex_GetDexGenLimit() >= 9)
+                            return FALSE;
+                        break;
+                    
+                    case POKEDEX_REGION_LEGENDS:
+                    {
+                        // Only enabled for Z-A dexes for now
+                        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_LEGENDS_ZA || RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_LEGENDS_ZAFULLDLC)
+                        {
+                            return TRUE;
+                        }
+                        break;
+                    }
+                }
+            }
 
             // If we've gotten here then we're not interested in this form
             return FALSE;
@@ -1175,6 +1217,20 @@ void RogueItemQuery_End()
     {
         RogueDebugQuery_FillBag();
     }
+}
+
+u8* RogueItemQuery_EndWithBitwiseCloneAlloc()
+{
+    u8* bitFlags = (u8*)Alloc(sizeof(u8) * QUERY_NUM_ITEMS);
+
+    if(bitFlags != NULL)
+    {
+        memcpy(bitFlags, sRogueQuery.bitFlags, sizeof(u8) * QUERY_NUM_ITEMS);
+    }
+    
+    RogueItemQuery_End();
+
+    return bitFlags;
 }
 
 void RogueItemQuery_Reset(u8 func)
@@ -1576,6 +1632,33 @@ void RoguePathsQuery_IsOfType(u8 func, u8 roomType)
     }
 }
 
+void RoguePathsQuery_IsInColumn(u8 func, u8 column)
+{
+    u32 i;
+
+    ASSERT_PATHS_QUERY;
+
+    for(i = 0; i < gRogueAdvPath.roomCount; ITERATOR_INC(i))
+    {
+        if(GetQueryBitFlag(i))
+        {
+            if(func == QUERY_FUNC_INCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].coords.x != column)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+            else if(func == QUERY_FUNC_EXCLUDE)
+            {
+                if(gRogueAdvPath.rooms[i].coords.x == column)
+                {
+                    SetQueryBitFlag(i, FALSE);
+                }
+            }
+        }
+    }
+}
 
 // MOVES QUERY
 //
@@ -1689,6 +1772,11 @@ static u16 Query_MaxBitCount()
     default: // QUERY_TYPE_CUSTOM
         return MAX_QUERY_BIT_COUNT;
     }
+}
+
+static u16 Query_MaxByteCount()
+{
+    return (1 + Query_MaxBitCount() / 8);
 }
 
 static u16 Query_GetWeightArrayCount()
@@ -1906,7 +1994,24 @@ void RogueListQuery_End()
 
 bool8 SortItemPlaceBefore(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB);
 
-static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sortMode, bool8 flipSort)
+bool8 SortItemPlaceBeforeCustom(u8 sortMode, u16 itemIdA, u16 itemIdB, u16 quantityA, u16 quantityB, u8* prevItemFlags)
+{
+    // Place newly appeared items first (i.e. it wasn't present in the prior query)
+    if(prevItemFlags != NULL)
+    {
+        bool8 prevActiveA = GetQueryBitFlagCustom(itemIdA, prevItemFlags);
+        bool8 prevActiveB = GetQueryBitFlagCustom(itemIdB, prevItemFlags);
+
+        if(prevActiveA != prevActiveB)
+        {
+            return !prevActiveA;
+        }
+    }
+
+    return SortItemPlaceBefore(sortMode, itemIdA, itemIdB, quantityA, quantityB);
+}
+
+static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sortMode, bool8 flipSort, u8* prevItemFlags)
 {
     if(currBufferCount == 0)
     {
@@ -1915,7 +2020,7 @@ static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sort
     }
     else if(currBufferCount == 1)
     {
-        if(SortItemPlaceBefore(sortMode, itemId, buffer[0], 1, 1) != flipSort)
+        if(SortItemPlaceBeforeCustom(sortMode, itemId, buffer[0], 1, 1, prevItemFlags) != flipSort)
         {
             buffer[currBufferCount] = buffer[0];
             buffer[0] = itemId;
@@ -1938,7 +2043,7 @@ static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sort
 
             index = (maxIndex + minIndex) / 2;
 
-            if(SortItemPlaceBefore(sortMode, itemId, buffer[index], 1, 1) != flipSort)
+            if(SortItemPlaceBeforeCustom(sortMode, itemId, buffer[index], 1, 1, prevItemFlags) != flipSort)
             {
                 if(maxIndex == index)
                     --maxIndex;
@@ -1959,7 +2064,7 @@ static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sort
         // Special case to sort the end of the list
         if(minIndex == currBufferCount - 1)
         {
-            if(SortItemPlaceBefore(sortMode, itemId, buffer[currBufferCount - 1], 1, 1) != flipSort)
+            if(SortItemPlaceBeforeCustom(sortMode, itemId, buffer[currBufferCount - 1], 1, 1, prevItemFlags) != flipSort)
             {
                 buffer[currBufferCount] = buffer[currBufferCount - 1];
                 buffer[currBufferCount - 1] = itemId;
@@ -1986,7 +2091,7 @@ static void SortInsertItem(u16 itemId, u16* buffer, u16 currBufferCount, u8 sort
     }
 }
 
-u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
+u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort, u8* prevItemFlags)
 {
     u32 itemId;
     u32 index;
@@ -1999,7 +2104,7 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
     {
         if(GetQueryBitFlag(itemId))
         {
-            SortInsertItem(itemId, sRogueQuery.listArray, index, sortMode, flipSort);
+            SortInsertItem(itemId, sRogueQuery.listArray, index, sortMode, flipSort, prevItemFlags);
             ++index;
 
             if(index >= sRogueQuery.arrayCapacity - 1)
@@ -2012,32 +2117,6 @@ u16 const* RogueListQuery_CollapseItems(u8 sortMode, bool8 flipSort)
 
     // Terminate
     sRogueQuery.listArray[index] = ITEM_NONE;
-
-    //if(sortMode < ITEM_SORT_MODE_COUNT)
-    //{
-    //    u16 i, j, temp;
-    //    bool8 anySorts = FALSE;
-    //
-    //    for(j = 0; j < index; ++j)
-    //    {
-    //        anySorts = FALSE;
-    //
-    //        for(i = 1; i < index; ++i)
-    //        {
-    //            if(i == j)
-    //                continue;
-    //
-    //            if(SortItemPlaceBefore(sortMode, sRogueQuery.listArray[i], sRogueQuery.listArray[i - 1], 1, 1) != flipSort)
-    //            {
-    //                SWAP(sRogueQuery.listArray[i], sRogueQuery.listArray[i - 1], temp);
-    //                anySorts = TRUE;
-    //            }
-    //        }
-    //
-    //        if(!anySorts)
-    //            break;
-    //    }
-    //}
 
     return sRogueQuery.listArray;
 }
