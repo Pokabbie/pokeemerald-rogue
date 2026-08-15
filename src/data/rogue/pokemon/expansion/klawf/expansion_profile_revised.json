@@ -11,12 +11,12 @@
       ],
       "Abilities": [
         "ABILITY_ANGER_SHELL",
-        "ABILITY_SHARPNESS",
-        "ABILITY_TECHNICIAN"
+        "ABILITY_SHELL_ARMOR",
+        "ABILITY_SHARPNESS"
       ],
       "BaseStats": {
         "HP": 100,
-        "Attack": 120,
+        "Attack": 100,
         "Defense": 115,
         "Speed": 80,
         "SpAttack": 35,
@@ -41,35 +41,78 @@
   "TutorMoves": [
     "MOVE_SPIKES",
     "MOVE_PSYCHIC_FANGS",
-    "MOVE_SHELL_SMASH"
+    "MOVE_SHELL_SMASH",
+    "MOVE_WIDE_GUARD"
   ],
   "CompetitiveSets": [
     {
       "Moves": [
         "MOVE_KNOCK_OFF",
-        "MOVE_STONE_EDGE",
+        "MOVE_MIGHTY_CLEAVE",
         "MOVE_STEALTH_ROCK",
         "MOVE_SPIKES"
       ],
-      "Ability": "ABILITY_REGENERATOR",
+      "Ability": "ABILITY_SHELL_ARMOR",
       "Item": "ITEM_HEAVY_DUTY_BOOTS",
-      "Nature": "NATURE_ADAMANT",
+      "Nature": "NATURE_CAREFUL",
       "SourceTiers": [
         "GEN9PU"
       ]
     },
     {
       "Moves": [
-        "MOVE_SWORDS_DANCE",
+        "MOVE_SHELL_SMASH",
         "MOVE_ACCELEROCK",
         "MOVE_EARTHQUAKE",
-        "MOVE_CLOSE_COMBAT"
+        "MOVE_MIGHTY_CLEAVE"
       ],
       "Ability": "ABILITY_ANGER_SHELL",
       "Item": "ITEM_ROCKIUM_Z",
       "Nature": "NATURE_ADAMANT",
       "SourceTiers": [
         "GEN9PU"
+      ]
+    },
+        {
+      "Moves": [
+        "MOVE_MIGHTY_CLEAVE",
+        "MOVE_ACCELEROCK",
+        "MOVE_PSYCHIC_FANGS",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_CHOICE_BAND",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+            {
+      "Moves": [
+        "MOVE_WIDE_GUARD",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_BRICK_BREAK"
+      ],
+      "Ability": "ABILITY_SHELL_ARMOR",
+      "Item": "ITEM_SITRUS_BERRY",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    },
+                {
+      "Moves": [
+        "MOVE_WIDE_GUARD",
+        "MOVE_MIGHTY_CLEAVE",
+        "MOVE_STOMPING_TANTRUM",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_SHARPNESS",
+      "Item": "ITEM_LIFE_ORB",
+      "Nature": "NATURE_JOLLY",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
       ]
     }
   ]
