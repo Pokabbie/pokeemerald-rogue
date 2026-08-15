@@ -1093,8 +1093,8 @@ static void HandleInput(bool8 showContest)
         sMoveRelearnerMenuSate.listRow = 0;
         sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
 
-        //MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
-        //MoveRelearnerLoadBattleMoveDescription(GetCurrentSelectedMove());
+        MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
+        MoveRelearnerLoadBattleMoveDescription(GetCurrentSelectedMove());
 
         PutWindowTilemap(0);
         ScheduleBgCopyTilemapToVram(1);
@@ -1427,6 +1427,8 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
 {
+    MoveRelearnerShowHideHearts(chosenMove);
+    
     //s32 x;
     //const u8 *str;
     //const struct ContestMove *move;
