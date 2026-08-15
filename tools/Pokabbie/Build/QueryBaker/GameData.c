@@ -16,6 +16,8 @@ const union AnimCmd sAnim_GeneralFrame0[] =
 #include "data/pokemon/base_stats.h"
 #include "data/graphics/pokemon.h"
 #endif
+#include "data/battle_moves.h"
+#include "data/battle_moves_revised.h"
 #include "data/rogue_pokedex.h"
 
 #ifdef ROGUE_EXPANSION
@@ -42,6 +44,12 @@ u16 SanitizeSpeciesId(u16 species)
 }
 
 #ifdef ROGUE_EXPANSION
+
+const u8  BattleScript_EffectDiamondStorm[] = { 0 };
+const u8  BattleScript_EffectClangingScales[] = { 0 };
+const u8  BattleScript_EffectMakeItRain[] = { 0 };
+const u8  BattleScript_EffectClangorousSoulblaze[] = { 0 };
+
 const u16* GetSpeciesFormTable(u16 species)
 {
     const u16* formTable = gRogueSpeciesInfo[SanitizeSpeciesId(species)].formSpeciesIdTable;

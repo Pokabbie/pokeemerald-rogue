@@ -98,7 +98,9 @@ struct DisableStruct
 
 struct ProtectStruct
 {
+#ifndef ROGUE_BAKING
     u32 protected:1;
+#endif
     u32 endured:1;
     u32 noValidMoves:1;
     u32 helpingHand:1;

@@ -139,6 +139,8 @@ static bool WriteFileIfChanged(std::string const& filePath, std::string const& n
 	}
 }
 
+static void PrintRevisionStatsFor(int gen);
+
 int main(int argc, char* argv[])
 {
 	std::string const c_OutputHeaderPath = argv[1];
@@ -385,6 +387,7 @@ int main(int argc, char* argv[])
 
 	WriteFileIfChanged(c_OutputHeaderPath, output.str());
 
+	// Output all stats into json file, so we can re-export
 	if (!c_OutputJsonPath.empty())
 	{
 		output = std::stringstream();
@@ -431,6 +434,100 @@ int main(int argc, char* argv[])
 		WriteFileIfChanged(c_OutputJsonPath, output.str());
 	}
 
+	// Print stats for revised mode
+	std::cout << "===Revised Stats===\n";
+	for (int i = 0; i <= POKEDEX_MAX_GEN; ++i)
+	{
+		PrintRevisionStatsFor(i);
+	}
 
 	return 0;
+}
+
+static void PrintRevisionStatsFor(int gen)
+{
+	std::vector<bool> isEvoLineRevised;
+	std::vector<u16> eggSpeciesList;
+	std::set<u16> alreadyAddedSpecies;
+
+	isEvoLineRevised.resize(NUM_SPECIES, false);
+
+	int totalValidSpecies = 0;
+	int totalRevisedSpecies = 0;
+
+	for (int species = SPECIES_NONE; species < NUM_SPECIES; ++species)
+	{
+		if (gen != 0 && SpeciesToGen(species) != gen)
+			continue;
+
+#ifdef ROGUE_EXPANSION
+		if (gRogueSpeciesInfo[species].baseHP != 0)
+#else
+		if (!(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z) && gRogueSpeciesInfo[species].baseHP != 0)
+#endif
+		{
+			++totalValidSpecies;
+
+			u16 eggSpecies = eggLookup[species];
+
+			if (alreadyAddedSpecies.find(eggSpecies) == alreadyAddedSpecies.end())
+			{
+				eggSpeciesList.push_back(eggSpecies);
+				alreadyAddedSpecies.insert(eggSpecies);
+			}
+
+			if (Rogue_HaSpeciesBeenRevised(species))
+			{
+				isEvoLineRevised[eggSpecies] = true;
+				++totalRevisedSpecies;
+			}
+		}
+	}
+
+	int totalValidEvoLines = 0;
+	int totalRevisedEvoLines = 0;
+
+	for (u16 species : eggSpeciesList)
+	{
+#ifdef ROGUE_EXPANSION
+		if (gRogueSpeciesInfo[species].baseHP != 0)
+#else
+		if (!(species >= SPECIES_OLD_UNOWN_B && species <= SPECIES_OLD_UNOWN_Z) && gRogueSpeciesInfo[species].baseHP != 0)
+#endif
+		{
+			++totalValidEvoLines;
+
+			if (isEvoLineRevised[species])
+			{
+				++totalRevisedEvoLines;
+			}
+		}
+	}
+
+	int totalValidMoves = 0;
+	int totalRevisedMoves = 0;
+
+	for (int move = MOVE_NONE + 1; move < MOVES_COUNT; ++move)
+	{
+		++totalValidMoves;
+
+		if (Rogue_HasMoveBeenRevised(move))
+		{
+			++totalRevisedMoves;
+		}
+	}
+
+	if (gen == 0)
+	{
+		std::cout << "Moves: " << totalRevisedMoves << " / " << totalValidMoves << " (" << ((totalRevisedMoves * 100) / totalValidMoves) << "%)\n";
+	}
+
+	if(gen == 0)
+		std::cout << "[Total]   ";
+	else
+		std::cout << "[Gen " << gen << "]   ";
+
+	std::cout << "Species: " << totalRevisedSpecies << " / " << totalValidSpecies << " (" << ((totalRevisedSpecies * 100) / totalValidSpecies) << "%)   ";
+	std::cout << "Evo Lines: " << totalRevisedEvoLines << " / " << totalValidEvoLines << " (" << ((totalRevisedEvoLines * 100) / totalValidEvoLines) << "%)\n";
+
 }
