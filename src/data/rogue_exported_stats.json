@@ -18202,7 +18202,7 @@
 			"baseSpAttack":90,
 			"baseSpDefense":115,
 			"types": [11, 11],
-			"abilities": [46, 0, 18]
+			"abilities": [46, 0, 11]
 		},
 		{
 			"baseHP":50,
