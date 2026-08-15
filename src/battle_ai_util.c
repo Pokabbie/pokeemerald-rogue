@@ -551,8 +551,8 @@ void SetBattlerData(u32 battlerId)
             if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, otId)
                 && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, otId))
             {
-                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, otId);
-                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, otId);
+                gBattleMons[battlerId].type1 = GetTypeBySpecies(illusionSpecies, 0, otId);
+                gBattleMons[battlerId].type2 = GetTypeBySpecies(illusionSpecies, 1, otId);
             }
             species = illusionSpecies;
         }
