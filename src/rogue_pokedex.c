@@ -299,6 +299,8 @@ static void MonEvos_CloseMoveQuery();
 static bool8 MonEvos_IsTutorMoveTM(u16 moveIdx);
 static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx);
 static bool8 MonEvos_IsTutorMove(u16 moveIdx);
+static bool8 MonEvos_IsLevelMoveRevised(u16 moveIdx, struct RoguePokemonProfile const* pokemonProfile, struct RoguePokemonProfile const* ogPokemonProfile);
+static bool8 MonEvos_IsTutorMoveRevised(u16 moveIdx, struct RoguePokemonProfile const* pokemonProfile, struct RoguePokemonProfile const* ogPokemonProfile);
 static void MonEvos_HandleInput(u8);
 static void MonEvos_CreateSprites();
 
@@ -1548,8 +1550,12 @@ static void DisplayMonMovesText()
     u8 displayCount = 0;
     const u8 ySpacing = 16;
     u8 color[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
+    u8 const revisedColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY };
     u16 species = sPokedexMenu->viewBaseSpecies;
     struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
+    struct RoguePokemonProfile const* ogPokemonProfile = Rogue_GetPokemonProfileFor(species, FALSE);
+    bool32 hasRevisedLevelMoves = Rogue_HasSpeciesBeenRevised(species, REVISION_FLAG_LEARN_MOVES);
+    bool32 hasRevisedTutorMoves = Rogue_HasSpeciesBeenRevised(species, REVISION_FLAG_TUTOR_MOVES);
 
     AddTitleText(sTitle_Moves);
 
@@ -1601,7 +1607,13 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
-                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
+                u32 xCoord = hasRevisedLevelMoves || hasRevisedTutorMoves ? 12 : 4;
+                if(hasRevisedLevelMoves && MonEvos_IsLevelMoveRevised(i, pokemonProfile, ogPokemonProfile))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 4, ySpacing * displayCount, 0, 0, revisedColor, TEXT_SKIP_DRAW, sText_Revised);
+                }
+
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, xCoord, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar3);
                 ++displayCount;
             }
             ++listIndex;
@@ -1625,10 +1637,16 @@ static void DisplayMonMovesText()
 
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                u32 xCoord = hasRevisedLevelMoves || hasRevisedTutorMoves ? 12 : 4;
+                if(hasRevisedTutorMoves && MonEvos_IsTutorMoveRevised(i, pokemonProfile, ogPokemonProfile))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 4, ySpacing * displayCount, 0, 0, revisedColor, TEXT_SKIP_DRAW, sText_Revised);
+                }
+
                 StringCopy(gStringVar1, gMoveNames[moveId]);
                 StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTR);
 
-                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, xCoord, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
@@ -1652,10 +1670,16 @@ static void DisplayMonMovesText()
             
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                u32 xCoord = hasRevisedLevelMoves || hasRevisedTutorMoves ? 12 : 4;
+                if(hasRevisedTutorMoves && MonEvos_IsTutorMoveRevised(i, pokemonProfile, ogPokemonProfile))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 4, ySpacing * displayCount, 0, 0, revisedColor, TEXT_SKIP_DRAW, sText_Revised);
+                }
+
                 StringCopy(gStringVar1, gMoveNames[moveId]);
                 StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTM);
 
-                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, xCoord, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
@@ -1679,10 +1703,16 @@ static void DisplayMonMovesText()
 
             if(listIndex >= sPokedexMenu->listScrollAmount)
             {
+                u32 xCoord = hasRevisedLevelMoves || hasRevisedTutorMoves ? 12 : 4;
+                if(hasRevisedTutorMoves && MonEvos_IsTutorMoveRevised(i, pokemonProfile, ogPokemonProfile))
+                {
+                    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 4, ySpacing * displayCount, 0, 0, revisedColor, TEXT_SKIP_DRAW, sText_Revised);
+                }
+
                 StringCopy(gStringVar1, gMoveNames[moveId]);
                 StringExpandPlaceholders(gStringVar2, gText_PokedexMovesTutor);
 
-                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, 4, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
+                AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NARROW, xCoord, ySpacing * displayCount, 0, 0, color, TEXT_SKIP_DRAW, gStringVar2);
                 ++displayCount;
             }
             ++listIndex;
@@ -3774,6 +3804,46 @@ static bool8 MonEvos_IsTutorMoveTR(u16 moveIdx)
 static bool8 MonEvos_IsTutorMove(u16 moveIdx)
 {
     return !(MonEvos_IsTutorMoveTM(moveIdx) || MonEvos_IsTutorMoveTR(moveIdx));
+}
+
+static bool8 MonEvos_IsLevelMoveRevised(u16 moveIdx, struct RoguePokemonProfile const* pokemonProfile,  struct RoguePokemonProfile const* ogPokemonProfile)
+{
+    u32 i;
+
+    // Early out
+    if(memcmp(&pokemonProfile->levelUpMoves[moveIdx], &ogPokemonProfile->levelUpMoves[moveIdx], sizeof(struct LevelUpMove)) == 0)
+        return FALSE;
+
+    for(i = 0; ogPokemonProfile->levelUpMoves[i].move != MOVE_NONE; ++i)
+    {
+        if(pokemonProfile->levelUpMoves[moveIdx].move == ogPokemonProfile->levelUpMoves[i].move)
+        {
+            return pokemonProfile->levelUpMoves[moveIdx].level != ogPokemonProfile->levelUpMoves[i].level;
+        }
+    }
+
+    // Wasn't in OG list
+    return TRUE;
+}
+
+static bool8 MonEvos_IsTutorMoveRevised(u16 moveIdx, struct RoguePokemonProfile const* pokemonProfile, struct RoguePokemonProfile const* ogPokemonProfile)
+{
+    u32 i;
+
+    // Early out
+    if(pokemonProfile->tutorMoves[moveIdx] == ogPokemonProfile->tutorMoves[moveIdx])
+        return FALSE;
+
+    for(i = 0; ogPokemonProfile->tutorMoves[i] != MOVE_NONE; ++i)
+    {
+        if(pokemonProfile->tutorMoves[moveIdx] == ogPokemonProfile->tutorMoves[i])
+        {
+            return FALSE;
+        }
+    }
+
+    // Wasn't in OG list
+    return TRUE;
 }
 
 static void MonEvos_HandleInput(u8 taskId)
