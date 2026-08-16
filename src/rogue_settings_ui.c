@@ -445,7 +445,7 @@ static u8 const sMenuName_RevisionModeYes[] = _("{COLOR GREEN}{SHADOW LIGHT_GREE
 
 const u8 sText_RevisionModeDesc[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
-    "Enable custom {PKMN} rebalancing.\n"
+    "Enable {PKMN} edits, indicated by {FONT_SMALL_NARROW}{REVISED_EDIT}{FONT_NORMAL} icon.\n"
     "Revised Typings, Abilities, Moves etc."
 );
 
@@ -1114,6 +1114,9 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
+#ifdef ROGUE_FEATURE_REVISED_MODE
+            MENUITEM_MENU_REVISION_MODE_SUBMENU,
+#endif
             MENUITEM_MENU_SLIDER_TRAINER,
             MENUITEM_MENU_TOGGLE_DIVERSE_TRAINERS,
             //MENUITEM_MENU_SLIDER_ITEM,
@@ -1133,9 +1136,6 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
     {
         .menuOptions = 
         {
-#ifdef ROGUE_FEATURE_REVISED_MODE
-            MENUITEM_MENU_REVISION_MODE_SUBMENU,
-#endif
             MENUITEM_MENU_SLIDER_BATTLE_FORMAT,
             MENUITEM_MENU_TOGGLE_OVERWORLD_MONS,
             MENUITEM_MENU_TOGGLE_EXP_ALL,
