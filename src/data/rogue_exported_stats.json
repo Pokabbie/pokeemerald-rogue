@@ -4135,14 +4135,14 @@
 			"abilities": [0, 0]
 		},
 		{
-			"baseHP":45,
-			"baseAttack":49,
-			"baseDefense":49,
-			"baseSpeed":45,
+			"baseHP":145,
+			"baseAttack":29,
+			"baseDefense":19,
+			"baseSpeed":145,
 			"baseSpAttack":65,
 			"baseSpDefense":65,
-			"types": [12, 3],
-			"abilities": [65, 0]
+			"types": [10, 3],
+			"abilities": [66, 0]
 		},
 		{
 			"baseHP":60,
