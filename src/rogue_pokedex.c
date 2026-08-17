@@ -200,6 +200,8 @@ static const u8 sText_TeraForm[] = _("{COLOR GREEN}{SHADOW LIGHT_GREEN}Tera Form
 static const u8 sText_Debug[] = _("{COLOR RED}{SHADOW LIGHT_RED}DEBUG VIEW ONLY");
 
 static const u8 sText_NoFormData[] = _("{COLOR RED}{SHADOW LIGHT_RED}No Form data found");
+
+static const u8 sText_RevisedInspect[] = _("{A_BUTTON} Inspect");
 #else
 static const u8 sTitle_Stats[] = _("STATS");
 static const u8 sTitle_Moves[] = _("MOVES");
@@ -223,6 +225,8 @@ static const u8 sText_SkillClimbing[] = _("CLIMBING");
 static const u8 sText_SkillSurf[] = _("SURFING");
 static const u8 sText_SkillFlying[] = _("FLYING");
 static const u8 sText_SkillNone[] = _("NONE");
+
+static const u8 sText_RevisedInspect[] = _("{A_BUTTON} INSPECT");
 #endif
 
 static const u8 sText_FontSmallNarrow[] = _("{FONT_SMALL_NARROW}");
@@ -232,6 +236,9 @@ static const u8 sText_RevisedDown[] = _("{REVISED_EDIT}{STAT_DOWN}");
 
 static const u8 sText_RideStar[] = _("{STAR_ICON}");
 static const u8 sText_NoDataFound[] = _("{COLOR RED}{SHADOW LIGHT_RED}No data found");
+
+static const u8 sText_Add[] = _("+");
+static const u8 sText_Minus[] = _("-");
 
 extern const u8 gText_DexNational[];
 extern const u8 gText_DexHoenn[];
@@ -335,6 +342,7 @@ struct PokedexMenu
     u16 viewBaseSpecies;
     u16 listScrollAmount;
     u8 partySlot;
+    u8 isInspectModeActive : 1;
 };
 
 enum
@@ -1340,7 +1348,7 @@ static void DisplayMonEntryText(void)
     ConvertUIntToDecimalStringN(gStringVar1, speciesNum, STR_CONV_MODE_LEADING_ZEROS, speciesNum > 999 ? 4 : 3);
     StringExpandPlaceholders(gStringVar3, gText_NumberStr1);
 
-    if(Rogue_HasSpeciesBeenRevised(sPokedexMenu->viewBaseSpecies, REVISION_FLAG_PROFILE_DATA | REVISION_FLAG_TUTOR_MOVES | REVISION_FLAG_LEARN_MOVES | REVISION_FLAG_EVOLUTIONS))
+    if(Rogue_HasSpeciesBeenRevised(sPokedexMenu->viewBaseSpecies, REVISION_FLAG_POKEDEX_ICON))
     {
         u8 const statColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY };
         AddTextPrinterParameterized4(WIN_MON_SPECIES_NAME_NO, FONT_SMALL_NARROW, 4, 1, 0, 0, statColor, TEXT_SKIP_DRAW, sText_Revised);
@@ -1359,7 +1367,7 @@ extern const u8 gAbilityNames[][ABILITY_NAME_LENGTH + 1];
 #define GET_STAT_COLOUR(stat) GET_STAT_COLOUR_RANGE(stats[stat], bestStatValue, worstStatValue)
 #define GET_STAT_COLOUR_RANGE(value, bestValue, worstColor) (value >= bestValue ? bestStatColor : (value <= worstColor ? worstStatColor : statColor))
 
-static void PrintStatLine(u8 const* title, u32 yHeight, u32 stat, u32 ogStat, u32 bestStatValue, u32 worstStatValue)
+static void PrintStatLine(u8 const* title, u32 yHeight, s32 stat, s32 ogStat, u32 bestStatValue, u32 worstStatValue)
 {
     u8 const headerColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY };
     u8 const statColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY };
@@ -1367,21 +1375,56 @@ static void PrintStatLine(u8 const* title, u32 yHeight, u32 stat, u32 ogStat, u3
     u8 const worstStatColor[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_GRAY };
     u32 titleXOffset = 0;
 
-    if(stat > ogStat)
+    if(!sPokedexMenu->isInspectModeActive)
     {
-        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 71, yHeight, 0, 0, statColor, TEXT_SKIP_DRAW, sText_RevisedDown);
-        titleXOffset = 13;
-    }
-    else if(stat < ogStat)
-    {
-        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 71, yHeight, 0, 0, statColor, TEXT_SKIP_DRAW, sText_RevisedUp);
-        titleXOffset = 13;
-    }
+        if(stat > ogStat)
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 71, yHeight, 0, 0, statColor, TEXT_SKIP_DRAW, sText_RevisedDown);
+            titleXOffset = 13;
+        }
+        else if(stat < ogStat)
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 71, yHeight, 0, 0, statColor, TEXT_SKIP_DRAW, sText_RevisedUp);
+            titleXOffset = 13;
+        }
 
-    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72 + titleXOffset, yHeight, 0, 0, headerColor, TEXT_SKIP_DRAW, title);
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_NORMAL, 72 + titleXOffset, yHeight, 0, 0, headerColor, TEXT_SKIP_DRAW, title);
+    }
+    else
+    {
+        u8* str;
+        s32 statDelta = stat - ogStat;
+        u8 const* displayColor = statColor;
+
+        if(stat != ogStat)
+        {
+            AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 71, yHeight, 0, 0, statColor, TEXT_SKIP_DRAW, sText_Revised);
+            titleXOffset = 8;
+        }
+
+        if(statDelta > 0)
+            displayColor = bestStatColor;
+        else if(statDelta < 0)
+            displayColor = worstStatColor;
+
+        str = ConvertIntToDecimalStringN(gStringVar4, ogStat, STR_CONV_MODE_LEFT_ALIGN, 3);
+        if(statDelta >= 0)
+        {
+            str = StringAppend(str, sText_Add);
+            str = ConvertIntToDecimalStringN(str, statDelta, STR_CONV_MODE_LEFT_ALIGN, 3);
+        }
+        else
+        {
+            str = StringAppend(str, sText_Minus);
+            str = ConvertIntToDecimalStringN(str, -statDelta, STR_CONV_MODE_LEFT_ALIGN, 3);
+        }
+
+        // Print stat change formula
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 72 + titleXOffset, yHeight + 1, 0, 0, displayColor, TEXT_SKIP_DRAW, gStringVar4);
+    }
 
     ConvertUIntToDecimalStringN(gStringVar4, stat, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 118, yHeight + 1, 0, 0, GET_STAT_COLOUR_RANGE(stat, bestStatValue, worstStatValue), TEXT_SKIP_DRAW, gStringVar4);
+    AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 117, yHeight + 1, 0, 0, GET_STAT_COLOUR_RANGE(stat, bestStatValue, worstStatValue), TEXT_SKIP_DRAW, gStringVar4);
 }
 
 static u32 CalcBSTInternal(u8* stats)
@@ -1451,6 +1494,11 @@ static void DisplayMonStatsText(void)
             prevAbility = ability;
             ++j;
         }
+    }
+
+    if(Rogue_HasSpeciesBeenRevised(sPokedexMenu->viewBaseSpecies, REVISION_FLAG_POKEDEX_ICON))
+    {
+        AddTextPrinterParameterized4(WIN_MON_PAGE_CONTENT, FONT_SMALL_NARROW, 4, 1 + ySpacing * 7, 0, 0, headerColor, TEXT_SKIP_DRAW, sText_RevisedInspect);
     }
 
     // Print stats
@@ -3702,7 +3750,15 @@ static bool8 MonInfo_HandleInput(u8 taskId)
 
 static void MonStats_HandleInput(u8 taskId)
 {
-    MonInfo_HandleInput(taskId);
+    if(MonInfo_HandleInput(taskId))
+        return;
+
+    if(JOY_NEW(A_BUTTON) && Rogue_HasSpeciesBeenRevised(sPokedexMenu->viewBaseSpecies, REVISION_FLAG_POKEDEX_ICON))
+    {
+        sPokedexMenu->isInspectModeActive = !sPokedexMenu->isInspectModeActive;
+        PlaySE(SE_SELECT);
+        gTasks[taskId].func = Task_SwapToPage;
+    }
 }
 
 
