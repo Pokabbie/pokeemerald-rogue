@@ -1,6 +1,16 @@
 {
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "MERGE"
+  },
   "PerSpecies": {
     "SPECIES_SPIDOPS": {
+      "Abilities": [
+        "ABILITY_ANALYTIC",
+        "ABILITY_STAKEOUT",
+        "ABILITY_DISGUISE"
+      ],
       "BaseStats": {
         "HP": 85,
         "Attack": 94,
@@ -10,5 +20,104 @@
         "SpDefense": 86
       }
     }
-  }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SILK_TRAP",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_TACKLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_STRUGGLE_BUG",
+      "Level": 5
+    },
+    {
+      "Move": "MOVE_ASSURANCE",
+      "Level": 8
+    },
+    {
+      "Move": "MOVE_FEINT",
+      "Level": 11
+    },
+    {
+      "Move": "MOVE_BUG_BITE",
+      "Level": 14
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 19
+    },
+    {
+      "Move": "MOVE_MACH_PUNCH",
+      "Level": 24
+    },
+    {
+      "Move": "MOVE_HEADBUTT",
+      "Level": 28
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 33
+    },
+    {
+      "Move": "MOVE_CIRCLE_THROW",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_FALSE_SURRENDER",
+      "Level": 41
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 45
+    },
+    {
+      "Move": "MOVE_POUNCE",
+      "Level": 49
+    },
+    {
+      "Move": "MOVE_RAGE_POWDER",
+      "Level": 53
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SKITTER_SMACK"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_STICKY_WEB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_FALSE_SURRENDER",
+        "MOVE_FIRST_IMPRESSION"
+      ],
+      "Ability": "ABILITY_DISGUISE",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_IMPISH",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_ELECTROWEB",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_RAGE_POWDER",
+        "MOVE_FIRST_IMPRESSION"
+      ],
+      "Ability": "ABILITY_ANALYTIC",
+      "Item": "ITEM_FOCUS_SASH",
+      "Nature": "NATURE_CAREFUL",
+      "SourceTiers": [
+        "DOUBLES_REVISED_MODE"
+      ]
+    }
+  ]
 }
