@@ -120,6 +120,7 @@ static const u16 sSkillSwapBannedAbilities[] =
     ABILITY_TERA_SHIFT,
     ABILITY_PROTOSYNTHESIS,
     ABILITY_QUARK_DRIVE,
+    ABILITY_COMMANDER,
 };
 
 static const u16 sRolePlayBannedAbilities[] =
@@ -149,6 +150,7 @@ static const u16 sRolePlayBannedAbilities[] =
     ABILITY_TERA_SHIFT,
     ABILITY_PROTOSYNTHESIS,
     ABILITY_QUARK_DRIVE,
+    ABILITY_COMMANDER,
 
     ABILITY_FORECAST_PRIORITY,
 };
@@ -169,6 +171,7 @@ static const u16 sRolePlayBannedAttackerAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
     ABILITY_TERA_SHIFT,
+    ABILITY_COMMANDER,
 };
 
 static const u16 sWorrySeedBannedAbilities[] =
@@ -187,6 +190,7 @@ static const u16 sWorrySeedBannedAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
     ABILITY_TERA_SHIFT,
+    ABILITY_COMMANDER,
 };
 
 static const u16 sGastroAcidBannedAbilities[] =
@@ -209,6 +213,7 @@ static const u16 sGastroAcidBannedAbilities[] =
     ABILITY_TERA_SHIFT,
     ABILITY_PROTOSYNTHESIS,
     ABILITY_QUARK_DRIVE,
+    ABILITY_COMMANDER,
 };
 
 static const u16 sEntrainmentBannedAttackerAbilities[] =
@@ -229,6 +234,7 @@ static const u16 sEntrainmentBannedAttackerAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
     ABILITY_TERA_SHIFT,
+    ABILITY_COMMANDER,
 
     ABILITY_FORECAST_PRIORITY,
 };
@@ -248,6 +254,7 @@ static const u16 sEntrainmentTargetSimpleBeamBannedAbilities[] =
     ABILITY_GULP_MISSILE,
     ABILITY_ZERO_TO_HERO,
     ABILITY_TERA_SHIFT,
+    ABILITY_COMMANDER,
 };
 
 static u8 CalcBeatUpPower(void)
@@ -1053,6 +1060,7 @@ static const u8 sAbilitiesNotTraced[ABILITIES_COUNT] =
     [ABILITY_ZEN_MODE] = 1,
     [ABILITY_ZERO_TO_HERO] = 1,
     [ABILITY_TERA_SHIFT] = 1,
+    [ABILITY_COMMANDER] = 1,
 
     [ABILITY_FORECAST_PRIORITY] = 1,
 };
@@ -5578,7 +5586,8 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                         break;
                     }
 
-                    gLastUsedAbility = gBattleMons[gBattlerAttacker].ability = gBattleStruct->overwrittenAbilities[gBattlerAttacker] = gBattleMons[gBattlerTarget].ability;
+                    gLastUsedAbility = gBattleMons[gBattlerAttacker].ability;
+                    gBattleMons[gBattlerAttacker].ability = gBattleStruct->overwrittenAbilities[gBattlerAttacker] = gBattleMons[gBattlerTarget].ability;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_MummyActivates;
                     effect++;
