@@ -8795,13 +8795,13 @@ BattleScript_AbilityPopUp:
 BattleScript_AbilityPopUpOverwriteThenNormal:
 	setbyte sFIXED_ABILITY_POPUP, TRUE
 	showabilitypopup BS_ABILITY_BATTLER
-	pause B_WAIT_TIME_LONG
+	pause B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_LONG
 	sethword sABILITY_OVERWRITE, 0
 	updateabilitypopup BS_ABILITY_BATTLER
-	pause B_WAIT_TIME_SHORT
+	pause B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_SHORTEST
 	recordability BS_ABILITY_BATTLER
 	destroyabilitypopup
-	pause B_WAIT_TIME_MED
+	pause B_WAIT_TIME_ABSOLUTE | B_WAIT_TIME_SHORT
 	return
 
 BattleScript_SpeedBoostActivates::
