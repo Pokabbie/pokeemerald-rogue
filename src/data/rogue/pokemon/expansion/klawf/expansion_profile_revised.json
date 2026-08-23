@@ -1,0 +1,76 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "MERGE",
+    "TutorMoves": "MERGE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_KLAWF": {
+      "Types": [
+        "TYPE_ROCK"
+      ],
+      "Abilities": [
+        "ABILITY_ANGER_SHELL",
+        "ABILITY_SHARPNESS",
+        "ABILITY_TECHNICIAN"
+      ],
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 120,
+        "Defense": 115,
+        "Speed": 80,
+        "SpAttack": 35,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ACCELEROCK",
+      "Level": 35
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 59
+    },
+    {
+      "Move": "MOVE_MIGHTY_CLEAVE",
+      "Level": 63
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SPIKES",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_SHELL_SMASH"
+  ],
+  "CompetitiveSets": [
+    {
+      "Moves": [
+        "MOVE_KNOCK_OFF",
+        "MOVE_STONE_EDGE",
+        "MOVE_STEALTH_ROCK",
+        "MOVE_SPIKES"
+      ],
+      "Ability": "ABILITY_REGENERATOR",
+      "Item": "ITEM_HEAVY_DUTY_BOOTS",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    },
+    {
+      "Moves": [
+        "MOVE_SWORDS_DANCE",
+        "MOVE_ACCELEROCK",
+        "MOVE_EARTHQUAKE",
+        "MOVE_CLOSE_COMBAT"
+      ],
+      "Ability": "ABILITY_ANGER_SHELL",
+      "Item": "ITEM_ROCKIUM_Z",
+      "Nature": "NATURE_ADAMANT",
+      "SourceTiers": [
+        "GEN9PU"
+      ]
+    }
+  ]
+}
