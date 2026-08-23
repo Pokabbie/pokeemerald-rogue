@@ -146,6 +146,8 @@ const union AnimCmd *const *const gTrainerBackAnimsPtrTable[] =
     [TRAINER_BACK_PIC_COMMUNITY_ZEFA] = sBackAnims_Brendan,
     [TRAINER_BACK_PIC_COMMUNITY_NACHOLORD] = sBackAnims_Brendan,
     [TRAINER_BACK_PIC_COMMUNITY_POKABBIE] = sBackAnims_Leaf,
+    [TRAINER_BACK_PIC_HILDA] = sBackAnims_Red,
+    [TRAINER_BACK_PIC_HILBERT] = sBackAnims_Leaf,
     [TRAINER_BACK_PIC_CALEM] = sBackAnims_Red,
     [TRAINER_BACK_PIC_SERENA] = sBackAnims_Leaf,
 };

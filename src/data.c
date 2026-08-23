@@ -180,6 +180,24 @@ const struct SpriteFrameImage gTrainerBackPicTable_Serena[] =
     gTrainerBackPic_Serena + 0x2000, 0x0800,
 };
 
+const struct SpriteFrameImage gTrainerBackPicTable_Hilbert[] =
+{
+    gTrainerBackPic_Hilbert, 0x0800,
+    gTrainerBackPic_Hilbert + 0x0800, 0x0800,
+    gTrainerBackPic_Hilbert + 0x1000, 0x0800,
+    gTrainerBackPic_Hilbert + 0x1800, 0x0800,
+    gTrainerBackPic_Hilbert + 0x2000, 0x0800,
+};
+
+const struct SpriteFrameImage gTrainerBackPicTable_Hilda[] =
+{
+    gTrainerBackPic_Hilda, 0x0800,
+    gTrainerBackPic_Hilda + 0x0800, 0x0800,
+    gTrainerBackPic_Hilda + 0x1000, 0x0800,
+    gTrainerBackPic_Hilda + 0x1800, 0x0800,
+    gTrainerBackPic_Hilda + 0x2000, 0x0800,
+};
+
 const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
 {
     gTrainerBackPic_CommunityZefa, 0x0800,
