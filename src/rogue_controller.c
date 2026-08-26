@@ -1746,8 +1746,8 @@ static u32 CalculateBattleWinnings(u16 trainerNum)
         {
             if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
             {
-                // 66% boost
-                moneyReward = (moneyReward * 5) / 3;
+                // 33% boost
+                moneyReward = (moneyReward * 4) / 3;
             }
         }
     }
@@ -9915,11 +9915,11 @@ static void RandomiseEnabledTrainers()
 
     if(gRogueAdvPath.currentRoomType == ADVPATH_ROOM_BATTLE_TOWER)
     {
-        u16 enabledCount = 2 + RogueRandomRange(3, 0);
+        u16 enabledCount = 3 + RogueRandomRange(3, 0);
 
         if(RogueRandomChance(20, 0))
         {
-            enabledCount = 4 + RogueRandomRange(3, 0);
+            enabledCount = 5 + RogueRandomRange(2, 0);
         }
 
         for(i = 0; i < ROGUE_MAX_ACTIVE_TRAINER_COUNT; ++i)
