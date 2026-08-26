@@ -390,6 +390,7 @@ static void DoMoveRelearnerMain(void);
 static void CreateLearnableMovesList(void);
 static u8 LoadMoveRelearnerMovesList(const struct ListMenuItem *items, u16 numChoices);
 static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct ListMenu *list);
+static u8 const* MoveRelearnerItemNameCallback(s32 itemId, u8 const* itemName);
 static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove);
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove);
 static void CreateUISprites(void);
@@ -412,6 +413,7 @@ static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
     .items = NULL,
     .moveCursorFunc = MoveRelearnerCursorCallback,
     .itemPrintFunc = NULL,
+    .itemPrintGetNameFunc = MoveRelearnerItemNameCallback,
     .totalItems = 0,
     .maxShowed = 0,
     .windowId = 2,
@@ -967,7 +969,7 @@ static void DoMoveRelearnerMain(void)
                 }
 
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
-                FormatAndPrintText(gText_MoveRelearnerAndPoof);
+                //FormatAndPrintText(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;
                 gSpecialVar_0x8006 = TRUE;
             }
@@ -1282,6 +1284,27 @@ static void MoveRelearnerCursorCallback(s32 itemIndex, bool8 onInit, struct List
         PlaySE(SE_SELECT);
     MoveRelearnerLoadBattleMoveDescription(itemIndex);
     MoveRelearnerMenuLoadContestMoveDescription(itemIndex);
+}
+
+// Use FONT_SMALL_NARROW for rendering but FONT_NORMAL for height spacing
+static const u8 sText_Revised[] = _("{FONT_SMALL_NARROW}{COLOR BLUE}{SHADOW LIGHT_BLUE}{REVISED_EDIT}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}{FONT_SMALL_NARROW}");
+static const u8 sText_Original[] = _("{FONT_SMALL_NARROW}");
+
+static u8 const* MoveRelearnerItemNameCallback(s32 chosenMove, u8 const* moveName)
+{
+    u8* str;
+
+    if(chosenMove != LIST_CANCEL && chosenMove != MOVE_UNAVAILABLE && Rogue_HasMoveBeenRevised(chosenMove))
+    {
+        str = StringCopy(gStringVar4, sText_Revised);
+    }
+    else
+    {
+        str = StringCopy(gStringVar4, sText_Original);
+    }
+
+    StringAppend(str, moveName);
+    return gStringVar4;
 }
 
 static const u8 sUnavaliableDescription_Run[] = _(
