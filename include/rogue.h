@@ -241,6 +241,8 @@ struct RoguePartySnapshot
     u32 partyPersonalities[PARTY_SIZE];
     u32 partyOtIds[PARTY_SIZE];
     u16 partySpeciesGfx[PARTY_SIZE];
+    u16 enemySpeciesGfx[PARTY_SIZE];
+    u16 trainerId;
 };
 
 struct GameModeRules
@@ -269,7 +271,7 @@ struct RogueRunData
 {
     struct GameModeRules gameRules;
     struct RogueWildEncounters wildEncounters;
-    struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 2];
+    struct RoguePartySnapshot partySnapshots[ROGUE_MAX_BOSS_COUNT + 4];
     struct RoguePokemonFacade labParty[LAB_MON_COUNT];
     u16 subSeeds[ROGUE_SUBSEED_COUNT];
     u16 bossTrainerNums[ROGUE_MAX_BOSS_COUNT];
