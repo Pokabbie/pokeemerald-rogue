@@ -2317,6 +2317,11 @@ u8 GetTutorMoves(struct Pokemon *pokemon, u16 *tutorMoves, u16 tutorMovesCapacit
     u32 uniqueMoveSet = Rogue_IsRunActive() ? GetMonData(pokemon, MON_DATA_PERSONALITY) : GetMonData(pokemon, MON_DATA_OT_ID);
     struct RoguePokemonProfile const* pokemonProfile = Rogue_GetPokemonProfile(species);
 
+    if(Rogue_IsRunActive() && gRogueRun.gameRules.forceFullTutorMoves)
+    {
+        tutorMoveLvlCount = 1;
+    }
+
     for(read = 0; pokemonProfile->tutorMoves[read] != MOVE_NONE; ++read)
     {
         if(write >= tutorMovesCapacity)

@@ -16,6 +16,7 @@
 #include "rogue_multiplayer.h"
 #include "rogue_popup.h"
 #include "rogue_player_customisation.h"
+#include "rogue_settings.h"
 
 // Make sure we round to UI range here
 #define RGB_255_CHANNEL(v) RGB_CONVERT_FROM_UI_RANGE(RGB_CONVERT_TO_UI_RANGE(min(31, (u8)(((u32)v * (u32)31) / (u32)255))))
@@ -469,7 +470,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Hilbert"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_HILBERT,
-        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .trainerBackPic = TRAINER_BACK_PIC_HILBERT,
         .bagVariant = BAG_GFX_VARIANT_LEAF_BLACK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
@@ -481,8 +482,8 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .objectEventLayerPal = gObjectEventPal_PlayerHilbertLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerHilbertFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerHilbertFrontLayers,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
+        .trainerBackBasePal = gTrainerPalette_PlayerHilbertBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerHilbertBackLayers,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -496,7 +497,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .name = _("Hilda"),
         .relatedTrainerFlags = TRAINER_FLAG_REGION_UNOVA,
         .trainerFrontPic = TRAINER_PIC_HILDA,
-        .trainerBackPic = TRAINER_BACK_PIC_NONE,
+        .trainerBackPic = TRAINER_BACK_PIC_HILDA,
         .bagVariant = BAG_GFX_VARIANT_LEAF_PINK,
         .hasSpritingAnims = FALSE,
         .objectEventGfx = 
@@ -508,8 +509,8 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
         .objectEventLayerPal = gObjectEventPal_PlayerHildaLayers,
         .trainerFrontBasePal = gTrainerPalette_PlayerHildaFrontBase,
         .trainerFrontLayerPal = gTrainerPalette_PlayerHildaFrontLayers,
-        .trainerBackBasePal = NULL,
-        .trainerBackLayerPal = NULL,
+        .trainerBackBasePal = gTrainerPalette_PlayerHildaBackBase,
+        .trainerBackLayerPal = gTrainerPalette_PlayerHildaBackLayers,
         .supportedLayers = 
         {
             [PLAYER_OUTFIT_STYLE_APPEARANCE] = TRUE,
@@ -975,7 +976,7 @@ static const struct PlayerOutfit sPlayerOutfits[PLAYER_OUTFIT_COUNT] =
     [PLAYER_OUTFIT_FLARE_GRUNT_M] =
     {
         .name = _("Flare"),
-        .trainerFrontPic = TRAINER_PIC_PLASMA_GRUNT_M,
+        .trainerFrontPic = TRAINER_PIC_FLARE_GRUNT_M,
         .trainerBackPic = TRAINER_BACK_PIC_NONE,
         .bagVariant = BAG_GFX_VARIANT_RED_SILVER,
         .outfitUnlockId = OUTFIT_UNLOCK_TEAM_FLARE,
@@ -1540,6 +1541,12 @@ bool8 RoguePlayer_HasUnlockedOutfitId(u16 outfit)
     u32 unlockId = sPlayerOutfits[outfit].outfitUnlockId;
 
     AGB_ASSERT(outfit < PLAYER_OUTFIT_COUNT);
+
+    if(unlockId != OUTFIT_UNLOCK_PLACEHOLDER && RogueDebug_GetConfigToggle(DEBUG_TOGGLE_ALL_OUTFITS))
+    {
+        return TRUE;
+    }
+
     return CheckOutfitUnlockIsActive(unlockId);
 }
 
