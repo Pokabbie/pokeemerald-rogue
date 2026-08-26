@@ -3457,11 +3457,11 @@ static void MonInfo_CreateSprites(bool8 includeType)
         isShiny,
         MON_PIC_AFFINE_FRONT,
         48, 66, 
-        0,
+        10, // picked a free pal slot
 #ifdef ROGUE_EXPANSION
         sPokedexMenu->viewBaseSpecies
 #else
-        isShiny ? gMonShinyPaletteTable[sPokedexMenu->viewBaseSpecies].tag : gMonPaletteTable[sPokedexMenu->viewBaseSpecies].tag
+        TAG_NONE
 #endif
     );
 
