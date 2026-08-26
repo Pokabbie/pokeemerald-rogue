@@ -182,20 +182,20 @@ const struct SpriteFrameImage gTrainerBackPicTable_Serena[] =
 
 const struct SpriteFrameImage gTrainerBackPicTable_Hilbert[] =
 {
-    gTrainerBackPic_Hilbert, 0x0800,
-    gTrainerBackPic_Hilbert + 0x0800, 0x0800,
-    gTrainerBackPic_Hilbert + 0x1000, 0x0800,
-    gTrainerBackPic_Hilbert + 0x1800, 0x0800,
-    gTrainerBackPic_Hilbert + 0x2000, 0x0800,
+    {gTrainerBackPic_Hilbert + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilbert + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilbert + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilbert + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilbert + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_Hilda[] =
 {
-    gTrainerBackPic_Hilda, 0x0800,
-    gTrainerBackPic_Hilda + 0x0800, 0x0800,
-    gTrainerBackPic_Hilda + 0x1000, 0x0800,
-    gTrainerBackPic_Hilda + 0x1800, 0x0800,
-    gTrainerBackPic_Hilda + 0x2000, 0x0800,
+    {gTrainerBackPic_Hilda + TRAINER_PIC_SIZE * 0, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilda + TRAINER_PIC_SIZE * 1, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilda + TRAINER_PIC_SIZE * 2, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilda + TRAINER_PIC_SIZE * 3, TRAINER_PIC_SIZE},
+    {gTrainerBackPic_Hilda + TRAINER_PIC_SIZE * 4, TRAINER_PIC_SIZE},
 };
 
 const struct SpriteFrameImage gTrainerBackPicTable_CommunityZefa[] =
