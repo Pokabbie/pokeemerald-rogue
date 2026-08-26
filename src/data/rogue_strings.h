@@ -18,7 +18,7 @@ const u8 gText_RogueVersionSpacer[] = _(" - ");
 const u8 gText_RogueVersionSuffix[] = _("(DEBUG)");
 #else
 const u8 gText_RogueVersionSpacer[] = _(" - ");
-const u8 gText_RogueVersionSuffix[] = _("Z-A Royale pt.1");
+const u8 gText_RogueVersionSuffix[] = _("Revised Mode + Z-A pt.2");
 #endif
 
 // UI String
