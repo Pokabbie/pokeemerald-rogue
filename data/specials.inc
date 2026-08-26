@@ -27,11 +27,8 @@ gSpecials::
 	def_special PrepSecretBaseBattleFlags
 	def_special GetSecretBaseOwnerAndState
 	def_special InitSecretBaseDecorationSprites
-	def_special SetDecoration
-	def_special GetObjectEventLocalIdByFlag
 	def_special GetSecretBaseTypeInFrontOfPlayer
 	def_special SetSecretBaseOwnerGfxId
-	def_special PutAwayDecorationIteration
 	def_special EnterNewlyCreatedSecretBase
 	def_special SetBattledOwnerFromResult
 	def_special DoSecretBasePCTurnOffEffect

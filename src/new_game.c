@@ -40,7 +40,6 @@
 #include "item_menu.h"
 #include "pokemon_storage_system.h"
 #include "pokemon_jump.h"
-#include "decoration_inventory.h"
 #include "secret_base.h"
 #include "player_pc.h"
 #include "field_specials.h"
@@ -193,7 +192,6 @@ void NewGameInitData(void)
     ClearBag();
     NewGameInitPCItems();
     ClearPokeblocks();
-    ClearDecorationInventories();
     InitEasyChatPhrases();
     SetMauvilleOldMan();
     InitDewfordTrend();

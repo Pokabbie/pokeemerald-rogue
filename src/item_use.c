@@ -48,6 +48,7 @@
 #include "constants/map_types.h"
 
 #include "rogue_adventurepaths.h"
+#include "rogue_battlechecker.h"
 #include "rogue_controller.h"
 #include "rogue_charms.h"
 #include "rogue_ridemon.h"
@@ -794,6 +795,43 @@ void ItemUseOutOfBattle_QuestLog(u8 taskId)
         gFieldCallback = FieldCB_ReturnToFieldNoScript;
         FadeScreen(FADE_TO_BLACK, 0);
         gTasks[taskId].func = Task_OpenRegisteredQuestLog;
+    }
+}
+
+
+static void CB2_OpenBattleCheckerFromBag(void)
+{
+    Rogue_OpenBattleChecker(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredBattleChecker(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        Rogue_OpenBattleChecker(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
+void ItemUseOutOfBattle_BattleChecker(u8 taskId)
+{
+    if(!WaitFanfare(FALSE))
+    {
+        return;
+    }
+
+    PlaySE(SE_SELECT);
+    if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenBattleCheckerFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredBattleChecker;
     }
 }
 

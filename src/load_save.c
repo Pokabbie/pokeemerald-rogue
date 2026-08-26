@@ -11,7 +11,6 @@
 #include "save_location.h"
 #include "trainer_hill.h"
 #include "gba/flash_internal.h"
-#include "decoration_inventory.h"
 #include "agb_flash.h"
 #include "event_data.h"
 #include "constants/event_objects.h"
@@ -78,8 +77,6 @@ void SetSaveBlocksPointers(u16 offset)
     gSaveBlock2Ptr = (void *)(&gSaveblock2) + offset;
     *sav1_LocalVar = (void *)(&gSaveblock1) + offset;
     gPokemonStoragePtr = (void *)(&gPokemonStorage) + offset;
-
-    SetDecorationInventoriesPointers();
 }
 
 void MoveSaveBlocks_ResetHeap(void)

@@ -1,8 +1,6 @@
 #include "global.h"
 #include "constants/decorations.h"
 #include "constants/mauville_old_man.h"
-#include "decoration.h"
-#include "decoration_inventory.h"
 #include "event_data.h"
 #include "main.h"
 #include "menu.h"
@@ -138,16 +136,7 @@ void GetTraderTradedFlag(void)
 
 void DoesPlayerHaveNoDecorations(void)
 {
-    u8 i;
-
-    for (i = 0; i < DECORCAT_COUNT; i++)
-    {
-        if (GetNumOwnedDecorationsInCategory(i))
-        {
-            gSpecialVar_Result = FALSE;
-            return;
-        }
-    }
+    AGB_ASSERT(FALSE);
     gSpecialVar_Result = TRUE;
 }
 
@@ -158,16 +147,17 @@ void IsDecorationCategoryFull(void)
 
 void TraderShowDecorationMenu(void)
 {
-    CreateTask(ShowDecorationCategoriesWindow, 0);
+    //CreateTask(ShowDecorationCategoriesWindow, 0);
+    AGB_ASSERT(FALSE);
 }
 
 void DecorationItemsMenuAction_Trade(u8 taskId)
 {
-    if (IsSelectedDecorInThePC() == TRUE)
-    {
-        gSpecialVar_0x8006 = gCurDecorationItems[gCurDecorationIndex];
-    }
-    else
+    //if (IsSelectedDecorInThePC() == TRUE)
+    //{
+    //    gSpecialVar_0x8006 = gCurDecorationItems[gCurDecorationIndex];
+    //}
+    //else
     {
         gSpecialVar_0x8006 = 0xFFFF;
     }
@@ -184,14 +174,7 @@ void ExitTraderMenu(u8 taskId)
 
 void TraderDoDecorationTrade(void)
 {
-    struct MauvilleOldManTrader *trader = &gSaveBlock1Ptr->oldMan.trader;
-
-    DecorationRemove(gSpecialVar_0x8006);
-    DecorationAdd(gSpecialVar_0x8004);
-    StringCopy(trader->playerNames[gSpecialVar_0x8005], gSaveBlock2Ptr->playerName);
-    trader->decorations[gSpecialVar_0x8005] = gSpecialVar_0x8006;
-    trader->language[gSpecialVar_0x8005] = GAME_LANGUAGE;
-    trader->alreadyTraded = TRUE;
+    AGB_ASSERT(FALSE);
 }
 
 void TraderMenuGetDecoration(void)
