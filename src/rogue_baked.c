@@ -2284,36 +2284,27 @@ bool8 Rogue_HasSpeciesBeenRevised(u16 species, u32 checkFlags)
         Rogue_GetPokemonBaseStatsFor(species, &ogBaseStats, FALSE);
         Rogue_GetPokemonBaseStatsFor(species, &revisedBaseStats, TRUE);
 
-        if((checkFlags & REVISION_FLAG_PROFILE_DATA) == REVISION_FLAG_PROFILE_DATA)
+        if(checkFlags & REVISION_FLAG_STATS)
         {
-            // Different profile fast
-            if (memcmp(&ogBaseStats, &revisedBaseStats, sizeof(struct RoguePokemonBaseStats)) != 0)
+            if (
+                ogBaseStats.baseHP != revisedBaseStats.baseHP ||
+                ogBaseStats.baseAttack != revisedBaseStats.baseAttack ||
+                ogBaseStats.baseDefense != revisedBaseStats.baseDefense ||
+                ogBaseStats.baseSpeed != revisedBaseStats.baseSpeed ||
+                ogBaseStats.baseSpAttack != revisedBaseStats.baseSpAttack ||
+                ogBaseStats.baseSpDefense != revisedBaseStats.baseSpDefense
+            )
+                return TRUE;
+        }     
+        if(checkFlags & REVISION_FLAG_TYPING)
+        {
+            if (memcmp(ogBaseStats.types, revisedBaseStats.types, sizeof(ogBaseStats.types)) != 0)
                 return TRUE;
         }
-        else 
+        if(checkFlags & REVISION_FLAG_ABILITY)
         {
-            if(checkFlags & REVISION_FLAG_STATS)
-            {
-                if (
-                    ogBaseStats.baseHP != revisedBaseStats.baseHP ||
-                    ogBaseStats.baseAttack != revisedBaseStats.baseAttack ||
-                    ogBaseStats.baseDefense != revisedBaseStats.baseDefense ||
-                    ogBaseStats.baseSpeed != revisedBaseStats.baseSpeed ||
-                    ogBaseStats.baseSpAttack != revisedBaseStats.baseSpAttack ||
-                    ogBaseStats.baseSpDefense != revisedBaseStats.baseSpDefense
-                )
-                    return TRUE;
-            }     
-            if(checkFlags & REVISION_FLAG_TYPING)
-            {
-                if (memcmp(ogBaseStats.types, revisedBaseStats.types, sizeof(ogBaseStats.types)) != 0)
-                    return TRUE;
-            }
-            if(checkFlags & REVISION_FLAG_ABILITY)
-            {
-                if (memcmp(ogBaseStats.abilities, revisedBaseStats.abilities, sizeof(ogBaseStats.abilities)) != 0)
-                    return TRUE;
-            }
+            if (memcmp(ogBaseStats.abilities, revisedBaseStats.abilities, sizeof(ogBaseStats.abilities)) != 0)
+                return TRUE;
         }
 
         if(checkFlags & REVISION_FLAG_EVOLUTIONS)
