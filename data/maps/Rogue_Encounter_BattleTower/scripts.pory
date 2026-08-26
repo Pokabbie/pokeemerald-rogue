@@ -34,6 +34,7 @@ script Rogue_Encounter_BattleTower_TalkReward
             msgbox(format("And, of course, your reward!"))
 
             special(Rogue_BattleTower_GiveReward)
+            quest_trigger(QUEST_TRIGGER_MAP_SPECIFIC_EVENT)
         }
         else
         {

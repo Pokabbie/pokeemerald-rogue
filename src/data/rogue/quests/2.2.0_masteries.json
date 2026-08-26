@@ -2,6 +2,7 @@
     "condition": "",
     "defaults":
     {
+        "#if": "defined(ROGUE_EXPANSION)",
         "name": "%MON_SPECIES% Mastery",
         "description": "Enter the Hall of Fame with a Pokémon from the %MON_SPECIES% line in your party.",
         "display_group": "mon_masteries",

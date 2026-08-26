@@ -1,0 +1,38 @@
+{
+    "condition": "",
+    "defaults":
+    {
+        "added_in_version": "SAVE_VER_ID_2_1_0",
+        "display_group": "default_quests",
+        "flags": 
+        [
+            "MAIN_QUEST_DEFAULT",
+            "ACTIVE_IN_RUN"
+        ]
+    },
+    "quest_groups":
+    {
+        "default_group":
+        [
+            {
+                "name": "New Frontier",
+                "description": "Defeat every Trainer in a Battle Tower and collect the Random reward.",
+                "triggers":
+                [
+                    {
+                        "on": [ "MAP_SPECIFIC_EVENT" ],
+                        "condition": "CurrentlyInRoomType",
+                        "params": [ "ADVPATH_ROOM_BATTLE_TOWER" ],
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    { "money": "QUEST_REWARD_SMALL_MONEY" },
+                    { "item": "ITEM_BUILDING_SUPPLIES", "count": "QUEST_REWARD_SMALL_BUILD_AMOUNT" },
+                    { "item": "ITEM_BATTLE_CHECKER" }
+                ]
+            }
+        ]
+    }
+}
