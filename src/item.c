@@ -253,6 +253,8 @@ void CopyItemName(u16 itemId, u8 *dst)
     CopyItemNameN(itemId, dst, ITEM_NAME_LENGTH);
 }
 
+static const u8 sText_Revised[] = _("{REVISED_EDIT}");
+
 void CopyItemNameN(u16 itemId, u8 *dst, u16 length)
 {
     if((itemId >= ITEM_TM01 && itemId <= ITEM_HM08) || (itemId >= ITEM_TR01 && itemId <= ITEM_TR50))
@@ -271,6 +273,11 @@ void CopyItemNameN(u16 itemId, u8 *dst, u16 length)
         else
         {
             StringCopyN(dst, gText_TMPrefix, length);
+        }
+
+        if(Rogue_HasMoveBeenRevised(moveId))
+        {
+            StringAppendN(dst, sText_Revised, length);
         }
 
         StringAppendN(dst, gMoveNames[moveId], length);
