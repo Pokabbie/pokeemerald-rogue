@@ -1932,14 +1932,7 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     u16 species;
     u8 gender;
 
-    if(Rogue_HasSpeciesBeenRevised(GetMonData(mon, MON_DATA_SPECIES), REVISION_FLAG_BATTLE_ICON))
-    {
-        StringCopy(gDisplayedStringBattle, gText_HealthboxNickname_Revised);
-    }
-    else
-    {
-        StringCopy(gDisplayedStringBattle, gText_HealthboxNickname);
-    }
+    StringCopy(gDisplayedStringBattle, gText_HealthboxNickname);
     GetMonData(mon, MON_DATA_NICKNAME, nickname);
     StringGet_Nickname(nickname);
     ptr = StringAppend(gDisplayedStringBattle, nickname);

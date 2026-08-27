@@ -476,7 +476,7 @@ static void PrintRevisionStatsFor(int gen)
 				alreadyAddedSpecies.insert(eggSpecies);
 			}
 
-			if (Rogue_HasSpeciesBeenRevised(species, REVISION_FLAG_ALL))
+			if (Rogue_HaSpeciesBeenRevised(species))
 			{
 				isEvoLineRevised[eggSpecies] = true;
 				++totalRevisedSpecies;

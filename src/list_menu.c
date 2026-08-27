@@ -638,24 +638,7 @@ static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOff
         if (list->template.itemPrintFunc != NULL)
             list->template.itemPrintFunc(list->template.windowId, list->template.items[startIndex].id, y);
 
-
-        if (list->template.itemPrintGetNameFunc != NULL)
-        {
-            ListMenuPrint(
-                list, 
-                list->template.itemPrintGetNameFunc(list->template.items[startIndex].id, list->template.items[startIndex].name), 
-                x, y
-            );
-        }
-        else
-        {
-            ListMenuPrint(
-                list, 
-                list->template.items[startIndex].name, 
-                x, y
-            );
-        }
-
+        ListMenuPrint(list, list->template.items[startIndex].name, x, y);
         startIndex++;
     }
 }
