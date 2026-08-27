@@ -2270,7 +2270,7 @@ static bool8 AreCompetitiveSetsSame(struct RoguePokemonCompetitiveSet const* set
 }
 
 
-bool8 Rogue_HaSpeciesBeenRevised(u16 species)
+bool8 Rogue_HasSpeciesBeenRevised(u16 species, u32 checkFlags)
 {
 #ifndef ROGUE_BAKING
     if (Rogue_GetRevisionModeActive())
@@ -2284,25 +2284,52 @@ bool8 Rogue_HaSpeciesBeenRevised(u16 species)
         Rogue_GetPokemonBaseStatsFor(species, &ogBaseStats, FALSE);
         Rogue_GetPokemonBaseStatsFor(species, &revisedBaseStats, TRUE);
 
-        // Different base stats
-        if (ogProfile->monFlags != revisedProfile->monFlags || memcmp(&ogBaseStats, &revisedBaseStats, sizeof(struct RoguePokemonBaseStats)) != 0)
-            return TRUE;
+        if(checkFlags & REVISION_FLAG_STATS)
+        {
+            if (
+                ogBaseStats.baseHP != revisedBaseStats.baseHP ||
+                ogBaseStats.baseAttack != revisedBaseStats.baseAttack ||
+                ogBaseStats.baseDefense != revisedBaseStats.baseDefense ||
+                ogBaseStats.baseSpeed != revisedBaseStats.baseSpeed ||
+                ogBaseStats.baseSpAttack != revisedBaseStats.baseSpAttack ||
+                ogBaseStats.baseSpDefense != revisedBaseStats.baseSpDefense
+            )
+                return TRUE;
+        }     
+        if(checkFlags & REVISION_FLAG_TYPING)
+        {
+            if (memcmp(ogBaseStats.types, revisedBaseStats.types, sizeof(ogBaseStats.types)) != 0)
+                return TRUE;
+        }
+        if(checkFlags & REVISION_FLAG_ABILITY)
+        {
+            if (memcmp(ogBaseStats.abilities, revisedBaseStats.abilities, sizeof(ogBaseStats.abilities)) != 0)
+                return TRUE;
+        }
 
-        // Different evos
-        if (ogProfile->evolutionCount != revisedProfile->evolutionCount || !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions))
-            return TRUE;
+        if(checkFlags & REVISION_FLAG_EVOLUTIONS)
+        {
+            if (ogProfile->evolutionCount != revisedProfile->evolutionCount || !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions))
+                return TRUE;
+        }
 
-        // Level up moves
-        if (!AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves))
-            return TRUE;
+        if(checkFlags & REVISION_FLAG_LEARN_MOVES)
+        {
+            if (!AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves))
+                return TRUE;
+        }
 
-        // Tutor moves
-        if (!AreTutorMovesSame(ogProfile->tutorMoves, revisedProfile->tutorMoves))
-            return TRUE;
+        if(checkFlags & REVISION_FLAG_TUTOR_MOVES)
+        {
+            if (!AreTutorMovesSame(ogProfile->tutorMoves, revisedProfile->tutorMoves))
+                return TRUE;
+        }
 
-        // Competitive sets
-        if (ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount || !AreCompetitiveSetsSame(ogProfile->competitiveSets, revisedProfile->competitiveSets, ogProfile->competitiveSetCount))
-            return TRUE;
+        if(checkFlags & REVISION_FLAG_COMP_SETS)
+        {
+            if (ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount || !AreCompetitiveSetsSame(ogProfile->competitiveSets, revisedProfile->competitiveSets, ogProfile->competitiveSetCount))
+                return TRUE;
+        }
     }
 
     return FALSE;
