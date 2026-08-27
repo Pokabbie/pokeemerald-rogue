@@ -406,7 +406,6 @@ static const struct ListMenuTemplate sMoveRelearnerMovesListTemplate =
     .items = NULL,
     .moveCursorFunc = MoveRelearnerCursorCallback,
     .itemPrintFunc = NULL,
-    .itemPrintGetNameFunc = MoveRelearnerItemNameCallback,
     .totalItems = 0,
     .maxShowed = 0,
     .windowId = 2,
@@ -599,7 +598,7 @@ static void CB2_InitLearnMove(void)
     CreateUISprites();
 
     // set via sMoveRelearnerMovesListTemplate
-    sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
+    sMoveRelearnerStruct->moveListMenuTask = ListMenuInitWithCustomPrint(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow, MoveRelearnerItemNameCallback);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_MoveRelearnerMain);
 }
@@ -639,7 +638,7 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     }
 
     // set via sMoveRelearnerMovesListTemplate
-    sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
+    sMoveRelearnerStruct->moveListMenuTask = ListMenuInitWithCustomPrint(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow, MoveRelearnerItemNameCallback);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_MoveRelearnerMain);
 }
@@ -1012,7 +1011,7 @@ static void DoMoveRelearnerMain(void)
                 --sMoveRelearnerMenuSate.listOffset;
             //sMoveRelearnerMenuSate.listOffset = 0;
             //sMoveRelearnerMenuSate.listRow = 0;
-            sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
+            sMoveRelearnerStruct->moveListMenuTask = ListMenuInitWithCustomPrint(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow, MoveRelearnerItemNameCallback);
             
             // Reshow move screen
             sMoveRelearnerStruct->state = MENU_STATE_PRINT_STOP_TEACHING;
@@ -1086,7 +1085,7 @@ static void HandleInput(bool8 showContest)
         DestroyListMenuTask(sMoveRelearnerStruct->moveListMenuTask, &sMoveRelearnerMenuSate.listOffset, &sMoveRelearnerMenuSate.listRow);
         sMoveRelearnerMenuSate.listOffset = 0;
         sMoveRelearnerMenuSate.listRow = 0;
-        sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
+        sMoveRelearnerStruct->moveListMenuTask = ListMenuInitWithCustomPrint(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow, MoveRelearnerItemNameCallback);
 
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         MoveRelearnerLoadBattleMoveDescription(GetCurrentSelectedMove());
