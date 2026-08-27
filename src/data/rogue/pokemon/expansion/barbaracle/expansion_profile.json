@@ -415,21 +415,21 @@
     },
     "SPECIES_BARBARACLE_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 72,
+        "Attack": 140,
+        "Defense": 130,
+        "Speed": 88,
+        "SpAttack": 64,
+        "SpDefense": 106
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_ROCK",
+        "TYPE_FIGHTING"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_TOUGH_CLAWS"
       ]
     }
   }

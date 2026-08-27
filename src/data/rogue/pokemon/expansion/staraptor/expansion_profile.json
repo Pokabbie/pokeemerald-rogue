@@ -465,21 +465,21 @@
     },
     "SPECIES_STARAPTOR_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 85,
+        "Attack": 140,
+        "Defense": 100,
+        "Speed": 110,
+        "SpAttack": 60,
+        "SpDefense": 90
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_FIGHTING",
+        "TYPE_FLYING"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY",
+        "ABILITY_CONTRARY"
       ]
     }
   }

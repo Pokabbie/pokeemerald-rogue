@@ -29,9 +29,10 @@ namespace PokemonDataGenerator
 
             foreach (var profileFile in Directory.EnumerateFiles(pokemonProfilesDir, "*_profile.json", SearchOption.AllDirectories))
             {
-                JObject profileObj = JObject.Parse(File.ReadAllText(profileFile));
+                string srcTest = File.ReadAllText(profileFile);
+                JObject profileObj = JObject.Parse(srcTest);
 
-                if (!profileObj.ContainsKey("PerSpecies"))
+                if (!profileObj.ContainsKey("PerSpecies") || true)
                 {
                     JObject perSpeciesOutput = new JObject();
 
@@ -87,9 +88,13 @@ namespace PokemonDataGenerator
                     }
 
                     profileObj["PerSpecies"] = perSpeciesOutput;
+                }
 
+                string outputTest = profileObj.ToString().Replace("\r\n", "\n");
 
-                    File.WriteAllText(profileFile, profileObj.ToString());
+                if (srcTest != outputTest)
+                {
+                    File.WriteAllText(profileFile, outputTest);
                 }
             }
         }

@@ -442,21 +442,21 @@
     },
     "SPECIES_EELEKTROSS_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 85,
+        "Attack": 145,
+        "Defense": 80,
+        "Speed": 80,
+        "SpAttack": 135,
+        "SpDefense": 90
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_ELECTRIC",
+        "TYPE_ELECTRIC"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_EELEVATE",
+        "ABILITY_EELEVATE",
+        "ABILITY_EELEVATE"
       ]
     }
   }

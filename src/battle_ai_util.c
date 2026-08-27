@@ -301,6 +301,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_EELEVATE] = 7,
 
     [ABILITY_FORECAST_PRIORITY] = 9,
+    [ABILITY_DRAGON_FLY] = 6,
 };
 
 static const u16 sEncouragedEncoreEffects[] =

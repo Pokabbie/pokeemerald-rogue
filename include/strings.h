@@ -699,6 +699,7 @@ extern const u8 gText_WinLoseDraw[];
 extern const u8 gText_ColorTransparent[];
 extern const u8 gText_Slash[];
 extern const u8 gText_HealthboxNickname[];
+extern const u8 gText_HealthboxNickname_Revised[];
 extern const u8 gText_HealthboxGender_None[];
 extern const u8 gText_HealthboxGender_Male[];
 extern const u8 gText_HealthboxGender_Female[];

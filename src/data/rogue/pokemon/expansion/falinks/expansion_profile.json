@@ -333,21 +333,21 @@
     },
     "SPECIES_FALINKS_MEGA": {
       "BaseStats": {
-        "HP": 0,
-        "Attack": 0,
-        "Defense": 0,
-        "Speed": 0,
-        "SpAttack": 0,
-        "SpDefense": 0
+        "HP": 65,
+        "Attack": 135,
+        "Defense": 135,
+        "Speed": 100,
+        "SpAttack": 70,
+        "SpDefense": 65
       },
       "Types": [
-        "TYPE_NORMAL",
-        "TYPE_NORMAL"
+        "TYPE_FIGHTING",
+        "TYPE_FIGHTING"
       ],
       "Abilities": [
-        "ABILITY_NONE",
-        "ABILITY_NONE",
-        "ABILITY_NONE"
+        "ABILITY_DEFIANT",
+        "ABILITY_DEFIANT",
+        "ABILITY_DEFIANT"
       ]
     }
   }
