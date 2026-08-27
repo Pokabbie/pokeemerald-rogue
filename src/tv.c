@@ -28,7 +28,6 @@
 #include "naming_screen.h"
 #include "malloc.h"
 #include "region_map.h"
-#include "decoration.h"
 #include "secret_base.h"
 #include "tv.h"
 #include "pokeball.h"
