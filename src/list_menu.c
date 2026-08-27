@@ -69,7 +69,7 @@ struct RedArrowCursor
 };
 
 // this file's functions
-static u8 ListMenuInitInternal(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow);
+static u8 ListMenuInitInternal(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow, ItemPrintNameCallback printNameCallback);
 static bool8 ListMenuChangeSelection(struct ListMenu *list, bool8 updateCursorAndCallCallback, u8 count, bool8 movingDown);
 static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOffset, u16 count);
 static void ListMenuDrawCursor(struct ListMenu *list);
@@ -108,6 +108,11 @@ struct {
     u8 fontId:7;
     bool8 enabled:1;
 } gListMenuOverride;
+
+struct {
+    ItemPrintNameCallback printNameFunc;
+    bool8 enabled:1;
+} gListMenuPrintOverride;
 
 struct ListMenuTemplate gMultiuseListMenuTemplate;
 
@@ -383,7 +388,16 @@ s32 DoMysteryGiftListMenu(const struct WindowTemplate *windowTemplate, const str
 
 u8 ListMenuInit(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow)
 {
-    u8 taskId = ListMenuInitInternal(listMenuTemplate, scrollOffset, selectedRow);
+    u8 taskId = ListMenuInitInternal(listMenuTemplate, scrollOffset, selectedRow, NULL);
+    PutWindowTilemap(listMenuTemplate->windowId);
+    CopyWindowToVram(listMenuTemplate->windowId, COPYWIN_GFX);
+
+    return taskId;
+}
+
+u8 ListMenuInitWithCustomPrint(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow, ItemPrintNameCallback printNameCallback)
+{
+    u8 taskId = ListMenuInitInternal(listMenuTemplate, scrollOffset, selectedRow, printNameCallback);
     PutWindowTilemap(listMenuTemplate->windowId);
     CopyWindowToVram(listMenuTemplate->windowId, COPYWIN_GFX);
 
@@ -395,7 +409,7 @@ u8 ListMenuInitInRect(struct ListMenuTemplate *listMenuTemplate, struct ListMenu
 {
     s32 i;
 
-    u8 taskId = ListMenuInitInternal(listMenuTemplate, scrollOffset, selectedRow);
+    u8 taskId = ListMenuInitInternal(listMenuTemplate, scrollOffset, selectedRow, NULL);
     for (i = 0; rect[i].palNum != 0xFF; i++)
     {
         PutWindowRectTilemapOverridePalette(listMenuTemplate->windowId,
@@ -565,7 +579,7 @@ u16 ListMenuGetYCoordForPrintingArrowCursor(u8 listTaskId)
     return list->selectedRow * yMultiplier + list->template.upText_Y;
 }
 
-static u8 ListMenuInitInternal(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow)
+static u8 ListMenuInitInternal(struct ListMenuTemplate *listMenuTemplate, u16 scrollOffset, u16 selectedRow, ItemPrintNameCallback printNameCallback)
 {
     u8 listTaskId = CreateTask(ListMenuDummyTask, 0);
     struct ListMenu *list = (void *) gTasks[listTaskId].data;
@@ -584,6 +598,9 @@ static u8 ListMenuInitInternal(struct ListMenuTemplate *listMenuTemplate, u16 sc
     gListMenuOverride.lettersSpacing = list->template.lettersSpacing;
     gListMenuOverride.fontId = list->template.fontId;
     gListMenuOverride.enabled = FALSE;
+
+    gListMenuPrintOverride.printNameFunc = printNameCallback;
+    gListMenuPrintOverride.enabled = (printNameCallback != NULL);
 
     if (list->template.totalItems < list->template.maxShowed)
         list->template.maxShowed = list->template.totalItems;
@@ -643,11 +660,11 @@ static void ListMenuPrintEntries(struct ListMenu *list, u16 startIndex, u16 yOff
             list->template.itemPrintFunc(list->template.windowId, list->template.items[startIndex].id, y);
 
 
-        if (list->template.itemPrintGetNameFunc != NULL)
+        if (gListMenuPrintOverride.enabled && gListMenuPrintOverride.printNameFunc != NULL)
         {
             ListMenuPrint(
                 list, 
-                list->template.itemPrintGetNameFunc(list->template.items[startIndex].id, list->template.items[startIndex].name), 
+                gListMenuPrintOverride.printNameFunc(list->template.items[startIndex].id, list->template.items[startIndex].name), 
                 x, y
             );
         }
@@ -914,6 +931,12 @@ void ListMenuOverrideSetColors(u8 cursorPal, u8 fillValue, u8 cursorShadowPal)
     gListMenuOverride.fillValue = fillValue;
     gListMenuOverride.cursorShadowPal = cursorShadowPal;
     gListMenuOverride.enabled = TRUE;
+}
+
+void ListMenuOverrideItemPrintName(ItemPrintNameCallback callback)
+{
+    gListMenuPrintOverride.printNameFunc = callback;
+    gListMenuPrintOverride.enabled = TRUE;
 }
 
 void ListMenuDefaultCursorMoveFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list)
