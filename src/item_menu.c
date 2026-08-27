@@ -1182,29 +1182,43 @@ static void LoadBagItemListBuffers(u8 pocketId)
     gMultiuseListMenuTemplate.maxShowed = gBagMenu->numShownItems[pocketId];
 }
 
+static const u8 sText_Revised[] = _("{REVISED_EDIT}");
+
 static void GetItemName(s8 *dest, u16 itemId)
 {
     switch (gBagPosition.pocket)
     {
     case TMHM_POCKET:
-        StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
-        if (itemId >= ITEM_TR01)
         {
-            // Get TR number
-            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TR01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(dest, gText_NumberItem_HM);
-        }
-        else if (itemId >= ITEM_HM01)
-        {
-            // Get HM number
-            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_HM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
-            StringExpandPlaceholders(dest, gText_NumberItem_HM);
-        }
-        else
-        {
-            // Get TM number
-            ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(dest, gText_NumberItem_HM);
+            u32 moveId = ItemIdToBattleMoveId(itemId);
+            if(Rogue_HasMoveBeenRevised(moveId))
+            {
+                StringCopy(gStringVar2, sText_Revised);
+                StringAppend(gStringVar2, gMoveNames[moveId]);
+            }
+            else
+            {
+                StringCopy(gStringVar2, gMoveNames[moveId]);
+            }
+
+            if (itemId >= ITEM_TR01)
+            {
+                // Get TR number
+                ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TR01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
+                StringExpandPlaceholders(dest, gText_NumberItem_HM);
+            }
+            else if (itemId >= ITEM_HM01)
+            {
+                // Get HM number
+                ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_HM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
+                StringExpandPlaceholders(dest, gText_NumberItem_HM);
+            }
+            else
+            {
+                // Get TM number
+                ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
+                StringExpandPlaceholders(dest, gText_NumberItem_HM);
+            }
         }
         break;
     case BERRIES_POCKET:
