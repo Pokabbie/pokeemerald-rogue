@@ -2066,6 +2066,11 @@ void Rogue_JoinMultiplayer()
     RogueMP_WaitForConnection();
 }
 
+void Rogue_GetLastMultiplayerConnectError()
+{
+    gSpecialVar_Result = RogueMP_GetLastConnectError();
+}
+
 void Rogue_CloseMultiplayer()
 {
     RogueMP_Close();
