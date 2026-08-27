@@ -698,6 +698,20 @@ static void Client_HandleHandshakeResponse()
     if(!gRogueMultiplayer->pendingHandshake.accepted)
     {
         DebugPrint("Handshake wasn't accepted.");
+
+        if(gRogueMultiplayer->pendingHandshake.isVersionEx != IsExVersion())
+        {
+            gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_GAME_FLAVOUR;
+        }
+        else if(gRogueMultiplayer->pendingHandshake.saveVersionId != RogueSave_GetVersionId())
+        {
+            gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_SAVE_VERSION;
+        }
+        else if(gRogueMultiplayer->pendingHandshake.isPermaRevisedActive != IsPermaRevisedActive())
+        {
+            gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_REVISED_MODE;
+        }
+
         RogueMP_Close();
         return;
     }
