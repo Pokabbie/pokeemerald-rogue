@@ -544,6 +544,7 @@ struct RogueNetHandshake
     u8 playerId;
     u8 accepted : 1;
     u8 isVersionEx : 1;
+    u8 isPermaRevisedActive : 1;
 };
 
 struct RogueNetMultiplayer

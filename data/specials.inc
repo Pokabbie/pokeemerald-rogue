@@ -218,6 +218,7 @@ gSpecials::
 	def_special Rogue_IsMultiplayerClient
 	def_special Rogue_HostMultiplayer
 	def_special Rogue_JoinMultiplayer
+	def_special Rogue_GetLastMultiplayerConnectError
 	def_special Rogue_CloseMultiplayer
 	def_special Rogue_IsRogueAssistantConnected
 	def_special Rogue_IsMultiplayerAdventureJoinable

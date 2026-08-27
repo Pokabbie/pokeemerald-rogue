@@ -21,6 +21,7 @@
 #include "rogue_player_customisation.h"
 #include "rogue_ridemon.h"
 #include "rogue_save.h"
+#include "rogue_settings.h"
 #include "rogue_timeofday.h"
 
 #define NET_STATE_NONE              0
@@ -63,6 +64,7 @@ struct RogueLocalMP
     u8 lastProcessedRemoteSendCmd;
     u8 recentSendCmd;
     u8 recentResult;
+    u8 recentConnectError;
 };
 
 // Temporary data, that isn't remembered
@@ -117,6 +119,11 @@ bool8 RogueMP_IsHost()
 bool8 RogueMP_IsClient()
 {
     return RogueMP_IsActive() && (gRogueMultiplayer->netCurrentState & NET_STATE_HOST) == 0;
+}
+
+u8 RogueMP_GetLastConnectError()
+{
+    return gRogueLocalMP.recentConnectError;
 }
 
 ROGUE_STATIC_ASSERT(NET_PLAYER_CAPACITY == 2, PlayerIdAssume2Players);
@@ -176,6 +183,8 @@ void RogueMP_OpenHost()
     AGB_ASSERT(gRogueMultiplayer == NULL);
     memset(&gTEMPNetMultiplayer, 0, sizeof(gTEMPNetMultiplayer));
 
+    gRogueLocalMP.recentConnectError = CONN_ERR_NONE;
+
     gRogueMultiplayer = &gTEMPNetMultiplayer;
 
     gRogueMultiplayer->localPlayerId = 0;
@@ -190,6 +199,8 @@ void RogueMP_OpenClient()
 {
     AGB_ASSERT(gRogueMultiplayer == NULL);
     memset(&gTEMPNetMultiplayer, 0, sizeof(gTEMPNetMultiplayer));
+
+    gRogueLocalMP.recentConnectError = CONN_ERR_NONE;
 
     gRogueMultiplayer = &gTEMPNetMultiplayer;
 
@@ -612,6 +623,17 @@ static bool8 IsExVersion()
 #endif
 }
 
+static bool8 IsPermaRevisedActive()
+{
+#ifdef ROGUE_FEATURE_REVISED_MODE
+    if(Rogue_GetConfigRange(CONFIG_RANGE_REVISION_MODE) == REVISION_MODE_ALWAYS_ON)
+    {
+        return TRUE;
+    }
+#endif
+    return FALSE;
+}
+
 static void Host_HandleHandshakeRequest()
 {
     AGB_ASSERT(gRogueMultiplayer != NULL);
@@ -619,6 +641,7 @@ static void Host_HandleHandshakeRequest()
     if(gRogueMultiplayer->pendingHandshake.isVersionEx != IsExVersion())
     {
         // Flavour doesn't match
+        gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_GAME_FLAVOUR;
         gRogueMultiplayer->pendingHandshake.isVersionEx = IsExVersion();
         gRogueMultiplayer->pendingHandshake.accepted = FALSE;
         gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
@@ -628,13 +651,25 @@ static void Host_HandleHandshakeRequest()
     if(gRogueMultiplayer->pendingHandshake.saveVersionId != RogueSave_GetVersionId())
     {
         // Save version doesn't match
+        gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_SAVE_VERSION;
         gRogueMultiplayer->pendingHandshake.saveVersionId = RogueSave_GetVersionId();
         gRogueMultiplayer->pendingHandshake.accepted = FALSE;
         gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
         return;
     }
 
+    if(gRogueMultiplayer->pendingHandshake.isPermaRevisedActive != IsPermaRevisedActive())
+    {
+        // Revision doesn't match
+        gRogueLocalMP.recentConnectError = CONN_ERR_WRONG_REVISED_MODE;
+        gRogueMultiplayer->pendingHandshake.isPermaRevisedActive = IsPermaRevisedActive();
+        gRogueMultiplayer->pendingHandshake.accepted = FALSE;
+        gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_CLIENT;
+        return;
+    }
+
     // Is valid so accept
+    gRogueLocalMP.recentConnectError = CONN_ERR_NONE;
     gRogueMultiplayer->pendingHandshake.accepted = TRUE;
     gRogueMultiplayer->pendingHandshake.playerId = 1; // TODO - Assign to free slot
     gRogueMultiplayer->pendingHandshake.profile.isActive = TRUE;
@@ -651,6 +686,7 @@ static void Client_SetupHandshakeRequest()
     // TODO - Setup versioning vars
     gRogueMultiplayer->pendingHandshake.saveVersionId = RogueSave_GetVersionId();
     gRogueMultiplayer->pendingHandshake.isVersionEx = IsExVersion();
+    gRogueMultiplayer->pendingHandshake.isPermaRevisedActive = IsPermaRevisedActive();
 
     gRogueMultiplayer->pendingHandshake.state = NET_HANDSHAKE_STATE_SEND_TO_HOST;
 }
@@ -971,6 +1007,7 @@ static void Task_WaitForConnection(u8 taskId)
     {
         // Cancelled
         RogueMP_Close();
+        gSpecialVar_0x8008 = 0;
         gSpecialVar_Result = FALSE;
         ScriptContext_Enable();
         DestroyTask(taskId);
@@ -981,6 +1018,7 @@ static void Task_WaitForConnection(u8 taskId)
         {
             DebugPrint("Host created successfully");
             // Has connected
+            gSpecialVar_0x8008 = 0;
             gSpecialVar_Result = TRUE;
             ScriptContext_Enable();
             DestroyTask(taskId);
@@ -989,20 +1027,20 @@ static void Task_WaitForConnection(u8 taskId)
         {
             DebugPrint("Client connected successfully");
             // Has connected
+            gSpecialVar_0x8008 = 0;
             gSpecialVar_Result = TRUE;
             ScriptContext_Enable();
             DestroyTask(taskId);
         }
     }
-    // TODO - Error handling for if handshake wasn't accepted
-    //else if(!RogueMP_IsConnecting())
-    //{
-    //    DebugPrint("Connection aborted...");
-    //    // TODO - store some infor
-    //    gSpecialVar_Result = FALSE;
-    //    ScriptContext_Enable();
-    //    DestroyTask(taskId);
-    //}
+    else if(!RogueMP_IsConnecting())
+    {
+        DebugPrint("Connection aborted...");
+        gSpecialVar_0x8008 = 0;
+        gSpecialVar_Result = FALSE;
+        ScriptContext_Enable();
+        DestroyTask(taskId);
+    }
 }
 
 static bool8 ShouldSyncObjectBeVisible(struct SyncedObjectEventInfo* syncInfo)
