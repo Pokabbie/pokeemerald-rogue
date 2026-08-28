@@ -5862,7 +5862,7 @@ static u32 TrySetAteType(u16 move, u16 battlerAtk, u16 attackerAbility)
         ateType = TYPE_DRAGON;
         break;
     case ABILITY_LIQUID_VOICE:
-        if(gBattleMoves[move].effect != EFFECT_RELIC_SONG)
+        if(gBattleMoves[move].soundMove)
             ateType = TYPE_WATER;
         break;
     default:
