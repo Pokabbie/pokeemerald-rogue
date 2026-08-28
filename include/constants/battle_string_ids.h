@@ -708,8 +708,9 @@
 #define STRINGID_ELECTROSHOTCHARGING                  706
 #define STRINGID_POISONPUPPETEER					  707
 #define STRINGID_BOOSTERENERGYACTIVATES               708
+#define STRINGID_COMMANDERACTIVATES                   709
 
-#define BATTLESTRINGS_COUNT                           709
+#define BATTLESTRINGS_COUNT                           710
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

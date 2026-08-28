@@ -585,7 +585,7 @@ static void Cmd_setroom(void);
 static void Cmd_tryswapabilities(void);
 static void Cmd_tryimprison(void);
 static void Cmd_setstealthrock(void);
-static void Cmd_setuserstatus3(void);
+static void Cmd_setuserstatusX(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
@@ -846,7 +846,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryswapabilities,                        //0xDA
     Cmd_tryimprison,                             //0xDB
     Cmd_setstealthrock,                          //0xDC
-    Cmd_setuserstatus3,                          //0xDD
+    Cmd_setuserstatusX,                          //0xDD
     Cmd_assistattackselect,                      //0xDE
     Cmd_trysetmagiccoat,                         //0xDF
     Cmd_trysetsnatch,                            //0xE0
@@ -1603,7 +1603,7 @@ static bool32 AccuracyCalcHelper(u16 move)
         return TRUE;
     }
     // If the attacker has the ability No Guard and they aren't targeting a Pokemon involved in a Sky Drop with the move Sky Drop, move hits.
-    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD && (move != MOVE_SKY_DROP || gBattleStruct->skyDropTargets[gBattlerTarget] == 0xFF))
+    else if (GetBattlerAbility(gBattlerAttacker) == ABILITY_NO_GUARD && !(gStatuses3[gBattlerTarget] & STATUS3_COMMANDER) && (move != MOVE_SKY_DROP || gBattleStruct->skyDropTargets[gBattlerTarget] == 0xFF))
     {
         if (!JumpIfMoveFailed(7, move))
             RecordAbilityBattle(gBattlerAttacker, ABILITY_NO_GUARD);
@@ -1637,6 +1637,14 @@ static bool32 AccuracyCalcHelper(u16 move)
     || ((gStatuses3[gBattlerTarget] & STATUS3_UNDERWATER) && !gBattleMoves[move].damagesUnderwater))
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
+        JumpIfMoveFailed(7, move);
+        return TRUE;
+    }
+
+    if (gStatuses3[gBattlerTarget] & STATUS3_COMMANDER)
+    {
+        gMoveResultFlags |= MOVE_RESULT_MISSED;
+        gBattleCommunication[MISS_TYPE] = B_MSG_AVOIDED_DMG;
         JumpIfMoveFailed(7, move);
         return TRUE;
     }
@@ -2842,6 +2850,17 @@ static void Cmd_printfromtable(void)
         PrepareStringBattle(*ptr, gBattlerAttacker);
         gBattleCommunication[MSG_DISPLAY] = 1;
     }
+}
+
+bool32 HasBattlerActedThisTurn(u32 battler)
+{
+    u32 i;
+    for (i = 0; i <= gCurrentTurnActionNumber; i++)
+    {
+        if (gBattlerByTurnOrder[i] == battler)
+            return TRUE;
+    }
+    return FALSE;
 }
 
 static void Cmd_printselectionstringfromtable(void)
@@ -6067,7 +6086,8 @@ static void Cmd_moveend(void)
                       && gBattlerAttacker != battler
                       && GetBattlerHoldEffect(battler, TRUE) == HOLD_EFFECT_EJECT_BUTTON
                       && BATTLER_TURN_DAMAGED(battler)
-                      && CountUsablePartyMons(battler) > 0)  // Has mon to switch into
+                      && CountUsablePartyMons(battler) > 0
+                      && gBattleStruct->commanderInfo[battler].commanderSpecies == SPECIES_NONE )  // Has mon to switch into
                     {
                         gBattleScripting.battler = battler;
                         gLastUsedItem = gBattleMons[battler].item;
@@ -7015,6 +7035,7 @@ bool32 DoSwitchInAbilities(u32 battler)
 {
     return (TryPrimalReversion(battler)
          || AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, battler, 0, 0, 0)
+         || AbilityBattleEffects(ABILITYEFFECT_DEPENDS_ON_ALLY, battler, ABILITY_NONE, MOVE_NONE, 0)
          || (gBattleWeather & B_WEATHER_ANY && WEATHER_HAS_EFFECT && AbilityBattleEffects(ABILITYEFFECT_ON_WEATHER, battler, 0, 0, 0))
          || (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY && AbilityBattleEffects(ABILITYEFFECT_ON_TERRAIN, battler, 0, 0, 0))
          || AbilityBattleEffects(ABILITYEFFECT_TRACE2, 0, 0, 0, 0));
@@ -9342,6 +9363,7 @@ static void Cmd_various(void)
         gBattlescriptCurrInstr = cmd->nextInstr;
         AbilityBattleEffects(ABILITYEFFECT_NEUTRALIZINGGAS, battler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_ON_SWITCHIN, battler, 0, 0, 0);
+        AbilityBattleEffects(ABILITYEFFECT_DEPENDS_ON_ALLY, battler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_TRACE2, battler, 0, 0, 0);
         AbilityBattleEffects(ABILITYEFFECT_OPPORTUNIST, battler, 0, 0, 0);
         return;
@@ -9785,6 +9807,7 @@ static void Cmd_various(void)
          && IsBattlerAlive(gBattlerTarget)
          && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
          && TARGET_TURN_DAMAGED
+        && gBattleStruct->commanderInfo[gBattlerTarget].commanderSpecies == SPECIES_NONE
          && GetBattlerAbility(gBattlerTarget) != ABILITY_GUARD_DOG)
         {
             gBattleScripting.switchCase = B_SWITCH_HIT;
@@ -10898,6 +10921,20 @@ static void Cmd_various(void)
             BtlController_EmitChoosePokemon(gBattlerAttacker, BUFFER_A, PARTY_ACTION_CHOOSE_FAINTED_MON, PARTY_SIZE, ABILITY_NONE, gBattleStruct->battlerPartyOrders[gBattlerAttacker]);
             MarkBattlerForControllerExec(gBattlerAttacker);
         }
+        return;
+    }
+    
+    case VARIOUS_JUMP_IF_COMMANDER_ACTIVE:
+    {
+        VARIOUS_ARGS(u8 target, const u8 *jumpInstr);
+        u8 target = GetBattlerForBattleScript(cmd->target);
+
+        if (gBattleStruct->commanderInfo[target].commanderSpecies != SPECIES_NONE)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else if (gStatuses3[target] & STATUS3_COMMANDER)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }
     } // End of switch (cmd->id)
@@ -13336,7 +13373,7 @@ static void Cmd_trysetperishsong(void)
 
     for (i = 0; i < gBattlersCount; i++)
     {
-        if (gStatuses3[i] & STATUS3_PERISH_SONG
+        if (gStatuses3[i] & (STATUS3_PERISH_SONG | STATUS3_COMMANDER)
             || GetBattlerAbility(i) == ABILITY_SOUNDPROOF
             || BlocksPrankster(gCurrentMove, gBattlerAttacker, i, TRUE))
         {
@@ -14508,24 +14545,39 @@ static void Cmd_setstealthrock(void)
     }
 }
 
-static void Cmd_setuserstatus3(void)
+static void Cmd_setuserstatusX(void)
 {
-    CMD_ARGS(u32 flags, const u8 *failInstr);
+    CMD_ARGS(u8 target, u32 flags, const u8 *failInstr);
 
     u32 flags = cmd->flags;
 
-    if (gStatuses3[gBattlerAttacker] & flags)
+    if(cmd->target == 0)
     {
-        gBattlescriptCurrInstr = cmd->failInstr;
+        if (gStatuses3[gBattlerAttacker] & flags)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gStatuses3[gBattlerAttacker] |= flags;
+            if (flags & STATUS3_MAGNET_RISE)
+                gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
+            if (flags & STATUS3_LASER_FOCUS)
+                gDisableStructs[gBattlerAttacker].laserFocusTimer = 2;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
     else
     {
-        gStatuses3[gBattlerAttacker] |= flags;
-        if (flags & STATUS3_MAGNET_RISE)
-            gDisableStructs[gBattlerAttacker].magnetRiseTimer = 5;
-        if (flags & STATUS3_LASER_FOCUS)
-            gDisableStructs[gBattlerAttacker].laserFocusTimer = 2;
-        gBattlescriptCurrInstr = cmd->nextInstr;
+        if (gStatuses4[gBattlerAttacker] & flags)
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
+        else
+        {
+            gStatuses4[gBattlerAttacker] |= flags;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
     }
 }
 

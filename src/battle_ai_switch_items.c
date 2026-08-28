@@ -972,6 +972,8 @@ bool32 ShouldSwitch(u32 battler)
         return FALSE;
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
         return FALSE;
+    if (gBattleStruct->commanderInfo[battler].commanderSpecies)
+        return FALSE;
 
     availableToSwitch = 0;
 

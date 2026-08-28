@@ -294,7 +294,7 @@ void HandleAction_UseMove(void)
     u16 moveTarget;
 
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
-    if (gBattleStruct->absentBattlerFlags & gBitTable[gBattlerAttacker] || !IsBattlerAlive(gBattlerAttacker))
+    if (gBattleStruct->absentBattlerFlags & gBitTable[gBattlerAttacker] || !IsBattlerAlive(gBattlerAttacker) || gBattleStruct->commanderInfo[gBattlerAttacker].commandingDondozo)
     {
         gCurrentActionFuncId = B_ACTION_FINISHED;
         return;
@@ -2733,7 +2733,7 @@ u8 DoBattlerEndTurnEffects(void)
             gBattleStruct->turnEffectsTracker++;
             break;
         case ENDTURN_AQUA_RING:  // aqua ring
-            if ((gStatuses3[battler] & STATUS3_AQUA_RING)
+            if ((gStatuses4[battler] & STATUS4_AQUA_RING)
              && !BATTLER_MAX_HP(battler)
              && !(gStatuses3[battler] & STATUS3_HEAL_BLOCK)
              && gBattleMons[battler].hp != 0)
@@ -4477,6 +4477,56 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             BattleScriptPushCursorAndCallback(BattleScript_OverworldWeatherStarts);
         }
         break;
+    case ABILITYEFFECT_DEPENDS_ON_ALLY: // 0
+        gBattleScripting.battler = battler;
+        partner = BATTLE_PARTNER(battler);
+
+        if(IsDoubleBattle())
+        {
+            switch (gLastUsedAbility)
+            {
+            case ABILITY_COMMANDER:
+                if (IsBattlerAlive(partner)
+                && gBattleStruct->commanderInfo[partner].commanderSpecies == SPECIES_NONE
+                && gBattleMons[partner].species == SPECIES_DONDOZO
+                && GET_BASE_SPECIES_ID(gBattleMons[battler].species) == SPECIES_TATSUGIRI
+                && (gChosenActionByBattler[battler] != B_ACTION_SWITCH || HasBattlerActedThisTurn(battler))
+                && (gChosenActionByBattler[partner] != B_ACTION_SWITCH || HasBattlerActedThisTurn(partner)))
+                {
+                    gBattlerTarget = battler;
+                    gBattlerAttacker = partner;
+                    PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
+                    PREPARE_MON_NICK_BUFFER(gBattleTextBuff2, partner, gBattlerPartyIndexes[partner]);
+                    gBattleStruct->commanderInfo[battler].commandingDondozo = TRUE;
+                    gBattleStruct->commanderInfo[partner].commanderSpecies = gBattleMons[battler].species;
+                    gStatuses3[battler] |= STATUS3_COMMANDER;
+
+                    // Clear gimmicks 
+                    gBattleStruct->mega.toEvolve &= ~gBitTable[battler];
+                    gBattleStruct->dynamax.toDynamax &= ~gBitTable[battler];
+                    gBattleStruct->tera.toTera &= ~gBitTable[battler];
+                    gBattleStruct->zmove.toBeUsed[battler] = MOVE_NONE;
+
+
+                    if((gBattleMons[battler].status2 & STATUS2_CONFUSION) && !(gStatuses4[battler] & STATUS4_INFINITE_CONFUSION))
+                        gBattleMons[battler].status2 -= STATUS2_CONFUSION_TURN(1);
+
+                    BtlController_EmitSpriteInvisibility(battler, BUFFER_A, TRUE);
+                    MarkBattlerForControllerExec(battler);
+                    BattleScriptPushCursorAndCallback(BattleScript_CommanderActivates);
+                    effect++;
+                }
+                break;
+            }
+
+            // Attempt to go again but with partner this time
+            if (effect == 0 && ability == ABILITY_NONE && IsBattlerAlive(partner))
+            {
+                // Manually pass in ability here to avoid infinite loop
+                effect = AbilityBattleEffects(caseID, partner, GetBattlerAbility(partner), 0, 0);
+            }
+        }
+        break;
     case ABILITYEFFECT_ON_SWITCHIN: // 0
         gBattleScripting.battler = battler;
         switch (gLastUsedAbility)
@@ -5517,7 +5567,9 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
              && !(gBattleTypeFlags & BATTLE_TYPE_ARENA)
              && CountUsablePartyMons(battler) > 0
              // Not currently held by Sky Drop
-             && !(gStatuses3[battler] & STATUS3_SKY_DROPPED))
+             && !(gStatuses3[battler] & STATUS3_SKY_DROPPED)
+             && !(gStatuses3[battler] & STATUS3_COMMANDER)
+             && gBattleStruct->commanderInfo[battler].commanderSpecies == SPECIES_NONE)
             {
                 gBattleResources->flags->flags[battler] |= RESOURCE_FLAG_EMERGENCY_EXIT;
                 effect++;
@@ -6608,6 +6660,10 @@ bool32 CanBattlerEscape(u32 battler) // no ability check
     else if (gFieldStatuses & STATUS_FIELD_FAIRY_LOCK)
         return FALSE;
     else if (gStatuses3[battler] & STATUS3_SKY_DROPPED)
+        return FALSE;
+    else if (gStatuses3[battler] & STATUS3_COMMANDER)
+        return FALSE;
+    else if (gBattleStruct->commanderInfo[battler].commanderSpecies != SPECIES_NONE)
         return FALSE;
     else
         return TRUE;

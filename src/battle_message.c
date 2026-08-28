@@ -437,6 +437,7 @@ static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} 
 static const u8 sText_PkmnIsAngry[] = _("{B_DEF_NAME_WITH_PREFIX} is enraged!");
 static const u8 sText_PkmnIsCalm[] = _("{B_DEF_NAME_WITH_PREFIX} is no\nlonger enraged");
 static const u8 sText_PoisonPuppeteer[] = _("{B_PLAYER_MON1_NAME}'s ability Poison Puppeteer\nhas confused {B_OPPONENT_MON1_NAME}!");
+static const u8 sText_CommanderActivates[] = _("{B_BUFF1} was swallowed by {B_BUFF2}\nand became {B_BUFF2}'s commander!");
 static const u8 sText_WildPkmnPrefix[] = _("Wild ");
 static const u8 sText_FoePkmnPrefix[] = _("Foe ");
 static const u8 sText_EmptyString8[] = _("");
@@ -1550,6 +1551,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP - BATTLESTRINGS_TABLE_START] = sText_TargetCoveredInStickyCandySyrup,
     [STRINGID_PKMNISANGRY - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAngry,
     [STRINGID_PKMNISCALM - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCalm,
+    [STRINGID_COMMANDERACTIVATES - BATTLESTRINGS_TABLE_START] = sText_CommanderActivates,
+    
 };
 
 const u16 gTrainerUsedItemStringIds[] =

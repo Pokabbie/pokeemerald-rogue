@@ -22,6 +22,7 @@ struct PickupItem
     u8 percentage[10];
 };
 
+bool32 HasBattlerActedThisTurn(u32 battler);
 s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 recordAbility, u32 abilityAtk, u32 abilityDef, u32 holdEffectAtk);
 s32 CalcCritChanceStage(u32 battlerAtk, u32 battlerDef, u32 move, bool32 recordAbility);
 s32 GetCritHitChance(s32 critChanceIndex);
