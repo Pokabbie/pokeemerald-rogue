@@ -922,7 +922,7 @@ DOUBLE_BATTLE_TEST("Red Card is still consumed but cannot force out Dondozo afte
         TURN { MOVE(opponentLeft, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
         ABILITY_POPUP(opponentRight, ABILITY_COMMANDER);
-        MESSAGE("Foe Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
+        MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
         HP_BAR(opponentRight);
         MESSAGE("Foe Tatsugiri fainted!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
