@@ -21,7 +21,7 @@ enum
     SAVE_VER_ID_LATEST = SAVE_VER_ID_2_2_0,
 
     // The version to use for tracking/updating internal save game data
-    ROGUE_SAVE_VERSION = SAVE_VER_ID_LATEST - 1;
+    ROGUE_SAVE_VERSION = SAVE_VER_ID_LATEST - 1
 };
 
 void RogueSave_UpdatePointers();
