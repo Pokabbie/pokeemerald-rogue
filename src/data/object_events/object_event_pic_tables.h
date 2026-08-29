@@ -5697,3 +5697,219 @@ static const struct SpriteFrameImage sPicTable_Route_Water[] = {
     overworld_frame(gObjectEventPic_Route_Water, 2, 2, 2),
     overworld_frame(gObjectEventPic_Route_Water, 2, 2, 2),
 };
+
+static const struct SpriteFrameImage sPicTable_WildDen_Bug[] = {
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Bug, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Dark[] = {
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Dark, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Dragon[] = {
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Dragon, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Electric[] = {
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Electric, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Fairy[] = {
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fairy, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Fighting[] = {
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fighting, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Fire[] = {
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Fire, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Flying[] = {
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Flying, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Ghost[] = {
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ghost, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Grass[] = {
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Grass, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Ground[] = {
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ground, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Ice[] = {
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Ice, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Normal[] = {
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Normal, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Poison[] = {
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Poison, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Psychic[] = {
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Psychic, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Rock[] = {
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Rock, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Steel[] = {
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Steel, 2, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_WildDen_Water[] = {
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 0),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 1),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 2),
+    overworld_frame(gObjectEventPic_WildDen_Water, 2, 2, 2),
+};

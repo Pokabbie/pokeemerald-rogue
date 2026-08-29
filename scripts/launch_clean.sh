@@ -8,7 +8,7 @@ exitCode=$?
 if [ $exitCode != 0 ]
 then
     echo Error! [Exit code $exitCode]
-    read -n 1 -s -r -p "Press any key to continue..."
+    # read -n 1 -s -r -p "Press any key to continue..."
 else
     echo Success!
 fi

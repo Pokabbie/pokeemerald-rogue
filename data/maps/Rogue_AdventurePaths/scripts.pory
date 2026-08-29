@@ -46,7 +46,7 @@ script Rogue_AdventurePaths_InteractRoom
             msgbox(format("It's a Strong Trainer!\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_WILD_DEN:
-            msgbox(format("It's the habitat of a Trained Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
+            msgbox(format("It's a {STR_VAR_1} Habitat of a Trained Pokémon!\nEnter this encounter?"), MSGBOX_YESNO)
 
         case ADVPATH_ROOM_HONEY_TREE:
             msgbox(format("It's a Honey Tree habitat!\nEnter this encounter?"), MSGBOX_YESNO)
