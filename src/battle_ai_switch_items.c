@@ -586,6 +586,17 @@ static bool8 ShouldSwitchIfGameStatePrompt(u32 battler)
     }
 }
 
+static bool8 ShouldPreventFirstTurnSwitching(u32 battler)
+{
+    if(gBattleMons[battler].ability == ABILITY_ZERO_TO_HERO && gBattleMons[battler].species == SPECIES_PALAFIN)
+        return FALSE;
+
+    if(gBattleResults.battleTurnCounter != 0 && gDisableStructs[battler].isFirstTurn && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+        return TRUE;
+
+    return FALSE;
+}
+
 static bool8 ShouldSwitchIfAbilityBenefit(u32 battler)
 {
     s32 moduloChance = 4; //25% Chance Default
@@ -625,6 +636,14 @@ static bool8 ShouldSwitchIfAbilityBenefit(u32 battler)
                  && Random() % (moduloChance*chanceReducer) == 0)
                 break;
 
+            return FALSE;
+
+        case ABILITY_ZERO_TO_HERO:
+            if (gBattleMons[battler].species == SPECIES_PALAFIN_ZERO && 
+                AI_DATA->mostSuitableMonId[battler] != PARTY_SIZE)
+            {
+                break;
+            }
             return FALSE;
 
         default:
@@ -1007,7 +1026,7 @@ bool32 ShouldSwitch(u32 battler)
     }
 
     // Unless this is the very first turn switch, if this is the first turn this mon has been in the field, don't swap it out in singles
-    if(gBattleResults.battleTurnCounter != 0 && gDisableStructs[battler].isFirstTurn && !(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
+    if(ShouldPreventFirstTurnSwitching(battler))
         return FALSE;
 
     //NOTE: The sequence of the below functions matter! Do not change unless you have carefully considered the outcome.

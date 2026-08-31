@@ -262,6 +262,7 @@ struct GameModeRules
     u8 disableRivalEncounters : 1;
     u8 disableRouteTrainers : 1;
     u8 forceFullShopInventory : 1;
+    u8 forceFullTutorMoves : 1;
 };
 
 struct RogueRunData

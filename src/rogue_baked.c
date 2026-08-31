@@ -160,6 +160,107 @@ u16 SelectIndexFromWeights(u16* weights, u16 count, u16 rngValue)
     return 0;
 }
 
+u8 SpeciesToGen(u16 species)
+{
+    if(species >= SPECIES_BULBASAUR && species <= SPECIES_MEW)
+        return 1;
+    if(species >= SPECIES_CHIKORITA && species <= SPECIES_CELEBI)
+        return 2;
+    if(species >= SPECIES_TREECKO && species <= SPECIES_DEOXYS)
+        return 3;
+#ifdef ROGUE_EXPANSION
+    if(species >= SPECIES_TURTWIG && species <= SPECIES_ARCEUS)
+        return 4;
+    if(species >= SPECIES_VICTINI && species <= SPECIES_GENESECT)
+        return 5;
+    if(species >= SPECIES_CHESPIN && species <= SPECIES_VOLCANION)
+        return 6;
+    if(species >= SPECIES_ROWLET && species <= SPECIES_MELMETAL)
+        return 7;
+    if(species >= SPECIES_GROOKEY && species <= SPECIES_CALYREX)
+        return 8;
+    // Hisui is classes as gen8
+    if(species >= SPECIES_WYRDEER && species <= SPECIES_ENAMORUS)
+        return 8;
+
+    if(species >= SPECIES_SPRIGATITO && species <= SPECIES_PECHARUNT)
+        return 9;
+
+    if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_MAROWAK_ALOLAN)
+        return 7;
+    if(species >= SPECIES_MEOWTH_GALARIAN && species <= SPECIES_STUNFISK_GALARIAN)
+        return 8;
+
+    // Hisui is classes as gen8
+    if(species >= SPECIES_GROWLITHE_HISUIAN && species <= SPECIES_DECIDUEYE_HISUIAN)
+        return 8;
+
+    if(species >= SPECIES_BURMY_SANDY_CLOAK && species <= SPECIES_ARCEUS_FAIRY)
+        return 4;
+
+    // Just treat megas as gen 1 as they are controlled by a different mechanism
+    if(species >= SPECIES_VENUSAUR_MEGA && species <= SPECIES_GROUDON_PRIMAL)
+        return 1;
+    if(species >= SPECIES_CLEFABLE_MEGA && species <= SPECIES_GLIMMORA_MEGA)
+        return 1;
+    if(species >= SPECIES_VENUSAUR_GIGANTAMAX && species <= SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX)
+        return 1;
+    
+    switch(species)
+    {
+        case SPECIES_GIRATINA_ORIGIN:
+            return 4;
+
+        case SPECIES_PALKIA_ORIGIN:
+        case SPECIES_DIALGA_ORIGIN:
+            return 8;
+
+        case SPECIES_KYUREM_WHITE:
+        case SPECIES_KYUREM_BLACK:
+            return 5;
+        
+        //case SPECIES_ZYGARDE_COMPLETE:
+        //    return 6;
+
+        case SPECIES_NECROZMA_DUSK_MANE:
+        case SPECIES_NECROZMA_DAWN_WINGS:
+        case SPECIES_NECROZMA_ULTRA:
+            return 7;
+
+        case SPECIES_ZACIAN_CROWNED_SWORD:
+        case SPECIES_ZAMAZENTA_CROWNED_SHIELD:
+        case SPECIES_ETERNATUS_ETERNAMAX:
+        case SPECIES_URSHIFU_RAPID_STRIKE_STYLE:
+        case SPECIES_ZARUDE_DADA:
+        case SPECIES_CALYREX_ICE_RIDER:
+        case SPECIES_CALYREX_SHADOW_RIDER:
+        case SPECIES_ENAMORUS_THERIAN:
+            return 8;
+
+        case SPECIES_FLOETTE_ETERNAL_FLOWER:
+            return 9;
+
+        // Alternate forms
+        case SPECIES_MEOWSTIC_FEMALE:
+            return 7;
+
+        case SPECIES_INDEEDEE_FEMALE:
+            return 8;
+    }
+
+    if(species >= SPECIES_LYCANROC_MIDNIGHT && species <= SPECIES_LYCANROC_DUSK)
+        return 7;
+
+    if(species >= SPECIES_TOXTRICITY_LOW_KEY && species <= SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL)
+        return 8;
+
+    if(species >= SPECIES_ALCREMIE_BERRY_VANILLA_CREAM && species <= SPECIES_ALCREMIE_RIBBON_RAINBOW_SWIRL)
+        return 8;
+#endif
+    
+    return 0;
+}
+
 bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result)
 {
 #ifdef ROGUE_BAKE_VALID
@@ -2077,12 +2178,48 @@ static bool8 AreLevelUpMovesSame(struct LevelUpMove const* movesA, struct LevelU
 
     for (i = 0; TRUE; i++)
     {
-        if (memcmp(&movesA[i], &movesB[i], sizeof(struct LevelUpMove)) != 0)
+        if (movesA[i].move == MOVE_NONE && movesB[i].move == MOVE_NONE)
+        {
+            break;
+        }
+
+        if (movesA[i].move == MOVE_NONE || movesB[i].move == MOVE_NONE)
         {
             return FALSE;
         }
 
-        if (movesA[i].move == MOVE_NONE || movesB[i].move == MOVE_NONE)
+        if (memcmp(&movesA[i], &movesB[i], sizeof(struct LevelUpMove)) != 0)
+        {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
+static bool8 AreTutorMovesSame(u16 const* movesA, u16 const* movesB)
+{
+    u32 i;
+
+    if (movesA == movesB)
+        return TRUE;
+    if (movesA == NULL || movesB == NULL)
+        return FALSE;
+
+
+    for (i = 0; TRUE; i++)
+    {
+        if (movesA[i] == MOVE_NONE && movesB[i] == MOVE_NONE)
+        {
+            break;
+        }
+
+        if (movesA[i] == MOVE_NONE || movesB[i] == MOVE_NONE)
+        {
+            return FALSE;
+        }
+
+        if (movesA[i] != movesB[i])
         {
             return FALSE;
         }
@@ -2103,12 +2240,17 @@ static bool8 AreEvolutionsSame(struct Evolution const* evosA, struct Evolution c
 
     for (i = 0; TRUE; i++)
     {
-        if (memcmp(&evosA[i], &evosB[i], sizeof(struct Evolution)) != 0)
+        if (evosA[i].method == EVOLUTIONS_END && evosB[i].method == EVOLUTIONS_END)
+        {
+            break;
+        }
+
+        if (evosA[i].method == EVOLUTIONS_END || evosB[i].method == EVOLUTIONS_END)
         {
             return FALSE;
         }
 
-        if (evosA[i].method == EVOLUTIONS_END || evosB[i].method == EVOLUTIONS_END)
+        if (memcmp(&evosA[i], &evosB[i], sizeof(struct Evolution)) != 0)
         {
             return FALSE;
         }
@@ -2117,28 +2259,76 @@ static bool8 AreEvolutionsSame(struct Evolution const* evosA, struct Evolution c
     return TRUE;
 }
 
+static bool8 AreCompetitiveSetsSame(struct RoguePokemonCompetitiveSet const* setsA, struct RoguePokemonCompetitiveSet const* setsB, u32 count)
+{
+    if (setsA == setsB)
+        return TRUE;
+    if (setsA == NULL || setsB == NULL)
+        return FALSE;
 
-bool8 Rogue_HaSpeciesBeenRevised(u16 species)
+    return memcmp(setsA, setsB, sizeof(struct RoguePokemonCompetitiveSet) * count) == 0;
+}
+
+
+bool8 Rogue_HasSpeciesBeenRevised(u16 species, u32 checkFlags)
 {
 #ifndef ROGUE_BAKING
     if (Rogue_GetRevisionModeActive())
 #endif
     {
+        struct RoguePokemonBaseStats ogBaseStats;
+        struct RoguePokemonBaseStats revisedBaseStats;
         struct RoguePokemonProfile const* ogProfile = Rogue_GetPokemonProfileFor(species, FALSE);
         struct RoguePokemonProfile const* revisedProfile = Rogue_GetPokemonProfileFor(species, TRUE);
 
-        if (
-            ogProfile->monFlags != revisedProfile->monFlags ||
-            ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount ||
-            ogProfile->evolutionCount != revisedProfile->evolutionCount ||
-            memcmp(&ogProfile->baseStats, &revisedProfile->baseStats, sizeof(struct RoguePokemonBaseStats)) != 0 ||
-            memcmp(ogProfile->evolutions, revisedProfile->evolutions, sizeof(struct Evolution) * ogProfile->evolutionCount) != 0 ||
-            memcmp(ogProfile->competitiveSets, revisedProfile->competitiveSets, sizeof(struct RoguePokemonCompetitiveSet) * ogProfile->competitiveSetCount) != 0 ||
-            !AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves) ||
-            !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions)
-            )
+        Rogue_GetPokemonBaseStatsFor(species, &ogBaseStats, FALSE);
+        Rogue_GetPokemonBaseStatsFor(species, &revisedBaseStats, TRUE);
+
+        if(checkFlags & REVISION_FLAG_STATS)
         {
-            return TRUE;
+            if (
+                ogBaseStats.baseHP != revisedBaseStats.baseHP ||
+                ogBaseStats.baseAttack != revisedBaseStats.baseAttack ||
+                ogBaseStats.baseDefense != revisedBaseStats.baseDefense ||
+                ogBaseStats.baseSpeed != revisedBaseStats.baseSpeed ||
+                ogBaseStats.baseSpAttack != revisedBaseStats.baseSpAttack ||
+                ogBaseStats.baseSpDefense != revisedBaseStats.baseSpDefense
+            )
+                return TRUE;
+        }     
+        if(checkFlags & REVISION_FLAG_TYPING)
+        {
+            if (memcmp(ogBaseStats.types, revisedBaseStats.types, sizeof(ogBaseStats.types)) != 0)
+                return TRUE;
+        }
+        if(checkFlags & REVISION_FLAG_ABILITY)
+        {
+            if (memcmp(ogBaseStats.abilities, revisedBaseStats.abilities, sizeof(ogBaseStats.abilities)) != 0)
+                return TRUE;
+        }
+
+        if(checkFlags & REVISION_FLAG_EVOLUTIONS)
+        {
+            if (ogProfile->evolutionCount != revisedProfile->evolutionCount || !AreEvolutionsSame(ogProfile->evolutions, revisedProfile->evolutions))
+                return TRUE;
+        }
+
+        if(checkFlags & REVISION_FLAG_LEARN_MOVES)
+        {
+            if (!AreLevelUpMovesSame(ogProfile->levelUpMoves, revisedProfile->levelUpMoves))
+                return TRUE;
+        }
+
+        if(checkFlags & REVISION_FLAG_TUTOR_MOVES)
+        {
+            if (!AreTutorMovesSame(ogProfile->tutorMoves, revisedProfile->tutorMoves))
+                return TRUE;
+        }
+
+        if(checkFlags & REVISION_FLAG_COMP_SETS)
+        {
+            if (ogProfile->competitiveSetCount != revisedProfile->competitiveSetCount || !AreCompetitiveSetsSame(ogProfile->competitiveSets, revisedProfile->competitiveSets, ogProfile->competitiveSetCount))
+                return TRUE;
         }
     }
 

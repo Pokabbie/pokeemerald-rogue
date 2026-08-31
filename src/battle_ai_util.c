@@ -518,10 +518,16 @@ static bool32 ShouldFailForIllusion(u32 illusionSpecies, u32 battlerId)
         if (pokemonProfile->levelUpMoves[j].move != MOVE_NONE)
             continue;
 
-        // The used move can be learned from Tm/Hm or Move Tutors.
-        if (CanSpeciesLearnTM(illusionSpecies, move)) // todo tutor hookup too
-            continue;
+        for (j = 0; pokemonProfile->tutorMoves[j] != MOVE_NONE; j++)
+        {
+            if (pokemonProfile->tutorMoves[j] == move)
+                break;
+        }
 
+        // The used move can be learned from Tm/Hm or Move Tutors.
+        if (pokemonProfile->tutorMoves[j] != MOVE_NONE)
+            continue;
+            
         // 'Illegal move', AI won't fail for the illusion.
         return FALSE;
     }
@@ -546,8 +552,8 @@ void SetBattlerData(u32 battlerId)
             if (gBattleMons[battlerId].type1 == GetTypeBySpecies(species, 0, otId)
                 && gBattleMons[battlerId].type2 == GetTypeBySpecies(species, 1, otId))
             {
-                gBattleMons[battlerId].type1 = GetTypeBySpecies(species, 0, otId);
-                gBattleMons[battlerId].type2 = GetTypeBySpecies(species, 1, otId);
+                gBattleMons[battlerId].type1 = GetTypeBySpecies(illusionSpecies, 0, otId);
+                gBattleMons[battlerId].type2 = GetTypeBySpecies(illusionSpecies, 1, otId);
             }
             species = illusionSpecies;
         }

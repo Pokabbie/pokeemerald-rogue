@@ -21,6 +21,8 @@ bool8 HistoryBufferContains(u16* buffer, u16 capacity, u16 value);
 
 u16 SelectIndexFromWeights(u16* weights, u16 count, u16 rngValue);
 
+u8 SpeciesToGen(u16 species);
+
 // Semi-baked methods
 bool8 Rogue_CheckPokedexVariantFlag(u8 dexVariant, u16 species, bool8* result);
 
@@ -50,7 +52,7 @@ struct RoguePokemonProfile const* Rogue_GetPokemonProfile(u32 species);
 struct RoguePokemonProfile const* Rogue_GetPokemonProfileFor(u32 species, bool8 isRevised);
 void Rogue_GetPokemonBaseStats(u32 species, struct RoguePokemonBaseStats* outStats);
 void Rogue_GetPokemonBaseStatsFor(u32 species, struct RoguePokemonBaseStats* outStats, bool8 isRevised);
-bool8 Rogue_HaSpeciesBeenRevised(u16 species);
+bool8 Rogue_HasSpeciesBeenRevised(u16 species, u32 checkFlags);
 u16 Rogue_GetPokemonHeldItemUsage(u16 item);
 u16 Rogue_GetPokemonMoveUsage(u16 move);
 u16 Rogue_GetPokemonSpecialMoveUsage(u16 move);

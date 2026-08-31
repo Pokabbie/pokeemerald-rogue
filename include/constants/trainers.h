@@ -336,11 +336,13 @@
 #define TRAINER_BACK_PIC_STEVEN                 10
 #define TRAINER_BACK_PIC_LUCAS                  11
 #define TRAINER_BACK_PIC_DAWN                   12
-#define TRAINER_BACK_PIC_CALEM                  13
-#define TRAINER_BACK_PIC_SERENA                 14
-#define TRAINER_BACK_PIC_COMMUNITY_ZEFA         15
-#define TRAINER_BACK_PIC_COMMUNITY_NACHOLORD    16
-#define TRAINER_BACK_PIC_COMMUNITY_POKABBIE     17
+#define TRAINER_BACK_PIC_HILDA                  13
+#define TRAINER_BACK_PIC_HILBERT                14
+#define TRAINER_BACK_PIC_CALEM                  15
+#define TRAINER_BACK_PIC_SERENA                 16
+#define TRAINER_BACK_PIC_COMMUNITY_ZEFA         17
+#define TRAINER_BACK_PIC_COMMUNITY_NACHOLORD    18
+#define TRAINER_BACK_PIC_COMMUNITY_POKABBIE     19
 
 #define TRAINER_BACK_PIC_PLAYER                 0xFF
 

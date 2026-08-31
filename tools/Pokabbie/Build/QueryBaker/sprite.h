@@ -22,4 +22,14 @@ struct SpriteFrameImage
     u32 stub;
 };
 
+struct CompressedSpriteSheet
+{
+    u32 stub;
+};
+
+struct CompressedSpritePalette
+{
+    u32 stub;
+};
+
 #endif // SPRITE_STUB_H

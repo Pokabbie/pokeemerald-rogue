@@ -16,6 +16,8 @@ const struct MonCoords gTrainerBackPicCoords[] =
     [TRAINER_BACK_PIC_COMMUNITY_ZEFA] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_CALEM] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_SERENA] = {.size = 8, .y_offset = 5},
+    [TRAINER_BACK_PIC_HILDA] = {.size = 8, .y_offset = 5},
+    [TRAINER_BACK_PIC_HILBERT] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_COMMUNITY_NACHOLORD] = {.size = 8, .y_offset = 5},
     [TRAINER_BACK_PIC_COMMUNITY_POKABBIE] = {.size = 8, .y_offset = 5},
 };
@@ -42,6 +44,8 @@ const struct CompressedSpriteSheet gTrainerBackPicTable[] =
     TRAINER_BACK_SPRITE(DAWN, gTrainerBackPic_Dawn, 0x2800),
     TRAINER_BACK_SPRITE(CALEM, gTrainerBackPic_Calem, 0x2800),
     TRAINER_BACK_SPRITE(SERENA, gTrainerBackPic_Serena, 0x2800),
+    TRAINER_BACK_SPRITE(HILBERT, gTrainerBackPic_Hilbert, 0x2800),
+    TRAINER_BACK_SPRITE(HILDA, gTrainerBackPic_Hilda, 0x2800),
 };
 
 #define TRAINER_BACK_PAL(trainerPic, pal) [TRAINER_BACK_PIC_##trainerPic] = {pal, TRAINER_BACK_PIC_##trainerPic}
@@ -63,6 +67,8 @@ const struct CompressedSpritePalette gTrainerBackPicPaletteTable[] =
     TRAINER_BACK_PAL(DAWN, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(CALEM, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(SERENA, gTrainerPalette_PlayerBackPlaceholder),
+    TRAINER_BACK_PAL(HILBERT, gTrainerPalette_PlayerBackPlaceholder),
+    TRAINER_BACK_PAL(HILDA, gTrainerPalette_PlayerBackPlaceholder),
     TRAINER_BACK_PAL(COMMUNITY_ZEFA, gTrainerPalette_PlayerZefaBackBase),
     TRAINER_BACK_PAL(COMMUNITY_NACHOLORD, gTrainerPalette_PlayerNacholordBackBase),
     TRAINER_BACK_PAL(COMMUNITY_POKABBIE, gTrainerPalette_PlayerPokabbieBackBase),

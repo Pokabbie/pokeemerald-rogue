@@ -52,6 +52,7 @@ SPARKLE_ICON = 3A
 STAT_UP     = 3B
 STAT_DOWN   = 3C
 STAT_NONE   = 3D
+REVISED_EDIT= 3E
 '¿'         = 51
 '¡'         = 52
 PK          = 53
