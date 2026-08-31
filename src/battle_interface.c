@@ -2324,7 +2324,7 @@ static void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     if (illusionMon != NULL)
         mon = illusionMon;
 
-    if(Rogue_HasSpeciesBeenRevised(GetMonData(mon, MON_DATA_SPECIES), REVISION_FLAG_PROFILE_DATA))
+    if(Rogue_HasSpeciesBeenRevised(GetMonData(mon, MON_DATA_SPECIES), REVISION_FLAG_BATTLE_ICON))
     {
         StringCopy(gDisplayedStringBattle, gText_HealthboxNickname_Revised);
     }

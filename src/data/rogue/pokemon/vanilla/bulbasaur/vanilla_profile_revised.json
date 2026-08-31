@@ -38,26 +38,6 @@
       ]
     }
   ],
-  "PerSpecies": {
-    "SPECIES_BULBASAUR": {
-      "BaseStats": {
-        "HP": 145,
-        "Attack": 29,
-        "Defense": 19,
-        "Speed": 145,
-        "SpAttack": 65,
-        "SpDefense": 65
-      },
-      "Types": [
-        "TYPE_FIRE",
-        "TYPE_POISON"
-      ],
-      "Abilities": [
-        "ABILITY_BLAZE",
-        "ABILITY_NONE"
-      ]
-    }
-  },
   "BuildSettings": {
     "LevelUpMoves": "MERGE",
     "TutorMoves": "MERGE",
