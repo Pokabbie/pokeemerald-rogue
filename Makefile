@@ -40,6 +40,8 @@ endif
 
 ifeq ($(OS),Windows_NT)
 PORYSCRIPT := tools/poryscript/poryscript-windows/poryscript$(EXE)
+else ifeq ($(shell uname -s),Darwin)
+PORYSCRIPT := tools/poryscript/poryscript-mac/poryscript$(EXE)
 else
 PORYSCRIPT := tools/poryscript/poryscript-linux/poryscript$(EXE)
 endif
