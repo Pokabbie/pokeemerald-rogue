@@ -2,6 +2,13 @@
   "BuildSettings": {
     "CompetitiveSets": "REPLACE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "24",
+      "Species": "SPECIES_LAIRON"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_ARON": {
       "Abilities": [

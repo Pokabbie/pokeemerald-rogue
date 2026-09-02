@@ -4,6 +4,13 @@
     "TutorMoves": "MERGE",
     "CompetitiveSets": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "41",
+      "Species": "SPECIES_MIENSHAO"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_POUND",

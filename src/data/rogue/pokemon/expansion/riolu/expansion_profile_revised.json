@@ -2,6 +2,13 @@
   "BuildSettings": {
     "LevelUpMoves": "REPLACE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_MOVE",
+      "Param": "MOVE_AURA_SPHERE",
+      "Species": "SPECIES_LUCARIO"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_FORESIGHT",

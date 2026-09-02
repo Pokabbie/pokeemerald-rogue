@@ -1,4 +1,11 @@
 {
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "21",
+      "Species": "SPECIES_VESPIQUEN"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_COMBEE": {
       "Abilities": [

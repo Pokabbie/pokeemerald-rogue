@@ -3,6 +3,18 @@
     "LevelUpMoves": "REPLACE",
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "30",
+      "Species": "SPECIES_GARDEVOIR"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_DAWN_STONE",
+      "Species": "SPECIES_GALLADE"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_KIRLIA": {
       "BaseStats": {

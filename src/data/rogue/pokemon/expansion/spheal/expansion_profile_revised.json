@@ -3,6 +3,13 @@
     "LevelUpMoves": "REPLACE",
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "26",
+      "Species": "SPECIES_SEALEO"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_DEFENSE_CURL",
