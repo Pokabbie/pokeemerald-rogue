@@ -1,0 +1,9 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "38",
+      "Species": "SPECIES_ZWEILOUS"
+    }
+  ]
+}

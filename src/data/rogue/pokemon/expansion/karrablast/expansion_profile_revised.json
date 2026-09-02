@@ -1,4 +1,11 @@
 {
+  "Evolutions": [
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_METAL_COAT",
+      "Species": "SPECIES_ESCAVALIER"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_KARRABLAST": {
       "Abilities": [

@@ -2,6 +2,13 @@
   "BuildSettings": {
     "LevelUpMoves": "REPLACE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "33",
+      "Species": "SPECIES_MEDICHAM"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_MEDITITE": {
       "BaseStats": {

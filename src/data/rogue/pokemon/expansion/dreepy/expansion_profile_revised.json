@@ -2,6 +2,13 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "36",
+      "Species": "SPECIES_DRAKLOAK"
+    }
+  ],
   "TutorMoves": [
     "MOVE_FRUSTRATION",
     "MOVE_RETURN",

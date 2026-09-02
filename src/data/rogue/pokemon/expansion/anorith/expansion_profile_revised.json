@@ -2,6 +2,13 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "30",
+      "Species": "SPECIES_ARMALDO"
+    }
+  ],
   "TutorMoves": [
     "MOVE_LUNGE",
     "MOVE_BUG_BUZZ",

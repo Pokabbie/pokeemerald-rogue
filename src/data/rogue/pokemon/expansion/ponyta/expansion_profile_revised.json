@@ -2,6 +2,13 @@
   "BuildSettings": {
     "LevelUpMoves": "REPLACE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "35",
+      "Species": "SPECIES_RAPIDASH"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_GROWL",

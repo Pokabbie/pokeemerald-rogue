@@ -3,6 +3,13 @@
     "LevelUpMoves": "REPLACE",
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "56",
+      "Species": "SPECIES_DRAGAPULT"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_DRAGON_PULSE",

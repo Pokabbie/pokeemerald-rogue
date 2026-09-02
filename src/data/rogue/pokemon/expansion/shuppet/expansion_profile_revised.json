@@ -3,6 +3,13 @@
     "TutorMoves": "MERGE",
     "CompetitiveSets": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_BANETTE"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_SHUPPET": {
       "Types": [

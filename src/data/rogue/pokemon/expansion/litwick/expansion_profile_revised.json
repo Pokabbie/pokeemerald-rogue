@@ -2,6 +2,13 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "27",
+      "Species": "SPECIES_LAMPENT"
+    }
+  ],
   "TutorMoves": [
     "MOVE_MYSTICAL_FIRE",
     "MOVE_DAZZLING_GLEAM"

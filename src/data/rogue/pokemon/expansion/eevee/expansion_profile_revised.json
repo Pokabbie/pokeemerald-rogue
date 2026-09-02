@@ -2,6 +2,48 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_THUNDER_STONE",
+      "Species": "SPECIES_JOLTEON"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_WATER_STONE",
+      "Species": "SPECIES_VAPOREON"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_FIRE_STONE",
+      "Species": "SPECIES_FLAREON"
+    },
+    {
+      "Method": "EVO_FRIENDSHIP_DAY",
+      "Param": "0",
+      "Species": "SPECIES_ESPEON"
+    },
+    {
+      "Method": "EVO_FRIENDSHIP_NIGHT",
+      "Param": "0",
+      "Species": "SPECIES_UMBREON"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_LEAF_STONE",
+      "Species": "SPECIES_LEAFEON"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_ICE_STONE",
+      "Species": "SPECIES_GLACEON"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_SHINY_STONE",
+      "Species": "SPECIES_SYLVEON"
+    }
+  ],
   "TutorMoves": [
     "MOVE_GRASS_KNOT"
   ]

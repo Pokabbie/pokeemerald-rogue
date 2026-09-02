@@ -4,6 +4,13 @@
     "TutorMoves": "MERGE",
     "CompetitiveSets": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "30",
+      "Species": "SPECIES_VIBRAVA"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_TRAPINCH": {
       "Types": [
