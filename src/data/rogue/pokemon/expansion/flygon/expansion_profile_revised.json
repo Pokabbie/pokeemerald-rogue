@@ -7,12 +7,12 @@
   "PerSpecies": {
     "SPECIES_FLYGON": {
       "Types": [
-        "TYPE_BUG",
+        "TYPE_GROUND",
         "TYPE_DRAGON"
       ],
       "Abilities": [
         "ABILITY_LEVITATE",
-        "ABILITY_COMPOUND_EYES",
+        "ABILITY_TINTED_LENS",
         "ABILITY_DRAGON_FLY"
       ],
       "BaseStats": {
