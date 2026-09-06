@@ -9,6 +9,14 @@ enum
     MP_CMD_COUNT,
 };
 
+enum
+{
+    CONN_ERR_NONE,
+    CONN_ERR_WRONG_GAME_FLAVOUR,
+    CONN_ERR_WRONG_SAVE_VERSION,
+    CONN_ERR_WRONG_REVISED_MODE,
+};
+
 extern EWRAM_DATA struct RogueNetMultiplayer* gRogueMultiplayer;
 
 void RogueMP_Init();
@@ -18,6 +26,7 @@ bool8 RogueMP_IsActiveOrConnecting();
 bool8 RogueMP_IsConnecting();
 bool8 RogueMP_IsHost();
 bool8 RogueMP_IsClient();
+u8 RogueMP_GetLastConnectError();
 u8 RogueMP_GetLocalPlayerId();
 u8 RogueMP_GetRemotePlayerId();
 bool8 RogueMP_IsRemotePlayerActive();

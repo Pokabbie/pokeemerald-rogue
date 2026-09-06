@@ -1142,6 +1142,14 @@
 
 	.macro setuserstatus3 flags:req, failInstr:req
 	.byte 0xdd
+	.byte 0
+	.4byte \flags
+	.4byte \failInstr
+	.endm
+
+	.macro setuserstatus4 flags:req, failInstr:req
+	.byte 0xdd
+	.byte 1
 	.4byte \flags
 	.4byte \failInstr
 	.endm
@@ -2448,6 +2456,12 @@
 
 	.macro tryrevivalblessing, jumpInstr:req
 	various 0, VARIOUS_TRY_REVIVAL_BLESSING
+	.4byte \jumpInstr
+	.endm
+
+	.macro jumpifcommanderactive battler:req, jumpInstr:req
+	various 0, VARIOUS_JUMP_IF_COMMANDER_ACTIVE
+	.byte \battler
 	.4byte \jumpInstr
 	.endm
 

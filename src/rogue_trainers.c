@@ -440,6 +440,11 @@ u8 Rogue_CalculateMiniBossMonLvl()
 
 u8 Rogue_CalculateRivalMonLvl()
 {
+    if(gRogueRun.gameRules.rivalUsesPlayerLevel && Rogue_GetConfigRange(CONFIG_RANGE_TRAINER_LVL) != DIFFICULTY_LEVEL_BRUTAL)
+    {
+        return Rogue_CalculatePlayerMonLvl();
+    }
+
     return Rogue_CalculateTrainerLvlCap(TRUE);
 }
 

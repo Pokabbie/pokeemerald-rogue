@@ -437,6 +437,7 @@ static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} 
 static const u8 sText_PkmnIsAngry[] = _("{B_DEF_NAME_WITH_PREFIX} is enraged!");
 static const u8 sText_PkmnIsCalm[] = _("{B_DEF_NAME_WITH_PREFIX} is no\nlonger enraged");
 static const u8 sText_PoisonPuppeteer[] = _("{B_PLAYER_MON1_NAME}'s ability Poison Puppeteer\nhas confused {B_OPPONENT_MON1_NAME}!");
+static const u8 sText_CommanderActivates[] = _("{B_BUFF1} was swallowed by {B_BUFF2}\nand became {B_BUFF2}'s commander!");
 static const u8 sText_WildPkmnPrefix[] = _("Wild ");
 static const u8 sText_FoePkmnPrefix[] = _("Foe ");
 static const u8 sText_EmptyString8[] = _("");
@@ -643,7 +644,7 @@ static const u8 sText_HealingWishCameTrue[] = _("The healing wish came true\nfor
 static const u8 sText_HealingWishHealed[] = _("{B_ATK_NAME_WITH_PREFIX} regained health!");
 static const u8 sText_LunarDanceCameTrue[] = _("{B_ATK_NAME_WITH_PREFIX} became cloaked\nin mystical moonlight!");
 static const u8 sText_CursedBodyDisabled[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled\nby {B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY}!");
-static const u8 sText_AttackerAquiredAbility[] = _("{B_ATK_NAME_WITH_PREFIX} acquired\n{B_LAST_ABILITY}!");
+static const u8 sText_AttackerAquiredAbility[] = _("{B_ATK_NAME_WITH_PREFIX} acquired\n{B_ATK_ABILITY}!");
 static const u8 sText_TargetStatWontGoHigher[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
 static const u8 sText_PkmnMoveBouncedViaAbility[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_CURRENT_MOVE} was\nbounced back by {B_DEF_NAME_WITH_PREFIX}'s\l{B_DEF_ABILITY}!");
 static const u8 sText_ImposterTransform[] = _("{B_ATK_NAME_WITH_PREFIX} transformed into\n{B_DEF_NAME_WITH_PREFIX} using {B_LAST_ABILITY}!");
@@ -1550,6 +1551,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TARGETCOVEREDINSTICKYCANDYSYRUP - BATTLESTRINGS_TABLE_START] = sText_TargetCoveredInStickyCandySyrup,
     [STRINGID_PKMNISANGRY - BATTLESTRINGS_TABLE_START] = sText_PkmnIsAngry,
     [STRINGID_PKMNISCALM - BATTLESTRINGS_TABLE_START] = sText_PkmnIsCalm,
+    [STRINGID_COMMANDERACTIVATES - BATTLESTRINGS_TABLE_START] = sText_CommanderActivates,
+    
 };
 
 const u16 gTrainerUsedItemStringIds[] =

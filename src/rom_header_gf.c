@@ -1,7 +1,6 @@
 #include "global.h"
 #include "data.h"
 #include "pokemon_icon.h"
-#include "decoration.h"
 #include "battle_main.h"
 #include "item.h"
 #include "pokeball.h"

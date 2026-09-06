@@ -139,7 +139,7 @@ static bool WriteFileIfChanged(std::string const& filePath, std::string const& n
 	}
 }
 
-static void PrintRevisionStatsFor(int gen);
+static void PrintRevisionStatsFor(int gen, u32 checkFlags);
 
 int main(int argc, char* argv[])
 {
@@ -436,15 +436,18 @@ int main(int argc, char* argv[])
 
 	// Print stats for revised mode
 	std::cout << "===Revised Stats===\n";
-	for (int i = 0; i <= POKEDEX_MAX_GEN; ++i)
+	PrintRevisionStatsFor(0, REVISION_FLAG_ALL);
+	PrintRevisionStatsFor(0, REVISION_FLAG_PROFILE_DATA);
+	PrintRevisionStatsFor(0, REVISION_FLAG_ANY_MOVES);
+	for (int i = 1; i <= POKEDEX_MAX_GEN; ++i)
 	{
-		PrintRevisionStatsFor(i);
+		PrintRevisionStatsFor(i, REVISION_FLAG_ALL);
 	}
 
 	return 0;
 }
 
-static void PrintRevisionStatsFor(int gen)
+static void PrintRevisionStatsFor(int gen, u32 checkFlags)
 {
 	std::vector<bool> isEvoLineRevised;
 	std::vector<u16> eggSpeciesList;
@@ -476,7 +479,7 @@ static void PrintRevisionStatsFor(int gen)
 				alreadyAddedSpecies.insert(eggSpecies);
 			}
 
-			if (Rogue_HasSpeciesBeenRevised(species, REVISION_FLAG_ALL))
+			if (Rogue_HasSpeciesBeenRevised(species, checkFlags))
 			{
 				isEvoLineRevised[eggSpecies] = true;
 				++totalRevisedSpecies;
@@ -517,15 +520,22 @@ static void PrintRevisionStatsFor(int gen)
 		}
 	}
 
-	if (gen == 0)
+	if (gen == 0 && checkFlags == REVISION_FLAG_ALL)
 	{
 		std::cout << "Moves: " << totalRevisedMoves << " / " << totalValidMoves << " (" << ((totalRevisedMoves * 100) / totalValidMoves) << "%)\n";
 	}
 
 	if(gen == 0)
-		std::cout << "[Total]   ";
+	{
+		if(checkFlags == REVISION_FLAG_ALL)
+			std::cout << "[Total]      ";
+		else if(checkFlags == REVISION_FLAG_PROFILE_DATA)
+			std::cout << "   [Profile] ";
+		else if(checkFlags == REVISION_FLAG_ANY_MOVES)
+			std::cout << "   [Moves]   ";
+	}
 	else
-		std::cout << "[Gen " << gen << "]   ";
+		std::cout << "[Gen " << gen <<  "]      ";
 
 	std::cout << "Species: " << totalRevisedSpecies << " / " << totalValidSpecies << " (" << ((totalRevisedSpecies * 100) / totalValidSpecies) << "%)   ";
 	std::cout << "Evo Lines: " << totalRevisedEvoLines << " / " << totalValidEvoLines << " (" << ((totalRevisedEvoLines * 100) / totalValidEvoLines) << "%)\n";

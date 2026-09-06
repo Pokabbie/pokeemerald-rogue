@@ -8,6 +8,11 @@ text gItemDesc_QuestLog
     format("A diary log for tracking Quests and Challenges.")
 }
 
+text gItemDesc_BattleChecker
+{
+    format("A diary tracking previous {PKMN} battles.")
+}
+
 text gItemDesc_HealingFlask
 {
     format("Rechargable flask capable of healing all {PKMN} in the party.")

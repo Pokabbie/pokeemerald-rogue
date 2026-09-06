@@ -95,7 +95,33 @@ script Rogue_Interior_PokeConnect_TalkMultiplayer
 
         if(var(VAR_RESULT) == FALSE)
         {
-            msgbox(format("If you change your mind, please feel free to speak with me again."))
+            special(Rogue_GetLastMultiplayerConnectError)
+            
+            switch(var(VAR_RESULT))
+            {
+                case 1: // CONN_ERR_WRONG_GAME_FLAVOUR
+                    poryswitch(ROGUE_VERSION)
+                    {
+                        ROGUE_VERSION_VANILLA
+                        {
+                            msgbox(format("I'm sorry.\nI can't connect you to that Player as they are not on Vanilla version."))
+                        }
+                        ROGUE_VERSION_EXPANSION
+                        {
+                            msgbox(format("I'm sorry.\nI can't connect you to that Player as they are not on EX version."))
+                        }
+                    }
+
+                case 2: // CONN_ERR_WRONG_SAVE_VERSION
+                    msgbox(format("I'm sorry.\nI can't connect you to that Player as they are not on the same Update Version."))
+
+                case 3: // CONN_ERR_WRONG_REVISED_MODE
+                    msgbox(format("I'm sorry.\nI can't connect you to that Player as you both have incompatible settings for Revision Mode in the Config Lab."))
+
+                default: // CONN_ERR_NONE
+                    msgbox(format("If you change your mind, please feel free to speak with me again."))
+
+            }
         }
     }
 

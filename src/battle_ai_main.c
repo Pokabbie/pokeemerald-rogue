@@ -799,6 +799,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
 
     SetTypeBeforeUsingMove(move, battlerAtk);
     GET_MOVE_TYPE(move, moveType);
+    
+    if (gBattleStruct->commanderInfo[battlerDef].commandingDondozo)
+        RETURN_SCORE_MINUS(20);
 
     // check non-user target
     if (!(moveTarget & MOVE_TARGET_USER))
@@ -1723,7 +1726,8 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             if (CountUsablePartyMons(battlerAtk) == 0)
                 ADJUST_SCORE(-10);
             else if (gBattleMons[battlerAtk].status2 & STATUS2_SUBSTITUTE
-              || (gStatuses3[battlerAtk] & (STATUS3_ROOTED | STATUS3_AQUA_RING | STATUS3_MAGNET_RISE | STATUS3_POWER_TRICK))
+              || (gStatuses3[battlerAtk] & (STATUS3_ROOTED | STATUS3_MAGNET_RISE | STATUS3_POWER_TRICK))
+              || (gStatuses4[battlerAtk] & (STATUS4_AQUA_RING))
               || AnyStatIsRaised(battlerAtk))
                 break;
             else
@@ -1817,7 +1821,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_AQUA_RING:
-            if (gStatuses3[battlerAtk] & STATUS3_AQUA_RING)
+            if (gStatuses4[battlerAtk] & STATUS4_AQUA_RING)
                 ADJUST_SCORE(-10);
             break;
         case EFFECT_RECYCLE:
@@ -3839,7 +3843,8 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         break;
     case EFFECT_BATON_PASS:
         if (ShouldSwitch(battlerAtk) && (gBattleMons[battlerAtk].status2 & STATUS2_SUBSTITUTE
-          || (gStatuses3[battlerAtk] & (STATUS3_ROOTED | STATUS3_AQUA_RING | STATUS3_MAGNET_RISE | STATUS3_POWER_TRICK))
+          || (gStatuses3[battlerAtk] & (STATUS3_ROOTED | STATUS3_MAGNET_RISE | STATUS3_POWER_TRICK))
+          || (gStatuses4[battlerAtk] & (STATUS4_AQUA_RING))
           || AnyStatIsRaised(battlerAtk)))
             ADJUST_SCORE(5);
         break;
@@ -5200,7 +5205,7 @@ static s32 AI_PreferBatonPass(u32 battlerAtk, u32 battlerDef, u32 move, s32 scor
             ADJUST_SCORE(2);
         break;
     case EFFECT_AQUA_RING:
-        if (!(gStatuses3[battlerAtk] & STATUS3_AQUA_RING))
+        if (!(gStatuses4[battlerAtk] & STATUS4_AQUA_RING))
             ADJUST_SCORE(2);
         break;
     case EFFECT_PROTECT:
@@ -5214,7 +5219,7 @@ static s32 AI_PreferBatonPass(u32 battlerAtk, u32 battlerDef, u32 move, s32 scor
         {
             IncreaseStatUpScore(battlerAtk, battlerDef, i, &score);
         }
-        if (gStatuses3[battlerAtk] & (STATUS3_ROOTED | STATUS3_AQUA_RING))
+        if ( (gStatuses3[battlerAtk] & (STATUS3_ROOTED)) || (gStatuses4[battlerAtk] & (STATUS4_AQUA_RING)))
             ADJUST_SCORE(2);
         if (gStatuses3[battlerAtk] & STATUS3_LEECHSEED)
             ADJUST_SCORE(-3);

@@ -9,6 +9,7 @@ void ItemUseOutOfBattle_HealingFlask(u8);
 void ItemUseOutOfBattle_Itemfinder(u8);
 void ItemUseOutOfBattle_PokeblockCase(u8);
 void ItemUseOutOfBattle_QuestLog(u8);
+void ItemUseOutOfBattle_BattleChecker(u8);
 void ItemUseOutOfBattle_CGear(u8);
 void ItemUseOutOfBattle_WorldMap(u8);
 void ItemUseOutOfBattle_DayCarePhone(u8);

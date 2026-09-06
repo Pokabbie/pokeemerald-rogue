@@ -2,8 +2,6 @@
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
-#include "decoration.h"
-#include "decoration_inventory.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "field_player_avatar.h"
@@ -1047,9 +1045,10 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
     }
     else
     {
-        spriteId = AddDecorationIconObject(item, 20, 84, 1, iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE);
-        if (spriteId != MAX_SPRITES)
-            *spriteIdPtr = spriteId;
+        AGB_ASSERT(FALSE);
+        //spriteId = AddDecorationIconObject(item, 20, 84, 1, iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE);
+        //if (spriteId != MAX_SPRITES)
+        //    *spriteIdPtr = spriteId;
     }
 }
 
@@ -2401,7 +2400,8 @@ static bool8 BuyShopItem(u16 item, u16 count)
     }
     else
     {
-        return DecorationAdd(item);
+        AGB_ASSERT(FALSE);
+        return FALSE;
     }
 }
 

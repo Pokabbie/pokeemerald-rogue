@@ -628,6 +628,8 @@ bool32 IsBattlerTrapped(u32 battler, bool32 checkSwitch)
         return TRUE;
     else if (IsAbilityPreventingEscape(battler))
         return TRUE;
+    if (gBattleStruct->commanderInfo[battler].commanderSpecies)
+        return TRUE;
 
     return FALSE;
 }
@@ -1503,6 +1505,8 @@ bool32 IsSemiInvulnerable(u32 battlerDef, u32 move)
     else if (!gBattleMoves[move].damagesUnderwater && gStatuses3[battlerDef] & STATUS3_UNDERWATER)
         return TRUE;
     else if (!gBattleMoves[move].damagesUnderground && gStatuses3[battlerDef] & STATUS3_UNDERGROUND)
+        return TRUE;
+    else if (gStatuses3[battlerDef] & STATUS3_COMMANDER)
         return TRUE;
     else
         return FALSE;

@@ -1,7 +1,6 @@
 #include "global.h"
 #include "constants/songs.h"
 #include "bg.h"
-#include "decoration.h"
 #include "event_scripts.h"
 #include "event_object_movement.h"
 #include "field_screen_effect.h"
@@ -486,7 +485,8 @@ static void PlayerPC_Mailbox(u8 taskId)
 
 static void PlayerPC_Decoration(u8 taskId)
 {
-    DoPlayerRoomDecorationMenu(taskId);
+    //DoPlayerRoomDecorationMenu(taskId);
+    AGB_ASSERT(FALSE);
 }
 
 static void PlayerPC_TurnOff(u8 taskId)

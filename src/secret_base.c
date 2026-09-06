@@ -2,7 +2,6 @@
 #include "malloc.h"
 #include "battle.h"
 #include "battle_setup.h"
-#include "decoration.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -716,7 +715,8 @@ void ToggleCurSecretBaseRegistry(void)
 
 void ShowSecretBaseDecorationMenu(void)
 {
-    CreateTask(DoSecretBaseDecorationMenu, 0);
+    //CreateTask(DoSecretBaseDecorationMenu, 0);
+    AGB_ASSERT(FALSE);
 }
 
 void ShowSecretBaseRegistryMenu(void)
