@@ -2,6 +2,13 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_PURUGLY"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_GLAMEOW": {
       "BaseStats": {

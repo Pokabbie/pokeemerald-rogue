@@ -1,0 +1,9 @@
+{  
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "36",
+      "Species": "SPECIES_WAILORD"
+    }
+  ]
+}

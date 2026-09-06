@@ -1,0 +1,14 @@
+{
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_GLALIE"
+    },
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_DAWN_STONE",
+      "Species": "SPECIES_FROSLASS"
+    }
+  ]
+}

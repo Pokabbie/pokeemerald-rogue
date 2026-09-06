@@ -3,6 +3,13 @@
     "TutorMoves": "MERGE",
     "CompetitiveSets": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "30",
+      "Species": "SPECIES_CRADILY"
+    }
+  ],
   "TutorMoves": [
     "MOVE_POWER_GEM"
   ],
