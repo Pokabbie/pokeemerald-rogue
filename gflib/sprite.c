@@ -457,6 +457,7 @@ u8 CreateSprite(const struct SpriteTemplate *template, s16 x, s16 y, u8 subprior
         if (!gSprites[i].inUse)
             return CreateSpriteAt(i, template, x, y, subpriority);
 
+    AGB_ASSERT(FALSE);
     return MAX_SPRITES;
 }
 
@@ -468,6 +469,7 @@ u8 CreateSpriteAtEnd(const struct SpriteTemplate *template, s16 x, s16 y, u8 sub
         if (!gSprites[i].inUse)
             return CreateSpriteAt(i, template, x, y, subpriority);
 
+    AGB_ASSERT(FALSE);
     return MAX_SPRITES;
 }
 
@@ -913,6 +915,7 @@ void ContinueAnim(struct Sprite *sprite)
         funcIndex = 3;
         if (type < 0)
             funcIndex = type + 3;
+        AGB_ASSERT(funcIndex < ARRAY_COUNT(sAnimCmdFuncs));
         sAnimCmdFuncs[funcIndex](sprite);
     }
 }

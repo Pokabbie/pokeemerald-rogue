@@ -19,6 +19,7 @@ static void EnqueuePrintTimers();
 #endif
 
 #ifdef ROGUE_DEBUG
+u32 gDebugSyncCounter = 0;
 
 static u32 CountMoneyQuestRewards(u32 questFlag)
 {
@@ -156,6 +157,8 @@ void RogueDebug_MainCB(void)
         EnqueuePrintTimers();
     }
 #endif
+
+    ++gDebugSyncCounter;
 }
 
 void RogueDebug_ResetFrameTimers()
@@ -203,7 +206,7 @@ struct MemoryStompTracker
     size_t watchSize;
 };
 
-static EWRAM_DATA struct MemoryStompTracker sMemoryStompTracker = {0};
+static struct MemoryStompTracker sMemoryStompTracker = {0};
 
 // memcpy was acting weirdly, so use this as an alternative
 
@@ -320,6 +323,8 @@ u32 RogueDebug_SampleClock()
 
 void RogueDebug_StartTimer(u16 timer)
 {
+    MEMORY_STOMP_TRACKING_POLL();
+
     AGB_ASSERT(!sFrameTimerManager.timers[timer].hasStarted);
     sFrameTimerManager.timers[timer].duration = SampleClock();
     sFrameTimerManager.timers[timer].hasStarted = TRUE;
@@ -330,6 +335,8 @@ void RogueDebug_StartTimer(u16 timer)
 
 void RogueDebug_StopTimer(u16 timer)
 {
+    MEMORY_STOMP_TRACKING_POLL();
+
     AGB_ASSERT(sFrameTimerManager.timers[timer].hasStarted);
     sFrameTimerManager.timers[timer].duration = (SampleClock() - sFrameTimerManager.timers[timer].duration);
     sFrameTimerManager.timers[timer].hasStarted = FALSE;
