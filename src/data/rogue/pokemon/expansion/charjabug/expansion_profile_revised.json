@@ -1,4 +1,11 @@
 {
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "50",
+      "Species": "SPECIES_VIKAVOLT"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_CHARJABUG": {
       "BaseStats": {
