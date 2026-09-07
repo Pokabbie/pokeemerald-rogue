@@ -395,6 +395,15 @@ u16 FollowMon_GetGraphics(u16 id)
     return VarGet(VAR_FOLLOW_MON_0 + id);
 }
 
+void FollowMon_ResetPalettes()
+{
+    u32 i;
+    for(i = 0; i < FOLLOWMON_MAX_SPAWN_SLOTS; ++i)
+    {
+        sFollowMonData.slotUniqueIds[i] = 0;
+    }
+}
+
 extern EWRAM_DATA u8 gPaletteDecompressionBuffer[];
 
 u16 const* FollowMon_GetGraphicsForPalSlot(u16 palSlot)

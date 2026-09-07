@@ -5630,6 +5630,8 @@ void Rogue_OnWarpIntoMap(void)
     FlagSet(FLAG_ROGUE_REWARD_ITEM_MART_DISABLED);
     FlagSet(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
 
+    FollowMon_ResetPalettes();
+
     if(IsRareShopActive())
         FlagClear(FLAG_ROGUE_RARE_ITEM_MART_DISABLED);
 
