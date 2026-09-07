@@ -11,6 +11,7 @@
 #include "main.h"
 #include "malloc.h"
 #include "menu_helpers.h"
+#include "m4a.h"
 #include "palette.h"
 #include "sound.h"
 #include "sprite.h"
@@ -26,6 +27,7 @@ static bool32 EmulatorCheck_InitBgs(void);
 static bool32 EmulatorCheck_LoadGraphics(void);
 static void   EmulatorCheck_InitWindows(void);
 static void   EmulatorCheck_PrintErrorText(void);
+static void   EmulatorCheck_PrintAreYouSureText(void);
 static void   Task_EmulatorCheckWaitFadeIn(u8 taskId);
 static void   Task_EmulatorCheckMainInput(u8 taskId);
 static void   Task_EmulatorCheckWaitFadeAndExitGracefully(u8 taskId);
@@ -42,6 +44,7 @@ struct EmulatorCheckData
 {
     MainCallback savedCallback;
     u8 loadState;
+    u8 displayingAreYouSure : 1;
     u8 bg1TilemapBuffer[BG_SCREEN_SIZE];
 };
 static struct EmulatorCheckData *sEmulatorCheckData;
@@ -73,13 +76,13 @@ static const struct BgTemplate sBgTemplates[] = {
 };
 
 #define WIN_WIDTH  23
-#define WIN_HEIGHT 10
+#define WIN_HEIGHT 12
 
 static const struct WindowTemplate sWindowTemplates[] = {
     [WIN_ERROR_MSG] = {
         .bg          = 1,
         .tilemapLeft = 1,
-        .tilemapTop  = 5,
+        .tilemapTop  = 3,
         .width       = WIN_WIDTH,
         .height      = WIN_HEIGHT,
         .paletteNum  = 14,
@@ -114,11 +117,19 @@ static const u16 sTextBoxBottomPal[] = {
 static const u8 sTextColors_ErrorMsg[] = {TEXT_COLOR_TRANSPARENT, 1, 2};
 static const u8 sTextColors_Bottom[] = {TEXT_COLOR_TRANSPARENT, 1, 2};
 static const u8 sText_ErrorMessage[] = _(
-    "Inaccurate emulator detected!\nPlease use mGBA or one of these:"
+    "\nInaccurate emulator detected!\nPlease use mGBA or one of these:"
     VIABLE_MGBA_RA_IOS
     VIABLE_MGBA_RA_ANDROID
     VIABLE_LEMUROID
     VIABLE_PIZZABOY
+);
+static const u8 sText_AreYouSureMessage[] = _(
+    "Are you sure?\n\n"
+    "You may encounter various bugs.\n"
+    "These bugs will NOT be fixed and could\n"
+    "affect your gameplay experience.\n\n"
+    "It is HIGHLY recommended to use a\n"
+    "recommended Emulator instead."
 );
 static const u8 sText_BottomMessage[] = _("Press START to continue.");
 
@@ -439,6 +450,14 @@ static void EmulatorCheck_PrintErrorText(void)
     }
 }
 
+static void EmulatorCheck_PrintAreYouSureText(void)
+{
+    // main text
+    FillWindowPixelBuffer(WIN_ERROR_MSG, PIXEL_FILL(0));
+    AddTextPrinterParameterized3(WIN_ERROR_MSG, FONT_SMALL, 3, 1, sTextColors_ErrorMsg, TEXT_SKIP_DRAW, sText_AreYouSureMessage);
+    CopyWindowToVram(WIN_ERROR_MSG, COPYWIN_GFX);
+}
+
 static void Task_EmulatorCheckWaitFadeIn(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -451,10 +470,20 @@ static void Task_EmulatorCheckMainInput(u8 taskId)
 {
     if (JOY_NEW(START_BUTTON) && ALLOW_BOOT_CONTINUATION)
     {
-        PlaySE(SE_PC_OFF);
-        FadeOutBGM(4);
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        gTasks[taskId].func = Task_EmulatorCheckWaitFadeAndExitGracefully;
+        if(!sEmulatorCheckData->displayingAreYouSure)
+        {
+            PlaySE(SE_LOW_HEALTH);
+            EmulatorCheck_PrintAreYouSureText();
+            sEmulatorCheckData->displayingAreYouSure = TRUE;
+        }
+        else
+        {
+            m4aSongNumStop(SE_LOW_HEALTH);
+            PlaySE(SE_PC_OFF);
+            FadeOutBGM(4);
+            BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = Task_EmulatorCheckWaitFadeAndExitGracefully;
+        }
     }
     else if (gMain.newKeysRaw != 0)
         PlaySE(SE_BOO);
