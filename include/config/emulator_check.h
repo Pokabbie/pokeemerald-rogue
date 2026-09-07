@@ -32,7 +32,7 @@
 
 // ### functional settings for the error screen ### //
 
-#define ALLOW_BOOT_CONTINUATION   FALSE // show the continue message box and allow booting with START
+#define ALLOW_BOOT_CONTINUATION   TRUE // show the continue message box and allow booting with START
 #define BOOT_CONTINUATION_KEY     (START_BUTTON) // The input key to continue booting.
 
 
