@@ -400,7 +400,7 @@ void FollowMon_ResetPalettes()
     u32 i;
     for(i = 0; i < FOLLOWMON_MAX_SPAWN_SLOTS; ++i)
     {
-        sFollowMonData.slotUniqueIds[i] = customMonId;
+        sFollowMonData.slotUniqueIds[i] = 0;
     }
 }
 
