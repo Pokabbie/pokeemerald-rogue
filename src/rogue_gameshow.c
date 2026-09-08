@@ -4,6 +4,7 @@
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "item.h"
+#include "overworld.h"
 #include "random.h"
 #include "script_menu.h"
 #include "string_util.h"
@@ -114,9 +115,30 @@ void GameShow_SelectRewardItem()
     VarSet(VAR_CURRENT_REWARD_COUNT, Rogue_ModifyItemPickupAmount(itemId, 1));
 }
 
+static void TryGetRewardOriginalCoords(u16 localId, s16* x, s16* y)
+{
+    if(gMapHeader.events != NULL)
+    {
+        u32 i;
+
+        for(i = 0; i < gMapHeader.events->objectEventCount; ++i)
+        {
+            if(gMapHeader.events->objectEvents[i].localId == localId)
+            {
+                *x = gMapHeader.events->objectEvents[i].x;
+                *y = gMapHeader.events->objectEvents[i].y;
+                return;
+            }
+        }
+    }
+
+    AGB_ASSERT(FALSE);
+}
+
 void GameShow_UpdateRewardVisibility()
 {
     u16 i;
+    s16 x, y;
     u16 currRound = VarGet(VAR_CURRENT_ROUND);
     u16 rewardCounter = VarGet(VAR_CURRENT_REWARD_COUNTER);
 
@@ -124,6 +146,17 @@ void GameShow_UpdateRewardVisibility()
     {
         bool32 showItem = (currRound == FAIL_ROUND_COUNTER) ? FALSE : (i < rewardCounter);
         SetObjectInvisibility(OBJ_LOCAL_ID_ITEM_START + i , gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, !showItem);
+
+        x = 0;
+        y = 0;
+
+        if(showItem)
+        {
+            TryGetRewardOriginalCoords(OBJ_LOCAL_ID_ITEM_START + i, &x, &y);
+        }
+
+        TryMoveObjectEventToMapCoords(OBJ_LOCAL_ID_ITEM_START + i, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, x, y);
+        SetObjEventTemplateCoords(OBJ_LOCAL_ID_ITEM_START + i, x, y);
     }
 }
 
