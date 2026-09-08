@@ -4523,7 +4523,13 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             if (effect == 0 && ability == ABILITY_NONE && IsBattlerAlive(partner))
             {
                 // Manually pass in ability here to avoid infinite loop
-                effect = AbilityBattleEffects(caseID, partner, GetBattlerAbility(partner), 0, 0);
+                u32 partnerAbility = GetBattlerAbility(partner);
+
+                // Handle cases where ability could be removed e.g. Neutralising Gas
+                if(partnerAbility != ABILITY_NONE)
+                {
+                    effect = AbilityBattleEffects(caseID, partner, GetBattlerAbility(partner), 0, 0);
+                }
             }
         }
         break;

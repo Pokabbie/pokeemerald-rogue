@@ -3,6 +3,13 @@
     "LevelUpMoves": "MERGE",
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "35",
+      "Species": "SPECIES_RAPIDASH_GALARIAN"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_JUMP_KICK",

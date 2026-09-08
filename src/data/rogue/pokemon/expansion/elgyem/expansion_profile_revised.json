@@ -3,6 +3,13 @@
     "LevelUpMoves": "REPLACE",
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "37",
+      "Species": "SPECIES_BEHEEYEM"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_CONFUSION",

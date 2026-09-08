@@ -2,6 +2,13 @@
   "BuildSettings": {
     "LevelUpMoves": "REPLACE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "58",
+      "Species": "SPECIES_HYDREIGON"
+    }
+  ],
   "LevelUpMoves": [
     {
       "Move": "MOVE_DOUBLE_HIT",

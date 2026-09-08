@@ -383,6 +383,10 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
             return NULL;
     }
 
+    // Cannot interact with invisible object events
+    if(gObjectEvents[objectEventId].invisible)
+        return NULL;
+
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
     gSpecialVar_Facing = direction;

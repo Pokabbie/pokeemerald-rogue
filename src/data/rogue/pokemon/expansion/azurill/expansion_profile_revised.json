@@ -1,4 +1,11 @@
 {
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "20",
+      "Species": "SPECIES_MARILL"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_AZURILL": {
       "BaseStats": {

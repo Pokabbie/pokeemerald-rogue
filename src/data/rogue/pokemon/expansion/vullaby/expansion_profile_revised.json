@@ -2,6 +2,13 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "40",
+      "Species": "SPECIES_MANDIBUZZ"
+    }
+  ],
   "TutorMoves": [
     "MOVE_SUPERPOWER",
     "MOVE_ZEN_HEADBUTT",

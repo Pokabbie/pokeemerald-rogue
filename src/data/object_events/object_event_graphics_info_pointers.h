@@ -569,6 +569,26 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Rock;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Steel;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Route_Water;
 
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Bug;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Dark;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Dragon;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Electric;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Fairy;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Fighting;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Fire;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Flying;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Ghost;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Grass;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Ground;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Ice;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Mystery;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Normal;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Poison;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Psychic;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Rock;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Steel;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WildDen_Water;
+
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     [OBJ_EVENT_GFX_BRENDAN_NORMAL] =           &gObjectEventGraphicsInfo_BrendanNormal,
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
@@ -1137,6 +1157,26 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROUTE_ROCK] =               &gObjectEventGraphicsInfo_Route_Rock,
     [OBJ_EVENT_GFX_ROUTE_STEEL] =              &gObjectEventGraphicsInfo_Route_Steel,
     [OBJ_EVENT_GFX_ROUTE_WATER] =              &gObjectEventGraphicsInfo_Route_Water,
+    
+    [OBJ_EVENT_GFX_WILD_DEN_BUG] =                &gObjectEventGraphicsInfo_WildDen_Bug,
+    [OBJ_EVENT_GFX_WILD_DEN_DARK] =               &gObjectEventGraphicsInfo_WildDen_Dark,
+    [OBJ_EVENT_GFX_WILD_DEN_DRAGON] =             &gObjectEventGraphicsInfo_WildDen_Dragon,
+    [OBJ_EVENT_GFX_WILD_DEN_ELECTRIC] =           &gObjectEventGraphicsInfo_WildDen_Electric,
+    [OBJ_EVENT_GFX_WILD_DEN_FAIRY] =              &gObjectEventGraphicsInfo_WildDen_Fairy,
+    [OBJ_EVENT_GFX_WILD_DEN_FIGHTING] =           &gObjectEventGraphicsInfo_WildDen_Fighting,
+    [OBJ_EVENT_GFX_WILD_DEN_FIRE] =               &gObjectEventGraphicsInfo_WildDen_Fire,
+    [OBJ_EVENT_GFX_WILD_DEN_FLYING] =             &gObjectEventGraphicsInfo_WildDen_Flying,
+    [OBJ_EVENT_GFX_WILD_DEN_GHOST] =              &gObjectEventGraphicsInfo_WildDen_Ghost,
+    [OBJ_EVENT_GFX_WILD_DEN_GRASS] =              &gObjectEventGraphicsInfo_WildDen_Grass,
+    [OBJ_EVENT_GFX_WILD_DEN_GROUND] =             &gObjectEventGraphicsInfo_WildDen_Ground,
+    [OBJ_EVENT_GFX_WILD_DEN_ICE] =                &gObjectEventGraphicsInfo_WildDen_Ice,
+    [OBJ_EVENT_GFX_WILD_DEN_MYSTERY] =            &gObjectEventGraphicsInfo_WildDen_Mystery,
+    [OBJ_EVENT_GFX_WILD_DEN_NORMAL] =             &gObjectEventGraphicsInfo_WildDen_Normal,
+    [OBJ_EVENT_GFX_WILD_DEN_POISON] =             &gObjectEventGraphicsInfo_WildDen_Poison,
+    [OBJ_EVENT_GFX_WILD_DEN_PSYCHIC] =            &gObjectEventGraphicsInfo_WildDen_Psychic,
+    [OBJ_EVENT_GFX_WILD_DEN_ROCK] =               &gObjectEventGraphicsInfo_WildDen_Rock,
+    [OBJ_EVENT_GFX_WILD_DEN_STEEL] =              &gObjectEventGraphicsInfo_WildDen_Steel,
+    [OBJ_EVENT_GFX_WILD_DEN_WATER] =              &gObjectEventGraphicsInfo_WildDen_Water,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

@@ -19042,7 +19042,7 @@
 			"baseSpAttack":90,
 			"baseSpDefense":55,
 			"types": [6, 16],
-			"abilities": [26, 14, 321]
+			"abilities": [26, 26, 14]
 		},
 		{
 			"baseHP":90,
@@ -19052,7 +19052,7 @@
 			"baseSpAttack":130,
 			"baseSpDefense":85,
 			"types": [6, 16],
-			"abilities": [26, 14, 321]
+			"abilities": [26, 26, 14]
 		},
 		{
 			"baseHP":50,
@@ -29126,13 +29126,13 @@
 		},
 		{
 			"baseHP":100,
-			"baseAttack":120,
+			"baseAttack":100,
 			"baseDefense":115,
 			"baseSpeed":80,
 			"baseSpAttack":35,
 			"baseSpDefense":85,
 			"types": [5, 5],
-			"abilities": [271, 292, 101]
+			"abilities": [271, 75, 292]
 		},
 		{
 			"baseHP":50,

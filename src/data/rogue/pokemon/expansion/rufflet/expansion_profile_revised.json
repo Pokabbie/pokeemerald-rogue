@@ -2,6 +2,18 @@
   "BuildSettings": {
     "TutorMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "40",
+      "Species": "SPECIES_BRAVIARY"
+    },
+    {
+      "Method": "EVO_NONE",
+      "Param": "0",
+      "Species": "SPECIES_BRAVIARY_HISUIAN"
+    }
+  ],
   "TutorMoves": [
     "MOVE_STEEL_WING"
   ]

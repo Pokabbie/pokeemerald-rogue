@@ -2,6 +2,13 @@
   "BuildSettings": {
     "LevelUpMoves": "MERGE"
   },
+  "Evolutions": [
+    {
+      "Method": "EVO_LEVEL",
+      "Param": "32",
+      "Species": "SPECIES_MAGCARGO"
+    }
+  ],
   "PerSpecies": {
     "SPECIES_SLUGMA": {
       "BaseStats": {

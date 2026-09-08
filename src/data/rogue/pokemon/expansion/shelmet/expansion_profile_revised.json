@@ -1,0 +1,9 @@
+{  
+  "Evolutions": [
+    {
+      "Method": "EVO_ITEM",
+      "Param": "ITEM_REAPER_CLOTH",
+      "Species": "SPECIES_ACCELGOR"
+    }
+  ]
+}

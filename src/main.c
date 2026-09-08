@@ -123,9 +123,10 @@ void AgbMain()
     InitHeap(gHeap, HEAP_SIZE);
 
     gMain.nativeSpeedUpActive = FALSE;
+    gMain.isInaccurateEmulator = IsInaccurateEmulator();
     gSoftResetDisabled = FALSE;
 
-    if (IsInaccurateEmulator())
+    if (gMain.isInaccurateEmulator)
         RunEmulatorCheckUI(CB2_InitCopyrightScreenAfterBootup);
     else if (gFlashMemoryPresent != TRUE)
         SetMainCallback2(NULL);
