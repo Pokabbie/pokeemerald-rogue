@@ -207,10 +207,12 @@ const u8 gOgerponCornerstoneMaskPokedexText[] = _(
 
 #define ICON(sprite, palId)                                 \
         .iconSprite = gMonIcon_## sprite,                   \
+        .iconSpriteShiny = gMonShinyIcon_## sprite,         \
         .iconPalIndex = palId
 
 #define ICON_FEMALE(sprite, palId)                          \
         .iconSpriteFemale = gMonIcon_## sprite##F,          \
+        .iconSpriteShinyFemale = gMonShinyIcon_## sprite##F,     \
         .iconPalIndexFemale = palId
 
 // alternative method in Rogue

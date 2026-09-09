@@ -1673,7 +1673,7 @@ u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite 
         .paletteTag = PAL_TAG_CUSTOM + paletteOffset,
     };
 
-    iconTemplate.image = (shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0) ? GetShinyMonIconTiles(species) : GetMonIconTiles(species, TRUE);
+    iconTemplate.image = (shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0) ? GetShinyMonIconTiles(species, personality, gender) : GetMonIconTiles(species, personality, gender);
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
 
     UpdateMonIconFrame(&gSprites[spriteId]);
@@ -1794,7 +1794,7 @@ void LoadMonIconPaletteForPlayerParty()
 void LoadMonIconPaletteCustomOffsetExt(struct Pokemon *mon, u16 paletteOffset)
 {
     u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
-    u16 species = GetMonData(mon, MON_DATA_SPECIES2, 0);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
     u8 gender = GetMonGender(mon);
     LoadMonIconFromSpeciesPaletteCustomOffsetExt(species, gender, shiny, otId, paletteOffset);
@@ -1802,7 +1802,7 @@ void LoadMonIconPaletteCustomOffsetExt(struct Pokemon *mon, u16 paletteOffset)
 
 void LoadMonIconFromSpeciesPaletteCustomOffsetExt(u16 species, u8 gender, bool8 shiny, u32 otId, u16 paletteOffset)
 {
-    if(gMonIconTable[species + ICON_SHINY_OFFSET] != NULL && (shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0))
+    if(shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0)
     {
         u8 palIndex = AllocSpritePalette(PAL_TAG_CUSTOM + paletteOffset);
 
@@ -1863,17 +1863,25 @@ const u8 *GetMonIconTiles(u16 species, u32 personality, u8 gender)
         iconSprite = gSpeciesInfo[species].iconSprite;
     else
         iconSprite = gSpeciesInfo[SPECIES_NONE].iconSprite;
-    }
+
     return iconSprite;
 }
 
-const u8* GetShinyMonIconTiles(u16 species)
+const u8* GetShinyMonIconTiles(u16 species, u32 personality, u8 gender)
 {
-    const u8* iconSprite = gMonIconTable[species + ICON_SHINY_OFFSET]; todo fix
+    const u8 *iconSprite = NULL;
+
+    if (species > NUM_SPECIES)
+        species = SPECIES_NONE;
+
+    if (gSpeciesInfo[species].iconSpriteShinyFemale != NULL && gender == MON_FEMALE)
+        iconSprite = gSpeciesInfo[species].iconSpriteShinyFemale;
+    else if (gSpeciesInfo[species].iconSpriteShiny != NULL)
+        iconSprite = gSpeciesInfo[species].iconSpriteShiny;
+
     if(iconSprite == NULL)
-    {
-        iconSprite = GetMonIconTiles(species, TRUE);
-    }
+        iconSprite = GetMonIconTiles(species, personality, gender);
+
     return iconSprite;
 }
 
