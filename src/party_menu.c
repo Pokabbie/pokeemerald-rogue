@@ -215,7 +215,7 @@ static void DisplayPartyPokemonGender(u8, u16, u8*, struct PartyMenuBox *);
 static void DisplayPartyPokemonHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonMaxHP(u16, struct PartyMenuBox *);
 static void DisplayPartyPokemonHPBar(u16, u16, struct PartyMenuBox *);
-static void CreatePartyMonIconSpriteParameterized(u16, u32, struct PartyMenuBox *, u8, u32);
+static void CreatePartyMonIconSpriteParameterized(u16 paletteOffset, u16 species, u8 gender, bool8 shiny, u32 otId, u32 pid, struct PartyMenuBox *menuBox, u8 priority);
 static void CreatePartyMonHeldItemSpriteParameterized(u16, u16, struct PartyMenuBox *);
 static void CreatePartyMonPokeballSpriteParameterized(u16, struct PartyMenuBox *);
 static void CreatePartyMonStatusSpriteParameterized(u16, u8, struct PartyMenuBox *);
@@ -223,7 +223,7 @@ static void CreatePartyMonStatusSpriteParameterized(u16, u8, struct PartyMenuBox
 // The only difference is that rather than receive the data directly they retrieve it from the mon struct
 static void CreatePartyMonHeldItemSprite(struct Pokemon *, struct PartyMenuBox *);
 static void CreatePartyMonPokeballSprite(struct Pokemon *, struct PartyMenuBox *);
-static void CreatePartyMonIconSprite(struct Pokemon *, struct PartyMenuBox *, u32);
+static void CreatePartyMonIconSprite(u16 paletteOffset, struct Pokemon *, struct PartyMenuBox *, u32);
 static void CreatePartyMonStatusSprite(struct Pokemon *, struct PartyMenuBox *);
 static u8 CreateSmallPokeballButtonSprite(u8, u8);
 static void DrawCancelConfirmButtons(void);
@@ -584,7 +584,7 @@ static bool8 ShowPartyMenu(void)
         gMain.state++;
         break;
     case 14:
-        LoadMonIconPalettes();
+        LoadMonIconPaletteForPlayerParty();
         gMain.state++;
         break;
     case 15:
@@ -1018,7 +1018,7 @@ static void CreatePartyMonSprites(u8 slot)
 
         if (gMultiPartnerParty[actualSlot].species != SPECIES_NONE)
         {
-            CreatePartyMonIconSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].personality, &sPartyMenuBoxes[slot], 0, FALSE);
+            CreatePartyMonIconSpriteParameterized(actualSlot, gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].gender, FALSE, 0, gMultiPartnerParty[actualSlot].personality, &sPartyMenuBoxes[slot], 0);
             CreatePartyMonHeldItemSpriteParameterized(gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].heldItem, &sPartyMenuBoxes[slot]);
             CreatePartyMonPokeballSpriteParameterized(gMultiPartnerParty[actualSlot].species, &sPartyMenuBoxes[slot]);
             if (gMultiPartnerParty[actualSlot].hp == 0)
@@ -1030,7 +1030,7 @@ static void CreatePartyMonSprites(u8 slot)
     }
     else if (GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES) != SPECIES_NONE)
     {
-        CreatePartyMonIconSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot], slot);
+        CreatePartyMonIconSprite(slot, &gPlayerParty[slot], &sPartyMenuBoxes[slot], slot);
         CreatePartyMonHeldItemSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
         CreatePartyMonPokeballSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
         CreatePartyMonStatusSprite(&gPlayerParty[slot], &sPartyMenuBoxes[slot]);
@@ -4510,27 +4510,34 @@ static bool8 SetUpFieldMove_Dive(void)
     return FALSE;
 }
 
-static void CreatePartyMonIconSprite(struct Pokemon *mon, struct PartyMenuBox *menuBox, u32 slot)
+static void CreatePartyMonIconSprite(u16 paletteOffset, struct Pokemon *mon, struct PartyMenuBox *menuBox, u32 slot)
 {
-    bool32 handleDeoxys = TRUE;
     u16 species2;
 
-    // If in a multi battle, show partners Deoxys icon as Normal forme
-    if (IsMultiBattle() == TRUE && gMain.inBattle)
-        handleDeoxys = (sMultiBattlePartnersPartyMask[slot] ^ handleDeoxys) ? TRUE : FALSE;
-
+#ifdef ROGUE_EXPANSION
+    species2 = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+#else
     species2 = GetMonData(mon, MON_DATA_SPECIES2);
-    CreatePartyMonIconSpriteParameterized(species2, GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1, handleDeoxys);
+#endif
+    CreatePartyMonIconSpriteParameterized(paletteOffset, species2, GetMonGender(mon), IsMonShiny(mon), GetMonData(mon, MON_DATA_OT_ID), GetMonData(mon, MON_DATA_PERSONALITY), menuBox, 1);
     UpdatePartyMonHPBar(menuBox->monSpriteId, mon);
 }
 
-static void CreatePartyMonIconSpriteParameterized(u16 species, u32 pid, struct PartyMenuBox *menuBox, u8 priority, bool32 handleDeoxys)
+static void CreatePartyMonIconSpriteParameterized(u16 paletteOffset, u16 species, u8 gender, bool8 shiny, u32 otId, u32 pid, struct PartyMenuBox *menuBox, u8 priority)
 {
+#ifdef ROGUE_EXPANSION
     if (species != SPECIES_NONE)
     {
-        menuBox->monSpriteId = CreateMonIcon(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, handleDeoxys);
+        menuBox->monSpriteId = CreateMonIconCustomPaletteOffset(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, gender, shiny, otId, pid, paletteOffset);
         gSprites[menuBox->monSpriteId].oam.priority = priority;
     }
+#else
+    if (species != SPECIES_NONE)
+    {
+        menuBox->monSpriteId = CreateMonIconCustomPaletteOffset(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, gender, shiny, otId, pid, paletteOffset);
+        gSprites[menuBox->monSpriteId].oam.priority = priority;
+    }
+#endif
 }
 
 static void UpdateHPBar(u8 spriteId, u16 hp, u16 maxhp)

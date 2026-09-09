@@ -74,9 +74,14 @@ namespace PokemonDataGenerator.Utils
 			}
         }
 
+        public static string SrcDataDirectory
+        {
+            get => Path.Combine(RootDirectory, "src\\data");
+        }
+
         public static string PokemonProfilesDirectory
 		{
-            get => Path.Combine(RootDirectory, "src\\data\\rogue\\pokemon", IsVanillaVersion ? "vanilla" : "expansion");
+            get => Path.Combine(SrcDataDirectory, "rogue\\pokemon", IsVanillaVersion ? "vanilla" : "expansion");
         }
 
         public static Dictionary<string, string> SpeciesDefines
