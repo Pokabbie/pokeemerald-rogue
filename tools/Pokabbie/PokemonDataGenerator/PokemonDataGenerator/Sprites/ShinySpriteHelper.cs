@@ -57,6 +57,9 @@ namespace PokemonDataGenerator.Sprites
 
             foreach (string line in lines)
             {
+                if (line.TrimStart().StartsWith("//"))
+                    continue;
+
                 if (line.Contains("gMonPalette_"))
                 {
                     string species;
@@ -111,24 +114,63 @@ namespace PokemonDataGenerator.Sprites
                 }
             }
 
+            outTable.Remove("Egg");
+            outTable.Remove("QuestionMark");
+
             return outTable;
         }
 
         private static void DetermineGenerationPalettes(Dictionary<string, PokemonGraphicsPaths> pkmnGraphicsLookup, string key, out string normalPalFile, out string shinyPalFile)
         {
-            if (GameDataHelpers.IsVanillaVersion)
+            if (key.StartsWith("Unown"))
             {
-                if (key.StartsWith("Unown"))
-                {
-                    key = "Unown";
-                }
-                else if (key.StartsWith("Deoxys"))
+                key = "Unown";
+            }
+            else if (GameDataHelpers.IsVanillaVersion)
+            {
+                if (key.StartsWith("Deoxys"))
                 {
                     key = "Deoxys";
                 }
             }
 
             var monPaths = pkmnGraphicsLookup[key];
+
+            if (!GameDataHelpers.IsVanillaVersion && (monPaths.NormalPalette == null || monPaths.ShinyPalette == null))
+            {
+                if(key.EndsWith("F"))
+                {
+                    monPaths = pkmnGraphicsLookup[key.Substring(0, key.Length - 1)];
+                }
+                else if(key == "Arceus")
+                {
+                    monPaths = pkmnGraphicsLookup["ArceusNormal"];
+                }
+                else if (key == "Silvally")
+                {
+                    monPaths = pkmnGraphicsLookup["SilvallyNormal"];
+                }
+                else if(key.StartsWith("Minior"))
+                {
+                    monPaths = pkmnGraphicsLookup["MiniorMeteor"];
+                }
+                else if (key.StartsWith("AlcremieStrawberry"))
+                {
+                    normalPalFile = Path.Combine(GameDataHelpers.RootDirectory, monPaths.NormalPalette.Replace(".lz", "").Replace(".gbapal", ".pal"));
+
+                    monPaths = pkmnGraphicsLookup["AlcremieStrawberry"];
+                    shinyPalFile = Path.Combine(GameDataHelpers.RootDirectory, monPaths.ShinyPalette.Replace(".lz", "").Replace(".gbapal", ".pal"));
+                    return;
+                }
+                else if (key == "Urshifu")
+                {
+                    monPaths = pkmnGraphicsLookup["UrshifuSingleStrikeStyle"];
+                }
+                else if (key.StartsWith("Maushold"))
+                {
+                    monPaths = pkmnGraphicsLookup["Maushold"];
+                }
+            }
 
             normalPalFile = Path.Combine(GameDataHelpers.RootDirectory, monPaths.NormalPalette.Replace(".lz", "").Replace(".gbapal", ".pal"));
             shinyPalFile = Path.Combine(GameDataHelpers.RootDirectory, monPaths.ShinyPalette.Replace(".lz", "").Replace(".gbapal", ".pal"));
@@ -198,7 +240,7 @@ namespace PokemonDataGenerator.Sprites
                 shinyIcon.Save(outputFile);
 
                 Console.WriteLine($"{kvp.Key} shiny_icon: done");
-                normalToShinyPaths.Add(iconFile, outputFile);
+                normalToShinyPaths[iconFile] = outputFile;
 
                 //Bitmap iconImage = new Bitmap(iconFile, true);
                 //ImagePalette iconPalette = ImagePalette.FromImage(iconImage, ImagePalette.DistanceMethod.YUV);
@@ -313,6 +355,10 @@ namespace PokemonDataGenerator.Sprites
                     if (line.Contains("gMonIcon_"))
                     {
                         ExtractMonPathInfoFromLine(line, out string key, out _);
+
+                        if (!pkmnGraphicsLookup.ContainsKey(key))
+                            continue;
+
                         var graphicsPaths = pkmnGraphicsLookup[key];
 
                         if(graphicsPaths.ShinyIcon == null)
