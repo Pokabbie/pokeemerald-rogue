@@ -1518,9 +1518,12 @@ const u32 gPokenavRibbonsSummaryBg_Tilemap[] = INCBIN_U32("graphics/pokenav/ribb
 
 const u16 gMonIconPalettes[][16] =
 {
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_0.gbapal"),
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_1.gbapal"),
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_2.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal0.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal1.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal2.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal3.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal4.gbapal"),
+    INCBIN_U16("graphics/pokemon/icon_palettes/pal5.gbapal"),
 };
 
 const u16 gTitleScreenBgPalettes_Default[]         = INCBIN_U16("graphics/title_screen/pokemon_logo.gbapal",
