@@ -2090,7 +2090,56 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         ICON(Salazzle, 0),
         .footprint = gMonFootprint_Salazzle,
         LEARNSETS(Salazzle),
+        .formSpeciesIdTable = sSalazzleFormSpeciesIdTable,
     },
+
+[SPECIES_SALAZZLE_ROCKET] =
+{
+    .baseHP        = 70,
+    .baseAttack    = 75,
+    .baseDefense   = 75,
+    .baseSpeed     = 125,
+    .baseSpAttack  = 130,
+    .baseSpDefense = 75,
+    .types = { TYPE_POISON, TYPE_STEEL },
+    .catchRate = 45,
+    .expYield = 168,
+    .evYield_Speed = 2,
+    .itemRare = ITEM_SMOKE_BALL,
+    .genderRatio = MON_FEMALE,
+    .eggCycles = 20,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_FAST,
+    .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_DRAGON },
+    .abilities = { ABILITY_EARTH_EATER, ABILITY_MERCILESS, ABILITY_EARTH_EATER },
+    .bodyColor = BODY_COLOR_BLACK,
+    .speciesName = _("TR Salazzl"),
+    .cryId = CRY_SALAZZLE,
+    .natDexNum = NATIONAL_DEX_SALAZZLE,
+    .categoryName = _("Toxic Lizard"),
+    .height = 12,
+    .weight = 222,
+    .description = POKEDEX_DESC_STRING(
+        "For some reason, only females have\n"
+        "been found. It creates a reverse harem of\n"
+        "male Salandit to live with. Its poisonous\n"
+        "gas is filled with pheromones."),
+    .pokemonScale = 282,
+    .pokemonOffset = 4,
+    .trainerScale = 256,
+    .trainerOffset = 0,
+    FRONT_PIC(Salazzle, 64, 64),
+    .frontPicYOffset = 1,
+    .frontAnimFrames = sAnims_Salazzle,
+    .frontAnimId = ANIM_GROW_VIBRATE,
+    BACK_PIC(Salazzle, 48, 64),
+    .backPicYOffset = 3,
+    PALETTES(SalazzleRocket),
+    ICON(Salazzle, 0),
+    .footprint = gMonFootprint_Salazzle,
+    LEARNSETS(Salazzle),
+    .formSpeciesIdTable = sSalazzleFormSpeciesIdTable,
+},
 #endif //P_FAMILY_SALANDIT
 
 #if P_FAMILY_STUFFUL
@@ -2584,7 +2633,55 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         ICON(Golisopod, 2),
         .footprint = gMonFootprint_Golisopod,
         LEARNSETS(Golisopod),
+        .formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
     },
+
+[SPECIES_GOLISOPOD_ROCKET] =
+{
+    .baseHP        = 80,
+    .baseAttack    = 135,
+    .baseDefense   = 145,
+    .baseSpeed     = 55,
+    .baseSpAttack  = 60,
+    .baseSpDefense = 95,
+    .types = { TYPE_BUG, TYPE_ICE },
+    .catchRate = 45,
+    .expYield = 186,
+    .evYield_Defense = 2,
+    .genderRatio = PERCENT_FEMALE(50),
+    .eggCycles = 20,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_FAST,
+    .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_WATER_3 },
+    .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_NONE, ABILITY_TOUGH_CLAWS },
+    .bodyColor = BODY_COLOR_GRAY,
+    .speciesName = _("TR Golisop"),
+    .cryId = CRY_GOLISOPOD,
+    .natDexNum = NATIONAL_DEX_GOLISOPOD,
+    .categoryName = _("Hard Scale"),
+    .height = 20,
+    .weight = 1080,
+    .description = POKEDEX_DESC_STRING(
+        "It battles skillfully with its six arms,\n"
+        "with a flashing slash of its giant sharp\n"
+        "claws, it cleaves seawater--or even\n"
+        "air--right in two."),
+    .pokemonScale = 261,
+    .pokemonOffset = 1,
+    .trainerScale = 334,
+    .trainerOffset = 4,
+    FRONT_PIC(Golisopod, 64, 64),
+    .frontPicYOffset = 0,
+    .frontAnimFrames = sAnims_Golisopod,
+    .frontAnimId = ANIM_SHRINK_GROW_VIBRATE_FAST,
+    BACK_PIC(Golisopod, 64, 48),
+    .backPicYOffset = 9,
+    PALETTES(GolisopodRocket),
+    ICON(Golisopod, 2),
+    .footprint = gMonFootprint_Golisopod,
+    LEARNSETS(Golisopod),
+    .formSpeciesIdTable = sGolisopodFormSpeciesIdTable,
+},
 #endif //P_FAMILY_WIMPOD
 
 #if P_FAMILY_SANDYGAST

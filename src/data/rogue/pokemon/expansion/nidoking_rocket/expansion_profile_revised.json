@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_NIDOKING_ROCKET": {
+      "BaseStats": {
+        "HP": 81,
+        "Attack": 120,
+        "Defense": 80,
+        "Speed": 100,
+        "SpAttack": 85,
+        "SpDefense": 74
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_STING",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POISON_STING",
+    "MOVE_BITE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_POISON_JAB",
+    "MOVE_CRUNCH",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_GUNK_SHOT",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ICE_PUNCH",
+    "MOVE_THUNDER_PUNCH"
+  ],
+  "CompetitiveSets": []
+}

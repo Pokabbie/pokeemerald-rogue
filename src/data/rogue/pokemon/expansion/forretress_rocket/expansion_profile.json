@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_FORRETRESS_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_PIN_MISSILE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SPIKES",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_GYRO_BALL",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BODY_PRESS",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_EXPLOSION",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_PIN_MISSILE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SPIKES",
+    "MOVE_RAPID_SPIN",
+    "MOVE_LEECH_LIFE",
+    "MOVE_GYRO_BALL",
+    "MOVE_BODY_PRESS",
+    "MOVE_EXPLOSION",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_STEALTH_ROCK"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_FORRETRESS_ROCKET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 100,
+        "Defense": 140,
+        "Speed": 50,
+        "SpAttack": 60,
+        "SpDefense": 90
+      },
+      "Types": [
+        "TYPE_BUG",
+        "TYPE_GHOST"
+      ],
+      "Abilities": [
+        "ABILITY_REGENERATOR",
+        "ABILITY_NONE",
+        "ABILITY_REGENERATOR"
+      ]
+    }
+  }
+}

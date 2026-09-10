@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_WEEZING_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CLEAR_SMOG",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLASH_CANNON",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_WILL_O_WISP",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TOXIC_SPIKES",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PAIN_SPLIT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SMOG",
+    "MOVE_CLEAR_SMOG",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_FLASH_CANNON",
+    "MOVE_WILL_O_WISP",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_PAIN_SPLIT",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_TAUNT",
+    "MOVE_TOXIC",
+    "MOVE_DARK_PULSE"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_WEEZING_ROCKET": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 95,
+        "Defense": 120,
+        "Speed": 70,
+        "SpAttack": 90,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_LEVITATE",
+        "ABILITY_NONE",
+        "ABILITY_LEVITATE"
+      ]
+    }
+  }
+}

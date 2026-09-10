@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_DONPHAN_ROCKET": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 125,
+        "Defense": 130,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 70
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_RAPID_SPIN",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_IRON_DEFENSE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BULLDOZE",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_HEAVY_SLAM",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_EARTHQUAKE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_IRON_HEAD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BODY_PRESS",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_RAPID_SPIN",
+    "MOVE_IRON_DEFENSE",
+    "MOVE_BULLDOZE",
+    "MOVE_HEAVY_SLAM",
+    "MOVE_EARTHQUAKE",
+    "MOVE_IRON_HEAD",
+    "MOVE_BODY_PRESS",
+    "MOVE_HEAD_SMASH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_ICE_SHARD",
+    "MOVE_STONE_EDGE"
+  ],
+  "CompetitiveSets": []
+}

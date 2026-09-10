@@ -53,6 +53,7 @@ const u8 *const gMonIconTable[NUM_SPECIES + 1] =
     [SPECIES_FEAROW] = gMonIcon_Fearow,
     [SPECIES_EKANS] = gMonIcon_Ekans,
     [SPECIES_ARBOK] = gMonIcon_Arbok,
+    [SPECIES_ARBOK_ROCKET] = gMonIcon_Arbok,
     [SPECIES_PIKACHU] = gMonIcon_Pikachu,
     [SPECIES_RAICHU] = gMonIcon_Raichu,
     [SPECIES_RAICHU_ROCKET] = gMonIcon_Raichu,

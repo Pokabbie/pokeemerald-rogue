@@ -9045,6 +9045,22 @@ BattleScript_IntimidateEnd:
 	pause B_WAIT_TIME_MED
 	end3
 
+BattleScript_NeurotoxinActivates::
+	copybyte sSAVED_BATTLER, gBattlerTarget
+	copybyte gBattlerTarget, gEffectBattler
+	showabilitypopup BS_ATTACKER
+	pause B_WAIT_TIME_LONG
+	destroyabilitypopup
+	setstatchanger STAT_SPEED, 1, TRUE
+	statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_NeurotoxinRestoreTarget
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_NeurotoxinRestoreTarget:
+	copybyte gBattlerTarget, sSAVED_BATTLER
+	return
+
 BattleScript_DirtyTacticsActivates::
 	showabilitypopup BS_ATTACKER
 	copybyte sSAVED_BATTLER, gBattlerTarget
@@ -9075,6 +9091,35 @@ BattleScript_DirtyTacticsLoopIncrement:
 	copybyte gBattlerTarget, sSAVED_BATTLER
 	pause B_WAIT_TIME_MED
 	end3
+
+
+BattleScript_TrapdoorActivates::
+showabilitypopup BS_ATTACKER
+copybyte sSAVED_BATTLER, gBattlerTarget
+pause B_WAIT_TIME_LONG
+destroyabilitypopup
+setbyte gBattlerTarget, 0
+
+BattleScript_TrapdoorLoop:
+jumpifbyteequal gBattlerTarget, gBattlerAttacker, BattleScript_TrapdoorLoopIncrement
+jumpiftargetally BattleScript_TrapdoorLoopIncrement
+jumpifabsent BS_TARGET, BattleScript_TrapdoorLoopIncrement
+jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_TrapdoorLoopIncrement
+jumpifnotgrounded BS_TARGET, BattleScript_TrapdoorLoopIncrement
+
+setstatchanger STAT_SPEED, 1, TRUE
+statbuffchange STAT_CHANGE_NOT_PROTECT_AFFECTED | STAT_CHANGE_ALLOW_PTR, BattleScript_TrapdoorLoopIncrement
+setgraphicalstatchangevalues
+playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+printfromtable gStatDownStringIds
+waitmessage B_WAIT_TIME_LONG
+
+BattleScript_TrapdoorLoopIncrement:
+addbyte gBattlerTarget, 1
+jumpifbytenotequal gBattlerTarget, gBattlersCount, BattleScript_TrapdoorLoop
+copybyte gBattlerTarget, sSAVED_BATTLER
+pause B_WAIT_TIME_MED
+end3
 
 BattleScript_IntimidateContrary:
 	call BattleScript_AbilityPopUpTarget

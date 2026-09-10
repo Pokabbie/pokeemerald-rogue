@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_AERODACTYL_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DUAL_WINGBEAT",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_STONE_EDGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BITE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DUAL_WINGBEAT",
+    "MOVE_CRUNCH",
+    "MOVE_STONE_EDGE",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_HEAD_SMASH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_IRON_HEAD",
+    "MOVE_ROOST"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_AERODACTYL_ROCKET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 115,
+        "Defense": 75,
+        "Speed": 130,
+        "SpAttack": 60,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_NONE",
+        "ABILITY_TOUGH_CLAWS"
+      ]
+    }
+  }
+}

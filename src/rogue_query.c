@@ -23,6 +23,7 @@
 #include "rogue_debug.h"
 #include "rogue_pokedex.h"
 #include "rogue_settings.h"
+#include "rogue_team_rocket.h"
 #include "rogue_trainers.h"
 
 #ifdef ROGUE_EXPANSION
@@ -33,7 +34,7 @@
 
 #define QUERY_BUFFER_COUNT          128
 #define QUERY_NUM_ITEMS             ITEMS_COUNT
-#define QUERY_NUM_TRAINERS          360 // just a vague guess that needs to at least match gRogueTrainerCount
+#define QUERY_NUM_TRAINERS          400 // just a vague guess that needs to at least match gRogueTrainerCount
 #define QUERY_NUM_ADVENTURE_PATH    ROGUE_ADVPATH_ROOM_CAPACITY
 #define QUERY_NUM_MOVES             MOVES_COUNT
 
@@ -242,6 +243,17 @@ static bool8 GetQueryBitFlag(u16 elem)
     u8 bitMask = 1 << bit;
 
     ASSERT_ANY_QUERY;
+
+    if(idx >= MAX_QUERY_BYTE_COUNT)
+    {
+        DebugPrintf("QUERY OOB type=%d elem=%d idx=%d maxBytes=%d maxBits=%d",
+            sRogueQuery.queryType,
+            elem,
+            idx,
+            (u32)MAX_QUERY_BYTE_COUNT,
+            (u32)MAX_QUERY_BIT_COUNT);
+    }
+
     AGB_ASSERT(idx < MAX_QUERY_BYTE_COUNT);
 
     return (sRogueQuery.bitFlags[idx] & bitMask) != 0;
@@ -1102,8 +1114,8 @@ static bool8 Query_IsSpeciesEnabledInternal(u16 species, bool32 forceDexCheck)
         // Include specific forms in these queries
         else if(species > FORMS_START)
         {
-            if(species == SPECIES_RAICHU_ROCKET)
-                return Query_IsSpeciesEnabledInDexInternal(SPECIES_RAICHU, forceDexCheck);
+            if(RogueTeamRocket_IsVariant(species))
+                return Query_IsSpeciesEnabledInDexInternal(RogueTeamRocket_GetBaseSpecies(species), forceDexCheck);
 
             // Regional forms
             if(species >= SPECIES_RATTATA_ALOLAN && species <= SPECIES_DECIDUEYE_HISUIAN)

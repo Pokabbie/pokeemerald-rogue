@@ -1375,6 +1375,12 @@ void Rogue_AssignDefaultRegion()
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA, TRUE);
         anySet = TRUE;
     }
+
+    if(flags & TRAINER_FLAG_REGION_TEAM_ROCKET)
+    {
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET, TRUE);
+        anySet = TRUE;
+    }
 #endif
 
     // Fallback to Kanto for "nostalgia" I guess?

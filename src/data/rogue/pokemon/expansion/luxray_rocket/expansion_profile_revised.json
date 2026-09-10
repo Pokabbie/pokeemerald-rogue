@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_LUXRAY_ROCKET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 125,
+        "Defense": 85,
+        "Speed": 90,
+        "SpAttack": 95,
+        "SpDefense": 85
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_VOLT_SWITCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WILD_CHARGE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_DOUBLE_EDGE",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_THUNDER_FANG",
+    "MOVE_CRUNCH",
+    "MOVE_ICE_FANG",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_WILD_CHARGE",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_DOUBLE_EDGE",
+    "MOVE_FIRE_FANG",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_KNOCK_OFF"
+  ],
+  "CompetitiveSets": []
+}

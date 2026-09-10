@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_PINSIR_ROCKET": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 135,
+        "Defense": 105,
+        "Speed": 95,
+        "SpAttack": 55,
+        "SpDefense": 75
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_QUICK_ATTACK",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_X_SCISSOR",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_SWORDS_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_QUICK_ATTACK",
+    "MOVE_X_SCISSOR",
+    "MOVE_BRICK_BREAK",
+    "MOVE_KNOCK_OFF",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_STONE_EDGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_THRASH"
+  ],
+  "CompetitiveSets": []
+}

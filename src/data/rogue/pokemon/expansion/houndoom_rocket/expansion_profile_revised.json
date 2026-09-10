@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_HOUNDOOM_ROCKET": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 95,
+        "Defense": 65,
+        "Speed": 110,
+        "SpAttack": 125,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ACID_SPRAY",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SLUDGE_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DARK_PULSE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_FIRE_BLAST",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_SLUDGE_WAVE",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_EMBER",
+    "MOVE_ACID_SPRAY",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_FLAMETHROWER",
+    "MOVE_NASTY_PLOT",
+    "MOVE_DARK_PULSE",
+    "MOVE_FIRE_BLAST",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SOLAR_BEAM",
+    "MOVE_WILL_O_WISP",
+    "MOVE_TAUNT"
+  ],
+  "CompetitiveSets": []
+}

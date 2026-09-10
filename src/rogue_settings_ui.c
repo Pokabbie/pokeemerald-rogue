@@ -132,6 +132,7 @@ static u8 const sMenuName_TrainerKalos[] = _("Kalos");
 static u8 const sMenuName_TrainerAlola[] = _("Alola");
 static u8 const sMenuName_TrainerGalar[] = _("Galar");
 static u8 const sMenuName_TrainerPaldea[] = _("Paldea");
+static u8 const sMenuName_TrainerTeamRocket[] = _("Team Rocket");
 #endif
 
 static u8 const sText_ErrorInvalidSelection[] = _("Error: {COLOR GREEN}{SHADOW LIGHT_GREEN}Invalid selection.");
@@ -331,6 +332,12 @@ static u8 const sMenuNameDesc_Paldea[] = _(
     "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
     "Enables trainers from the Paldea region.\n"
 );
+static u8 const sMenuNameDesc_TeamRocket[] = _(
+    "{COLOR GREEN}{SHADOW LIGHT_GREEN}"
+    "Enables the custom Team Rocket League.\n"
+    "Uses fixed Rocket boss teams.\n"
+);
+
 #endif
 
 static u8 const sMenuNameDesc_GameMode_Standard[] = _(
@@ -534,6 +541,7 @@ enum
      MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
      MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
      MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
+     MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET,
 #endif
 
     MENUITEM_MENU_SLIDER_TRAINER,
@@ -875,6 +883,13 @@ static const struct MenuEntry sOptionMenuItems[] =
         .processInput = Toggle_ProcessInput,
         .drawChoices = Toggle_DrawChoices
     },
+    [MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET] =
+    {
+        .itemName = sMenuName_TrainerTeamRocket,
+        .SINGLE_DESC(sMenuNameDesc_TeamRocket),
+        .processInput = Toggle_ProcessInput,
+        .drawChoices = Toggle_DrawChoices
+    },
 #endif
 
     [MENUITEM_MENU_SLIDER_TRAINER] = 
@@ -1166,6 +1181,7 @@ static const struct MenuEntries sOptionMenuEntries[SUBMENUITEM_COUNT] =
             MENUITEM_MENU_TOGGLE_TRAINER_ALOLA,
             MENUITEM_MENU_TOGGLE_TRAINER_GALAR,
             MENUITEM_MENU_TOGGLE_TRAINER_PALDEA,
+            MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET,
 #endif
             MENUITEM_MENU_TOGGLE_TRAINER_ROGUE,
             MENUITEM_CANCEL
@@ -1463,6 +1479,7 @@ u8 GetMenuItemUnlockLevel(u8 menuOption)
     case MENUITEM_MENU_TOGGLE_TRAINER_ALOLA:
     case MENUITEM_MENU_TOGGLE_TRAINER_GALAR:
     case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
+    case MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET:
 #endif
         return SETTINGS_UNLOCK_LEVEL_POST_GAME;
 
@@ -1576,6 +1593,7 @@ static bool8 TryCloseSubmenu(u8 submenuSelection)
             CONFIG_TOGGLE_TRAINER_ALOLA,
             CONFIG_TOGGLE_TRAINER_GALAR,
             CONFIG_TOGGLE_TRAINER_PALDEA,
+            CONFIG_TOGGLE_TRAINER_TEAM_ROCKET,
 #endif
         };
 
@@ -2503,6 +2521,9 @@ static u8 GetMenuItemValue(u8 menuItem)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
         return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA);
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET:
+        return Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET);
 #endif
 
 
@@ -2682,6 +2703,10 @@ static void SetMenuItemValue(u8 menuItem, u8 value)
 
     case MENUITEM_MENU_TOGGLE_TRAINER_PALDEA:
         Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA, value);
+        break;
+
+    case MENUITEM_MENU_TOGGLE_TRAINER_TEAM_ROCKET:
+        Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET, value);
         break;
 #endif
 

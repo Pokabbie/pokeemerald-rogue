@@ -58,6 +58,9 @@
 #include "constants/weather.h"
 
 #include "rogue_controller.h"
+#ifdef ROGUE_EXPANSION
+#include "rogue_team_rocket.h"
+#endif
 #include "rogue_charms.h"
 #include "rogue_gifts.h"
 #include "rogue_player_customisation.h"
@@ -4212,9 +4215,6 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
     struct Evolution evo;
     u8 evoCount = Rogue_GetMaxEvolutionCount(species);
 
-    if (evoCount == 0)
-        return SPECIES_NONE;
-
     if (tradePartner != NULL)
     {
         partnerSpecies = GetMonData(tradePartner, MON_DATA_SPECIES, 0);
@@ -4244,6 +4244,31 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
         && species != SPECIES_KADABRA
     #endif
     )
+        return SPECIES_NONE;
+
+#ifdef ROGUE_EXPANSION
+    // TEAM ROCKET DUBIOUS DISC CONVERSION
+    //
+    // Treat this exactly like an item evolution from the
+    // player's perspective, but keep it outside the normal
+    // evolution graph so Rogue encounter/final-evo queries
+    // are unaffected.
+    if (
+        (mode == EVO_MODE_ITEM_USE || mode == EVO_MODE_ITEM_CHECK)
+        && evolutionItem == ITEM_DUBIOUS_DISC
+    )
+    {
+        u16 rocketTarget =
+            RogueTeamRocket_GetEvolutionTarget(species);
+
+        if (rocketTarget != SPECIES_NONE)
+            return rocketTarget;
+    }
+#endif
+
+    // A species may have no standard evolutions but still be
+    // eligible for a Team Rocket Dubious Disc conversion.
+    if (evoCount == 0)
         return SPECIES_NONE;
 
     switch (mode)

@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GYARADOS_ROCKET": {
+      "BaseStats": {
+        "HP": 95,
+        "Attack": 125,
+        "Defense": 79,
+        "Speed": 81,
+        "SpAttack": 60,
+        "SpDefense": 100
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_AQUA_JET",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_WATERFALL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_LIQUIDATION",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HYDRO_PUMP",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BITE",
+    "MOVE_AQUA_JET",
+    "MOVE_CRUNCH",
+    "MOVE_WATERFALL",
+    "MOVE_ICE_FANG",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_LIQUIDATION",
+    "MOVE_HYDRO_PUMP",
+    "MOVE_EARTHQUAKE",
+    "MOVE_TAUNT",
+    "MOVE_POWER_WHIP"
+  ],
+  "CompetitiveSets": []
+}

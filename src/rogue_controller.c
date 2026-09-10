@@ -78,6 +78,7 @@
 #include "rogue_safari.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
+#include "rogue_team_rocket.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
@@ -3155,6 +3156,9 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
                 if(!RogueWeightQuery_HasAnyWeights())
                 {
                     RogueWeightQuery_End();
+
+
+
                     RogueMonQuery_End();
 
                     isValidTriangle = FALSE;
@@ -9489,10 +9493,8 @@ static bool8 IsRareWeightedSpecies(u16 species)
 static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* data)
 {
 #ifdef ROGUE_EXPANSION
-    // TR Raichu is an additive Raichu encounter and must always use Raichu's
-    // weighting, even if species-specific weighting is added in the future.
-    if(species == SPECIES_RAICHU_ROCKET)
-        species = SPECIES_RAICHU;
+    // Team Rocket variants inherit the encounter weighting of their base species.
+    species = RogueTeamRocket_GetBaseSpecies(species);
 #endif
 #ifdef ROGUE_EXPANSION
     switch (species)
@@ -9626,11 +9628,6 @@ static void BeginWildEncounterQuery()
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
-#ifdef ROGUE_EXPANSION
-    // Preserve the filtered Raichu encounter and add its Team Rocket variant.
-    if(RogueMiscQuery_CheckState(SPECIES_RAICHU))
-        RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, SPECIES_RAICHU_ROCKET);
-#endif
 
     // Now transform back into egg species, so the spawning should still be deteministic 
     // (although the type hints could be invalid)
@@ -9691,6 +9688,24 @@ static void RandomiseWildEncounters(void)
         }
 
         RogueWeightQuery_End();
+
+#ifdef ROGUE_EXPANSION
+        // Team Rocket variants live outside Rogue's normal mon-query range.
+        // Convert selected base species only after query selection is finished.
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+        {
+            for(i = 0; i < WILD_ENCOUNTER_GRASS_CAPACITY; ++i)
+            {
+                u16 rocketSpecies = RogueTeamRocket_GetVariantSpecies(
+                    gRogueRun.wildEncounters.species[i]
+                );
+
+                if(rocketSpecies != SPECIES_NONE && (RogueRandom() & 1))
+                    gRogueRun.wildEncounters.species[i] = rocketSpecies;
+            }
+        }
+#endif
+
     }
     EndWildEncounterQuery();
 }
@@ -9726,6 +9741,16 @@ bool8 Rogue_RerollSingleWildSpecies(u8 type)
         {
             u16 species = RogueWeightQuery_SelectRandomFromWeights(Random());
             u8 index = Random() % GetCurrentWildEncounterCount();
+
+#ifdef ROGUE_EXPANSION
+            if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+            {
+                u16 rocketSpecies = RogueTeamRocket_GetVariantSpecies(species);
+
+                if(rocketSpecies != SPECIES_NONE && (Random() & 1))
+                    species = rocketSpecies;
+            }
+#endif
 
             gRogueRun.wildEncounters.species[index] = species;
             success = TRUE;

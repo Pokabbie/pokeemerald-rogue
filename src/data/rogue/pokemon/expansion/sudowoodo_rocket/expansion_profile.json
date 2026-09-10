@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_SUDOWOODO_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_ROCK_TOMB",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TRAILBLAZE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SEED_BOMB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ROCK_SLIDE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_WOOD_HAMMER",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_STEALTH_ROCK",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_HEAD_SMASH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ROCK_TOMB",
+    "MOVE_TRAILBLAZE",
+    "MOVE_SEED_BOMB",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_WOOD_HAMMER",
+    "MOVE_STEALTH_ROCK",
+    "MOVE_HEAD_SMASH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_BODY_PRESS",
+    "MOVE_SWORDS_DANCE"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SUDOWOODO_ROCKET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 120,
+        "Defense": 125,
+        "Speed": 50,
+        "SpAttack": 45,
+        "SpDefense": 80
+      },
+      "Types": [
+        "TYPE_ROCK",
+        "TYPE_GRASS"
+      ],
+      "Abilities": [
+        "ABILITY_WATER_ABSORB",
+        "ABILITY_NONE",
+        "ABILITY_WATER_ABSORB"
+      ]
+    }
+  }
+}

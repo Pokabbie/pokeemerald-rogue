@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_CROBAT_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CROSS_POISON",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POISON_FANG",
+    "MOVE_BITE",
+    "MOVE_U_TURN",
+    "MOVE_CROSS_POISON",
+    "MOVE_KNOCK_OFF",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_TAUNT",
+    "MOVE_ROOST",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_ACROBATICS",
+    "MOVE_TOXIC"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_CROBAT_ROCKET": {
+      "BaseStats": {
+        "HP": 85,
+        "Attack": 105,
+        "Defense": 85,
+        "Speed": 130,
+        "SpAttack": 70,
+        "SpDefense": 85
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_SPEED_BOOST",
+        "ABILITY_LEVITATE",
+        "ABILITY_SPEED_BOOST"
+      ]
+    }
+  }
+}

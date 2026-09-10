@@ -561,6 +561,7 @@ void Rogue_ResetSettingsToDefaults()
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_HOENN,  FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_ROGUE,  FALSE);
 #ifdef ROGUE_EXPANSION
+    Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET, FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_SINNOH, FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_UNOVA,  FALSE);
     Rogue_SetConfigToggle(CONFIG_TOGGLE_TRAINER_KALOS,  FALSE);

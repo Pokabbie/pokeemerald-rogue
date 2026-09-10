@@ -1,0 +1,254 @@
+{
+    "condition": "defined(ROGUE_EXPANSION)",
+    "defaults": {
+        "trainer_flags": [
+            "REGION_TEAM_ROCKET",
+            "CLASS_BOSS"
+        ],
+        "trainer_class": "TRAINER_CLASS_LEADER",
+        "music_player": "team_rocket",
+        "encounter_text": [
+            {
+                "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Welcome to the Team Rocket League.",
+                "POST_BATTLE_TAUNT": "So you made it through.",
+                "POST_BATTLE_CLOSER": "Keep moving. Team Rocket is waiting."
+            }
+        ],
+        "team_generator": {
+            "subsets": [
+                {
+                    "max_samples": 6
+                }
+            ]
+        }
+    },
+    "trainers": {
+        "gyms": [
+            {
+                "name": "PROTON",
+                "type_assignment": "BUG",
+                "object_event": "OBJ_EVENT_GFX_TEAM_ROCKET_PROTON",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "class_flags": [
+                    "BOSS_GYM_1"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "LT. SURGE",
+                "type_assignment": "ELECTRIC",
+                "object_event": "OBJ_EVENT_GFX_KANTO_LTSURGE",
+                "trainer_pic": "TRAINER_PIC_KANTO_LTSURGE",
+                "class_flags": [
+                    "BOSS_GYM_2"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ARIANA",
+                "type_assignment": "POISON",
+                "object_event": "OBJ_EVENT_GFX_TEAM_ROCKET_ARIANA",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_F",
+                "class_flags": [
+                    "BOSS_GYM_3"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "PETREL",
+                "type_assignment": "PSYCHIC",
+                "object_event": "OBJ_EVENT_GFX_TEAM_ROCKET_PETREL",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "class_flags": [
+                    "BOSS_GYM_4"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "BRUNO",
+                "type_assignment": "FIGHTING",
+                "object_event": "OBJ_EVENT_GFX_KANTO_BRUNO",
+                "trainer_pic": "TRAINER_PIC_KANTO_BRUNO",
+                "class_flags": [
+                    "BOSS_GYM_5"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "BLAINE",
+                "type_assignment": "FIRE",
+                "object_event": "OBJ_EVENT_GFX_KANTO_BLAINE",
+                "trainer_pic": "TRAINER_PIC_KANTO_BLAINE",
+                "class_flags": [
+                    "BOSS_GYM_6"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ARCHER",
+                "type_assignment": "STEEL",
+                "object_event": "OBJ_EVENT_GFX_TEAM_ROCKET_ARCHER",
+                "trainer_pic": "TRAINER_PIC_ROCKET_GRUNT_M",
+                "class_flags": [
+                    "BOSS_GYM_7"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "GIOVANNI",
+                "type_assignment": "NORMAL",
+                "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
+                "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
+                "class_flags": [
+                    "BOSS_GYM_8"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ],
+        "elite": [
+            {
+                "name": "AGATHA",
+                "type_assignment": "GHOST",
+                "object_event": "OBJ_EVENT_GFX_KANTO_AGATHA",
+                "trainer_pic": "TRAINER_PIC_KANTO_AGATHA",
+                "class_flags": [
+                    "BOSS_ELITE_1"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "VALERIE",
+                "type_assignment": "FAIRY",
+                "object_event": "OBJ_EVENT_GFX_KALOS_VALERIE",
+                "trainer_pic": "TRAINER_PIC_KALOS_VALERIE",
+                "class_flags": [
+                    "BOSS_ELITE_2"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "KAREN",
+                "type_assignment": "DARK",
+                "object_event": "OBJ_EVENT_GFX_JOHTO_KAREN",
+                "trainer_pic": "TRAINER_PIC_JOHTO_KAREN",
+                "class_flags": [
+                    "BOSS_ELITE_3"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "COLRESS",
+                "type_assignment": "STEEL",
+                "object_event": "OBJ_EVENT_GFX_TEAM_NEO_PLASMA_COLRESS",
+                "trainer_pic": "TRAINER_PIC_GALACTIC_CYRUS",
+                "class_flags": [
+                    "BOSS_ELITE_4"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ],
+        "champ": [
+            {
+                "name": "GIOVANNI",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
+                "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
+                "class_flags": [
+                    "BOSS_CHAMP"
+                ],
+                "preferred_mon_gender": "MALE",
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

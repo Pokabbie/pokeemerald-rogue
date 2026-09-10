@@ -2716,6 +2716,54 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .formChangeTable = sMalamarFormChangeTable,
     },
 
+[SPECIES_MALAMAR_ROCKET] =
+{
+    .baseHP        = 90,
+    .baseAttack    = 120,
+    .baseDefense   = 90,
+    .baseSpeed     = 85,
+    .baseSpAttack  = 70,
+    .baseSpDefense = 95,
+    .types = { TYPE_DARK, TYPE_FAIRY },
+    .catchRate = 80,
+    .expYield = 169,
+    .evYield_Attack = 2,
+    .genderRatio = PERCENT_FEMALE(50),
+    .eggCycles = 20,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_FAST,
+    .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_WATER_2 },
+    .abilities = { ABILITY_GORILLA_TACTICS, ABILITY_NONE, ABILITY_GORILLA_TACTICS },
+    .bodyColor = BODY_COLOR_BLUE,
+    .speciesName = _("TR Malamar"),
+    .cryId = CRY_MALAMAR,
+    .natDexNum = NATIONAL_DEX_MALAMAR,
+    .categoryName = _("Overturning"),
+    .height = 15,
+    .weight = 470,
+    .description = POKEDEX_DESC_STRING(
+        "It lures prey close with hypnotic motions,\n"
+        "then wraps its tentacles around it before\n"
+        "finishing it off with digestive fluids. It\n"
+        "forces others to do whatever it wants."),
+    .pokemonScale = 268,
+    .pokemonOffset = 2,
+    .trainerScale = 271,
+    .trainerOffset = 0,
+    FRONT_PIC(Malamar, 64, 64),
+    .frontPicYOffset = 0,
+    .frontAnimFrames = sAnims_Malamar,
+    .frontAnimId = ANIM_CIRCULAR_STRETCH_TWICE,
+    BACK_PIC(Malamar, 64, 56),
+    .backPicYOffset = 8,
+    .backAnimId = BACK_ANIM_V_STRETCH,
+    PALETTES(MalamarRocket),
+    ICON(Malamar, 2),
+    .footprint = gMonFootprint_Malamar,
+    LEARNSETS(Malamar),
+    .formSpeciesIdTable = sMalamarFormSpeciesIdTable,
+},
+
     [SPECIES_MALAMAR_MEGA] =
     {
         .baseHP        = 86,

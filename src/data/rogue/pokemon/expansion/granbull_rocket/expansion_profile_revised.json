@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_GRANBULL_ROCKET": {
+      "BaseStats": {
+        "HP": 90,
+        "Attack": 130,
+        "Defense": 80,
+        "Speed": 60,
+        "SpAttack": 60,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_BITE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BRICK_BREAK",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_DRAIN_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ICE_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CLOSE_COMBAT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_BULK_UP",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_THUNDER_PUNCH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_BITE",
+    "MOVE_BRICK_BREAK",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_DRAIN_PUNCH",
+    "MOVE_ICE_PUNCH",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_BULK_UP",
+    "MOVE_THUNDER_PUNCH",
+    "MOVE_EARTHQUAKE",
+    "MOVE_CRUNCH",
+    "MOVE_FIRE_PUNCH"
+  ],
+  "CompetitiveSets": []
+}

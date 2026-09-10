@@ -1584,6 +1584,9 @@ bool8 CheckOnlyTheseTrainersEnabled(u32 toggleToCheck)
 
     if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_PALDEA))
         return FALSE;
+
+    if(!CheckSingleTrainerConfigValid(toggleToCheck, CONFIG_TOGGLE_TRAINER_TEAM_ROCKET))
+        return FALSE;
 #endif
     return TRUE;
 }

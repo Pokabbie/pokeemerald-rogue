@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_XATU_ROCKET": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 85,
+        "Defense": 75,
+        "Speed": 110,
+        "SpAttack": 105,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_CONFUSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_OMINOUS_WIND",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_PSYSHOCK",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SHADOW_BALL",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_CALM_MIND",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_PSYCHIC",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_CONFUSION",
+    "MOVE_OMINOUS_WIND",
+    "MOVE_PSYSHOCK",
+    "MOVE_SHADOW_BALL",
+    "MOVE_CALM_MIND",
+    "MOVE_ROOST",
+    "MOVE_PSYCHIC",
+    "MOVE_NASTY_PLOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_TRICK",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": []
+}

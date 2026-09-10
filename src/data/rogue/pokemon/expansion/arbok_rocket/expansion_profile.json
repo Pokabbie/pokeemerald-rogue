@@ -1,0 +1,71 @@
+{
+  "Species": [
+    "SPECIES_ARBOK_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_GLARE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POISON_FANG",
+    "MOVE_GLARE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_POISON_JAB",
+    "MOVE_CRUNCH",
+    "MOVE_COIL",
+    "MOVE_GUNK_SHOT"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_ARBOK_ROCKET": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 105,
+        "Defense": 69,
+        "Speed": 90,
+        "SpAttack": 65,
+        "SpDefense": 79
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_NEUROTOXIN",
+        "ABILITY_NONE",
+        "ABILITY_NEUROTOXIN"
+      ]
+    }
+  }
+}
