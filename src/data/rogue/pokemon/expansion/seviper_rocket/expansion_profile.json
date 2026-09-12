@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_SEVIPER_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_TAIL",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_POISON_JAB",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_COIL",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_GUNK_SHOT",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_POISON_FANG",
+    "MOVE_DRAGON_TAIL",
+    "MOVE_TOXIC",
+    "MOVE_CRUNCH",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_POISON_JAB",
+    "MOVE_COIL",
+    "MOVE_GUNK_SHOT",
+    "MOVE_KNOCK_OFF",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_EARTHQUAKE"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SEVIPER_ROCKET": {
+      "BaseStats": {
+        "HP": 73,
+        "Attack": 115,
+        "Defense": 70,
+        "Speed": 85,
+        "SpAttack": 105,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_DRAGON"
+      ],
+      "Abilities": [
+        "ABILITY_MERCILESS",
+        "ABILITY_NONE",
+        "ABILITY_MERCILESS"
+      ]
+    }
+  }
+}

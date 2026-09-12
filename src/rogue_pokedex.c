@@ -42,6 +42,9 @@
 #include "rogue_pokedex.h"
 #include "rogue_ridemon.h"
 #include "rogue_settings.h"
+#ifdef ROGUE_EXPANSION
+#include "rogue_team_rocket.h"
+#endif
 #include "rogue_query.h"
 #include "rogue_quest.h"
 #include "rogue_safari.h"
@@ -1129,6 +1132,11 @@ static bool8 IsAltFormVisible(u16 baseForm, u16 altForm)
         return FALSE;
 
 #ifdef ROGUE_EXPANSION
+    // Team Rocket species remain internally linked to form tables for
+    // engine stability, but they are evolution outcomes, not visible forms.
+    if(RogueTeamRocket_IsVariant(altForm))
+        return FALSE;
+
     // catch case like toxtricity where we have an alt dynamax form not in form change table
     if(gSpeciesInfo[altForm].isGigantamax && !IsDynamaxEnabled())
         return FALSE;
@@ -1771,7 +1779,9 @@ static void DisplayMonMovesText()
     CopyWindowToVram(WIN_MON_PAGE_CONTENT, COPYWIN_FULL);
 }
 
-static u16 GetMaxEvoScrollOffset()
+// TEAM ROCKET POKEDEX EVOLUTION SUPPORT
+// Rocket routes remain outside the real evolution graph.
+static u8 GetPokedexEvolutionCount()
 {
     u8 i;
     u8 count = 0;
@@ -1781,13 +1791,83 @@ static u16 GetMaxEvoScrollOffset()
     for(i = 0; i < evoCount; ++i)
     {
         Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
-        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(
+            sPokedexMenu->viewBaseSpecies,
+            i,
+            &evo
+        );
+
+        if(evo.targetSpecies != SPECIES_NONE)
+            ++count;
+    }
+
+#ifdef ROGUE_EXPANSION
+    if(RogueTeamRocket_GetEvolutionTarget(
+        sPokedexMenu->viewBaseSpecies
+    ) != SPECIES_NONE)
+    {
+        ++count;
+    }
+#endif
+
+    return count;
+}
+
+static bool8 GetPokedexEvolutionAt(u8 index, struct Evolution *outEvo)
+{
+    u8 i;
+    u8 listIndex = 0;
+    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
+    struct Evolution evo;
+
+    for(i = 0; i < evoCount; ++i)
+    {
+        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
+        Rogue_ModifyEvolution_ApplyCurses(
+            sPokedexMenu->viewBaseSpecies,
+            i,
+            &evo
+        );
 
         if(evo.targetSpecies == SPECIES_NONE)
             continue;
 
-        ++count;
+        if(listIndex == index)
+        {
+            *outEvo = evo;
+            return TRUE;
+        }
+
+        ++listIndex;
     }
+
+#ifdef ROGUE_EXPANSION
+    {
+        u16 rocketTarget =
+            RogueTeamRocket_GetEvolutionTarget(
+                sPokedexMenu->viewBaseSpecies
+            );
+
+        if(rocketTarget != SPECIES_NONE && listIndex == index)
+        {
+            *outEvo = (struct Evolution){0};
+
+            outEvo->method = EVO_ITEM;
+            outEvo->param = ITEM_DUBIOUS_DISC;
+            outEvo->targetSpecies = rocketTarget;
+
+            return TRUE;
+        }
+    }
+#endif
+
+    outEvo->targetSpecies = SPECIES_NONE;
+    return FALSE;
+}
+
+static u16 GetMaxEvoScrollOffset()
+{
+    u8 count = GetPokedexEvolutionCount();
 
     return count != 0 ? count - 1 : 0;
 }
@@ -1795,23 +1875,14 @@ static u16 GetMaxEvoScrollOffset()
 
 static u16 GetActiveEvoSpecies()
 {
-    u8 i;
-    u8 listIndex = 0;
     struct Evolution evo;
-    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
 
-    for(i = 0; i < evoCount; ++i)
+    if(GetPokedexEvolutionAt(
+        sPokedexMenu->listScrollAmount,
+        &evo
+    ))
     {
-        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
-        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
-
-        if(evo.targetSpecies == SPECIES_NONE)
-            continue;
-
-        if(listIndex >= sPokedexMenu->listScrollAmount)
-            return evo.targetSpecies;
-
-        ++listIndex;
+        return evo.targetSpecies;
     }
 
     return SPECIES_NONE;
@@ -1865,7 +1936,7 @@ static void DisplayMonEvosText()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
-    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
+    u8 evoCount = GetPokedexEvolutionCount();
 
     AddTitleText(sTitle_Evolutions);
 
@@ -1873,10 +1944,7 @@ static void DisplayMonEvosText()
 
     for(i = 0; i < evoCount && displayCount < 8; ++i)
     {
-        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
-        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
-
-        if(evo.targetSpecies == SPECIES_NONE)
+        if(!GetPokedexEvolutionAt(i, &evo))
             continue;
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -3972,7 +4040,7 @@ static void MonEvos_CreateSprites()
     u8 listIndex = 0;
     u8 displayCount = 0;
     struct Evolution evo;
-    u8 evoCount = Rogue_GetMaxEvolutionCount(sPokedexMenu->viewBaseSpecies);
+    u8 evoCount = GetPokedexEvolutionCount();
 
     // Destroy any previous sprites
     for(i = 0; i < 4; ++i)
@@ -3986,10 +4054,7 @@ static void MonEvos_CreateSprites()
 
     for(i = 0; i < evoCount && displayCount < 4; ++i)
     {
-        Rogue_ModifyEvolution(sPokedexMenu->viewBaseSpecies, i, &evo);
-        Rogue_ModifyEvolution_ApplyCurses(sPokedexMenu->viewBaseSpecies, i, &evo);
-
-        if(evo.targetSpecies == SPECIES_NONE)
+        if(!GetPokedexEvolutionAt(i, &evo))
             continue;
 
         if(listIndex >= sPokedexMenu->listScrollAmount)
@@ -3998,8 +4063,10 @@ static void MonEvos_CreateSprites()
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMonIcon(evo.targetSpecies, SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0, MON_MALE);
             else
                 sPokedexMenu->pageSprites[MON_SPRITE_EVO_ICON1 + displayCount] = CreateMissingMonIcon(SpriteCallbackDummy, 98 + 16, 24 + 16 + 32 * displayCount, 0, 0);
+
             ++displayCount;
         }
+
         ++listIndex;
     }
 }

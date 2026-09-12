@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_PERSIAN_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FAKE_OUT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_BITE",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_SHADOW_CLAW",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_THROAT_CHOP",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FAKE_OUT",
+    "MOVE_BITE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_KNOCK_OFF",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_U_TURN",
+    "MOVE_THROAT_CHOP",
+    "MOVE_LOW_KICK",
+    "MOVE_IRON_TAIL",
+    "MOVE_TAUNT"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_PERSIAN_ROCKET": {
+      "BaseStats": {
+        "HP": 65,
+        "Attack": 110,
+        "Defense": 70,
+        "Speed": 120,
+        "SpAttack": 65,
+        "SpDefense": 70
+      },
+      "Types": [
+        "TYPE_GHOST",
+        "TYPE_DARK"
+      ],
+      "Abilities": [
+        "ABILITY_TOUGH_CLAWS",
+        "ABILITY_NONE",
+        "ABILITY_TOUGH_CLAWS"
+      ]
+    }
+  }
+}

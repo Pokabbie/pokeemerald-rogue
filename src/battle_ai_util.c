@@ -164,6 +164,7 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_OVERGROW] = 5,
     [ABILITY_OWN_TEMPO] = 3,
     [ABILITY_PARENTAL_BOND] = 10,
+    [ABILITY_FAMILY_BUSINESS] = 10,
     [ABILITY_PICKUP] = 1,
     [ABILITY_PICKPOCKET] = 3,
     [ABILITY_PIXILATE] = 8,
@@ -299,7 +300,12 @@ static const s8 sAiAbilityRatings[ABILITIES_COUNT] =
     [ABILITY_THERMAL_EXCHANGE] = 7,
     [ABILITY_DRAGONIZE] = 8,
     [ABILITY_EELEVATE] = 7,
+    [ABILITY_DIRTY_TACTICS] = 7,
+    [ABILITY_NEUROTOXIN] = 7,
+    [ABILITY_NO_RULES] = 9,
 
+    [ABILITY_STATIC_FIELD] = 9,
+    [ABILITY_TRAPDOOR] = 8,
     [ABILITY_FORECAST_PRIORITY] = 9,
     [ABILITY_DRAGON_FLY] = 6,
 };
@@ -802,13 +808,13 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
             {
             case EFFECT_LEVEL_DAMAGE:
             case EFFECT_PSYWAVE:
-                dmg = gBattleMons[battlerAtk].level * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                dmg = gBattleMons[battlerAtk].level * ((aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND || aiData->abilities[battlerAtk] == ABILITY_FAMILY_BUSINESS) ? 2 : 1);
                 break;
             case EFFECT_DRAGON_RAGE:
-                dmg = 40 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                dmg = 40 * ((aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND || aiData->abilities[battlerAtk] == ABILITY_FAMILY_BUSINESS) ? 2 : 1);
                 break;
             case EFFECT_SONICBOOM:
-                dmg = 20 * (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND ? 2 : 1);
+                dmg = 20 * ((aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND || aiData->abilities[battlerAtk] == ABILITY_FAMILY_BUSINESS) ? 2 : 1);
                 break;
             case EFFECT_MULTI_HIT:
                 dmg *= (aiData->abilities[battlerAtk] == ABILITY_SKILL_LINK ? 5 : 3);
@@ -818,7 +824,7 @@ s32 AI_CalcDamage(u32 move, u32 battlerAtk, u32 battlerDef, u8 *typeEffectivenes
                 dmg = max(0, gBattleMons[battlerDef].hp - gBattleMons[battlerAtk].hp);
                 break;
             case EFFECT_SUPER_FANG:
-                dmg = (aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND
+                dmg = ((aiData->abilities[battlerAtk] == ABILITY_PARENTAL_BOND || aiData->abilities[battlerAtk] == ABILITY_FAMILY_BUSINESS)
                     ? max(2, gBattleMons[battlerDef].hp * 3 / 4)
                     : max(1, gBattleMons[battlerDef].hp / 2));
                 break;

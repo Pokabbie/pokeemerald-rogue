@@ -78,6 +78,7 @@
 #include "rogue_safari.h"
 #include "rogue_save.h"
 #include "rogue_settings.h"
+#include "rogue_team_rocket.h"
 #include "rogue_timeofday.h"
 #include "rogue_trainers.h"
 
@@ -3155,6 +3156,9 @@ static struct StarterSelectionData SelectStarterMons(bool8 isSeeded)
                 if(!RogueWeightQuery_HasAnyWeights())
                 {
                     RogueWeightQuery_End();
+
+
+
                     RogueMonQuery_End();
 
                     isValidTriangle = FALSE;
@@ -4940,6 +4944,17 @@ static u16 SelectLegendarySpecies(u8 legendId)
     {
         species = gRogueLegendaryEncounterInfo.mapTable[i].encounterId;
 
+#ifdef ROGUE_EXPANSION
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+        {
+            // The Team Rocket Dex is a curated normal encounter pool and does
+            // not contain most legendary species. Legendary rooms should still
+            // respect the configured generation limit.
+            if(SpeciesToGen(species) <= RoguePokedex_GetDexGenLimit())
+                RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+        }
+        else
+#endif
         if(Query_IsSpeciesEnabledForceDexChecking(species))
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
@@ -5387,9 +5402,36 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     {
         RogueWeightQuery_CalculateWeights(WildDenEncounter_CalculateWeight, NULL);
 
-        species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        if(RogueWeightQuery_HasAnyWeights())
+            species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        else
+            species = SPECIES_NONE;
     }
     RogueWeightQuery_End();
+
+    // The Team Rocket Dex can occasionally leave no valid species after
+    // transforming the restricted pool through egg species and evolutions.
+    // Recover with the active non-legendary pool instead of returning
+    // SPECIES_NONE and creating a blank Lv. 0 encounter.
+    if(species == SPECIES_NONE)
+    {
+        RogueMonQuery_IsSpeciesActive();
+        RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+        RogueWeightQuery_Begin();
+        {
+            RogueWeightQuery_FillWeights(1);
+
+            if(RogueWeightQuery_HasAnyWeights())
+                species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+            else
+            {
+                AGB_ASSERT(FALSE);
+                species = SPECIES_NONE;
+            }
+        }
+        RogueWeightQuery_End();
+    }
 
     RogueMonQuery_End();
 
@@ -9489,6 +9531,10 @@ static bool8 IsRareWeightedSpecies(u16 species)
 static u8 RandomiseWildEncounters_CalculateWeight(u16 index, u16 species, void* data)
 {
 #ifdef ROGUE_EXPANSION
+    // Team Rocket variants inherit the encounter weighting of their base species.
+    species = RogueTeamRocket_GetBaseSpecies(species);
+#endif
+#ifdef ROGUE_EXPANSION
     switch (species)
     {
     case SPECIES_DEERLING:
@@ -9620,6 +9666,7 @@ static void BeginWildEncounterQuery()
     // Now we've evolved we're only caring about mons of this type
     RogueMonQuery_IsOfType(QUERY_FUNC_INCLUDE, typeFlags);
 
+
     // Now transform back into egg species, so the spawning should still be deteministic 
     // (although the type hints could be invalid)
     if(IsCurseActive(EFFECT_WILD_EGG_SPECIES))
@@ -9679,6 +9726,24 @@ static void RandomiseWildEncounters(void)
         }
 
         RogueWeightQuery_End();
+
+#ifdef ROGUE_EXPANSION
+        // Team Rocket variants live outside Rogue's normal mon-query range.
+        // Convert selected base species only after query selection is finished.
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+        {
+            for(i = 0; i < WILD_ENCOUNTER_GRASS_CAPACITY; ++i)
+            {
+                u16 rocketSpecies = RogueTeamRocket_GetVariantSpecies(
+                    gRogueRun.wildEncounters.species[i]
+                );
+
+                if(rocketSpecies != SPECIES_NONE && (RogueRandom() & 1))
+                    gRogueRun.wildEncounters.species[i] = rocketSpecies;
+            }
+        }
+#endif
+
     }
     EndWildEncounterQuery();
 }
@@ -9714,6 +9779,16 @@ bool8 Rogue_RerollSingleWildSpecies(u8 type)
         {
             u16 species = RogueWeightQuery_SelectRandomFromWeights(Random());
             u8 index = Random() % GetCurrentWildEncounterCount();
+
+#ifdef ROGUE_EXPANSION
+            if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+            {
+                u16 rocketSpecies = RogueTeamRocket_GetVariantSpecies(species);
+
+                if(rocketSpecies != SPECIES_NONE && (Random() & 1))
+                    species = rocketSpecies;
+            }
+#endif
 
             gRogueRun.wildEncounters.species[index] = species;
             success = TRUE;

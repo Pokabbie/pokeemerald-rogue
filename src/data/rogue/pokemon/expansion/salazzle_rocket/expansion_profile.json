@@ -1,0 +1,170 @@
+{
+  "Species": [
+    "SPECIES_SALAZZLE_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_LASH",
+      "Level": 0
+    },
+    {
+      "Move": "MOVE_POUND",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SCRATCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DISABLE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_EMBER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SMOG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_GAS",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_SWAGGER",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENCORE",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_TORMENT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_ENDEAVOR",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_POISON_FANG",
+      "Level": 15
+    },
+    {
+      "Move": "MOVE_SWEET_SCENT",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NASTY_PLOT",
+      "Level": 25
+    },
+    {
+      "Move": "MOVE_INCINERATE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_VENOSHOCK",
+      "Level": 37
+    },
+    {
+      "Move": "MOVE_DRAGON_PULSE",
+      "Level": 44
+    },
+    {
+      "Move": "MOVE_FLAMETHROWER",
+      "Level": 51
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 58
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_ACID_SPRAY",
+    "MOVE_ACROBATICS",
+    "MOVE_AGILITY",
+    "MOVE_BODY_SLAM",
+    "MOVE_BREAKING_SWIPE",
+    "MOVE_BURNING_JEALOUSY",
+    "MOVE_DRAGON_CHEER",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_DRAGON_PULSE",
+    "MOVE_ENCORE",
+    "MOVE_ENDEAVOR",
+    "MOVE_ENDURE",
+    "MOVE_FACADE",
+    "MOVE_FAKE_OUT",
+    "MOVE_FAKE_TEARS",
+    "MOVE_FIRE_BLAST",
+    "MOVE_FIRE_FANG",
+    "MOVE_FLAMETHROWER",
+    "MOVE_FLARE_BLITZ",
+    "MOVE_FLING",
+    "MOVE_FOUL_PLAY",
+    "MOVE_GIGA_IMPACT",
+    "MOVE_GUNK_SHOT",
+    "MOVE_HEAT_WAVE",
+    "MOVE_HELPING_HAND",
+    "MOVE_HIDDEN_POWER",
+    "MOVE_HYPER_BEAM",
+    "MOVE_HYPER_VOICE",
+    "MOVE_KNOCK_OFF",
+    "MOVE_LEECH_LIFE",
+    "MOVE_MUD_SLAP",
+    "MOVE_NASTY_PLOT",
+    "MOVE_OVERHEAT",
+    "MOVE_POISON_JAB",
+    "MOVE_POISON_TAIL",
+    "MOVE_PROTECT",
+    "MOVE_REST",
+    "MOVE_SCALE_SHOT",
+    "MOVE_SCARY_FACE",
+    "MOVE_SHADOW_CLAW",
+    "MOVE_SKITTER_SMACK",
+    "MOVE_SLEEP_TALK",
+    "MOVE_SLUDGE_BOMB",
+    "MOVE_SLUDGE_WAVE",
+    "MOVE_SUBSTITUTE",
+    "MOVE_SUNNY_DAY",
+    "MOVE_SWIFT",
+    "MOVE_TAKE_DOWN",
+    "MOVE_TAUNT",
+    "MOVE_TEMPER_FLARE",
+    "MOVE_TERA_BLAST",
+    "MOVE_THIEF",
+    "MOVE_THUNDER_WAVE",
+    "MOVE_TOXIC",
+    "MOVE_TOXIC_SPIKES",
+    "MOVE_TRAILBLAZE",
+    "MOVE_VENOSHOCK",
+    "MOVE_WILL_O_WISP"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_SALAZZLE_ROCKET": {
+      "BaseStats": {
+        "HP": 70,
+        "Attack": 75,
+        "Defense": 75,
+        "Speed": 125,
+        "SpAttack": 130,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_POISON",
+        "TYPE_STEEL"
+      ],
+      "Abilities": [
+        "ABILITY_EARTH_EATER",
+        "ABILITY_MERCILESS",
+        "ABILITY_EARTH_EATER"
+      ]
+    }
+  }
+}

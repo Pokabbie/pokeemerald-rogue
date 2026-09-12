@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_HONCHKROW_ROCKET": {
+      "BaseStats": {
+        "HP": 100,
+        "Attack": 125,
+        "Defense": 60,
+        "Speed": 85,
+        "SpAttack": 105,
+        "SpDefense": 60
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_PSYCHO_CUT",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_NIGHT_SLASH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_ZEN_HEADBUTT",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_BRAVE_BIRD",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_ROOST",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_PSYCHO_CUT",
+    "MOVE_KNOCK_OFF",
+    "MOVE_NIGHT_SLASH",
+    "MOVE_ZEN_HEADBUTT",
+    "MOVE_BRAVE_BIRD",
+    "MOVE_TAUNT",
+    "MOVE_ROOST",
+    "MOVE_HEAT_WAVE",
+    "MOVE_CLOSE_COMBAT",
+    "MOVE_NASTY_PLOT"
+  ],
+  "CompetitiveSets": []
+}

@@ -33,6 +33,7 @@
 #include "rogue_popup.h"
 #include "rogue_safari.h"
 #include "rogue_settings.h"
+#include "rogue_team_rocket.h"
 
 // Care with increasing FOLLOWMON_MAX_SPAWN_SLOTS as it can cause lag
 
@@ -134,9 +135,13 @@ static u16 MonSpeciesToFollowSpecies(u16 species, bool8 isShiny)
         species = SPECIES_ALCREMIE;
     }
 
+    // Until custom follower graphics exist, Team Rocket variants use
+    // their base species follower graphics.
+    species = RogueTeamRocket_GetBaseSpecies(species);
+
     switch (species)
     {
-    case SPECIES_PICHU_SPIKY_EARED:
+case SPECIES_PICHU_SPIKY_EARED:
         species = SPECIES_PICHU;
         break;
 

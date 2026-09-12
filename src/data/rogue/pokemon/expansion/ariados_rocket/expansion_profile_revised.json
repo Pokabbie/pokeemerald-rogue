@@ -1,0 +1,67 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_ARIADOS_ROCKET": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 85,
+        "SpAttack": 70,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_STRING_SHOT",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_KNOCK_OFF",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_STICKY_WEB",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_TAUNT",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_TOXIC",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_STRING_SHOT",
+    "MOVE_KNOCK_OFF",
+    "MOVE_STICKY_WEB",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_LEECH_LIFE",
+    "MOVE_TAUNT",
+    "MOVE_TOXIC",
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_POISON_JAB",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_U_TURN"
+  ],
+  "CompetitiveSets": []
+}

@@ -291,6 +291,42 @@
                 ]
             },
             {
+                "#if": "defined(ROGUE_EXPANSION)",
+                "name": "Team Rocket Style",
+                "description": "Win a full Standard Run, with the Pokédex set to Team Rocket and only Team Rocket Trainers enabled.",
+                "triggers":
+                [
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsStandardRunActive",
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "IsPokedexVariant",
+                        "params": [ "POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "RUN_START" ],
+                        "condition": "AreOnlyTheseTrainersActive",
+                        "params": [ "CONFIG_TOGGLE_TRAINER_TEAM_ROCKET" ],
+                        "fail": "FAIL"
+                    },
+                    {
+                        "on": [ "ENTER_HALL_OF_FAME" ],
+                        "condition": "Always",
+                        "pass": "SUCCESS"
+                    }
+                ],
+                "rewards":
+                [
+                    {
+                        "species": "SPECIES_GOLISOPOD_ROCKET"
+                    }
+                ]
+            },
+            {
                 "name": "Orre Style",
                 "description": "Win a full Run with: Snag Curse, Doubles battle format & having Umbreon and Espeon in your party when you enter the Hall of Fame.",
                 "triggers":

@@ -1367,7 +1367,8 @@ static void Cmd_attackcanceler(void)
     }
 
     if (gSpecialStatuses[gBattlerAttacker].parentalBondState == PARENTAL_BOND_OFF
-    && GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
+    && (GetBattlerAbility(gBattlerAttacker) == ABILITY_PARENTAL_BOND
+     || GetBattlerAbility(gBattlerAttacker) == ABILITY_FAMILY_BUSINESS)
     && IsMoveAffectedByParentalBond(gCurrentMove, gBattlerAttacker)
     && !(gAbsentBattlerFlags & gBitTable[gBattlerTarget])
     && gBattleStruct->zmove.toBeUsed[gBattlerAttacker] == MOVE_NONE)
@@ -3222,7 +3223,20 @@ static void SetMoveEffectExt(bool32 primary, u32 certain, u8 trigger, u8 const* 
         }
         if (statusChanged == TRUE)
         {
-            BattleScriptPush(nextInstr);
+            // Neurotoxin triggers only when this battler successfully inflicts
+            // poison or toxic poison on another battler.
+            if ((sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_POISON
+              || sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_TOXIC_POISON)
+             && GetBattlerAbility(gBattlerAttacker) == ABILITY_NEUROTOXIN
+             && gBattlerAttacker != gEffectBattler)
+            {
+                BattleScriptPush(nextInstr);
+                BattleScriptPush(BattleScript_NeurotoxinActivates);
+            }
+            else
+            {
+                BattleScriptPush(nextInstr);
+            }
 
             if (sStatusFlagsForMoveEffects[gBattleScripting.moveEffect] == STATUS1_SLEEP)
             {
@@ -3620,7 +3634,8 @@ static void SetMoveEffectExt(bool32 primary, u32 certain, u8 trigger, u8 const* 
                 gBattleMoveDamage = (gBattleMons[gEffectBattler].maxHP) / 4;
                 if (gBattleMoveDamage == 0)
                     gBattleMoveDamage = 1;
-                if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND)
+                if ((GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND
+                 || GetBattlerAbility(gEffectBattler) == ABILITY_FAMILY_BUSINESS))
                     gBattleMoveDamage *= 2;
 
                 BattleScriptPush(nextInstr);

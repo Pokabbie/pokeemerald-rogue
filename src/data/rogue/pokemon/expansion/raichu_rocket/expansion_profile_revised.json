@@ -1,0 +1,40 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_RAICHU_ROCKET": {
+      "BaseStats": {
+        "HP": 60,
+        "Attack": 90,
+        "Defense": 55,
+        "Speed": 110,
+        "SpAttack": 90,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    { "Move": "MOVE_FAKE_OUT", "Level": 1 },
+    { "Move": "MOVE_THUNDERBOLT", "Level": 10 },
+    { "Move": "MOVE_KNOCK_OFF", "Level": 20 },
+    { "Move": "MOVE_NASTY_PLOT", "Level": 30 },
+    { "Move": "MOVE_VOLT_SWITCH", "Level": 40 },
+    { "Move": "MOVE_DARK_PULSE", "Level": 50 },
+    { "Move": "MOVE_SUCKER_PUNCH", "Level": 60 },
+    { "Move": "MOVE_PARTING_SHOT", "Level": 70 }
+  ],
+  "TutorMoves": [
+    "MOVE_FAKE_OUT",
+    "MOVE_THUNDERBOLT",
+    "MOVE_KNOCK_OFF",
+    "MOVE_NASTY_PLOT",
+    "MOVE_VOLT_SWITCH",
+    "MOVE_DARK_PULSE",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_PARTING_SHOT"
+  ],
+  "CompetitiveSets": []
+}

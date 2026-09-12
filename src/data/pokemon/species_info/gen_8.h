@@ -2415,6 +2415,52 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     },
 
+[SPECIES_TOXTRICITY_ROCKET] =
+{
+    .baseHP        = 80,
+    .baseAttack    = 105,
+    .baseDefense   = 80,
+    .baseSpeed     = 95,
+    .baseSpAttack  = 130,
+    .baseSpDefense = 80,
+    .types = { TYPE_ELECTRIC, TYPE_DARK },
+    .catchRate = 45,
+    .expYield = 176,
+    .evYield_SpAttack = 2,
+    .genderRatio = PERCENT_FEMALE(50),
+    .eggCycles = 25,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_SLOW,
+    .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+    .bodyColor = BODY_COLOR_PURPLE,
+    .speciesName = _("TR Toxtric"),
+    .natDexNum = NATIONAL_DEX_TOXTRICITY,
+    .categoryName = _("Punk"),
+    .formSpeciesIdTable = sToxtricityFormSpeciesIdTable,
+    .abilities = { ABILITY_ADAPTABILITY, ABILITY_NONE, ABILITY_ADAPTABILITY },
+    .cryId = CRY_TOXTRICITY_AMPED,
+    .height = 16,
+    .weight = 400,
+    .description = POKEDEX_DESC_STRING(
+        "When this Pokémon sounds as if it's\n"
+        "strumming a guitar, it's actually clawing\n"
+        "at the protrusions on its chest to\n"
+        "generate electricity."),
+    .pokemonScale = 259,
+    .pokemonOffset = 1,
+    .trainerScale = 296,
+    .trainerOffset = 1,
+    FRONT_PIC(ToxtricityAmped, 48, 64),
+    .frontPicYOffset = 1,
+    .frontAnimFrames = sAnims_Toxtricity,
+    BACK_PIC(ToxtricityAmped, 56, 64),
+    .backPicYOffset = 0,
+    PALETTES(ToxtricityRocket),
+    ICON(ToxtricityAmped, 2),
+    .footprint = gMonFootprint_Toxtricity,
+    LEARNSETS(ToxtricityAmped),
+},
+
 #if P_GIGANTAMAX_FORMS
     [SPECIES_TOXTRICITY_AMPED_GIGANTAMAX] =
     {
@@ -3176,6 +3222,51 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         PALETTES(Grimmsnarl),
         ICON(Grimmsnarl, 0),
     },
+
+[SPECIES_GRIMMSNARL_ROCKET] =
+{
+    .baseHP        = 100,
+    .baseAttack    = 130,
+    .baseDefense   = 90,
+    .baseSpeed     = 75,
+    .baseSpAttack  = 85,
+    .baseSpDefense = 100,
+    .types = { TYPE_FAIRY, TYPE_FIGHTING },
+    .catchRate = 45,
+    .expYield = 255,
+    .evYield_Attack = 3,
+    .genderRatio = MON_MALE,
+    .eggCycles = 20,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_FAST,
+    .eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE },
+    .abilities = { ABILITY_FUR_COAT, ABILITY_NONE, ABILITY_FUR_COAT },
+    .bodyColor = BODY_COLOR_PURPLE,
+    .speciesName = _("TR Grimms"),
+    .cryId = CRY_GRIMMSNARL,
+    .natDexNum = NATIONAL_DEX_GRIMMSNARL,
+    .categoryName = _("Bulk Up"),
+    .footprint = gMonFootprint_Grimmsnarl,
+    LEARNSETS(Grimmsnarl),
+    .formSpeciesIdTable = sGrimmsnarlFormSpeciesIdTable,
+    .height = 15,
+    .weight = 610,
+    .description = POKEDEX_DESC_STRING(
+        "With the hair wrapped around its body\n"
+        "helping to enhance its muscles, this\n"
+        "Pokémon can overwhelm even Machamp."),
+    .pokemonScale = 268,
+    .pokemonOffset = 2,
+    .trainerScale = 271,
+    .trainerOffset = 0,
+    FRONT_PIC(Grimmsnarl, 64, 64),
+    .frontPicYOffset = 2,
+    .frontAnimFrames = sAnims_Grimmsnarl,
+    BACK_PIC(Grimmsnarl, 64, 48),
+    .backPicYOffset = 10,
+    PALETTES(GrimmsnarlRocket),
+    ICON(Grimmsnarl, 0),
+},
 
 #if P_GIGANTAMAX_FORMS
     [SPECIES_GRIMMSNARL_GIGANTAMAX] =

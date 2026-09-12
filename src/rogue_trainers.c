@@ -85,6 +85,199 @@ static void ReorderPartyMons(u16 trainerNum, struct Pokemon *party, u8 monCount)
 static void AssignAnySpecialMons(u16 trainerNum, struct Pokemon *party, u8 monCount);
 static bool8 IsChoiceItem(u16 itemId);
 
+
+#ifdef ROGUE_EXPANSION
+
+// ============================================================
+// Custom Team Rocket League
+//
+// These teams are intentionally fixed rather than sampled from
+// the normal Rogue trainer query system.
+//
+// The sixth slot is the trainer's intended ace.
+// ============================================================
+
+static const u16 sTeamRocketLeagueGym1[PARTY_SIZE] =
+{
+    SPECIES_GALVANTULA,
+    SPECIES_HERACROSS,
+    SPECIES_BEEDRILL,
+    SPECIES_SCIZOR,
+    SPECIES_VOLCARONA,
+    SPECIES_YANMEGA_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym2[PARTY_SIZE] =
+{
+    SPECIES_ELECTRODE_HISUIAN,
+    SPECIES_MAGNEZONE,
+    SPECIES_ELECTIVIRE,
+    SPECIES_MORPEKO,
+    SPECIES_JOLTEON,
+    SPECIES_RAICHU_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym3[PARTY_SIZE] =
+{
+    SPECIES_SLOWBRO_GALARIAN,
+    SPECIES_CROBAT,
+    SPECIES_TOXAPEX,
+    SPECIES_MUK_ALOLAN,
+    SPECIES_VENUSAUR,
+    SPECIES_DRAPION_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym4[PARTY_SIZE] =
+{
+    SPECIES_ALAKAZAM,
+    SPECIES_RAPIDASH_GALARIAN,
+    SPECIES_GRUMPIG,
+    SPECIES_MR_RIME,
+    SPECIES_SCREAM_TAIL,
+    SPECIES_HYPNO_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym5[PARTY_SIZE] =
+{
+    SPECIES_INFERNAPE,
+    SPECIES_TOXICROAK,
+    SPECIES_IRON_VALIANT,
+    SPECIES_PANGORO,
+    SPECIES_MEDICHAM,
+    SPECIES_MACHAMP_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym6[PARTY_SIZE] =
+{
+    SPECIES_MAROWAK_ALOLAN,
+    SPECIES_ARMAROUGE,
+    SPECIES_SCOVILLAIN,
+    SPECIES_CERULEDGE,
+    SPECIES_HEATRAN,
+    SPECIES_MAGMORTAR_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym7[PARTY_SIZE] =
+{
+    SPECIES_REVAVROOM,
+    SPECIES_SANDSLASH_ALOLAN,
+    SPECIES_AEGISLASH_SHIELD,
+    SPECIES_EXCADRILL,
+    SPECIES_METAGROSS,
+    SPECIES_WEEZING_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueGym8[PARTY_SIZE] =
+{
+    SPECIES_PERSIAN,
+    SPECIES_CYCLIZAR,
+    SPECIES_ZOROARK_HISUIAN,
+    SPECIES_URSALUNA,
+    SPECIES_SNORLAX,
+    SPECIES_SLAKING_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueElite1[PARTY_SIZE] =
+{
+    SPECIES_GENGAR,
+    SPECIES_ANNIHILAPE,
+    SPECIES_DRAGAPULT,
+    SPECIES_BANETTE_ROCKET,
+    SPECIES_DUSKNOIR,
+    SPECIES_RUNERIGUS,
+};
+
+static const u16 sTeamRocketLeagueElite2[PARTY_SIZE] =
+{
+    SPECIES_MAWILE,
+    SPECIES_TINKATON,
+    SPECIES_MIMIKYU,
+    SPECIES_GRIMMSNARL,
+    SPECIES_IRON_VALIANT,
+    SPECIES_MISMAGIUS_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueElite3[PARTY_SIZE] =
+{
+    SPECIES_SKUNTANK,
+    SPECIES_OBSTAGOON,
+    SPECIES_BRUTE_BONNET,
+    SPECIES_MANDIBUZZ,
+    SPECIES_KROOKODILE,
+    SPECIES_GYARADOS_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueElite4[PARTY_SIZE] =
+{
+    SPECIES_PERRSERKER,
+    SPECIES_GENESECT,
+    SPECIES_AGGRON,
+    SPECIES_IRON_TREADS,
+    SPECIES_ARCHALUDON,
+    SPECIES_SALAZZLE_ROCKET,
+};
+
+static const u16 sTeamRocketLeagueChampion[PARTY_SIZE] =
+{
+    SPECIES_DRAGONITE_ROCKET,
+    SPECIES_KANGASKHAN_ROCKET,
+    SPECIES_NIDOKING_ROCKET,
+    SPECIES_NIDOQUEEN_ROCKET,
+    SPECIES_GARCHOMP_ROCKET,
+    SPECIES_TYRANITAR_ROCKET,
+};
+
+static bool8 IsTeamRocketLeagueTrainer(u16 trainerNum)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+    return (trainer->trainerFlags & TRAINER_FLAG_REGION_TEAM_ROCKET) != 0;
+}
+
+static u16 GetTeamRocketLeagueSpecies(u16 trainerNum, u8 slot)
+{
+    const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+    const u16* team = NULL;
+
+    AGB_ASSERT(slot < PARTY_SIZE);
+
+    if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_1)
+        team = sTeamRocketLeagueGym1;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_2)
+        team = sTeamRocketLeagueGym2;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_3)
+        team = sTeamRocketLeagueGym3;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_4)
+        team = sTeamRocketLeagueGym4;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_5)
+        team = sTeamRocketLeagueGym5;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_6)
+        team = sTeamRocketLeagueGym6;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_7)
+        team = sTeamRocketLeagueGym7;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_GYM_8)
+        team = sTeamRocketLeagueGym8;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_ELITE_1)
+        team = sTeamRocketLeagueElite1;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_ELITE_2)
+        team = sTeamRocketLeagueElite2;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_ELITE_3)
+        team = sTeamRocketLeagueElite3;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_ELITE_4)
+        team = sTeamRocketLeagueElite4;
+    else if(trainer->classFlags & CLASS_FLAG_BOSS_CHAMP)
+        team = sTeamRocketLeagueChampion;
+
+    AGB_ASSERT(team != NULL);
+
+    if(team == NULL)
+        return SPECIES_NONE;
+
+    return team[slot];
+}
+
+#endif // ROGUE_EXPANSION
+
 u16 Rogue_GetDynamicTrainer(u16 i)
 {
     AGB_ASSERT(i < ARRAY_COUNT(gRogueRun.dynamicTrainerNums));
@@ -921,6 +1114,7 @@ static void GetGlobalFilter(u8 difficulty, struct TrainerFliter* filter)
 
     if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_PALDEA))
         filter->trainerFlagsInclude |= TRAINER_FLAG_REGION_PALDEA;
+
 #endif
 
     if(gRogueRun.gameRules.trainerOrder == TRAINER_ORDER_RAINBOW)
@@ -942,6 +1136,14 @@ static u16 Rogue_ChooseTrainerId(struct TrainerFliter* filter, u8 difficulty, u1
     u16 trainerNum = gRogueTrainerCount;
     struct TrainerFliter globalFilter;
     GetGlobalFilter(difficulty, &globalFilter);
+
+#ifdef ROGUE_EXPANSION
+    // Team Rocket League is a dedicated boss group rather than a normal
+    // regional trainer pool. Explicit Rocket queries must therefore use
+    // the Rocket region directly instead of the generic region filter.
+    if(filter->trainerFlagsInclude & TRAINER_FLAG_REGION_TEAM_ROCKET)
+        globalFilter.trainerFlagsInclude = TRAINER_FLAG_REGION_TEAM_ROCKET;
+#endif
 
     RogueTrainerQuery_Begin();
 
@@ -1014,6 +1216,73 @@ static u16 Rogue_ChooseBossTrainerId(u16 difficulty, u16* historyBuffer, u16 his
     struct TrainerFliter filter;
     GetDefaultFilter(&filter);
     filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_BOSS;
+
+#ifdef ROGUE_EXPANSION
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET))
+    {
+        // Team Rocket League has an authored progression and should not
+        // be shuffled by Default/Rainbow/Official trainer order.
+        filter.trainerFlagsInclude |= TRAINER_FLAG_REGION_TEAM_ROCKET;
+
+        switch(difficulty)
+        {
+        case ROGUE_GYM_START_DIFFICULTY + 0:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_1;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 1:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_2;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 2:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_3;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 3:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_4;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 4:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_5;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 5:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_6;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 6:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_7;
+            break;
+        case ROGUE_GYM_START_DIFFICULTY + 7:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_GYM_8;
+            break;
+
+        case ROGUE_ELITE_START_DIFFICULTY + 0:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_ELITE_1;
+            break;
+        case ROGUE_ELITE_START_DIFFICULTY + 1:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_ELITE_2;
+            break;
+        case ROGUE_ELITE_START_DIFFICULTY + 2:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_ELITE_3;
+            break;
+        case ROGUE_ELITE_START_DIFFICULTY + 3:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_ELITE_4;
+            break;
+
+        case ROGUE_CHAMP_START_DIFFICULTY:
+        case ROGUE_FINAL_CHAMP_DIFFICULTY:
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_CHAMP;
+            break;
+
+        default:
+            AGB_ASSERT(FALSE);
+            filter.classFlagsInclude = CLASS_FLAG_BOSS_ANY;
+            break;
+        }
+
+        return Rogue_ChooseTrainerId(
+            &filter,
+            difficulty,
+            historyBuffer,
+            historyBufferCapacity
+        );
+    }
+#endif
 
     switch (gRogueRun.gameRules.trainerOrder)
     {
@@ -1159,11 +1428,36 @@ void Rogue_ChooseBossTrainersForNewAdventure()
 
 static u16 Rogue_ChooseRivalTrainerId()
 {
-    struct TrainerFliter filter;
-    GetDefaultFilter(&filter);
-    filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_RIVAL;
+#ifdef ROGUE_EXPANSION
+    if(Rogue_GetConfigToggle(CONFIG_TOGGLE_TRAINER_TEAM_ROCKET))
+    {
+        u16 trainerNum;
 
-    return Rogue_ChooseTrainerId(&filter, 0, NULL, 0);
+        // Kanto currently has one rival trainer entry: Blue.
+        // Reuse that existing record, portrait, dialogue and rival logic.
+        for(trainerNum = 0; trainerNum < gRogueTrainerCount; ++trainerNum)
+        {
+            const struct RogueTrainer* trainer = Rogue_GetTrainer(trainerNum);
+
+            if((trainer->trainerFlags & TRAINER_FLAG_REGION_KANTO)
+                && (trainer->trainerFlags & TRAINER_FLAG_CLASS_RIVAL))
+            {
+                return trainerNum;
+            }
+        }
+
+        // Should never happen with the normal Kanto trainer data.
+        AGB_ASSERT(FALSE);
+    }
+#endif
+
+    {
+        struct TrainerFliter filter;
+        GetDefaultFilter(&filter);
+        filter.trainerFlagsInclude |= TRAINER_FLAG_CLASS_RIVAL;
+
+        return Rogue_ChooseTrainerId(&filter, 0, NULL, 0);
+    }
 }
 
 static u8 SelectRivalWeakestMon(u16* speciesBuffer, u8 partySize)
@@ -1864,6 +2158,12 @@ static u8 CalculatePartyMonCount(u16 trainerNum, u8 monCapacity, u8 monLevel)
     if(monLevel == 1)
         return 1;
 
+#ifdef ROGUE_EXPANSION
+    // Team Rocket League bosses always use their complete fixed team.
+    if(IsTeamRocketLeagueTrainer(trainerNum))
+        return min(PARTY_SIZE, monCapacity);
+#endif
+
     if(gRogueRun.gameRules.forceEndGameTrainers || Rogue_IsBattleSimTrainer(trainerNum))
     {
         return 6;
@@ -2168,7 +2468,13 @@ u8 Rogue_CreateTrainerParty(u16 trainerNum, struct Pokemon* party, u8 monCapacit
         monCount = CalculateEnemyPartyCount();
     }
 
+#ifdef ROGUE_EXPANSION
+    // Preserve the authored Team Rocket ordering so slot 6 remains the ace.
+    if(!IsTeamRocketLeagueTrainer(trainerNum))
+        ReorderPartyMons(trainerNum, party, monCount);
+#else
     ReorderPartyMons(trainerNum, party, monCount);
+#endif
     AssignAnySpecialMons(trainerNum, party, monCount);
     
     CalculateEnemyPartyCount();
@@ -2280,7 +2586,12 @@ static u8 CreateTrainerPartyInternal(u16 trainerNum, struct Pokemon* party, u8 m
                 scratch.shouldRegenerateQuery = TRUE;
             }
 
-            species = SampleNextSpecies(&scratch);
+#ifdef ROGUE_EXPANSION
+            if(IsTeamRocketLeagueTrainer(trainerNum))
+                species = GetTeamRocketLeagueSpecies(trainerNum, i);
+            else
+#endif
+                species = SampleNextSpecies(&scratch);
 
             if(Rogue_IsBattleSimTrainer(trainerNum))
                 CreateMon(&party[i], species, 50, fixedIV, FALSE, 0, OT_ID_RANDOM_NO_SHINY, 0);

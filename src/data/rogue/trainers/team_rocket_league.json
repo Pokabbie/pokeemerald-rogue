@@ -1,0 +1,358 @@
+{
+    "condition": "defined(ROGUE_EXPANSION)",
+    "defaults": {
+        "trainer_flags": [
+            "REGION_TEAM_ROCKET",
+            "CLASS_BOSS"
+        ],
+        "trainer_class": "TRAINER_CLASS_LEADER",
+        "music_player": "team_rocket",
+        "encounter_text": [
+            {
+                "PRE_BATTLE_TAUNT": "{STR_VAR_1}: Welcome to the Team Rocket League.",
+                "POST_BATTLE_TAUNT": "So you made it through.",
+                "POST_BATTLE_CLOSER": "Keep moving. Team Rocket is waiting."
+            }
+        ],
+        "team_generator": {
+            "subsets": [
+                {
+                    "max_samples": 6
+                }
+            ]
+        }
+    },
+    "trainers": {
+        "gyms": [
+            {
+                "name": "BURGH",
+                "type_assignment": "BUG",
+                "object_event": "OBJ_EVENT_GFX_UNOVA_BURGH",
+                "trainer_pic": "TRAINER_PIC_UNOVA_BURGH",
+                "class_flags": [
+                    "BOSS_GYM_1"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Team Rocket doesn't need brute force.",
+                        "PRE_BATTLE_TAUNT": "Even the smallest pests can bring you down.",
+                        "POST_BATTLE_TAUNT": "So you made it through.",
+                        "POST_BATTLE_CLOSER": "Keep moving. Team Rocket is waiting."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "LT. SURGE",
+                "type_assignment": "ELECTRIC",
+                "object_event": "OBJ_EVENT_GFX_KANTO_LTSURGE",
+                "trainer_pic": "TRAINER_PIC_KANTO_LTSURGE",
+                "class_flags": [
+                    "BOSS_GYM_2"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You've walked straight into Team Rocket territory.",
+                        "PRE_BATTLE_TAUNT": "Let's see how long you last under high voltage!",
+                        "POST_BATTLE_TAUNT": "Not bad. You can take a shock.",
+                        "POST_BATTLE_CLOSER": "Don't get comfortable. It only gets harder from here."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "ROXIE",
+                "type_assignment": "POISON",
+                "object_event": "OBJ_EVENT_GFX_UNOVA_ROXIE",
+                "trainer_pic": "TRAINER_PIC_UNOVA_ROXIE",
+                "class_flags": [
+                    "BOSS_GYM_3"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Team Rocket rewards loyalty... and punishes interference.",
+                        "PRE_BATTLE_TAUNT": "One mistake is all my poison needs.",
+                        "POST_BATTLE_TAUNT": "You were more troublesome than expected.",
+                        "POST_BATTLE_CLOSER": "Enjoy your victory while it lasts."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "SABRINA",
+                "type_assignment": "PSYCHIC",
+                "object_event": "OBJ_EVENT_GFX_KANTO_SABRINA",
+                "trainer_pic": "TRAINER_PIC_KANTO_SABRINA",
+                "class_flags": [
+                    "BOSS_GYM_4"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You look awfully confident. That's usually easy to fix.",
+                        "PRE_BATTLE_TAUNT": "Let's see what your mind does under pressure.",
+                        "POST_BATTLE_TAUNT": "Hah! Maybe I underestimated you.",
+                        "POST_BATTLE_CLOSER": "Go on, then. The others won't be so entertaining."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "BRUNO",
+                "type_assignment": "FIGHTING",
+                "object_event": "OBJ_EVENT_GFX_KANTO_BRUNO",
+                "trainer_pic": "TRAINER_PIC_KANTO_BRUNO",
+                "class_flags": [
+                    "BOSS_GYM_5"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Power decides who gets to stand at the top.",
+                        "PRE_BATTLE_TAUNT": "Show me whether yours is real!",
+                        "POST_BATTLE_TAUNT": "Your strength is undeniable.",
+                        "POST_BATTLE_CLOSER": "But strength alone won't defeat Team Rocket."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "BLAINE",
+                "type_assignment": "FIRE",
+                "object_event": "OBJ_EVENT_GFX_KANTO_BLAINE",
+                "trainer_pic": "TRAINER_PIC_KANTO_BLAINE",
+                "class_flags": [
+                    "BOSS_GYM_6"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Team Rocket has given my experiments a new spark.",
+                        "PRE_BATTLE_TAUNT": "Let's turn up the heat!",
+                        "POST_BATTLE_TAUNT": "Impressive! You endured the flames.",
+                        "POST_BATTLE_CLOSER": "The fire ahead burns even hotter."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "WIKSTROM",
+                "type_assignment": "STEEL",
+                "object_event": "OBJ_EVENT_GFX_KALOS_WIKSTROM",
+                "trainer_pic": "TRAINER_PIC_KALOS_WIKSTROM",
+                "class_flags": [
+                    "BOSS_GYM_7"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Discipline. Precision. Obedience. That is Team Rocket.",
+                        "PRE_BATTLE_TAUNT": "Let's see whether you can break steel.",
+                        "POST_BATTLE_TAUNT": "So even steel can bend...",
+                        "POST_BATTLE_CLOSER": "Giovanni will not be as forgiving."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "GIOVANNI",
+                "type_assignment": "NORMAL",
+                "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
+                "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
+                "class_flags": [
+                    "BOSS_GYM_8"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You've done well to make it this far.",
+                        "PRE_BATTLE_TAUNT": "But every path through Team Rocket ends with me.",
+                        "POST_BATTLE_TAUNT": "So this is the strength that carried you here...",
+                        "POST_BATTLE_CLOSER": "Go. Prove that victory was more than luck."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ],
+        "elite": [
+            {
+                "name": "AGATHA",
+                "type_assignment": "GHOST",
+                "object_event": "OBJ_EVENT_GFX_KANTO_AGATHA",
+                "trainer_pic": "TRAINER_PIC_KANTO_AGATHA",
+                "class_flags": [
+                    "BOSS_ELITE_1"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Team Rocket has always understood the value of fear.",
+                        "PRE_BATTLE_TAUNT": "Your Pokemon will learn it too.",
+                        "POST_BATTLE_TAUNT": "Hmph. You don't frighten easily.",
+                        "POST_BATTLE_CLOSER": "There are darker things waiting ahead."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "VALERIE",
+                "type_assignment": "FAIRY",
+                "object_event": "OBJ_EVENT_GFX_KALOS_VALERIE",
+                "trainer_pic": "TRAINER_PIC_KALOS_VALERIE",
+                "class_flags": [
+                    "BOSS_ELITE_2"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Beauty is most useful when it hides something dangerous.",
+                        "PRE_BATTLE_TAUNT": "Try not to be deceived.",
+                        "POST_BATTLE_TAUNT": "How wonderfully unexpected.",
+                        "POST_BATTLE_CLOSER": "Perhaps you really are worthy of continuing."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "KAREN",
+                "type_assignment": "DARK",
+                "object_event": "OBJ_EVENT_GFX_JOHTO_KAREN",
+                "trainer_pic": "TRAINER_PIC_JOHTO_KAREN",
+                "class_flags": [
+                    "BOSS_ELITE_3"
+                ],
+                "preferred_mon_gender": "FEMALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Team Rocket has no use for weakness.",
+                        "PRE_BATTLE_TAUNT": "Show me a victory worth remembering.",
+                        "POST_BATTLE_TAUNT": "You fought without hesitation.",
+                        "POST_BATTLE_CLOSER": "Keep that resolve. You'll need it."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            },
+            {
+                "name": "STEVEN",
+                "type_assignment": "STEEL",
+                "object_event": "OBJ_EVENT_GFX_STEVEN",
+                "trainer_pic": "TRAINER_PIC_STEVEN",
+                "class_flags": [
+                    "BOSS_ELITE_4"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: Steel is forged through pressure, just as strong Trainers are.",
+                        "PRE_BATTLE_TAUNT": "Show me the strength that brought you this far.",
+                        "POST_BATTLE_TAUNT": "Excellent. Your team has been tempered well.",
+                        "POST_BATTLE_CLOSER": "Only Giovanni remains. Give him everything you have."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ],
+        "champ": [
+            {
+                "name": "GIOVANNI",
+                "type_assignment": "NONE",
+                "object_event": "OBJ_EVENT_GFX_KANTO_ROCKET_GIOVANNI",
+                "trainer_pic": "TRAINER_PIC_KANTO_GIOVANNI",
+                "class_flags": [
+                    "BOSS_CHAMP"
+                ],
+                "preferred_mon_gender": "MALE",
+                "encounter_text": [
+                    {
+                        "PRE_BATTLE_OPENNING": "{STR_VAR_1}: You've overcome every obstacle I placed before you.",
+                        "PRE_BATTLE_TAUNT": "Now face Team Rocket at its absolute peak.",
+                        "POST_BATTLE_TAUNT": "So... even my ultimate team has fallen.",
+                        "POST_BATTLE_CLOSER": "You have earned the right to call yourself Champion."
+                    }
+                ],
+                "team_generator": {
+                    "subsets": [
+                        {
+                            "max_samples": 6
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -4863,6 +4863,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_DIRTY_TACTICS:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                gBattlerAttacker = battler;
+                BattleScriptPushCursorAndCallback(BattleScript_DirtyTacticsActivates);
+                effect++;
+            }
+            break;
+
+        case ABILITY_TRAPDOOR:
+            if (!gSpecialStatuses[battler].switchInAbilityDone)
+            {
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+                gBattlerAttacker = battler;
+                BattleScriptPushCursorAndCallback(BattleScript_TrapdoorActivates);
+                effect++;
+            }
+            break;
         case ABILITY_SUPERSWEET_SYRUP:
             if (!gSpecialStatuses[battler].switchInAbilityDone
                     && !(gBattleStruct->supersweetSyrup[GetBattlerSide(battler)] & gBitTable[gBattlerPartyIndexes[battler]]))
@@ -5839,6 +5858,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+        case ABILITY_STATIC_FIELD:
+            // Triggers after any successful damaging move.
+            // Unlike Static, contact and RNG are not required.
+            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && gBattleMons[gBattlerAttacker].hp != 0
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && TARGET_TURN_DAMAGED
+             && CanBeParalyzed(gBattlerAttacker))
+            {
+                gBattleScripting.moveEffect =
+                    MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_PARALYSIS;
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr =
+                    BattleScript_AbilityStatusEffect;
+                gHitMarker |= HITMARKER_STATUS_ABILITY_EFFECT;
+                effect++;
+            }
+            break;
+
         STATIC:
         case ABILITY_STATIC:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
@@ -6101,6 +6139,25 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
     case ABILITYEFFECT_MOVE_END_ATTACKER: // Same as above, but for attacker
         switch (gLastUsedAbility)
         {
+        case ABILITY_REDLINE:
+            // Redline: damaging moves cost 1/8 max HP.
+            // Charge only once after a multi-hit move is finished.
+            if ((IS_MOVE_PHYSICAL(move) || IS_MOVE_SPECIAL(move))
+             && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             && TARGET_TURN_DAMAGED
+             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && IsBattlerAlive(gBattlerAttacker)
+             && (gMultiHitCounter == 0 || gMultiHitCounter == 1))
+            {
+                gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 8;
+                if (gBattleMoveDamage == 0)
+                    gBattleMoveDamage = 1;
+
+                BattleScriptPushCursor();
+                gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
+                effect++;
+            }
+            break;
         case ABILITY_POISON_TOUCH:
             if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
              && gBattleMons[gBattlerTarget].hp != 0
@@ -9377,6 +9434,16 @@ static inline u32 CalcMoveBasePowerAfterModifiers(u32 move, u32 battlerAtk, u32 
         if (gBattleMoves[move].punchingMove)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
         break;
+    case ABILITY_NO_RULES:
+        if (gBattleMoves[move].punchingMove)
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
+    case ABILITY_PREDATOR_INSTINCT:
+        // Predator Instinct: +30% damage against targets below half HP.
+        if (gBattleMons[battlerDef].hp != 0
+         && gBattleMons[battlerDef].hp * 2 < gBattleMons[battlerDef].maxHP)
+            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
+        break;
     case ABILITY_SHEER_FORCE:
         if (gBattleMoves[move].sheerForceBoost)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
@@ -9933,6 +10000,15 @@ static inline u32 CalcDefenseStat(u32 move, u32 battlerAtk, u32 battlerDef, u32 
     // pokemon with unaware ignore defense stat changes while dealing damage
     if (atkAbility == ABILITY_UNAWARE || ApplyUnawareCurse(battlerAtk, defStage))
         defStage = DEFAULT_STAT_STAGE;
+
+    // No Rules ignores only positive Defense stages when
+    // using a physical punching move. Defense drops still apply.
+    if (atkAbility == ABILITY_NO_RULES
+     && gBattleMoves[move].punchingMove
+     && IS_MOVE_PHYSICAL(move)
+     && defStage > DEFAULT_STAT_STAGE)
+        defStage = DEFAULT_STAT_STAGE;
+
     // certain moves also ignore stat changes
     if (gBattleMoves[move].ignoresTargetDefenseEvasionStages)
         defStage = DEFAULT_STAT_STAGE;

@@ -1,0 +1,69 @@
+{
+  "BuildSettings": {
+    "LevelUpMoves": "REPLACE",
+    "TutorMoves": "REPLACE",
+    "CompetitiveSets": "REPLACE"
+  },
+  "PerSpecies": {
+    "SPECIES_FLYGON_ROCKET": {
+      "BaseStats": {
+        "HP": 80,
+        "Attack": 110,
+        "Defense": 80,
+        "Speed": 110,
+        "SpAttack": 70,
+        "SpDefense": 80
+      }
+    }
+  },
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRST_IMPRESSION",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_DRAGON_BREATH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_U_TURN",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_LEECH_LIFE",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_DRAGON_CLAW",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_DRAGON_DANCE",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_OUTRAGE",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FIRST_IMPRESSION",
+    "MOVE_DRAGON_BREATH",
+    "MOVE_U_TURN",
+    "MOVE_LEECH_LIFE",
+    "MOVE_DRAGON_CLAW",
+    "MOVE_CRUNCH",
+    "MOVE_DRAGON_DANCE",
+    "MOVE_OUTRAGE",
+    "MOVE_EARTHQUAKE",
+    "MOVE_ROCK_SLIDE",
+    "MOVE_BUG_BUZZ",
+    "MOVE_SWORDS_DANCE",
+    "MOVE_TAUNT"
+  ],
+  "CompetitiveSets": []
+}

@@ -1667,7 +1667,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Arbok, 2),
         .footprint = gMonFootprint_Arbok,
         LEARNSETS(Arbok),
+        .formSpeciesIdTable = sArbokFormSpeciesIdTable,
     },
+
+    [SPECIES_ARBOK_ROCKET] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 105,
+        .baseDefense   = 69,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 79,
+        .types = { TYPE_POISON, TYPE_DARK },
+        .catchRate = 90,
+        .expYield = 157,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_DRAGON },
+        .abilities = { ABILITY_NEUROTOXIN, ABILITY_NONE, ABILITY_NEUROTOXIN },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("TR Arbok"),
+        .cryId = CRY_ARBOK,
+        .natDexNum = NATIONAL_DEX_ARBOK,
+        .categoryName = _("Cobra"),
+        .height = 35,
+        .weight = 650,
+        .description = POKEDEX_DESC_STRING(
+            "A vicious Arbok conditioned by Team Rocket.\n"
+            "Its enhanced venom attacks the nervous\n"
+            "system, leaving poisoned prey too slow\n"
+            "to escape its crushing coils."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 296,
+        .trainerOffset = 2,
+        FRONT_PIC(Arbok, 64, 64),
+        .frontPicYOffset = 1,
+        .frontAnimFrames = sAnims_Arbok,
+        .frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(Arbok, 64, 64),
+        .backPicYOffset = 1,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(ArbokRocket),
+        ICON(Arbok, 2),
+        .footprint = gMonFootprint_Arbok,
+        LEARNSETS(Arbok),
+            .formSpeciesIdTable = sArbokFormSpeciesIdTable,
+},
 #endif //P_FAMILY_EKANS
 
 #if P_FAMILY_PIKACHU
@@ -2089,7 +2138,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
 #define RAICHU_SPEED (P_UPDATED_STATS >= GEN_6 ? 110 : 100)
 
-#define RAICHU_MISC_INFO                                    \
+#define RAICHU_MISC_INFO(NAME)                              \
         .catchRate = 75,                                    \
         .expYield = 218,                                    \
         .evYield_Speed = 3,                                 \
@@ -2098,7 +2147,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,                  \
         .growthRate = GROWTH_MEDIUM_FAST,                   \
         .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY },  \
-        .speciesName = _("Raichu"),                         \
+        .speciesName = _(NAME),                         \
         .cryId = CRY_RAICHU,                                \
         .natDexNum = NATIONAL_DEX_RAICHU,                   \
         .categoryName = _("Mouse"),                         \
@@ -2107,7 +2156,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_RAICHU] =
     {
-        RAICHU_MISC_INFO,
+        RAICHU_MISC_INFO("Raichu"),
         .baseHP        = 60,
         .baseAttack    = 90,
         .baseDefense   = 55,
@@ -2142,9 +2191,45 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formChangeTable = sRaichuFormChangeTable
     },
 
+    [SPECIES_RAICHU_ROCKET] =
+    {
+        RAICHU_MISC_INFO("TR Raichu"),
+        .baseHP        = 60,
+        .baseAttack    = 90,
+        .baseDefense   = 55,
+        .baseSpeed     = RAICHU_SPEED,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 80,
+        .types = { TYPE_ELECTRIC, TYPE_DARK },
+        .abilities = { ABILITY_DIRTY_TACTICS, ABILITY_NONE, ABILITY_DIRTY_TACTICS },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .height = 8,
+        .weight = 300,
+        .description = POKEDEX_DESC_STRING(
+            "A Raichu trained in Team Rocket's\n"
+            "underhanded battle style. It weakens\n"
+            "its opponents before striking with\n"
+            "electric and dark attacks."),
+        .pokemonScale = 426,
+        .pokemonOffset = 13,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Raichu, 64, 64),
+        FRONT_PIC_FEMALE(Raichu, 64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_Raichu,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        BACK_PIC(Raichu, 64, 56),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        PALETTES(RaichuRocket),
+        ICON(Raichu, 0),
+        LEARNSETS(Raichu),
+    },
+
     [SPECIES_RAICHU_MEGA_X] =
     {
-        RAICHU_MISC_INFO,
+        RAICHU_MISC_INFO("Raichu"),
         .baseHP        = 60,
         .baseAttack    = 135,
         .baseDefense   = 95,
@@ -2181,7 +2266,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_RAICHU_MEGA_Y] =
     {
-        RAICHU_MISC_INFO,
+        RAICHU_MISC_INFO("Raichu"),
         .baseHP        = 60,
         .baseAttack    = 100,
         .baseDefense   = 55,
@@ -2219,7 +2304,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_ALOLAN_FORMS
     [SPECIES_RAICHU_ALOLAN] =
     {
-        RAICHU_MISC_INFO,
+        RAICHU_MISC_INFO("Raichu"),
         .baseHP        = 60,
         .baseAttack    = 85,
         .baseDefense   = 50,
@@ -2579,7 +2664,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Nidoqueen, 2),
         .footprint = gMonFootprint_Nidoqueen,
         LEARNSETS(Nidoqueen),
+        .formSpeciesIdTable = sNidoqueenFormSpeciesIdTable,
     },
+
+    [SPECIES_NIDOQUEEN_ROCKET] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 100,
+        .baseDefense   = 100,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 85,
+        .baseSpDefense = 85,
+        .types = { TYPE_POISON, TYPE_STEEL },
+        .catchRate = 45,
+        .expYield = 227,
+        .evYield_HP = 3,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED },
+        .abilities = { ABILITY_EARTH_EATER, ABILITY_FUR_COAT, ABILITY_EARTH_EATER },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("TR NidQuen"),
+        .cryId = CRY_NIDOQUEEN,
+        .natDexNum = NATIONAL_DEX_NIDOQUEEN,
+        .categoryName = _("Drill"),
+        .height = 13,
+        .weight = 600,
+        .description = POKEDEX_DESC_STRING(
+            "It is adept at sending foes flying with\n"
+            "harsh tackles using its tough, scaly body.\n"
+            "This Pokémon is at its strongest when\n"
+            "it is defending its young."),
+        .pokemonScale = 293,
+        .pokemonOffset = 4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Nidoqueen, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_Nidoqueen,
+        .frontAnimId = ANIM_H_SHAKE,
+        BACK_PIC(Nidoqueen, 64, 56),
+        .backPicYOffset = 5,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(NidoqueenRocket),
+        ICON(Nidoqueen, 2),
+        .footprint = gMonFootprint_Nidoqueen,
+        LEARNSETS(Nidoqueen),
+            .formSpeciesIdTable = sNidoqueenFormSpeciesIdTable,
+},
 
     [SPECIES_NIDORAN_M] =
     {
@@ -2723,7 +2857,57 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Nidoking, 2),
         .footprint = gMonFootprint_Nidoking,
         LEARNSETS(Nidoking),
+        .formSpeciesIdTable = sNidokingFormSpeciesIdTable,
     },
+
+    [SPECIES_NIDOKING_ROCKET] =
+    {
+        .baseHP        = 81,
+        .baseAttack    = 120,
+        .baseDefense   = 80,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 85,
+        .baseSpDefense = 74,
+        .types = { TYPE_POISON, TYPE_DARK },
+        .catchRate = 45,
+        .expYield = 227,
+        .evYield_Attack = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_FIELD },
+        .abilities = { ABILITY_ADAPTABILITY, ABILITY_NONE, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_PURPLE,
+        .speciesName = _("TR NidKing"),
+        .cryId = CRY_NIDOKING,
+        .natDexNum = NATIONAL_DEX_NIDOKING,
+        .categoryName = _("Drill"),
+        .height = 14,
+        .weight = 620,
+        .description = POKEDEX_DESC_STRING(
+            "A Nidoking's thick tail packs enormously\n"
+            "destructive power capable of toppling\n"
+            "a metal transmission tower. Once it goes\n"
+            "on a rampage, there is no stopping it."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Nidoking, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_Nidoking,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 25,
+        BACK_PIC(Nidoking, 64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(NidokingRocket),
+        ICON(Nidoking, 2),
+        .footprint = gMonFootprint_Nidoking,
+        LEARNSETS(Nidoking),
+            .formSpeciesIdTable = sNidokingFormSpeciesIdTable,
+},
 #endif //P_FAMILY_NIDORAN
 
 #if P_FAMILY_CLEFAIRY
@@ -3413,7 +3597,57 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Crobat, 2),
         .footprint = gMonFootprint_Crobat,
         LEARNSETS(Crobat),
+        .formSpeciesIdTable = sCrobatFormSpeciesIdTable,
     },
+
+    [SPECIES_CROBAT_ROCKET] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 105,
+        .baseDefense   = 85,
+        .baseSpeed     = 130,
+        .baseSpAttack  = 70,
+        .baseSpDefense = 85,
+        .types = { TYPE_POISON, TYPE_DARK },
+        .catchRate = 90,
+        .expYield = 241,
+        .evYield_Speed = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 15,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .abilities = { ABILITY_SPEED_BOOST, ABILITY_LEVITATE, ABILITY_SPEED_BOOST },
+        .bodyColor = BODY_COLOR_PURPLE,
+        .speciesName = _("TR Crobat"),
+        .cryId = CRY_CROBAT,
+        .natDexNum = NATIONAL_DEX_CROBAT,
+        .categoryName = _("Bat"),
+        .height = 18,
+        .weight = 750,
+        .description = POKEDEX_DESC_STRING(
+            "Over the course of evolution, its hind legs\n"
+            "turned into wings. By alternately resting\n"
+            "its front and rear wings, it can fly all day\n"
+            "without having to stop."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 281,
+        .trainerOffset = 1,
+        FRONT_PIC(Crobat, 64, 56),
+        .frontPicYOffset = 6,
+        .frontAnimFrames = sAnims_Crobat,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        .enemyMonElevation = 9,
+        BACK_PIC(Crobat, 64, 64),
+        .backPicYOffset = 1,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        PALETTES(CrobatRocket),
+        ICON(Crobat, 2),
+        .footprint = gMonFootprint_Crobat,
+        LEARNSETS(Crobat),
+            .formSpeciesIdTable = sCrobatFormSpeciesIdTable,
+},
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_ZUBAT
 
@@ -4105,6 +4339,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Persian, 1),
         LEARNSETS(Persian),
     },
+
+    [SPECIES_PERSIAN_ROCKET] =
+    {
+        .catchRate = 90,
+        .expYield = 154,
+        .evYield_Speed = 2,
+        .itemRare = ITEM_QUICK_CLAW,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+        .speciesName = _("TR Persian"),
+        .cryId = CRY_PERSIAN,
+        .natDexNum = NATIONAL_DEX_PERSIAN,
+        .categoryName = _("Classy Cat"),
+        .footprint = gMonFootprint_Persian,
+        .baseHP        = 65,
+        .baseAttack    = 110,
+        .baseDefense   = 70,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 70,
+        .types = { TYPE_GHOST, TYPE_DARK },
+        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_NONE, ABILITY_TOUGH_CLAWS },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .height = 10,
+        .weight = 320,
+        .description = POKEDEX_DESC_STRING(
+            "A Persian's six bold whiskers sense air\n"
+            "movements to determine what is in its\n"
+            "vicinity. It becomes docile if grabbed\n"
+            "by the whiskers."),
+        .pokemonScale = 320,
+        .pokemonOffset = 10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Persian, 64, 56),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_Persian,
+        .frontAnimId = ANIM_V_STRETCH,
+        .frontAnimDelay = 20,
+        BACK_PIC(Persian, 64, 56),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        PALETTES(PersianRocket),
+        ICON(Persian, 1),
+        LEARNSETS(Persian),
+            .formSpeciesIdTable = sPersianFormSpeciesIdTable,
+},
 
 #if P_ALOLAN_FORMS
     [SPECIES_MEOWTH_ALOLAN] =
@@ -5293,6 +5577,55 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         PALETTES(Machamp),
         ICON(Machamp, 0),
     },
+
+    [SPECIES_MACHAMP_ROCKET] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 145,
+        .baseDefense   = 85,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 95,
+        .types = { TYPE_FIGHTING, TYPE_DARK },
+        .catchRate = 45,
+        .expYield = 227,
+        .evYield_Attack = 3,
+        .itemRare = ITEM_FOCUS_BAND,
+        .genderRatio = PERCENT_FEMALE(25),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_NO_RULES, ABILITY_NONE, ABILITY_NO_RULES },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("TR Machamp"),
+        .cryId = CRY_MACHAMP,
+        .natDexNum = NATIONAL_DEX_MACHAMP,
+        .categoryName = _("Superpower"),
+        .footprint = gMonFootprint_Machamp,
+        LEARNSETS(Machamp),
+        .height = 16,
+        .weight = 1300,
+        .description = POKEDEX_DESC_STRING(
+            "A Machamp conditioned by Team Rocket.\n"
+            "It abandons martial discipline for\n"
+            "brutal tactics, overwhelming foes with\n"
+            "four ruthless fists."),
+        .pokemonScale = 280,
+        .pokemonOffset = 1,
+        .trainerScale = 269,
+        .trainerOffset = -1,
+        FRONT_PIC(Machamp, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Machamp,
+        .frontAnimId = ANIM_H_JUMPS,
+        BACK_PIC(Machamp, 64, 56),
+        .backPicYOffset = 7,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(MachampRocket),
+        ICON(Machamp, 0),
+            .formSpeciesIdTable = sMachampFormSpeciesIdTable,
+},
 
 #if P_GIGANTAMAX_FORMS
     [SPECIES_MACHAMP_GIGANTAMAX] =
@@ -7584,7 +7917,59 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Hypno, 2),
         .footprint = gMonFootprint_Hypno,
         LEARNSETS(Hypno),
+        .formSpeciesIdTable = sHypnoFormSpeciesIdTable,
     },
+
+    [SPECIES_HYPNO_ROCKET] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 73,
+        .baseDefense   = 80,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 92,
+        .types = { TYPE_PSYCHIC, TYPE_GHOST },
+        .catchRate = 75,
+        .expYield = 169,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_NONE, ABILITY_MAGIC_BOUNCE },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("TR Hypno"),
+        .cryId = CRY_HYPNO,
+        .natDexNum = NATIONAL_DEX_HYPNO,
+        .categoryName = _("Hypnosis"),
+        .height = 16,
+        .weight = 756,
+        .description = POKEDEX_DESC_STRING(
+            "The arcing movement and glitter of the\n"
+            "pendulum in a Hypno's hand lull the foe\n"
+            "into deep hypnosis. While searching for\n"
+            "prey, it polishes the pendulum."),
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        FRONT_PIC(Hypno, 64, 64),
+        FRONT_PIC_FEMALE(Hypno, 64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_Hypno,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .frontAnimDelay = 40,
+        BACK_PIC(Hypno, 64, 56),
+        BACK_PIC_FEMALE(Hypno, 64, 56),
+        .backPicYOffset = 5,
+        .backAnimId = BACK_ANIM_SHRINK_GROW_VIBRATE,
+        PALETTES(HypnoRocket),
+        ICON(Hypno, 2),
+        .footprint = gMonFootprint_Hypno,
+        LEARNSETS(Hypno),
+            .formSpeciesIdTable = sHypnoFormSpeciesIdTable,
+},
 #endif //P_FAMILY_DROWZEE
 
 #if P_FAMILY_KRABBY
@@ -8244,7 +8629,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Hitmonlee, 2),
         .footprint = gMonFootprint_Hitmonlee,
         LEARNSETS(Hitmonlee),
+        .formSpeciesIdTable = sHitmonleeFormSpeciesIdTable,
     },
+
+    [SPECIES_HITMONLEE_ROCKET] =
+    {
+        .baseHP        = 50,
+        .baseAttack    = 135,
+        .baseDefense   = 60,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 115,
+        .types = { TYPE_ELECTRIC, TYPE_FIGHTING },
+        .catchRate = 45,
+        .expYield = 159,
+        .evYield_Attack = 2,
+        .genderRatio = MON_MALE,
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_STATIC_FIELD, ABILITY_NONE, ABILITY_STATIC_FIELD },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("TR HitLee"),
+        .cryId = CRY_HITMONLEE,
+        .natDexNum = NATIONAL_DEX_HITMONLEE,
+        .categoryName = _("Kicking"),
+        .height = 15,
+        .weight = 498,
+        .description = POKEDEX_DESC_STRING(
+            "A Hitmonlee modified by Team Rocket.\n"
+            "Electrical stimulation supercharges its\n"
+            "springlike legs. Striking its body can\n"
+            "shock an attacker into paralysis."),
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 259,
+        .trainerOffset = 1,
+        FRONT_PIC(Hitmonlee, 64, 64),
+        .frontPicYOffset = 5,
+        .frontAnimFrames = sAnims_Hitmonlee,
+        .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
+        BACK_PIC(Hitmonlee, 64, 56),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_H_SLIDE,
+        PALETTES(HitmonleeRocket),
+        ICON(Hitmonlee, 2),
+        .footprint = gMonFootprint_Hitmonlee,
+        LEARNSETS(Hitmonlee),
+            .formSpeciesIdTable = sHitmonleeFormSpeciesIdTable,
+},
 
     [SPECIES_HITMONCHAN] =
     {
@@ -8557,6 +8991,61 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Weezing, 2),
         LEARNSETS(Weezing),
     },
+
+    [SPECIES_WEEZING_ROCKET] =
+    {
+        .baseHP        = 65,
+        .baseAttack    = 95,
+        .baseDefense   = 120,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 80,
+        .catchRate = 60,
+        .expYield = 172,
+        .evYield_Defense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
+        .noFlip = TRUE,
+        .speciesName = _("TR Weezing"),
+        .cryId = CRY_WEEZING,
+        .natDexNum = NATIONAL_DEX_WEEZING,
+        .categoryName = _("Poison Gas"),
+        .footprint = gMonFootprint_Weezing,
+        .types = { TYPE_POISON, TYPE_STEEL },
+        .itemRare = ITEM_SMOKE_BALL,
+        #if P_UPDATED_ABILITIES >= GEN_8
+            .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_LEVITATE },
+        #else
+            .abilities = { ABILITY_LEVITATE, ABILITY_NONE },
+        #endif
+        .bodyColor = BODY_COLOR_PURPLE,
+        .height = 12,
+        .weight = 95,
+        .description = POKEDEX_DESC_STRING(
+            "By diluting its toxic gases with a special\n"
+            "process, the highest grade of perfume can\n"
+            "be extracted. To Weezing, gases emanating\n"
+            "from garbage are the ultimate feast."),
+        .pokemonScale = 305,
+        .pokemonOffset = 3,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Weezing, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Weezing,
+        .frontAnimId = ANIM_V_SLIDE,
+        .enemyMonElevation = 3,
+        BACK_PIC(Weezing, 64, 48),
+        .backPicYOffset = 9,
+        .backAnimId = BACK_ANIM_GROW,
+        PALETTES(WeezingRocket),
+        ICON(Weezing, 2),
+        LEARNSETS(Weezing),
+            .formSpeciesIdTable = sWeezingFormSpeciesIdTable,
+},
 
 #if P_GALARIAN_FORMS
     [SPECIES_WEEZING_GALARIAN] =
@@ -9050,6 +9539,54 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .backPicYOffset = 6,
         .backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
         PALETTES(Kangaskhan),
+        ICON(Kangaskhan, 2),
+    },
+
+    [SPECIES_KANGASKHAN_ROCKET] =
+    {
+        .types = { TYPE_NORMAL, TYPE_DARK },
+        .catchRate = 45,
+        .evYield_HP = 2,
+        .genderRatio = MON_FEMALE,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_MONSTER },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("TR Kangas"),
+        .natDexNum = NATIONAL_DEX_KANGASKHAN,
+        .categoryName = _("Parent"),
+        .height = 22,
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 387,
+        .trainerOffset = 8,
+        .footprint = gMonFootprint_Kangaskhan,
+        LEARNSETS(Kangaskhan),
+        .formSpeciesIdTable = sKangaskhanFormSpeciesIdTable,
+        .baseHP        = 105,
+        .baseAttack    = 130,
+        .baseDefense   = 100,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 100,
+        .expYield = 172,
+        .abilities = { ABILITY_FAMILY_BUSINESS, ABILITY_NONE, ABILITY_FAMILY_BUSINESS },
+        .cryId = CRY_KANGASKHAN,
+        .weight = 800,
+        .description = POKEDEX_DESC_STRING(
+            "If you come across a young Kangaskhan\n"
+            "playing by itself, never try to catch it.\n"
+            "The baby's parent is sure to be in the area,\n"
+            "and it will become violently enraged."),
+        FRONT_PIC(Kangaskhan, 64, 64),
+        .frontPicYOffset = 1,
+        .frontAnimFrames = sAnims_Kangaskhan,
+        .frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(Kangaskhan, 64, 56),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
+        PALETTES(KangaskhanRocket),
         ICON(Kangaskhan, 2),
     },
 
@@ -9806,6 +10343,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Scizor, 0),
     },
 
+    [SPECIES_SCIZOR_ROCKET] =
+    {
+        .types = { TYPE_BUG, TYPE_PSYCHIC },
+        .catchRate = 25,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("TR Scizor"),
+        .natDexNum = NATIONAL_DEX_SCIZOR,
+        .categoryName = _("Pincer"),
+        .footprint = gMonFootprint_Scizor,
+        LEARNSETS(Scizor),
+        .baseHP        = 70,
+        .baseAttack    = 135,
+        .baseDefense   = 105,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 80,
+        .expYield = 175,
+        .abilities = { ABILITY_SHARPNESS, ABILITY_TOUGH_CLAWS, ABILITY_SHARPNESS },
+        .cryId = CRY_SCIZOR,
+        .height = 18,
+        .weight = 1180,
+        .description = POKEDEX_DESC_STRING(
+            "A Scizor has a body with the hardness of\n"
+            "steel. It is not easily fazed by ordinary\n"
+            "sorts of attacks. It flaps its wings to\n"
+            "regulate its body temperature."),
+        .pokemonScale = 278,
+        .pokemonOffset = 1,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Scizor, 64, 64),
+        FRONT_PIC_FEMALE(Scizor, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_Scizor,
+        .frontAnimId = ANIM_H_VIBRATE,
+        .frontAnimDelay = 19,
+        BACK_PIC(Scizor, 64, 56),
+        .backPicYOffset = 4,
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        PALETTES(ScizorRocket),
+        ICON(Scizor, 0),
+            .formSpeciesIdTable = sScizorFormSpeciesIdTable,
+},
+
 #if P_MEGA_EVOLUTIONS
     [SPECIES_SCIZOR_MEGA] =
     {
@@ -10145,7 +10732,57 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Electivire, 1),
         .footprint = gMonFootprint_Electivire,
         LEARNSETS(Electivire),
+        .formSpeciesIdTable = sElectivireFormSpeciesIdTable,
     },
+
+    [SPECIES_ELECTIVIRE_ROCKET] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 130,
+        .baseDefense   = 75,
+        .baseSpeed     = 105,
+        .baseSpAttack  = 95,
+        .baseSpDefense = 85,
+        .types = { TYPE_ELECTRIC, TYPE_FIGHTING },
+        .catchRate = 30,
+        .expYield = 243,
+        .evYield_Attack = 3,
+        .itemRare = ITEM_ELECTIRIZER,
+        .genderRatio = PERCENT_FEMALE(25),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_NONE, ABILITY_TOUGH_CLAWS },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("TR Electiv"),
+        .cryId = CRY_ELECTIVIRE,
+        .natDexNum = NATIONAL_DEX_ELECTIVIRE,
+        .categoryName = _("Thunderbolt"),
+        .height = 18,
+        .weight = 1386,
+        .description = POKEDEX_DESC_STRING(
+            "When it gets excited, it thumps its chest.\n"
+            "With every thud, thunder roars, electric\n"
+            "sparks shower all around and blue sparks\n"
+            "begin to crackle between its horns."),
+        .pokemonScale = 267,
+        .pokemonOffset = 2,
+        .trainerScale = 286,
+        .trainerOffset = 1,
+        FRONT_PIC(Electivire, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Electivire,
+        .frontAnimId = ANIM_GLOW_YELLOW,
+        BACK_PIC(Electivire, 64, 48),
+        .backPicYOffset = 9,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        PALETTES(ElectivireRocket),
+        ICON(Electivire, 1),
+        .footprint = gMonFootprint_Electivire,
+        LEARNSETS(Electivire),
+            .formSpeciesIdTable = sElectivireFormSpeciesIdTable,
+},
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_ELECTABUZZ
 
@@ -10300,7 +10937,58 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Magmortar, 0),
         .footprint = gMonFootprint_Magmortar,
         LEARNSETS(Magmortar),
+        .formSpeciesIdTable = sMagmortarFormSpeciesIdTable,
     },
+
+    [SPECIES_MAGMORTAR_ROCKET] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 95,
+        .baseDefense   = 75,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 95,
+        .types = { TYPE_FIRE, TYPE_POISON },
+        .catchRate = 30,
+        .expYield = 243,
+        .evYield_SpAttack = 3,
+        .itemRare = ITEM_MAGMARIZER,
+        .genderRatio = PERCENT_FEMALE(25),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_SHEER_FORCE, ABILITY_NONE, ABILITY_SHEER_FORCE },
+        .bodyColor = BODY_COLOR_RED,
+        .noFlip = TRUE,
+        .speciesName = _("TR Magmort"),
+        .cryId = CRY_MAGMORTAR,
+        .natDexNum = NATIONAL_DEX_MAGMORTAR,
+        .categoryName = _("Blast"),
+        .height = 16,
+        .weight = 680,
+        .description = POKEDEX_DESC_STRING(
+            "According to what is known, a single pair\n"
+            "of male and female Magmortar lives in\n"
+            "one volcano. From its arm, it launches\n"
+            "fireballs hotter than 3,600ºF."),
+        .pokemonScale = 259,
+        .pokemonOffset = 1,
+        .trainerScale = 296,
+        .trainerOffset = 1,
+        FRONT_PIC(Magmortar, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Magmortar,
+        .frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(Magmortar, 64, 56),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        PALETTES(MagmortarRocket),
+        ICON(Magmortar, 0),
+        .footprint = gMonFootprint_Magmortar,
+        LEARNSETS(Magmortar),
+            .formSpeciesIdTable = sMagmortarFormSpeciesIdTable,
+},
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_MAGMAR
 
@@ -10356,6 +11044,54 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         PALETTES(Pinsir),
         ICON(Pinsir, 2),
     },
+
+    [SPECIES_PINSIR_ROCKET] =
+    {
+        .catchRate = 45,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("TR Pinsir"),
+        .natDexNum = NATIONAL_DEX_PINSIR,
+        .categoryName = _("Stag Beetle"),
+        .footprint = gMonFootprint_Pinsir,
+        LEARNSETS(Pinsir),
+        .baseHP        = 65,
+        .baseAttack    = 135,
+        .baseDefense   = 105,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 75,
+        .types = { TYPE_BUG, TYPE_FIGHTING },
+        .expYield = 175,
+        .abilities = { ABILITY_MOXIE, ABILITY_NONE, ABILITY_MOXIE },
+        .cryId = CRY_PINSIR,
+        .height = 15,
+        .weight = 550,
+        .description = POKEDEX_DESC_STRING(
+            "Their pincers are strong enough to\n"
+            "shatter thick logs. Because they dislike\n"
+            "cold, Pinsir burrow and sleep under\n"
+            "the ground on chilly nights."),
+        .pokemonScale = 256,
+        .pokemonOffset = 2,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        FRONT_PIC(Pinsir, 64, 64),
+        .frontPicYOffset = 5,
+        .frontAnimFrames = sAnims_Pinsir,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(Pinsir, 64, 56),
+        .backPicYOffset = 6,
+        .backAnimId = BACK_ANIM_V_SHAKE_LOW,
+        PALETTES(PinsirRocket),
+        ICON(Pinsir, 2),
+            .formSpeciesIdTable = sPinsirFormSpeciesIdTable,
+},
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_PINSIR_MEGA] =
@@ -10633,6 +11369,56 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         PALETTES(Gyarados),
         ICON(Gyarados, 0),
     },
+
+    [SPECIES_GYARADOS_ROCKET] =
+    {
+        .catchRate = 45,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 5,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_DRAGON },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("TR Gyarad"),
+        .natDexNum = NATIONAL_DEX_GYARADOS,
+        .categoryName = _("Atrocious"),
+        .height = 65,
+        .pokemonScale = 256,
+        .pokemonOffset = 6,
+        .trainerScale = 481,
+        .trainerOffset = 13,
+        .footprint = gMonFootprint_Gyarados,
+        LEARNSETS(Gyarados),
+        .baseHP        = 95,
+        .baseAttack    = 125,
+        .baseDefense   = 79,
+        .baseSpeed     = 81,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 100,
+        .types = { TYPE_WATER, TYPE_DARK },
+        .expYield = 189,
+        .abilities = { ABILITY_ADAPTABILITY, ABILITY_NONE, ABILITY_ADAPTABILITY },
+        .cryId = CRY_GYARADOS,
+        .weight = 2350,
+        .description = POKEDEX_DESC_STRING(
+            "It is an extremely vicious and violent\n"
+            "Pokémon. When humans begin to fight,\n"
+            "it will appear and burn everything to the\n"
+            "ground with intensely hot flames."),
+        FRONT_PIC(Gyarados, 64, 64),
+        FRONT_PIC_FEMALE(Gyarados, 64, 64),
+        .frontPicYOffset = 2,
+        .frontAnimFrames = sAnims_Gyarados,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SMALL,
+        BACK_PIC(Gyarados, 64, 64),
+        BACK_PIC_FEMALE(Gyarados, 64, 64),
+        .backPicYOffset = 5,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        PALETTES(GyaradosRocket),
+        ICON(Gyarados, 0),
+            .formSpeciesIdTable = sGyaradosFormSpeciesIdTable,
+},
 
 #if P_MEGA_EVOLUTIONS
     [SPECIES_GYARADOS_MEGA] =
@@ -11682,6 +12468,55 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         ICON(Aerodactyl, 2),
     },
 
+    [SPECIES_AERODACTYL_ROCKET] =
+    {
+        .types = { TYPE_ROCK, TYPE_DRAGON },
+        .catchRate = 45,
+        .evYield_Speed = 2,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 35,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
+        .bodyColor = BODY_COLOR_PURPLE,
+        .speciesName = _("TR Aerodac"),
+        .natDexNum = NATIONAL_DEX_AERODACTYL,
+        .categoryName = _("Fossil"),
+        .footprint = gMonFootprint_Aerodactyl,
+        LEARNSETS(Aerodactyl),
+        .baseHP        = 80,
+        .baseAttack    = 115,
+        .baseDefense   = 75,
+        .baseSpeed     = 130,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 75,
+        .expYield = 180,
+        .abilities = { ABILITY_TOUGH_CLAWS, ABILITY_NONE, ABILITY_TOUGH_CLAWS },
+        .cryId = CRY_AERODACTYL,
+        .height = 18,
+        .weight = 590,
+        .description = POKEDEX_DESC_STRING(
+            "Aerodactyl is a Pokémon from the age\n"
+            "of dinosaurs. It was regenerated from DNA\n"
+            "extracted from amber. It is imagined to\n"
+            "have been the king of the skies."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 302,
+        .trainerOffset = 4,
+        FRONT_PIC(Aerodactyl, 64, 64),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_Aerodactyl,
+        .frontAnimId = ANIM_V_SLIDE_SLOW,
+        .enemyMonElevation = 9,
+        BACK_PIC(Aerodactyl, 64, 48),
+        .backPicYOffset = 10,
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        PALETTES(AerodactylRocket),
+        ICON(Aerodactyl, 2),
+            .formSpeciesIdTable = sAerodactylFormSpeciesIdTable,
+},
+
 #if P_MEGA_EVOLUTIONS
     [SPECIES_AERODACTYL_MEGA] =
     {
@@ -12282,6 +13117,55 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formSpeciesIdTable = sDragoniteFormSpeciesIdTable,
         .formChangeTable = sDragoniteFormChangeTable,
     },
+
+[SPECIES_DRAGONITE_ROCKET] =
+{
+    .baseHP        = 95,
+    .baseAttack    = 140,
+    .baseDefense   = 105,
+    .baseSpeed     = 90,
+    .baseSpAttack  = 90,
+    .baseSpDefense = 100,
+    .types = { TYPE_DRAGON, TYPE_STEEL },
+    .catchRate = 45,
+    .expYield = 270,
+    .evYield_Attack = 3,
+    .itemRare = ITEM_DRAGON_SCALE,
+    .genderRatio = PERCENT_FEMALE(50),
+    .eggCycles = 40,
+    .friendship = 35,
+    .growthRate = GROWTH_SLOW,
+    .eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_DRAGON },
+    .abilities = { ABILITY_ICE_SCALES, ABILITY_NONE, ABILITY_ICE_SCALES },
+    .bodyColor = BODY_COLOR_BROWN,
+    .speciesName = _("TR Dragoni"),
+    .cryId = CRY_DRAGONITE,
+    .natDexNum = NATIONAL_DEX_DRAGONITE,
+    .categoryName = _("Dragon"),
+    .height = 22,
+    .weight = 2100,
+    .description = POKEDEX_DESC_STRING(
+        "It can circle the globe in just 16 hours.\n"
+        "It is a kindhearted Pokémon that leads\n"
+        "lost and foundering ships in a storm\n"
+        "to the safety of land."),
+    .pokemonScale = 256,
+    .pokemonOffset = 0,
+    .trainerScale = 309,
+    .trainerOffset = 4,
+    FRONT_PIC(Dragonite, 64, 64),
+    .frontPicYOffset = 0,
+    .frontAnimFrames = sAnims_Dragonite,
+    .frontAnimId = ANIM_V_SHAKE,
+    BACK_PIC(Dragonite, 64, 64),
+    .backPicYOffset = 1,
+    .backAnimId = BACK_ANIM_V_SHAKE,
+    PALETTES(DragoniteRocket),
+    ICON(Dragonite, 2),
+    .footprint = gMonFootprint_Dragonite,
+    LEARNSETS(Dragonite),
+    .formSpeciesIdTable = sDragoniteFormSpeciesIdTable,
+},
 
     [SPECIES_DRAGONITE_MEGA] =
     {

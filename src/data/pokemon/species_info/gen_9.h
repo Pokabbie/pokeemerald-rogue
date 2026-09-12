@@ -1650,7 +1650,56 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Ceruledge, 2),
         //.footprint = gMonFootprint_Ceruledge,
         LEARNSETS(Ceruledge),
+        .formSpeciesIdTable = sCeruledgeFormSpeciesIdTable,
     },
+
+    [SPECIES_CERULEDGE_ROCKET] =
+    {
+        .baseHP        = 75,
+        .baseAttack    = 135,
+        .baseDefense   = 85,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 105,
+        .types = { TYPE_FIRE, TYPE_DARK },
+        .catchRate = 25,
+        .expYield = 263,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 35,
+        .friendship = 20,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
+        .abilities = { ABILITY_SHARPNESS, ABILITY_NONE, ABILITY_SHARPNESS },
+        .bodyColor = BODY_COLOR_PURPLE,
+        .speciesName = _("TR Ceruldg"),
+        .cryId = CRY_CERULEDGE,
+        .natDexNum = NATIONAL_DEX_CERULEDGE,
+        .categoryName = _("Fire Blades"),
+        .height = 16,
+        .weight = 620,
+        .description = POKEDEX_DESC_STRING(
+            "The fiery blades on its arms burn\n"
+            "fiercely with the lingering\n"
+            "resentment of a sword wielder who fell\n"
+            "before accomplishing their goal."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Ceruledge, 64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Ceruledge,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(Ceruledge, 64, 64),
+        .backPicYOffset = 3,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(CeruledgeRocket),
+        ICON(Ceruledge, 2),
+        //.footprint = gMonFootprint_Ceruledge,
+        LEARNSETS(Ceruledge),
+            .formSpeciesIdTable = sCeruledgeFormSpeciesIdTable,
+},
 #endif //P_FAMILY_CHARCADET
 
 #if P_FAMILY_TADBULB
@@ -2039,7 +2088,53 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Grafaiai, 0),
         //.footprint = gMonFootprint_Grafaiai,
         LEARNSETS(Grafaiai),
+        .formSpeciesIdTable = sGrafaiaiFormSpeciesIdTable,
     },
+
+[SPECIES_GRAFAIAI_ROCKET] =
+{
+    .baseHP        = 70,
+    .baseAttack    = 110,
+    .baseDefense   = 75,
+    .baseSpeed     = 120,
+    .baseSpAttack  = 85,
+    .baseSpDefense = 90,
+    .types = { TYPE_POISON, TYPE_GHOST },
+    .catchRate = 90,
+    .expYield = 170,
+    .evYield_Speed = 2,
+    .genderRatio = PERCENT_FEMALE(50),
+    .eggCycles = 20,
+    .friendship = STANDARD_FRIENDSHIP,
+    .growthRate = GROWTH_MEDIUM_SLOW,
+    .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
+    .abilities = { ABILITY_PROTEAN, ABILITY_NONE, ABILITY_PROTEAN },
+    .bodyColor = BODY_COLOR_GRAY,
+    .speciesName = _("TR Grafaia"),
+    .cryId = CRY_GRAFAIAI,
+    .natDexNum = NATIONAL_DEX_GRAFAIAI,
+    .categoryName = _("Toxic Monkey"),
+    .height = 7,
+    .weight = 272,
+    .description = POKEDEX_DESC_STRING(
+        "Each Grafaiai paints its own\n"
+        "individual pattern, and it will paint that\n"
+        "same pattern over and over again\n"
+        "throughout its life."),
+    .pokemonScale = 356,
+    .pokemonOffset = 17,
+    .trainerScale = 256,
+    .trainerOffset = 0,
+    FRONT_PIC(Grafaiai, 64, 64),
+    .frontPicYOffset = 9,
+    .frontAnimFrames = sAnims_Grafaiai,
+    BACK_PIC(Grafaiai, 64, 64),
+    .backPicYOffset = 12,
+    PALETTES(GrafaiaiRocket),
+    ICON(Grafaiai, 0),
+    LEARNSETS(Grafaiai),
+    .formSpeciesIdTable = sGrafaiaiFormSpeciesIdTable,
+},
 #endif //P_FAMILY_SHROODLE
 
 #if P_FAMILY_BRAMBLIN
@@ -3142,7 +3237,56 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         ICON(Revavroom, 2),
         //.footprint = gMonFootprint_Revavroom,
         LEARNSETS(Revavroom),
+        .formSpeciesIdTable = sRevavroomFormSpeciesIdTable,
     },
+
+    [SPECIES_REVAVROOM_ROCKET] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 125,
+        .baseDefense   = 95,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 54,
+        .baseSpDefense = 76,
+        .types = { TYPE_STEEL, TYPE_POISON },
+        .catchRate = 75,
+        .expYield = 175,
+        .evYield_Attack = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+        .abilities = { ABILITY_EARTH_EATER, ABILITY_NONE, ABILITY_EARTH_EATER },
+        .bodyColor = BODY_COLOR_GRAY,
+        .speciesName = _("TR Revavrm"),
+        .cryId = CRY_REVAVROOM,
+        .natDexNum = NATIONAL_DEX_REVAVROOM,
+        .categoryName = _("Multi-Cyl"),
+        .height = 18,
+        .weight = 1200,
+        .description = POKEDEX_DESC_STRING(
+            "It creates a gas out of poison and\n"
+            "minerals from rocks. It then\n"
+            "detonates the gas in its cylinders- now\n"
+            "numbering eight-to generate energy."),
+        .pokemonScale = 356,
+        .pokemonOffset = 17,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(Revavroom, 64, 64),
+        .frontPicYOffset = 8,
+        .frontAnimFrames = sAnims_Revavroom,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(Revavroom, 64, 64),
+        .backPicYOffset = 16,
+        //.backAnimId = BACK_ANIM_NONE,
+        PALETTES(RevavroomRocket),
+        ICON(Revavroom, 2),
+        //.footprint = gMonFootprint_Revavroom,
+        LEARNSETS(Revavroom),
+            .formSpeciesIdTable = sRevavroomFormSpeciesIdTable,
+},
 #endif //P_FAMILY_VAROOM
 
 #if P_FAMILY_CYCLIZAR

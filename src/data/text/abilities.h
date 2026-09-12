@@ -309,6 +309,14 @@ static const u8 sFireManeDescription[] = _("Ups Fire-type moves.");
 
 static const u8 sForecastPriorityDescription[] = _("Weather moves go first.");
 static const u8 sDragonFlyDescription[] = _("Dragon moves are Bug +STAB.");
+static const u8 sDirtyTacticsDescription[] = _("Lowers foes' Def and Sp. Def.");
+static const u8 sPredatorInstinctDescription[] = _("30% stronger vs. wounded foes.");
+static const u8 sRedlineDescription[] = _("Acts every turn; attacks cost 1/8 HP.");
+static const u8 sFamilyBusinessDescription[] = _("Attacks strike again at 25% power.");
+static const u8 sNeurotoxinDescription[] = _("Poisoning a foe lowers Speed.");
+static const u8 sNoRulesDescription[] = _("Boosts punches; ignores Def boosts.");
+static const u8 sStaticFieldDescription[] = _("Paralyzes attackers when damaged.");
+static const u8 sTrapdoorDescription[] = _("Lowers grounded foes' Speed.");
 
 #if B_EXPANDED_ABILITY_NAMES == TRUE
 const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
@@ -630,6 +638,14 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MEGA_SOL] = _("Mega Sol"),
     [ABILITY_FIRE_MANE] = _("Fire Mane"),
     [ABILITY_317] = _("-------"),
+    [ABILITY_DIRTY_TACTICS] = _("Dirty Tactics"),
+    [ABILITY_NEUROTOXIN] = _("Neurotoxin"),
+    [ABILITY_NO_RULES] = _("No Rules"),
+    [ABILITY_STATIC_FIELD] = _("Static Field"),
+    [ABILITY_TRAPDOOR] = _("Trapdoor"),
+    [ABILITY_PREDATOR_INSTINCT] = _("PredatorInstinct"),
+    [ABILITY_REDLINE] = _("Redline"),
+    [ABILITY_FAMILY_BUSINESS] = _("Family Business"),
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
@@ -955,6 +971,14 @@ const u8 gAbilityNames[ABILITIES_COUNT][ABILITY_NAME_LENGTH + 1] =
     [ABILITY_MEGA_SOL] = _("Mega Sol"),
     [ABILITY_FIRE_MANE] = _("Fire Mane"),
     [ABILITY_317] = _("-------"),
+    [ABILITY_DIRTY_TACTICS] = _("DirtyTactics"),
+    [ABILITY_NEUROTOXIN] = _("Neurotoxin"),
+    [ABILITY_NO_RULES] = _("No Rules"),
+    [ABILITY_STATIC_FIELD] = _("Static Field"),
+    [ABILITY_TRAPDOOR] = _("Trapdoor"),
+    [ABILITY_PREDATOR_INSTINCT] = _("PredInstinct"),
+    [ABILITY_REDLINE] = _("Redline"),
+    [ABILITY_FAMILY_BUSINESS] = _("Family Bus"),
     [ABILITY_SPICY_SPRAY] = _("Spicy Spray"),
     
     [ABILITY_FORECAST_PRIORITY] = _("Instant Forecast"),
@@ -1281,6 +1305,14 @@ const u8 *const gAbilityDescriptionPointers[ABILITIES_COUNT] =
     [ABILITY_MEGA_SOL] = sMegaSolDescription,
     [ABILITY_FIRE_MANE] = sFireManeDescription,
     [ABILITY_317] = sNoneDescription,
+    [ABILITY_DIRTY_TACTICS] = sDirtyTacticsDescription,
+    [ABILITY_NEUROTOXIN] = sNeurotoxinDescription,
+    [ABILITY_NO_RULES] = sNoRulesDescription,
+    [ABILITY_STATIC_FIELD] = sStaticFieldDescription,
+    [ABILITY_TRAPDOOR] = sTrapdoorDescription,
+    [ABILITY_PREDATOR_INSTINCT] = sPredatorInstinctDescription,
+    [ABILITY_REDLINE] = sRedlineDescription,
+    [ABILITY_FAMILY_BUSINESS] = sFamilyBusinessDescription,
     [ABILITY_SPICY_SPRAY] = sSpicySprayDescription,
 
     [ABILITY_FORECAST_PRIORITY] = sForecastPriorityDescription,

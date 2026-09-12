@@ -1,0 +1,74 @@
+{
+  "Species": [
+    "SPECIES_MIGHTYENA_ROCKET"
+  ],
+  "LevelUpMoves": [
+    {
+      "Move": "MOVE_FIRE_FANG",
+      "Level": 1
+    },
+    {
+      "Move": "MOVE_CRUNCH",
+      "Level": 10
+    },
+    {
+      "Move": "MOVE_THUNDER_FANG",
+      "Level": 20
+    },
+    {
+      "Move": "MOVE_ICE_FANG",
+      "Level": 30
+    },
+    {
+      "Move": "MOVE_PSYCHIC_FANGS",
+      "Level": 40
+    },
+    {
+      "Move": "MOVE_SUCKER_PUNCH",
+      "Level": 50
+    },
+    {
+      "Move": "MOVE_HOWL",
+      "Level": 60
+    },
+    {
+      "Move": "MOVE_PLAY_ROUGH",
+      "Level": 70
+    }
+  ],
+  "TutorMoves": [
+    "MOVE_FIRE_FANG",
+    "MOVE_CRUNCH",
+    "MOVE_THUNDER_FANG",
+    "MOVE_ICE_FANG",
+    "MOVE_PSYCHIC_FANGS",
+    "MOVE_SUCKER_PUNCH",
+    "MOVE_HOWL",
+    "MOVE_PLAY_ROUGH",
+    "MOVE_KNOCK_OFF",
+    "MOVE_TAUNT",
+    "MOVE_DOUBLE_EDGE"
+  ],
+  "CompetitiveSets": [],
+  "PerSpecies": {
+    "SPECIES_MIGHTYENA_ROCKET": {
+      "BaseStats": {
+        "HP": 75,
+        "Attack": 110,
+        "Defense": 75,
+        "Speed": 95,
+        "SpAttack": 60,
+        "SpDefense": 75
+      },
+      "Types": [
+        "TYPE_DARK",
+        "TYPE_FIRE"
+      ],
+      "Abilities": [
+        "ABILITY_STRONG_JAW",
+        "ABILITY_NONE",
+        "ABILITY_STRONG_JAW"
+      ]
+    }
+  }
+}

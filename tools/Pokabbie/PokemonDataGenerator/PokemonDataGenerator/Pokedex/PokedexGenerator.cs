@@ -108,6 +108,13 @@ namespace PokemonDataGenerator.Pokedex
 
                 // 2.1.1
                 fullDexes.Add(GatherResourceDexData("extras_colosseum", "Colosseum + XD", 3, "Orre Colosseum.csv"));
+				fullDexes.Add(new PokedexData
+				{
+					InternalName = "extras_team_rocket",
+					DisplayName = "Team Rocket",
+					GenLimit = 9,
+					Mons = new List<string> { "arbok", "arbok-rocket", "raichu", "raichu-alolan", "raichu-rocket" },
+				});
             }
 
 			Dictionary<string, List<PokedexData>> regionVariants = new Dictionary<string, List<PokedexData>>();
