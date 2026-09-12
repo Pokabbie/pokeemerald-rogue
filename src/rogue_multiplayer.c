@@ -9,7 +9,7 @@
 #include "follow_me.h"
 #include "random.h"
 #include "script.h"
-#include "string.h"
+#include <string.h>
 #include "string_util.h"
 #include "task.h"
 
