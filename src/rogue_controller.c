@@ -4944,6 +4944,17 @@ static u16 SelectLegendarySpecies(u8 legendId)
     {
         species = gRogueLegendaryEncounterInfo.mapTable[i].encounterId;
 
+#ifdef ROGUE_EXPANSION
+        if(RoguePokedex_GetDexVariant() == POKEDEX_VARIANT_EXTRAS_TEAM_ROCKET)
+        {
+            // The Team Rocket Dex is a curated normal encounter pool and does
+            // not contain most legendary species. Legendary rooms should still
+            // respect the configured generation limit.
+            if(SpeciesToGen(species) <= RoguePokedex_GetDexGenLimit())
+                RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
+        }
+        else
+#endif
         if(Query_IsSpeciesEnabledForceDexChecking(species))
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, species);
     }
@@ -5391,9 +5402,36 @@ u16 Rogue_SelectWildDenEncounterRoom(void)
     {
         RogueWeightQuery_CalculateWeights(WildDenEncounter_CalculateWeight, NULL);
 
-        species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        if(RogueWeightQuery_HasAnyWeights())
+            species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+        else
+            species = SPECIES_NONE;
     }
     RogueWeightQuery_End();
+
+    // The Team Rocket Dex can occasionally leave no valid species after
+    // transforming the restricted pool through egg species and evolutions.
+    // Recover with the active non-legendary pool instead of returning
+    // SPECIES_NONE and creating a blank Lv. 0 encounter.
+    if(species == SPECIES_NONE)
+    {
+        RogueMonQuery_IsSpeciesActive();
+        RogueMonQuery_IsLegendary(QUERY_FUNC_EXCLUDE);
+
+        RogueWeightQuery_Begin();
+        {
+            RogueWeightQuery_FillWeights(1);
+
+            if(RogueWeightQuery_HasAnyWeights())
+                species = RogueWeightQuery_SelectRandomFromWeights(RogueRandom());
+            else
+            {
+                AGB_ASSERT(FALSE);
+                species = SPECIES_NONE;
+            }
+        }
+        RogueWeightQuery_End();
+    }
 
     RogueMonQuery_End();
 
