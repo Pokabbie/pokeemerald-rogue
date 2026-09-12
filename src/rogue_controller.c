@@ -3016,7 +3016,7 @@ void Rogue_CreateMiniMenuExtraGFX(void)
             {
                 LoadMonIconPaletteCustomOffset(targetSpecies, paletteOffset);
 
-                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(targetSpecies, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, paletteOffset);
+                gRogueLocal.encounterPreview[i].monSpriteId = CreateMonIconCustomPaletteOffset(targetSpecies, SpriteCallbackDummy, (14 + (i % 3) * 32), yOffset + (i / 3) * 32, oamPriority, MON_MALE, FALSE, 0, 0, paletteOffset);
             }
             else
             {

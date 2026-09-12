@@ -22,21 +22,29 @@ namespace PokemonDataGenerator
 
 		private Color[] m_Colors = null;
 		private DistanceMethod m_DistanceMethod = DistanceMethod.RGB;
+		private int m_PalletSize = 16;
 
-		private ImagePalette()
-		{
-
-		}
-
-		public ImagePalette(Color[] colors)
+		public ImagePalette(Color[] colors, int palSize = 16)
 		{
 			m_Colors = colors.ToArray();
-		}
+			m_PalletSize = palSize;
+        }
 
-		public Color this[int i]
+        public ImagePalette(int palSize)
+        {
+            m_Colors = new Color[palSize];
+            m_PalletSize = palSize;
+        }
+
+        public Color this[int i]
 		{
 			get => m_Colors[i];
 			set => m_Colors[i] = value;
+		}
+
+		public int PaletteSize
+		{
+			get => m_PalletSize;
 		}
 
 		public static ImagePalette FromFile(string path, bool useSimpleColorDistance = false)
@@ -44,10 +52,9 @@ namespace PokemonDataGenerator
 			return FromFile(path, useSimpleColorDistance ? DistanceMethod.RGB : DistanceMethod.YUV);
 		}
 
-		public static ImagePalette FromFile(string path, DistanceMethod distanceMethod)
+		public static ImagePalette FromFile(string path, DistanceMethod distanceMethod, int paletteSize = 16)
 		{
-			ImagePalette palette = new ImagePalette();
-			palette.m_Colors = new Color[16];
+			ImagePalette palette = new ImagePalette(paletteSize);
 			palette.m_DistanceMethod = distanceMethod;
 
 			using (FileStream stream = new FileStream(path, FileMode.Open))
@@ -63,7 +70,7 @@ namespace PokemonDataGenerator
 				if (!int.TryParse(reader.ReadLine(), out palCount))
 					palCount = -1;
 
-				if (palCount > 16)
+				if (palCount > palette.PaletteSize)
 					throw new FormatException();
 
 				for(int i = 0; i < palCount; ++i)
@@ -79,18 +86,51 @@ namespace PokemonDataGenerator
 			}
 
 			return palette;
-		}
+        }
 
-		public void Save(string filePath)
+        public static ImagePalette FromImage(Bitmap srcImage, DistanceMethod distanceMethod = DistanceMethod.YUV, int paletteSize = 16)
+        {
+			if (srcImage.PixelFormat == PixelFormat.Format8bppIndexed)
+			{
+				ImagePalette palette = new ImagePalette(srcImage.Palette.Entries, srcImage.Palette.Entries.Length);
+				palette.m_DistanceMethod = distanceMethod;
+                return palette;
+            }
+			else
+			{
+				List<Color> colors = new List<Color>();
+
+				for(int x = 0; x < srcImage.Width; ++x)
+                {
+                    for (int y = 0; y < srcImage.Width; ++y)
+                    {
+						Color pixel = srcImage.GetPixel(x, y);
+
+                        if (!colors.Contains(pixel))
+							colors.Add(pixel);
+                    }
+                }
+
+                while(colors.Count < paletteSize)
+				{
+                    colors.Add(Color.Transparent);
+				}
+
+                return new ImagePalette(colors.ToArray(), paletteSize);
+            }
+
+        }
+
+        public void Save(string filePath)
 		{
 			using(FileStream stream = new FileStream(filePath, FileMode.Create))
 			using(StreamWriter writer = new StreamWriter(stream))
 			{
 				writer.WriteLine("JASC-PAL");
 				writer.WriteLine("0100");
-				writer.WriteLine("16");
+				writer.WriteLine("" + m_PalletSize);
 
-				for (int i = 0; i < 16; ++i)
+				for (int i = 0; i < m_PalletSize; ++i)
 				{
 					if (i < m_Colors.Length)
 						writer.WriteLine($"{m_Colors[i].R} {m_Colors[i].G} {m_Colors[i].B}");
@@ -209,7 +249,7 @@ namespace PokemonDataGenerator
 			}
 		}
 
-		public double GetBitmapMatchScore(Bitmap src, int indexStart = 1)
+		public double GetBitmapMatchScoreBespoke(Bitmap src, int indexStart = 1)
 		{
 			// Going to use std HSV as the weights for scoring, as this may change from sprite to sprite
 			//double avgH = 0.0f;
@@ -289,7 +329,7 @@ namespace PokemonDataGenerator
 
 						float hueWeight = 1.0f - (Math.Abs(col.GetBrightness() - 0.5f) * 2.0f);
 
-						totalScore += GetColorDistance_Scoring(col, m_Colors[index], hueWeight * 2, 1.0f - hueWeight, 0.5f);
+						totalScore += GetColorDistance_Scoring(col, m_Colors[index], 1.0f, 1.0f, 1.0f);
 						//totalScore += GetColorDistance_HSV(col, m_Colors[index]);
 
 						//totalScore += GetColorDistance(col, m_Colors[index]);
@@ -298,12 +338,35 @@ namespace PokemonDataGenerator
 
 			totalScore = totalSamples != 0.0f ? (totalScore / totalSamples) : double.MaxValue; // Avg score diff
 
-			totalScore += 0.5f * ((16.0 - coloursUsed.Count) / 16.0); // Consider colors used
+			totalScore += 0.5f * ((m_PalletSize - coloursUsed.Count) / (double)m_PalletSize); // Consider colors used
 
 			return totalScore;
+        }
+
+		public double GetBitmapMatchScore(Bitmap src)
+		{
+			Bitmap indexedSrc = CreateIndexedBitmap(src);
+
+			double distance = 0.0f;
+
+			for (int x = 0; x < src.Width; ++x)
+			{
+				for (int y = 0; y < src.Height; ++y)
+				{
+					Color srcPixel = src.GetPixel(x, y);
+					Color idxPixel = indexedSrc.GetPixel(x, y);
+
+					if (srcPixel.A != 0 && idxPixel.A != 0)
+					{
+						distance += GetColorDistance(srcPixel, idxPixel);
+					}
+				}
+			}
+
+			return distance;
 		}
 
-		public static ImagePalette CreateFromContent(Bitmap src, int maxColours, DistanceMethod distanceMethod, Color transparentColour)
+        public static ImagePalette CreateFromContent(Bitmap src, int maxColours, DistanceMethod distanceMethod, Color transparentColour)
 		{
 			// Don't use a hashset as we want the colour order to be consistent
 			List<Color> uniqueColors = new List<Color>();
@@ -356,16 +419,40 @@ namespace PokemonDataGenerator
 			return new ImagePalette(remainingColours.ToArray());
 		}
 
-		public Bitmap CreateIndexedBitmap(Bitmap src, int indexStart = 1)
-		{
-			//Bitmap dst = src.Clone(new Rectangle(0, 0, src.Width, src.Height), PixelFormat.Format4bppIndexed);
+        private static int GetPaletteIndex(Bitmap src, Color pixel)
+        {
+            if (pixel.A == 0)
+                return 0;
 
-			Bitmap dst = new Bitmap(src.Width, src.Height, System.Drawing.Imaging.PixelFormat.Format4bppIndexed);
+            for (int i = 0; i < src.Palette.Entries.Length; ++i)
+            {
+                if (src.Palette.Entries[i].ToArgb() == pixel.ToArgb())
+                    return i;
+            }
+
+            throw new InvalidDataException();
+        }
+
+		private int GetClosetMatchIndexConsiderOriginalPalSlot(Bitmap src, Color pixel, int indexStart)
+		{
+			if (src.Palette.Entries.Length != 0)
+			{
+				int ogIdx = GetPaletteIndex(src, pixel);
+				if (ogIdx == 0)
+					return 0;
+			}
+
+			return GetClosestMatchIndex(pixel, indexStart);
+        }
+
+        public Bitmap CreateIndexedBitmap(Bitmap src, int indexStart = 1)
+		{
+			Bitmap dst = new Bitmap(src.Width, src.Height, PixelFormat.Format4bppIndexed);
 			BitmapData data = dst.LockBits(new Rectangle(0, 0, dst.Width, dst.Height), ImageLockMode.WriteOnly, PixelFormat.Format4bppIndexed);
 
 			ColorPalette pal = dst.Palette;
-			for (int i = 0; i < 16; ++i)
-				pal.Entries[i] = i < m_Colors.Length ? m_Colors[i] : Color.Black;
+			for (int i = 0; i < m_PalletSize; ++i)
+				pal.Entries[i] = i < m_Colors.Length ? m_Colors[i] : Color.FromArgb(0);
 			dst.Palette = pal;
 
 			List<byte> indexedBytes = new List<byte>();
@@ -373,8 +460,8 @@ namespace PokemonDataGenerator
 			for (int y = 0; y < src.Height; y += 1)
 				for (int x = 0; x < src.Width; x += 2)
 				{
-					int hiIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0), indexStart);
-					int loIndex = GetClosestMatchIndex(src.GetPixel(x + 1, y + 0), indexStart);
+					int hiIndex = GetClosetMatchIndexConsiderOriginalPalSlot(src, src.GetPixel(x + 0, y + 0), indexStart);
+					int loIndex = GetClosetMatchIndexConsiderOriginalPalSlot(src, src.GetPixel(x + 1, y + 0), indexStart);
 					
 					indexedBytes.Add((byte)(
 						(loIndex & 0xF) +
@@ -392,5 +479,40 @@ namespace PokemonDataGenerator
 			dst.UnlockBits(data);
 			return dst;
 		}
-	}
+
+        public Bitmap OverwriteIndexedBitmap(Bitmap src)
+        {
+            Bitmap dst = new Bitmap(src.Width, src.Height, PixelFormat.Format4bppIndexed);
+            BitmapData data = dst.LockBits(new Rectangle(0, 0, dst.Width, dst.Height), ImageLockMode.WriteOnly, PixelFormat.Format4bppIndexed);
+
+            ColorPalette pal = dst.Palette;
+            for (int i = 0; i < m_PalletSize; ++i)
+                pal.Entries[i] = i < m_Colors.Length ? m_Colors[i] : Color.FromArgb(0);
+            dst.Palette = pal;
+
+            List<byte> indexedBytes = new List<byte>();
+
+            for (int y = 0; y < src.Height; y += 1)
+                for (int x = 0; x < src.Width; x += 2)
+                {
+                    int hiIndex = GetPaletteIndex(src, src.GetPixel(x + 0, y + 0));
+                    int loIndex = GetPaletteIndex(src, src.GetPixel(x + 1, y + 0));
+
+                    indexedBytes.Add((byte)(
+                        (loIndex & 0xF) +
+                        ((hiIndex << 4) & 0xF0)
+                    ));
+
+                    //int loIndex = GetClosestMatchIndex(src.GetPixel(x + 0, y + 0), indexStart);
+                    //
+                    //indexedBytes.Add((byte)(
+                    //	loIndex
+                    //));
+                }
+
+            Marshal.Copy(indexedBytes.ToArray(), 0, data.Scan0, indexedBytes.Count);
+            dst.UnlockBits(data);
+            return dst;
+        }
+    }
 }

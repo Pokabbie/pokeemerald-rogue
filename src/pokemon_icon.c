@@ -2,10 +2,11 @@
 #include "graphics.h"
 #include "mail.h"
 #include "palette.h"
-#include "pokemon_debug.h"
+#include "pokemon.h"
 #include "pokemon_icon.h"
 #include "sprite.h"
-#include "data.h"
+
+#include "rogue_gifts.h"
 
 #define POKE_ICON_BASE_PAL_TAG 56000
 
@@ -1661,7 +1662,7 @@ u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s1
 //#define PAL_TAG_CUSTOM            0x1000
 #define PAL_TAG_CUSTOM            (POKE_ICON_BASE_PAL_TAG)
 
-u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u16 paletteOffset)
+u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u8 gender, bool8 shiny, u32 otId, u32 personality, u16 paletteOffset)
 {
     u8 spriteId;
     struct MonIconSpriteTemplate iconTemplate =
@@ -1674,7 +1675,7 @@ u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite 
         .paletteTag = PAL_TAG_CUSTOM + paletteOffset,
     };
 
-    iconTemplate.image = GetMonIconTiles(species, TRUE, GetGenderForSpecies(species, 0));
+    iconTemplate.image = (shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0) ? GetShinyMonIconTiles(species, personality, gender) : GetMonIconTiles(species, personality, gender);
     spriteId = CreateMonIconSprite(&iconTemplate, x, y, subpriority);
 
     UpdateMonIconFrame(&gSprites[spriteId]);
@@ -1782,6 +1783,42 @@ void LoadMonIconPaletteCustomOffset(u16 species, u16 paletteOffset)
         LoadSpritePalette(&customIconPalette);
 }
 
+void LoadMonIconPaletteForPlayerParty()
+{
+    u32 i;
+
+    for(i = 0; i < gPlayerPartyCount; ++i)
+    {
+        LoadMonIconPaletteCustomOffsetExt(&gPlayerParty[i], i);
+    }
+}
+
+void LoadMonIconPaletteCustomOffsetExt(struct Pokemon *mon, u16 paletteOffset)
+{
+    u32 otId = GetMonData(mon, MON_DATA_OT_ID, 0);
+    u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+    bool8 shiny = GetMonData(mon, MON_DATA_IS_SHINY, 0);
+    u8 gender = GetMonGender(mon);
+    LoadMonIconFromSpeciesPaletteCustomOffsetExt(species, gender, shiny, otId, paletteOffset);
+}
+
+void LoadMonIconFromSpeciesPaletteCustomOffsetExt(u16 species, u8 gender, bool8 shiny, u32 otId, u16 paletteOffset)
+{
+    if(shiny || RogueGift_GetCustomMonIdBySpecies(species, otId) != 0)
+    {
+        u8 palIndex = AllocSpritePalette(PAL_TAG_CUSTOM + paletteOffset);
+
+        if(palIndex != 0xFF)
+        {
+            LoadCompressedPalette(GetMonSpritePalFromSpecies(species, gender, shiny, otId), OBJ_PLTT_ID(palIndex), PLTT_SIZE_4BPP);
+            return;
+        }
+    }
+
+    // Fallback to default shared palette
+    LoadMonIconPaletteCustomOffset(species, paletteOffset);
+}
+
 void FreeMonIconPalettes(void)
 {
     u8 i;
@@ -1828,6 +1865,24 @@ const u8 *GetMonIconTiles(u16 species, u32 personality, u8 gender)
         iconSprite = gSpeciesInfo[species].iconSprite;
     else
         iconSprite = gSpeciesInfo[SPECIES_NONE].iconSprite;
+
+    return iconSprite;
+}
+
+const u8* GetShinyMonIconTiles(u16 species, u32 personality, u8 gender)
+{
+    const u8 *iconSprite = NULL;
+
+    if (species > NUM_SPECIES)
+        species = SPECIES_NONE;
+
+    if (gSpeciesInfo[species].iconSpriteShinyFemale != NULL && gender == MON_FEMALE)
+        iconSprite = gSpeciesInfo[species].iconSpriteShinyFemale;
+    else if (gSpeciesInfo[species].iconSpriteShiny != NULL)
+        iconSprite = gSpeciesInfo[species].iconSpriteShiny;
+
+    if(iconSprite == NULL)
+        iconSprite = GetMonIconTiles(species, personality, gender);
 
     return iconSprite;
 }

@@ -1,6 +1,7 @@
 ﻿using PokemonDataGenerator.OverworldSprites;
 using PokemonDataGenerator.OverworldSprites.NPC;
 using PokemonDataGenerator.Pokedex;
+using PokemonDataGenerator.Sprites;
 using PokemonDataGenerator.Utils;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,8 @@ namespace PokemonDataGenerator
             Console.WriteLine("6 - Convert NPC sprites");
             Console.WriteLine("7 - Latest Mega Grab");
             Console.WriteLine("8 - Champion Mega Set Grab");
-            int action = ReadOption(0, 8);
+            Console.WriteLine("9 - Generate Shiny party icons");
+            int action = ReadOption(0, 9);
 
 			switch(action)
             {
@@ -93,6 +95,11 @@ namespace PokemonDataGenerator
                     Console.WriteLine("==Running Mega Set Grab==");
                     ChampionsSetGrab.Run();
                     break;
+
+				case 9:
+                    Console.WriteLine("==Generate Party Icons==");
+                    ShinySpriteHelper.GeneratePartyIcons();
+					break;
             }
 
 

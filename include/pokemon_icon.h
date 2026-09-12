@@ -4,6 +4,7 @@
 extern const struct SpritePalette gMonIconPaletteTable[];
 
 const u8 *GetMonIconTiles(u16 species, u32 personality, u8 gender);
+const u8 *GetShinyMonIconTiles(u16 species, u32 personality, u8 gender);
 void TryLoadAllMonIconPalettesAtOffset(u16 offset);
 u8 GetValidMonIconPalIndex(u16 species);
 const u8 *GetMonIconPtr(u16 speciesId, u32 personality, u8 gender);
@@ -14,10 +15,13 @@ u16 GetIconSpeciesNoPersonality(u16 speciesId);
 const u16* GetValidMonIconPalettePtr(u16 species);
 void LoadMonIconPalettes(void);
 void LoadMonIconPalette(u16 species);
+void LoadMonIconPaletteForPlayerParty();
 void LoadMonIconPaletteCustomOffset(u16 species, u16 paletteOffset);
+void LoadMonIconPaletteCustomOffsetExt(struct Pokemon *mon, u16 paletteOffset);
+void LoadMonIconFromSpeciesPaletteCustomOffsetExt(u16 species, u8 gender, bool8 shiny, u32 otId, u16 paletteOffset);
 void FreeMonIconPalettes(void);
 u8 CreateMonIconNoPersonality(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority);
-u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u16 paletteOffset);
+u8 CreateMonIconCustomPaletteOffset(u16 species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u8 gender, bool8 shiny, u32 otId, u32 personality, u16 paletteOffset);
 u8 CreateMissingMonIcon(void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u16 paletteOffset);
 void FreeMonIconPalette(u16 species);
 void FreeMonIconPaletteCustomOffset(u16 species, u16 paletteOffset);
