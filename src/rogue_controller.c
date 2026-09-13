@@ -604,7 +604,7 @@ bool8 Rogue_UseFinalQuestEffects(void)
         if(!CheckOnlyTheseTrainersEnabled(CONFIG_TOGGLE_TRAINER_ROGUE))
             return FALSE;
 
-        if(Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) != ROGUE_GAME_MODE_STANDARD)
+        if(!(Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == ROGUE_GAME_MODE_STANDARD || Rogue_GetConfigRange(CONFIG_RANGE_GAME_MODE_NUM) == ROGUE_GAME_MODE_FAST_PATH))
             return FALSE;
 
         return TRUE;
