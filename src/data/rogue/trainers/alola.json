@@ -516,7 +516,7 @@
                 "name": "MINA",
                 "type_assignment": "FAIRY",
                 "gfx_suffix": "ALOLA_MINA",
-                "class_flags": [ "BOSS_GYM_7", "BOSS_ANY_ELITE" ],
+                "class_flags": [ "BOSS_GYM_7" ],
                 "shiny_species": "SPECIES_CUTIEFLY",
                 "encounter_text":
                 [
