@@ -122,13 +122,13 @@ struct RogueBoxGlobalData
 
 static EWRAM_DATA struct RogueBoxGlobalData* sRogueAssistantBoxData = NULL;
 
-EWRAM_DATA struct RogueAssistantState gRogueAssistantState;
+struct RogueAssistantState gRogueAssistantState;
 
-STATIC_ASSERT(TOTAL_BOXES_COUNT == ASSISTANT_HOME_LOCAL_BOXES, SizeOfAssistantLocalBoxes);
+STATIC_ASSERT(BASE_BOXES_COUNT == ASSISTANT_HOME_LOCAL_BOXES, SizeOfAssistantLocalBoxes);
 
-// Make sure to change the same value in RogueAssistant if this ever changes
-// (These numbers must match in order to connect)
-#define ROGUE_ASSISTANT_COMPAT_VERSION 3
+// The normal Assistant must reject this prototype before accessing game RAM.
+// Its box-transfer protocol does not support the expanded Flash storage.
+#define ROGUE_ASSISTANT_COMPAT_VERSION 0x80000099u
 
 const struct RogueAssistantHeader gRogueAssistantHeader =
 {
@@ -202,7 +202,7 @@ void Rogue_AssistantInit()
 
 bool8 Rogue_IsAssistantConnected()
 {
-    return gRogueAssistantState.isAssistantConnected;
+    return FALSE; // The external bank protocol uses the original ten-box layout.
 }
 
 void Rogue_UpdateAssistantState(u16 state, u16 substate)
@@ -232,6 +232,12 @@ static void OnAssistantDisconnect()
 
 void Rogue_AssistantMainCB()
 {
+    // Prototype only: never accept Assistant heartbeats or start multiplayer.
+    gRogueAssistantState.isAssistantConnected = FALSE;
+    gRogueAssistantState.externalConfirmCounter = ASSISTANT_CONFIRM_THRESHOLD;
+    Rogue_UpdateAssistantRequestState(REQUEST_STATE_NONE);
+    return;
+
     // Expect the external sevice to keep stomping this counter to 0, so if it goes over threshold, we've lost connection
     if(gRogueAssistantState.isAssistantConnected)
     {
@@ -305,7 +311,7 @@ void RogueBox_OpenConnection()
     {
         u32 i;
         sRogueAssistantBoxData = AllocZeroed(sizeof(struct RogueBoxGlobalData));
-        sRogueAssistantBoxData->destBoxMons = &gPokemonStoragePtr->boxes[0][0];
+        sRogueAssistantBoxData->destBoxMons = GetBoxedMonPtr(0, 0);
         sRogueAssistantBoxData->trainerId = GetTrainerId(gSaveBlock2Ptr->playerTrainerId);
 
         memset(sRogueAssistantBoxData->boxRemoteIndexOrder, 255, sizeof(sRogueAssistantBoxData->boxRemoteIndexOrder));

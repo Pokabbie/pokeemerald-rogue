@@ -216,9 +216,9 @@ static const struct WindowTemplate sAssitantBoxWinTemplates[WIN_COUNT + 1] =
 #define TOTAL_BOX_ROW_COUNT 6
 #define INVALID_IDX (255)
 
-STATIC_ASSERT((TOTAL_BOXES_COUNT * TOTAL_BOX_ROW_COUNT) == ASSISTANT_HOME_TOTAL_BOXES, SizeOfAssistantBoxesMatchExpectedUICounts);
+STATIC_ASSERT((BASE_BOXES_COUNT * TOTAL_BOX_ROW_COUNT) == ASSISTANT_HOME_TOTAL_BOXES, SizeOfAssistantBoxesMatchExpectedUICounts);
 
-#define COORD_TO_IDX(x, y) (y * TOTAL_BOXES_COUNT + x)
+#define COORD_TO_IDX(x, y) (y * BASE_BOXES_COUNT + x)
 
 struct AssistantBoxState
 {
@@ -226,7 +226,7 @@ struct AssistantBoxState
     u8 cursorY;
     u8 pointerSprite;
     u8 currentHoldIdx;
-    u8 boxSprites[TOTAL_BOXES_COUNT * TOTAL_BOX_ROW_COUNT];
+    u8 boxSprites[BASE_BOXES_COUNT * TOTAL_BOX_ROW_COUNT];
 };
 
 EWRAM_DATA static struct AssistantBoxState *sAssistantBoxState = NULL;
@@ -397,7 +397,7 @@ static void Task_AssitantBoxWaitForKeyPress(u8 taskId)
     {
         if(sAssistantBoxState->cursorX == 0)
         {
-            sAssistantBoxState->cursorX = TOTAL_BOXES_COUNT - 1;
+            sAssistantBoxState->cursorX = BASE_BOXES_COUNT - 1;
             doSnap = TRUE;
         }
         else
@@ -406,7 +406,7 @@ static void Task_AssitantBoxWaitForKeyPress(u8 taskId)
     }
     if(JOY_REPEAT(DPAD_RIGHT))
     {
-        if(sAssistantBoxState->cursorX == TOTAL_BOXES_COUNT - 1)
+        if(sAssistantBoxState->cursorX == BASE_BOXES_COUNT - 1)
         {
             sAssistantBoxState->cursorX = 0;
             doSnap = TRUE;
@@ -628,7 +628,7 @@ static void InitAssitantBoxSprites(void)
     LoadSpriteSheet(&sGenericSpriteSheet);
     LoadSpritePalette(&sGenericPalette);
 
-    for(x = 0; x < TOTAL_BOXES_COUNT; ++x)
+    for(x = 0; x < BASE_BOXES_COUNT; ++x)
     {
         for(y = 0; y < TOTAL_BOX_ROW_COUNT; ++y)
         {

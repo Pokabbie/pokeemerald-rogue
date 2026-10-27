@@ -2696,9 +2696,9 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
         {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
+            if (GetBoxMonData(GetBoxedMonPtr(boxId, boxPosition), MON_DATA_SANITY_HAS_SPECIES))
             {
-                species = GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES);
+                species = GetBoxMonData(GetBoxedMonPtr(boxId, boxPosition), MON_DATA_SPECIES);
                 GetSetPokedexSpeciesFlag(species, FLAG_SET_CAUGHT);
                 GetSetPokedexSpeciesFlag(species, FLAG_SET_SEEN);
             }
@@ -3934,7 +3934,7 @@ static void DebugAction_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffinity
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++, species++)
         {
-            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
+            if (!GetBoxMonData(GetBoxedMonPtr(boxId, boxPosition), MON_DATA_SANITY_HAS_SPECIES))
             {
                 StringCopy(speciesName, RoguePokedex_GetSpeciesName(species));
                 SetBoxMonData(&boxMon, MON_DATA_NICKNAME, &speciesName);
@@ -3944,7 +3944,7 @@ static void DebugAction_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffinity
 #else
                 GiveBoxMonInitialMoveset(&boxMon);
 #endif
-                gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
+                (*GetBoxedMonPtr(boxId, boxPosition)) = boxMon;
             }
         }
     }
@@ -3966,12 +3966,12 @@ static void DebugAction_Fill_PCBoxes_Slow(u8 taskId)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
         {
-            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
+            if (!GetBoxMonData(GetBoxedMonPtr(boxId, boxPosition), MON_DATA_SANITY_HAS_SPECIES))
             {
                 if (!spaceAvailable)
                     PlayBGM(MUS_RG_MYSTERY_GIFT);
                 CreateBoxMon(&boxMon, species, 100, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
-                gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
+                (*GetBoxedMonPtr(boxId, boxPosition)) = boxMon;
                 species = (species < NUM_SPECIES - 1) ? species + 1 : 1;
                 spaceAvailable = TRUE;
             }

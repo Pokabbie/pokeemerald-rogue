@@ -50,4 +50,5 @@ GPIOPortReadEnable::
 
 	.2byte 0
 
-	.space 0x34
+	.ascii "RFLASH8M_V001"
+	.space 0x34 - 13

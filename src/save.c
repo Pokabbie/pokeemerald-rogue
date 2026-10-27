@@ -14,6 +14,8 @@
 #include "constants/game_stat.h"
 
 #include "rogue_save.h"
+#include "rogue_expanded_flash.h"
+#include "rogue_expanded_storage.h"
 
 static u16 CalculateChecksum(void *, u16);
 static bool8 ReadFlashSector(u8, struct SaveSector *);
@@ -146,13 +148,18 @@ static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *l
 
     if (sectorId != FULL_SAVE_SLOT)
     {
-        // A sector was specified, just write that sector.
-        // This is never reached, FULL_SAVE_SLOT is always used instead.
-        status = HandleWriteSector(sectorId, locations);
+        // Partial base writes cannot form a generation pair with expanded boxes.
+        status = SAVE_STATUS_ERROR;
     }
     else
     {
         // No sector was specified, write full save slot.
+        if (!RogueExpanded_PrepareSave(gSaveCounter + 1))
+        {
+            gSaveAttemptStatus = SAVE_STATUS_ERROR;
+            RogueExpandedFlash_Fatal(EXPANDED_ERROR_WRITE);
+            return SAVE_STATUS_ERROR;
+        }
         gLastKnownGoodSector = gLastWrittenSector; // backup the current written sector before attempting to write.
         gLastSaveCounter = gSaveCounter;
         gLastWrittenSector++;
@@ -170,6 +177,7 @@ static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *l
             gLastWrittenSector = gLastKnownGoodSector;
             gSaveCounter = gLastSaveCounter;
         }
+        RogueExpanded_CompleteSave(status == SAVE_STATUS_OK);
     }
 
     return status;
@@ -496,6 +504,8 @@ static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
         ReadFlashSector(i + slotOffset, gReadWriteSector);
 
         id = gReadWriteSector->id;
+        if (id >= NUM_SECTORS_PER_SLOT || gReadWriteSector->counter != gSaveCounter)
+            continue;
         if (id == 0)
             gLastWrittenSector = i;
 
@@ -528,7 +538,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
     for (i = 0; i < NUM_SECTORS_PER_SLOT; i++)
     {
         ReadFlashSector(i, gReadWriteSector);
-        if (gReadWriteSector->signature == SECTOR_SIGNATURE)
+        if (gReadWriteSector->signature == SECTOR_SIGNATURE && gReadWriteSector->id < NUM_SECTORS_PER_SLOT)
         {
             signatureValid = TRUE;
             checksum = CalculateChecksum(gReadWriteSector->data, locations[gReadWriteSector->id].size);
@@ -560,7 +570,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
     for (i = 0; i < NUM_SECTORS_PER_SLOT; i++)
     {
         ReadFlashSector(i + NUM_SECTORS_PER_SLOT, gReadWriteSector);
-        if (gReadWriteSector->signature == SECTOR_SIGNATURE)
+        if (gReadWriteSector->signature == SECTOR_SIGNATURE && gReadWriteSector->id < NUM_SECTORS_PER_SLOT)
         {
             signatureValid = TRUE;
             checksum = CalculateChecksum(gReadWriteSector->data, locations[gReadWriteSector->id].size);
@@ -584,6 +594,11 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
         // No sectors in slot 2 have the correct signature, treat it as empty.
         saveSlot2Status = SAVE_STATUS_EMPTY;
     }
+
+    if (saveSlot1Status == SAVE_STATUS_OK && !RogueExpanded_ValidateBaseSlot(0, saveSlot1Counter))
+        saveSlot1Status = SAVE_STATUS_ERROR;
+    if (saveSlot2Status == SAVE_STATUS_OK && !RogueExpanded_ValidateBaseSlot(1, saveSlot2Counter))
+        saveSlot2Status = SAVE_STATUS_ERROR;
 
     if (saveSlot1Status == SAVE_STATUS_OK && saveSlot2Status == SAVE_STATUS_OK)
     {
@@ -712,6 +727,9 @@ u8 HandleSavingData(u8 saveType)
     u32 *backupVar = gTrainerHillVBlankCounter;
     u8 *tempAddr;
 
+    if (saveType == SAVE_LINK || saveType == SAVE_EREADER)
+        RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
+
     // RogueNote: todo pre save
 
     gTrainerHillVBlankCounter = NULL;
@@ -719,10 +737,7 @@ u8 HandleSavingData(u8 saveType)
     switch (saveType)
     {
     case SAVE_HALL_OF_FAME_ERASE_BEFORE:
-        // Unused. Erases the special save sectors (HOF, Trainer Hill, Recorded Battle)
-        // before overwriting HOF.
-        for (i = SECTOR_ID_HOF_1; i < SECTORS_COUNT; i++)
-            EraseFlashSector(i);
+        // The expanded generation must be prepared before any base-sector write.
         // fallthrough
     case SAVE_HALL_OF_FAME:
         if (GetGameStat(GAME_STAT_ENTERED_HOF) < 999)
@@ -731,7 +746,12 @@ u8 HandleSavingData(u8 saveType)
         // Write the full save slot first
         CopyPartyAndObjectsToSave();
         RogueSave_FormatForWriting();
-        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
+        if (WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations) != SAVE_STATUS_OK)
+            break;
+
+        if (saveType == SAVE_HALL_OF_FAME_ERASE_BEFORE)
+            for (i = SECTOR_ID_HOF_1; i < SECTORS_COUNT; i++)
+                EraseFlashSector(i);
 
         // Save the Hall of Fame
         tempAddr = gDecompressionBuffer;
@@ -756,14 +776,12 @@ u8 HandleSavingData(u8 saveType)
             WriteSectorSignatureByte_NoOffset(i, gRamSaveSectorLocations);
         break;
     case SAVE_OVERWRITE_DIFFERENT_FILE:
-        // Erase Hall of Fame
-        for (i = SECTOR_ID_HOF_1; i < SECTORS_COUNT; i++)
-            EraseFlashSector(i);
-
         // Overwrite save slot
         CopyPartyAndObjectsToSave();
         RogueSave_FormatForWriting();
-        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
+        if (WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations) == SAVE_STATUS_OK)
+            for (i = SECTOR_ID_HOF_1; i < SECTORS_COUNT; i++)
+                EraseFlashSector(i);
         break;
     }
 
@@ -797,6 +815,7 @@ u8 TrySavingData(u8 saveType)
 
 bool8 LinkFullSave_Init(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     if (gFlashMemoryPresent != TRUE)
         return TRUE;
     UpdateSaveAddresses();
@@ -808,6 +827,7 @@ bool8 LinkFullSave_Init(void)
 
 bool8 LinkFullSave_WriteSector(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     u8 status = HandleWriteIncrementalSector(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
     if (gDamagedSaveSectors)
         DoSaveFailedScreen(SAVE_NORMAL);
@@ -823,6 +843,7 @@ bool8 LinkFullSave_WriteSector(void)
 
 bool8 LinkFullSave_ReplaceLastSector(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     HandleReplaceSectorAndVerify(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
     if (gDamagedSaveSectors)
         DoSaveFailedScreen(SAVE_NORMAL);
@@ -831,6 +852,7 @@ bool8 LinkFullSave_ReplaceLastSector(void)
 
 bool8 LinkFullSave_SetLastSectorSignature(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     CopySectorSignatureByte(NUM_SECTORS_PER_SLOT, gRamSaveSectorLocations);
     if (gDamagedSaveSectors)
         DoSaveFailedScreen(SAVE_NORMAL);
@@ -839,6 +861,7 @@ bool8 LinkFullSave_SetLastSectorSignature(void)
 
 u8 WriteSaveBlock2(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     if (gFlashMemoryPresent != TRUE)
         return TRUE;
 
@@ -857,6 +880,7 @@ u8 WriteSaveBlock2(void)
 // It returns TRUE when finished.
 bool8 WriteSaveBlock1Sector(void)
 {
+    RogueExpandedFlash_Fatal(EXPANDED_ERROR_LINK);
     u8 finished = FALSE;
     u16 sectorId = ++gIncrementalSectorId; // Because WriteSaveBlock2 will have been called prior, this will be SECTOR_ID_SAVEBLOCK1_START
     if (sectorId <= SECTOR_ID_SAVEBLOCK1_END)
@@ -898,6 +922,8 @@ u8 LoadGameSave(u8 saveType)
         status = TryLoadSaveSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
         CopyPartyAndObjectsFromSave();
         RogueSave_FormatForReading();
+        if (!RogueExpanded_Load(gSaveCounter))
+            RogueExpandedFlash_Fatal(EXPANDED_ERROR_SAVE);
         RogueSave_OnSaveLoaded();
         gSaveFileStatus = status;
         gGameContinueCallback = 0;
