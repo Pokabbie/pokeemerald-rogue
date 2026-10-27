@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "battle_ai_main.h"
+#include "battle_ai_switch_items.h"
 #include "battle_ai_util.h"
 #include "constants/battle_ai.h"
 #include "battle_anim.h"
@@ -11,6 +12,7 @@
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "battle_tv.h"
+#include "battle_util.h"
 #include "battle_z_move.h"
 #include "bg.h"
 #include "data.h"
@@ -60,7 +62,6 @@ static void OpponentHandleIntroTrainerBallThrow(u32 battler);
 static void OpponentHandleDrawPartyStatusSummary(u32 battler);
 static void OpponentHandleBattleAnimation(u32 battler);
 static void OpponentHandleEndLinkBattle(u32 battler);
-static u8 CountAIAliveNonEggMonsExcept(u8 slotToIgnore);
 
 static void OpponentBufferRunCommand(u32 battler);
 static void OpponentBufferExecCompleted(u32 battler);
@@ -529,6 +530,56 @@ static void OpponentHandleChooseAction(u32 battler)
     OpponentBufferExecCompleted(battler);
 }
 
+// A rejected cached choice must not be submitted unchanged on every retry.
+static u32 GetUsableOpponentMove(u32 battler, u32 chosenMoveId)
+{
+    u32 i;
+    u8 limitations = CheckMoveLimitations(battler, 0, MOVE_LIMITATIONS_ALL);
+
+    if (chosenMoveId < MAX_MON_MOVES
+        && !(limitations & gBitTable[chosenMoveId])
+        && gBattleMons[battler].moves[chosenMoveId] != MOVE_NONE
+        && gBattleMons[battler].moves[chosenMoveId] != MOVE_UNAVAILABLE
+        && gBattleMons[battler].pp[chosenMoveId] != 0)
+        return chosenMoveId;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (!(limitations & gBitTable[i])
+            && gBattleMons[battler].moves[i] != MOVE_NONE
+            && gBattleMons[battler].moves[i] != MOVE_UNAVAILABLE
+            && gBattleMons[battler].pp[i] != 0)
+            return i;
+    }
+    // The turn-selection caller handles all unusable moves with Struggle.
+    return 0;
+}
+
+static u32 GetOpponentMoveTarget(u32 battler, u32 move, u32 target)
+{
+    u32 i;
+    u32 targetType = GetBattlerMoveTargetType(battler, move);
+
+    if (targetType & (MOVE_TARGET_USER_OR_SELECTED | MOVE_TARGET_USER))
+        return battler;
+
+    if (!(targetType & MOVE_TARGET_BOTH)
+        && target < gBattlersCount
+        && IsBattlerAlive(target)
+        && CanTargetBattler(battler, target, move))
+        return target;
+
+    for (i = 0; i < gBattlersCount; i++)
+    {
+        if (GetBattlerSide(i) != GetBattlerSide(battler)
+            && IsBattlerAlive(i)
+            && CanTargetBattler(battler, i, move))
+            return i;
+    }
+    // Defensive fallback for a battle that is already ending.
+    return battler;
+}
+
 static void OpponentHandleChooseMove(u32 battler)
 {
     u8 chosenMoveId;
@@ -561,16 +612,13 @@ static void OpponentHandleChooseMove(u32 battler)
                 break;
             default:
                 {
-                    u16 chosenMove = moveInfo->moves[chosenMoveId];
+                    u16 chosenMove;
 
-                    if (GetBattlerMoveTargetType(battler, chosenMove) & (MOVE_TARGET_USER_OR_SELECTED | MOVE_TARGET_USER))
-                        gBattlerTarget = battler;
-                    if (GetBattlerMoveTargetType(battler, chosenMove) & MOVE_TARGET_BOTH)
-                    {
-                        gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
-                        if (gAbsentBattlerFlags & gBitTable[gBattlerTarget])
-                            gBattlerTarget = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
-                    }
+                    chosenMoveId = GetUsableOpponentMove(battler, chosenMoveId);
+                    chosenMove = moveInfo->moves[chosenMoveId];
+                    gBattlerTarget = GetOpponentMoveTarget(battler, chosenMove, gBattlerTarget);
+                    gBattleStruct->aiMoveOrAction[battler] = chosenMoveId;
+                    gBattleStruct->aiChosenTarget[battler] = gBattlerTarget;
                     if (ShouldUseZMove(battler, gBattlerTarget, chosenMove))
                         QueueZMove(battler, chosenMove);
                     // If opponent can Mega Evolve, do it.
@@ -659,57 +707,68 @@ static void OpponentHandleChooseItem(u32 battler)
     OpponentBufferExecCompleted(battler);
 }
 
+static bool32 IsOpponentSwitchCandidate(u32 battler, u32 candidate)
+{
+    s32 firstId, lastId;
+    u32 partner = BATTLE_PARTNER(battler);
+
+    GetAIPartyIndexes(battler, &firstId, &lastId);
+    if (candidate >= PARTY_SIZE || candidate < firstId || candidate >= lastId)
+        return FALSE;
+    if (candidate == gBattlerPartyIndexes[battler]
+        || candidate == gBattleResources->bufferA[battler][2])
+        return FALSE;
+    if (IsDoubleBattle() && !(gAbsentBattlerFlags & gBitTable[partner])
+        && candidate == gBattlerPartyIndexes[partner])
+        return FALSE;
+
+    return IsValidForBattle(&GetBattlerParty(battler)[candidate]);
+}
+
+static u32 FindOpponentSwitchTarget(u32 battler)
+{
+    s32 i, firstId, lastId;
+    u32 aceMonId = PARTY_SIZE;
+
+    GetAIPartyIndexes(battler, &firstId, &lastId);
+    for (i = firstId; i < lastId; i++)
+    {
+        if (!IsOpponentSwitchCandidate(battler, i))
+            continue;
+        if (AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON
+            && !(gBattleStruct->forcedSwitch & gBitTable[battler])
+            && i == CalculateEnemyPartyCount() - 1)
+        {
+            aceMonId = i;
+            continue;
+        }
+        return i;
+    }
+    // A living ace is preferable to an invalid index when no other mon can enter.
+    return aceMonId;
+}
+
 static void OpponentHandleChoosePokemon(u32 battler)
 {
-    s32 chosenMonId;
-    s32 pokemonInBattle = 1;
+    u32 chosenMonId;
 
-    // Choosing Revival Blessing target
+    // Choosing Revival Blessing target.
     if ((gBattleResources->bufferA[battler][1] & 0xF) == PARTY_ACTION_CHOOSE_FAINTED_MON)
     {
         chosenMonId = gSelectedMonPartyId = GetFirstFaintedPartyIndex(battler);
     }
-    // Switching out
-    else if (*(gBattleStruct->AI_monToSwitchIntoId + battler) == PARTY_SIZE)
-    {
-        chosenMonId = GetMostSuitableMonToSwitchInto(battler, TRUE);
-        if (chosenMonId == PARTY_SIZE)
-        {
-            s32 battler1, battler2, firstId, lastId;
-
-            if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
-            {
-                battler2 = battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-            }
-            else
-            {
-                battler1 = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
-                battler2 = GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT);
-                pokemonInBattle = 2;
-            }
-
-            GetAIPartyIndexes(battler, &firstId, &lastId);
-
-            for (chosenMonId = firstId; chosenMonId <= lastId; chosenMonId++)
-            {
-                if (IsValidForBattle(&gEnemyParty[chosenMonId])
-                    && chosenMonId != gBattlerPartyIndexes[battler1]
-                    && chosenMonId != gBattlerPartyIndexes[battler2]
-                    && (!(AI_THINKING_STRUCT->aiFlags & AI_FLAG_ACE_POKEMON)
-                        || chosenMonId != CalculateEnemyPartyCount() - 1
-                        || CountAIAliveNonEggMonsExcept(PARTY_SIZE) == pokemonInBattle))
-                {
-                    break;
-                }
-            }
-        }
-        *(gBattleStruct->monToSwitchIntoId + battler) = chosenMonId;
-    }
     else
     {
-        chosenMonId = *(gBattleStruct->AI_monToSwitchIntoId + battler);
-        *(gBattleStruct->AI_monToSwitchIntoId + battler) = PARTY_SIZE;
-        *(gBattleStruct->monToSwitchIntoId + battler) = chosenMonId;
+        chosenMonId = gBattleStruct->AI_monToSwitchIntoId[battler];
+        gBattleStruct->AI_monToSwitchIntoId[battler] = PARTY_SIZE;
+
+        if (!IsOpponentSwitchCandidate(battler, chosenMonId))
+            chosenMonId = GetMostSuitableMonToSwitchInto(battler, TRUE);
+        if (!IsOpponentSwitchCandidate(battler, chosenMonId))
+            chosenMonId = FindOpponentSwitchTarget(battler);
+
+        // Failed searches retain the sentinel instead of emitting 7 or 255.
+        gBattleStruct->monToSwitchIntoId[battler] = chosenMonId;
     }
     #if TESTING
     TestRunner_Battle_CheckSwitch(battler, chosenMonId);
@@ -717,22 +776,6 @@ static void OpponentHandleChoosePokemon(u32 battler)
     BtlController_EmitChosenMonReturnValue(battler, BUFFER_B, chosenMonId, NULL);
     OpponentBufferExecCompleted(battler);
 
-}
-
-static u8 CountAIAliveNonEggMonsExcept(u8 slotToIgnore)
-{
-    u16 i, count;
-
-    for (i = 0, count = 0; i < PARTY_SIZE; i++)
-    {
-        if (i != slotToIgnore
-            && IsValidForBattle(&gEnemyParty[i]))
-        {
-            count++;
-        }
-    }
-
-    return count;
 }
 
 static void OpponentHandleHealthBarUpdate(u32 battler)

@@ -5,6 +5,8 @@
 #include "battle_anim.h"
 #include "battle_ai_util.h"
 #include "battle_ai_main.h"
+#include "battle_ai_switch_items.h"
+#include "battle_util.h"
 #include "battle_controllers.h"
 #include "battle_factory.h"
 #include "battle_setup.h"
@@ -372,14 +374,17 @@ static void SetBattlerAiData(u32 battler, struct AiLogicData *aiData)
     aiData->speedStats[battler] = GetBattlerTotalSpeedStatArgs(battler, ability, holdEffect);
 }
 
-static u8 CountAIAliveNonEggMonsExcept(u8 slotToIgnore)
+static u8 CountAIAliveNonEggMonsExcept(u32 battler, u8 slotToIgnore)
 {
-    u16 i, count;
+    s32 i, firstId, lastId;
+    u8 count = 0;
+    struct Pokemon *party = GetBattlerParty(battler);
 
-    for (i = 0, count = 0; i < PARTY_SIZE; i++)
+    GetAIPartyIndexes(battler, &firstId, &lastId);
+    for (i = firstId; i < lastId; i++)
     {
         if (i != slotToIgnore
-            && IsValidForBattle(&gEnemyParty[i]))
+            && IsValidForBattle(&party[i]))
         {
             count++;
         }
@@ -392,15 +397,15 @@ static void SetBattlerAiGimmickData(u32 battler, struct AiLogicData *aiData)
 {
     bool32 isSecondTrainer = (GetBattlerPosition(battler) == B_POSITION_OPPONENT_RIGHT) && (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS) && !BATTLE_TWO_VS_ONE_OPPONENT;
     u16 trainerId = isSecondTrainer ? gTrainerBattleOpponent_B : gTrainerBattleOpponent_A;
-    aiData->shouldDynamax[battler] = (CanDynamax(battler) && Rogue_ShouldDynamaxMon(trainerId, gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(gBattlerPartyIndexes[battler])));
-    aiData->shouldTerastal[battler] = (CanTerastallize(battler) && Rogue_ShouldTerastallizeMon(trainerId, gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(gBattlerPartyIndexes[battler])));
+    aiData->shouldDynamax[battler] = (CanDynamax(battler) && Rogue_ShouldDynamaxMon(trainerId, GetBattlerParty(battler), gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(battler, gBattlerPartyIndexes[battler])));
+    aiData->shouldTerastal[battler] = (CanTerastallize(battler) && Rogue_ShouldTerastallizeMon(trainerId, GetBattlerParty(battler), gBattlerPartyIndexes[battler], CountAIAliveNonEggMonsExcept(battler, gBattlerPartyIndexes[battler])));
 }
 
 static u32 Ai_SetMoveAccuracy(struct AiLogicData *aiData, u32 battlerAtk, u32 battlerDef, u32 move)
 {
     u32 accuracy;
     u32 abilityAtk = aiData->abilities[battlerAtk];
-    u32 abilityDef = aiData->abilities[battlerAtk];
+    u32 abilityDef = aiData->abilities[battlerDef];
     if (abilityAtk == ABILITY_NO_GUARD || abilityDef == ABILITY_NO_GUARD || gBattleMoves[move].accuracy == 0) // Moves with accuracy 0 or no guard ability always hit.
         accuracy = 100;
     else
@@ -473,7 +478,7 @@ void SetAiLogicDataForTurn(struct AiLogicData *aiData)
 static bool32 AI_SwitchMonIfSuitable(u32 battler, bool32 doubleBattle)
 {
     u32 monToSwitchId = AI_DATA->mostSuitableMonId[battler];
-    if (monToSwitchId != PARTY_SIZE && IsValidForBattle(&GetBattlerParty(battler)[monToSwitchId]))
+    if (monToSwitchId < PARTY_SIZE && IsValidForBattle(&GetBattlerParty(battler)[monToSwitchId]))
     {
         gBattleMoveDamage = monToSwitchId;
         // Edge case: See if partner already chose to switch into the same mon
@@ -552,9 +557,36 @@ static bool32 AI_ShouldSwitchIfBadMoves(u32 battler, bool32 doubleBattle)
     return FALSE;
 }
 
+// Zero is a valid score for a usable move. Keep legality separate from score.
+static u32 GetBestAiMoveCandidates(u32 battlerAi, u32 battlerDef, u8 *moveIndices)
+{
+    u32 i, count = 0;
+    s32 bestScore = 0;
+    u8 moveLimitations = AI_DATA->moveLimitations[battlerAi];
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        u16 move = gBattleMons[battlerAi].moves[i];
+
+        if (move == MOVE_NONE || move == MOVE_UNAVAILABLE
+            || gBattleMons[battlerAi].pp[i] == 0
+            || (moveLimitations & gBitTable[i])
+            || !CanTargetBattler(battlerAi, battlerDef, move))
+            continue;
+
+        if (count == 0 || AI_THINKING_STRUCT->score[i] > bestScore)
+        {
+            bestScore = AI_THINKING_STRUCT->score[i];
+            count = 0;
+        }
+        if (AI_THINKING_STRUCT->score[i] == bestScore)
+            moveIndices[count++] = i;
+    }
+    return count;
+}
+
 static u32 ChooseMoveOrAction_Singles(u32 battlerAi)
 {
-    u8 currentMoveArray[MAX_MON_MOVES];
     u8 consideredMoveArray[MAX_MON_MOVES];
     u32 numOfBestMoves;
     s32 i;
@@ -586,28 +618,10 @@ static u32 ChooseMoveOrAction_Singles(u32 battlerAi)
     if (AI_ShouldSwitchIfBadMoves(battlerAi, FALSE))
         return AI_CHOICE_SWITCH;
 
-    numOfBestMoves = 1;
-    currentMoveArray[0] = AI_THINKING_STRUCT->score[0];
-    consideredMoveArray[0] = 0;
-
-    for (i = 1; i < MAX_MON_MOVES; i++)
-    {
-        if (gBattleMons[battlerAi].moves[i] != MOVE_NONE)
-        {
-            // In ruby, the order of these if statements is reversed.
-            if (currentMoveArray[0] == AI_THINKING_STRUCT->score[i])
-            {
-                currentMoveArray[numOfBestMoves] = AI_THINKING_STRUCT->score[i];
-                consideredMoveArray[numOfBestMoves++] = i;
-            }
-            if (currentMoveArray[0] < AI_THINKING_STRUCT->score[i])
-            {
-                numOfBestMoves = 1;
-                currentMoveArray[0] = AI_THINKING_STRUCT->score[i];
-                consideredMoveArray[0] = i;
-            }
-        }
-    }
+    numOfBestMoves = GetBestAiMoveCandidates(battlerAi, gBattlerTarget, consideredMoveArray);
+    // The turn-selection caller handles all-unusable moves with Struggle.
+    if (numOfBestMoves == 0)
+        return 0;
     return consideredMoveArray[Random() % numOfBestMoves];
 }
 
@@ -618,7 +632,6 @@ static u32 ChooseMoveOrAction_Doubles(u32 battlerAi)
     s32 bestMovePointsForTarget[MAX_BATTLERS_COUNT];
     u8 mostViableTargetsArray[MAX_BATTLERS_COUNT];
     u8 actionOrMoveIndex[MAX_BATTLERS_COUNT];
-    s32 mostViableMovesScores[MAX_MON_MOVES];
     u8 mostViableMovesIndices[MAX_MON_MOVES];
     u32 mostViableTargetsNo;
     u32 mostViableMovesNo;
@@ -626,7 +639,7 @@ static u32 ChooseMoveOrAction_Doubles(u32 battlerAi)
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (i == battlerAi || gBattleMons[i].hp == 0)
+        if (i == battlerAi || !IsBattlerAlive(i))
         {
             actionOrMoveIndex[i] = 0xFF;
             bestMovePointsForTarget[i] = -1;
@@ -656,47 +669,24 @@ static u32 ChooseMoveOrAction_Doubles(u32 battlerAi)
             }
 
             if (AI_THINKING_STRUCT->aiAction & AI_ACTION_FLEE)
+                return AI_CHOICE_FLEE;
+            if (AI_THINKING_STRUCT->aiAction & AI_ACTION_WATCH)
+                return AI_CHOICE_WATCH;
+
+            mostViableMovesNo = GetBestAiMoveCandidates(battlerAi, i, mostViableMovesIndices);
+            if (mostViableMovesNo == 0)
             {
-                actionOrMoveIndex[i] = AI_CHOICE_FLEE;
-            }
-            else if (AI_THINKING_STRUCT->aiAction & AI_ACTION_WATCH)
-            {
-                actionOrMoveIndex[i] = AI_CHOICE_WATCH;
+                actionOrMoveIndex[i] = 0xFF;
+                bestMovePointsForTarget[i] = -1;
             }
             else
             {
-                mostViableMovesScores[0] = AI_THINKING_STRUCT->score[0];
-                mostViableMovesIndices[0] = 0;
-                mostViableMovesNo = 1;
-                for (j = 1; j < MAX_MON_MOVES; j++)
-                {
-                    if (gBattleMons[battlerAi].moves[j] != 0)
-                    {
-                        if (!CanTargetBattler(battlerAi, i, gBattleMons[battlerAi].moves[j]))
-                            continue;
-
-                        if (mostViableMovesScores[0] == AI_THINKING_STRUCT->score[j])
-                        {
-                            mostViableMovesScores[mostViableMovesNo] = AI_THINKING_STRUCT->score[j];
-                            mostViableMovesIndices[mostViableMovesNo] = j;
-                            mostViableMovesNo++;
-                        }
-                        if (mostViableMovesScores[0] < AI_THINKING_STRUCT->score[j])
-                        {
-                            mostViableMovesScores[0] = AI_THINKING_STRUCT->score[j];
-                            mostViableMovesIndices[0] = j;
-                            mostViableMovesNo = 1;
-                        }
-                    }
-                }
                 actionOrMoveIndex[i] = mostViableMovesIndices[Random() % mostViableMovesNo];
-                bestMovePointsForTarget[i] = mostViableMovesScores[0];
+                bestMovePointsForTarget[i] = AI_THINKING_STRUCT->score[actionOrMoveIndex[i]];
 
                 // Don't use a move against ally if it has less than 100 points.
                 if (i == BATTLE_PARTNER(battlerAi) && bestMovePointsForTarget[i] < AI_SCORE_DEFAULT)
-                {
                     bestMovePointsForTarget[i] = -1;
-                }
             }
 
             for (j = 0; j < MAX_MON_MOVES; j++) {
@@ -709,23 +699,29 @@ static u32 ChooseMoveOrAction_Doubles(u32 battlerAi)
     if (AI_ShouldSwitchIfBadMoves(battlerAi, TRUE))
         return AI_CHOICE_SWITCH;
 
-    mostMovePoints = bestMovePointsForTarget[0];
-    mostViableTargetsArray[0] = 0;
-    mostViableTargetsNo = 1;
-
-    for (i = 1; i < MAX_BATTLERS_COUNT; i++)
+    mostMovePoints = -1;
+    mostViableTargetsNo = 0;
+    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (mostMovePoints == bestMovePointsForTarget[i])
-        {
-            mostViableTargetsArray[mostViableTargetsNo] = i;
-            mostViableTargetsNo++;
-        }
-        if (mostMovePoints < bestMovePointsForTarget[i])
+        if (actionOrMoveIndex[i] == 0xFF || bestMovePointsForTarget[i] < 0)
+            continue;
+
+        if (mostViableTargetsNo == 0 || mostMovePoints < bestMovePointsForTarget[i])
         {
             mostMovePoints = bestMovePointsForTarget[i];
-            mostViableTargetsArray[0] = i;
-            mostViableTargetsNo = 1;
+            mostViableTargetsNo = 0;
         }
+        if (mostMovePoints == bestMovePointsForTarget[i])
+            mostViableTargetsArray[mostViableTargetsNo++] = i;
+    }
+
+    if (mostViableTargetsNo == 0)
+    {
+        // No usable move/target was scored. The caller checks for Struggle;
+        // use an in-range opponent target rather than indexing an empty list.
+        gBattlerTarget = GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(battlerAi)));
+        gBattleStruct->aiChosenTarget[battlerAi] = gBattlerTarget;
+        return 0;
     }
 
     gBattlerTarget = mostViableTargetsArray[Random() % mostViableTargetsNo];
@@ -889,7 +885,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                     RETURN_SCORE_MINUS(20);
                 break;
             case ABILITY_WONDER_GUARD:
-                if (effectiveness < AI_EFFECTIVENESS_x2)
+                if (gBattleMoves[move].power != 0 && effectiveness < AI_EFFECTIVENESS_x2)
                     return 0;
                 break;
             case ABILITY_SAP_SIPPER:
@@ -3624,10 +3620,13 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
             IncreaseStatUpScore(battlerAtk, battlerDef, STAT_SPATK, &score);
         break;
     case EFFECT_HAZE:
-        if (AnyStatIsRaised(BATTLE_PARTNER(battlerAtk))
-          || PartnerHasSameMoveEffectWithoutTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
+        if (isDoubleBattle && IsBattlerAlive(BATTLE_PARTNER(battlerAtk))
+          && (AnyStatIsRaised(BATTLE_PARTNER(battlerAtk))
+           || PartnerHasSameMoveEffectWithoutTarget(BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove)))
+        {
             ADJUST_SCORE(-3);
             break;
+        }
         // fallthrough
     case EFFECT_ROAR:
     case EFFECT_CLEAR_SMOG:
