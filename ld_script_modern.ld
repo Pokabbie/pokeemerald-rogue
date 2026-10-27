@@ -6,9 +6,10 @@ gInitialMainCB2 = CB2_InitCopyrightScreenAfterBootup;
 
 MEMORY
 {
-    EWRAM (rwx) : ORIGIN = 0x2000000, LENGTH = 256K
+    EWRAM (rwx) : ORIGIN = 0x2000000, LENGTH = 1M
     IWRAM (rwx) : ORIGIN = 0x3000000, LENGTH = 32K
-    ROM    (rx) : ORIGIN = 0x8000000, LENGTH = 32M
+    IWRAM_EXT (rwx) : ORIGIN = 0x3008000, LENGTH = 32K
+    ROM    (rx) : ORIGIN = 0x8000000, LENGTH = 64M
 }
 
 SECTIONS {
@@ -41,6 +42,12 @@ SECTIONS {
         *libc.a:*.o(COMMON);
         *libnosys.a:*.o(COMMON);
     } > IWRAM
+
+    iwram_ext 0x3008000 (NOLOAD) :
+    ALIGN(4)
+    {
+        src/*.o(iwram_ext_data);
+    } > IWRAM_EXT
 
     /* BEGIN ROM DATA */
     . = 0x8000000;
@@ -128,6 +135,19 @@ SECTIONS {
     {
         src/graphics.o(.rodata);
     } > ROM =0
+
+    __base_rom_end = .;
+    ASSERT(__base_rom_end <= 0x0A000000, "Keep executable code and existing assets in the original ROM window")
+
+    enhanced_rom_probe 0x0A000000 :
+    {
+        KEEP(src/rogue_enhanced_memory.o(enhanced_rom_probe));
+    } > ROM =0xFF
+
+    enhanced_rom_end 0x0BFFFFFC :
+    {
+        KEEP(src/rogue_enhanced_memory.o(enhanced_rom_end));
+    } > ROM =0xFF
 
     __rom_end = .;
 

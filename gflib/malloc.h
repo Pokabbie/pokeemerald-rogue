@@ -17,19 +17,19 @@ struct MemBlock
     // Whether this block is currently allocated.
     u16 allocated:1;
 
-    u16 unused_00:4;
+    u16 unused_00:1;
 
-    // High 11 bits of location pointer.
-    u16 locationHi:11;
+    // High 14 bits of a 26-bit ROM offset.
+    u16 locationHi:14;
 
     // Magic number used for error checking. Should equal MALLOC_SYSTEM_ID.
     u16 magic;
 
     // Size of the block (not including this header struct).
-    u32 size:18;
+    u32 size:20;
 
-    // Low 14 bits of location pointer.
-    u32 locationLo:14;
+    // Low 12 bits of the ROM offset.
+    u32 locationLo:12;
 
     // Previous block pointer. Equals sHeapStart if this is the first block.
     struct MemBlock *prev;
@@ -41,7 +41,7 @@ struct MemBlock
     u8 data[0];
 };
 
-#define HEAP_SIZE 0x1C000
+#define HEAP_SIZE 0xA0000
 extern u8 gHeap[HEAP_SIZE];
 
 #if TESTING || !defined(NDEBUG)
