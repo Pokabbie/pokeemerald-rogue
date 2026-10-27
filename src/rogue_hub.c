@@ -657,13 +657,20 @@ u16 RogueHub_GetWeatherState()
 
 static void BeginQueryForBoxMons(u8 boxId)
 {
+    static const struct BoxPokemon emptyBox[IN_BOX_COUNT] = {0};
+    struct BoxPokemon *boxMons = GetBoxedMonPtr(boxId, 0);
     u8 i;
 
     RogueMiscQuery_EditRange(QUERY_FUNC_EXCLUDE, 0, IN_BOX_COUNT - 1);
 
+    // Empty boxes need no decryption. Keep the usual checks for every other box,
+    // including damaged records that GetBoxMonData turns into Bad Eggs.
+    if (memcmp(boxMons, emptyBox, sizeof(emptyBox)) == 0)
+        return;
+
     for(i = 0; i < IN_BOX_COUNT; ++i)
     {
-        if(GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonDataAt(boxId, i, MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
+        if(GetBoxMonData(boxMons + i, MON_DATA_SPECIES) != SPECIES_NONE && GetBoxMonData(boxMons + i, MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
         {
             RogueMiscQuery_EditElement(QUERY_FUNC_INCLUDE, i);
         }

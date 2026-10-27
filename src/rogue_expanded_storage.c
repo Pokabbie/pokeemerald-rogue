@@ -269,7 +269,7 @@ bool8 RogueExpanded_ValidateBaseSlot(u8 slot, u32 generation)
 struct BoxPokemon *RogueExpanded_GetBox(u8 boxId)
 {
     struct ExpandedCache *cache;
-    u32 start, end, sector, copyStart, copyEnd;
+    u32 start, end, sector, copyStart, copyEnd, address;
     u8 i;
     if (boxId < BASE_BOXES_COUNT)
         return gPokemonStoragePtr->boxes[boxId];
@@ -298,11 +298,20 @@ struct BoxPokemon *RogueExpanded_GetBox(u8 boxId)
     end = start + sizeof(cache->mons);
     for (sector = start / ROGUE_EXPANDED_SECTOR_SIZE; sector <= (end - 1) / ROGUE_EXPANDED_SECTOR_SIZE; ++sector)
     {
-        if (!ReadLogicalSector(sector))
-            RogueExpandedFlash_Fatal(EXPANDED_ERROR_READ);
         copyStart = max(start, sector * ROGUE_EXPANDED_SECTOR_SIZE);
         copyEnd = min(end, (sector + 1) * ROGUE_EXPANDED_SECTOR_SIZE);
-        memcpy((u8 *)cache->mons + copyStart - start, Scratch() + copyStart % ROGUE_EXPANDED_SECTOR_SIZE, copyEnd - copyStart);
+        // A box only needs its part of each sector, not the whole save buffer.
+        if (sExpanded.workingSectors[sector / 8] & (1 << (sector % 8)))
+            address = WORKING_BASE + copyStart;
+        else if (sExpanded.activeCommit != NO_COMMIT)
+            address = CommitAddress(sExpanded.activeCommit) + ROGUE_EXPANDED_SECTOR_SIZE + copyStart;
+        else
+        {
+            memset((u8 *)cache->mons + copyStart - start, 0, copyEnd - copyStart);
+            continue;
+        }
+        if (!RogueExpandedFlash_Read(address, (u8 *)cache->mons + copyStart - start, copyEnd - copyStart))
+            RogueExpandedFlash_Fatal(EXPANDED_ERROR_READ);
     }
     cache->boxId = boxId;
     cache->originalHash = Hash(cache->mons, sizeof(cache->mons));
