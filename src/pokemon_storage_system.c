@@ -675,6 +675,7 @@ static void ResetSelectionAfterDeposit(void);
 static void InitReleaseMon(void);
 static bool8 TryHideReleaseMon(void);
 static void InitCanReleaseMonVars(void);
+static bool8 IsSelectedBadEgg(void);
 static void ReleaseMon(void);
 static bool32 AtLeastThreeUsableMons(void);
 static s8 RunCanReleaseMon(void);
@@ -2676,11 +2677,7 @@ static void Task_OnSelectedMon(u8 taskId)
             {
                 sStorage->state = 3;
             }
-            else if (sStorage->displayMonIsEgg)
-            {
-                sStorage->state = 5; // Cannot release an Egg.
-            }
-            else if (ItemIsMail(sStorage->displayMonItemId))
+            else if (ItemIsMail(sStorage->displayMonItemId) && !IsSelectedBadEgg())
             {
                 sStorage->state = 4;
             }
@@ -6590,6 +6587,15 @@ static void GetRestrictedReleaseMoves(u16 *moves)
 
 static void InitCanReleaseMonVars(void)
 {
+    // Eggs do not provide usable party members or field moves. Bad Eggs also
+    // need to be removable without interpreting their damaged move data.
+    if (sStorage->displayMonIsEgg)
+    {
+        sStorage->releaseStatusResolved = TRUE;
+        sStorage->canReleaseMon = TRUE;
+        return;
+    }
+
     if (!AtLeastThreeUsableMons())
     {
         // The player only has 1 or 2 usable
@@ -6636,6 +6642,16 @@ static void InitCanReleaseMonVars(void)
     }
 
     sStorage->releaseCheckState = 0;
+}
+
+static bool8 IsSelectedBadEgg(void)
+{
+    // A corrupt held-item value must not trap a Bad Egg behind the Mail check.
+    if (sIsMonBeingMoved)
+        return GetMonData(&sStorage->movingMon, MON_DATA_SANITY_IS_BAD_EGG);
+    if (sCursorArea == CURSOR_AREA_IN_PARTY)
+        return GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_SANITY_IS_BAD_EGG);
+    return GetBoxMonDataAt(StorageGetCurrentBox(), sCursorPosition, MON_DATA_SANITY_IS_BAD_EGG);
 }
 
 static bool32 AtLeastThreeUsableMons(void)
