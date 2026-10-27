@@ -744,18 +744,18 @@ bool8 Rogue_ShouldTrainerSaveAceMon(u16 trainerNum)
     return FALSE;
 }
 
-bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
+bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, struct Pokemon *party, u8 slot, u8 numOthersAlive)
 {
 #if TESTING
     // Test use different mechanism
     // always fail below
 #elif defined(ROGUE_EXPANSION)
-    if(IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
+    if (slot < PARTY_SIZE && IsDynamaxEnabled() && FlagGet(FLAG_ROGUE_DYNAMAX_BATTLE))
     {
         // If all other mons have fainted just bail and dynamax now
         if(numOthersAlive == 0)
         {
-            u16 item = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+            u16 item = GetMonData(&party[slot], MON_DATA_HELD_ITEM);
 
             if(!IS_GIMMICK_ITEM(item))
                 return TRUE;
@@ -767,18 +767,18 @@ bool8 Rogue_ShouldDynamaxMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
     return FALSE;
 }
 
-bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, u8 slot, u8 numOthersAlive)
+bool8 Rogue_ShouldTerastallizeMon(u16 trainerNum, struct Pokemon *party, u8 slot, u8 numOthersAlive)
 {
 #if TESTING
     // Test use different mechanism
     // always fail below
 #elif defined(ROGUE_EXPANSION)
-    if(IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
+    if (slot < PARTY_SIZE && IsTerastallizeEnabled() && FlagGet(FLAG_ROGUE_TERASTALLIZE_BATTLE))
     {
         // If all other mons have fainted just bail and tera now
         if(numOthersAlive == 0)
         {
-            u16 item = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM);
+            u16 item = GetMonData(&party[slot], MON_DATA_HELD_ITEM);
 
             if(!IS_GIMMICK_ITEM(item))
                 return TRUE;
@@ -3602,7 +3602,7 @@ static bool8 SelectNextPreset(struct TrainerPartyScratch* scratch, u16 species, 
             if(IsTerastallizeEnabled())
             {
                 // Avoid black sludge during tera because it's a bit silly
-                outPreset->heldItem == ITEM_LEFTOVERS;
+                outPreset->heldItem = ITEM_LEFTOVERS;
             }
         }
         else if(IS_MEGA_STONE(outPreset->heldItem))

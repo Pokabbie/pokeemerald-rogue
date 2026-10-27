@@ -1,3 +1,5 @@
+> Experimental branch: [99-box / enhanced-memory prototype](docs/enhanced-memory.md). Requires the paired modified mGBA build.
+
 # pokeemerald-expansion
 
 ## What is pokeemerald-expansion?

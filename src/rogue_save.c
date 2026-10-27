@@ -121,7 +121,7 @@ static void SerializeArray(struct SaveBlockStream* block, void* ptr, size_t elem
 
 void RogueSave_UpdatePointers()
 {
-    void* ptr = &gPokemonStoragePtr->boxes[TOTAL_BOXES_COUNT][0];
+    void* ptr = &gPokemonStoragePtr->boxes[BASE_BOXES_COUNT][0];
     gRogueSaveBlock = (struct RogueSaveBlock*)ptr;
 }
 

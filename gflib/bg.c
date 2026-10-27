@@ -1,5 +1,6 @@
 #include <limits.h>
 #include "global.h"
+#include "rogue_enhanced_memory.h"
 #include "bg.h"
 #include "dma3.h"
 #include "gpu_regs.h"
@@ -1241,7 +1242,8 @@ bool32 IsInvalidBg32(u8 bg)
 
 bool32 IsTileMapOutsideWram(u8 bg)
 {
-    if (sGpuBgConfigs2[bg].tilemap > (void *)IWRAM_END)
+    // IWRAM_END stays fixed for BIOS stacks; tilemaps may use added IWRAM.
+    if (sGpuBgConfigs2[bg].tilemap >= (void *)ENHANCED_IWRAM_END)
         return TRUE;
     else if (sGpuBgConfigs2[bg].tilemap == NULL)
         return TRUE;

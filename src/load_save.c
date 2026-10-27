@@ -17,6 +17,7 @@
 
 #include "rogue_controller.h"
 #include "rogue_save.h"
+#include "rogue_expanded_flash.h"
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey);
 
@@ -46,6 +47,9 @@ struct RogueSaveBlock *gRogueSaveBlock;
 // code
 void CheckForFlashMemory(void)
 {
+    RogueExpandedFlash_Init();
+    if (!RogueExpandedFlash_IsAvailable())
+        RogueExpandedFlash_Fatal(EXPANDED_ERROR_BACKEND);
     if (!IdentifyFlash())
     {
         gFlashMemoryPresent = TRUE;

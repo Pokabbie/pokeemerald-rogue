@@ -1,5 +1,6 @@
 #include "gba/gba.h"
 #include "gba/flash_internal.h"
+#include "rogue_expanded_flash.h"
 
 static const char AgbLibFlashVersion[] = "FLASH1M_V103";
 
@@ -19,6 +20,8 @@ u16 IdentifyFlash(void)
     REG_WAITCNT = (REG_WAITCNT & ~WAITCNT_SRAM_MASK) | WAITCNT_SRAM_8;
 
     flashId = ReadFlashId();
+    if (flashId == ROGUE_EXPANDED_FLASH_ID)
+        flashId = LE26FV10N1TS.type.ids.joined; // Keep the legacy 128 KiB driver for base saves.
 
     setupInfo = sSetupInfos;
     result = 1;

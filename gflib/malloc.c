@@ -8,6 +8,7 @@ static void *sHeapStart;
 static u32 sHeapSize;
 
 EWRAM_DATA u8 gHeap[HEAP_SIZE] = {0};
+STATIC_ASSERT(sizeof(struct MemBlock) == 16, EnhancedHeapHeaderSize);
 
 void PutMemBlockHeader(void *block, struct MemBlock *prev, struct MemBlock *next, u32 size)
 {
@@ -68,7 +69,7 @@ void *AllocInternal(void *heapStart, u32 size, const char *location)
                         splitBlock->next->prev = splitBlock;
                 }
 
-                pos->locationHi = ((uintptr_t)location) >> 14;
+                pos->locationHi = ((uintptr_t)location) >> 12;
                 pos->locationLo = (uintptr_t)location;
 
                 return pos->data;
@@ -227,5 +228,5 @@ const char *MemBlockLocation(const struct MemBlock *block)
     if (!block->allocated)
         return NULL;
 
-    return (const char *)(ROM_START | (block->locationHi << 14) | block->locationLo);
+    return (const char *)(ROM_START | (block->locationHi << 12) | block->locationLo);
 }

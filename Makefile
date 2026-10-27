@@ -261,12 +261,14 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 # Use a separate minimal makefile for speed
 # Since we don't need to reload most of this makefile
 ifeq (,$(filter-out all rom compare agbcc modern check libagbsyscall syms $(TESTELF),$(MAKECMDGOALS)))
+ifneq ($(PROTOTYPE_PREBUILT_TOOLS),1)
 $(call infoshell, $(MAKE) -f make_tools.mk)
 
 # If running locally and ROM has already been build, run
 ifeq ($(wildcard $(ROM)*), $(ROM))
 ifeq ("$(GITHUB_REPOSITORY_OWNER)","")
 $(call infoshell, $(MAKE) -f make_tools_local.mk)
+endif
 endif
 endif
 
@@ -546,7 +548,9 @@ $1: $2 $$(shell $(SCANINC) -I include -I tools/agbcc/include -I gflib $2)
 	@echo "$$(CC1) <flags> -o $$@ $$<"
 	@$$(CPP) $$(CPPFLAGS) $$< | $$(PREPROC) $$< charmap.txt -i | $$(CC1) $$(CFLAGS) -o - - | cat - <(echo -e ".text\n\t.align\t2, 0") | $$(AS) $$(ASFLAGS) -o $$@ -
 endef
+ifeq ($(TEST),1)
 $(foreach src, $(TEST_SRCS), $(eval $(call TEST_DEP,$(patsubst $(TEST_SUBDIR)/%.c,$(TEST_BUILDDIR)/%.o,$(src)),$(src),$(patsubst $(TEST_SUBDIR)/%.c,%,$(src)))))
+endif
 
 ifeq ($(MODERN),0)
 LD_SCRIPT := ld_script.ld
@@ -561,8 +565,9 @@ $(OBJ_DIR)/ld_script.ld: $(LD_SCRIPT) $(LD_SCRIPT_DEPS)
 
 LDFLAGS = -Map ../../$(MAP)
 $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
+	$(file >$(OBJ_DIR)/objects.rsp,$(OBJS_REL))
 	@echo "cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld -o ../../$@ <objects> <lib>"
-	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld --print-memory-usage -o ../../$@ $(OBJS_REL) $(LIB) | cat
+	@cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -T ld_script.ld --print-memory-usage -o ../../$@ @objects.rsp $(LIB) | cat
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
 
 $(ROM): $(ELF)

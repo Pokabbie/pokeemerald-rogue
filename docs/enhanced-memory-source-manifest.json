@@ -1,0 +1,204 @@
+{
+  "baseline": "a6adfcf18d7eaf99c2803e4b0bc04eca7af2f014",
+  "base_branch": "expansion",
+  "files": [
+    {
+      "path": "Makefile",
+      "status": "modified",
+      "original_lf_sha256": "75cb553e4267d2e83069cf66dd62a3f5ca98bc405fd3737d28d7e7c76e18f663",
+      "modified_lf_sha256": "f7ac4571a2eafad618ae71e8babbdfcc58407796972272d8f2d3d7d5ab190228"
+    },
+    {
+      "path": "gflib/bg.c",
+      "status": "modified",
+      "original_lf_sha256": "cd2f01f3df3fa67662976e81ad936736f2dc7f96bbabd0e9835ffaa324048a98",
+      "modified_lf_sha256": "4b5978330d4d9966493f371024f2b5c3c4bf718d3918f851fbc4ab22192ec3e4"
+    },
+    {
+      "path": "gflib/malloc.c",
+      "status": "modified",
+      "original_lf_sha256": "6bf876ab8bb3ffe078e78b1de8f89a5ec48da1338b8c6d9726dc9ee8e30b41d1",
+      "modified_lf_sha256": "e4b1ac570d4679485193789adc887a3412346a853ff6725a670caae44b885348"
+    },
+    {
+      "path": "gflib/malloc.h",
+      "status": "modified",
+      "original_lf_sha256": "76dfec16068848de16a0b10d6670fae47d79b48486b77a23b71cf85c6cf497f2",
+      "modified_lf_sha256": "f3efb0317a6af9e5a1b656205233b660373a09714ea7f22788cd14e2c9c6a141"
+    },
+    {
+      "path": "include/gba/defines.h",
+      "status": "modified",
+      "original_lf_sha256": "eca741a49f5ceedfc1b04e174c770e779c2cf5df230c8481c9e62201f415784d",
+      "modified_lf_sha256": "f0eaf2ae4cafb4fac365c09535cd73f83f6c295f92970bdac643af6dc7269f2c"
+    },
+    {
+      "path": "include/pokemon_storage_system.h",
+      "status": "modified",
+      "original_lf_sha256": "0aa1393632f63235b5f34fa44f7b7d4922877bc0b955c23402bd64da016027c7",
+      "modified_lf_sha256": "84605ab814850a52fb145cbfef0d39e613cddd67df5f114daef990a13428c994"
+    },
+    {
+      "path": "include/rogue_enhanced_memory.h",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "660994f25bcea2798774d83096ceae71d53d2f7a1ebf81765c4e907973b3e20e"
+    },
+    {
+      "path": "include/rogue_expanded_flash.h",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "2db45d91aa9bafd82646cdfe4e7e13004a42febc69eab0ec5e57a09518cf28ca"
+    },
+    {
+      "path": "include/rogue_expanded_storage.h",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "3e5c5cfbfb6c8396ce3a059761cd7170a2ef354dbdd0088576bf918e4cc93370"
+    },
+    {
+      "path": "include/rogue_trainers.h",
+      "status": "modified",
+      "original_lf_sha256": "8a39598b5e20e3a386befcbeef6a519c7f86588d03e88d80019bf9e64989cb61",
+      "modified_lf_sha256": "f5cdb7645b83d9fc38843bf2b74db46f14fe01ab40b6fb50d0a32404a49c67b8"
+    },
+    {
+      "path": "ld_script_modern.ld",
+      "status": "modified",
+      "original_lf_sha256": "c8fcac3d67b4ed143b33d81fd67ac802dee664feffaf17cc4f42142107d721b3",
+      "modified_lf_sha256": "e6c1836dae83699c0f934f245fec98d415592003c969853aabf3690e2c2d240b"
+    },
+    {
+      "path": "src/agb_flash_1m.c",
+      "status": "modified",
+      "original_lf_sha256": "e5ecc86823df5cf124dac920fae31182d7b4a4f7f4e30ada3b24b871a111f0e9",
+      "modified_lf_sha256": "880c88cd433e5952603c5bbd198caba8f772b984a9fee887e27b717344030b6a"
+    },
+    {
+      "path": "src/battle_ai_main.c",
+      "status": "modified",
+      "original_lf_sha256": "9fab44c442080048f1d761668a7e65a27bea95ebe1aeef4489131e1efb12b689",
+      "modified_lf_sha256": "2791dae80663d88cfc95da8f06eec0b5dc21af2dbb3edf7c02977369027f971b"
+    },
+    {
+      "path": "src/battle_ai_switch_items.c",
+      "status": "modified",
+      "original_lf_sha256": "d2708cb3776cd3fe7aa8ec0f8a98358c9620edc2862a992debbc3c2695752c9f",
+      "modified_lf_sha256": "7353d4b3e51fb8356468ceed567cc1901bccd8cb66215452899ecf66ba114be6"
+    },
+    {
+      "path": "src/battle_controller_opponent.c",
+      "status": "modified",
+      "original_lf_sha256": "51b1051492e3d37d7a74d49a945b48bdc83ed649b834de3d877bbbe40db080e3",
+      "modified_lf_sha256": "7d62a886f525df8f2a020cb664a96d5a04e744384404487a938a040aadf0ac31"
+    },
+    {
+      "path": "src/crt0.s",
+      "status": "modified",
+      "original_lf_sha256": "6dc9dfef60aa316388551796cbd812b98726c33c7b8f7cdf42ba20574fec658c",
+      "modified_lf_sha256": "2916a2798c3c125e6f7be3f77623328bef8b60395536c2a4b26ac2cde03110e1"
+    },
+    {
+      "path": "src/debug.c",
+      "status": "modified",
+      "original_lf_sha256": "fe10551ee2d482dfd39c9189f2fc18f318e6a2a50fd17d1087716f2f3740f25b",
+      "modified_lf_sha256": "f74b29fcfdb23cefd890485c01f3d27fe626b3a305dcc70e1a6f00b8c71ff13c"
+    },
+    {
+      "path": "src/load_save.c",
+      "status": "modified",
+      "original_lf_sha256": "6ee9d29d1ebb9c9ceadc7eb1a3366de91caa37667611234987268d1a93c5b0d5",
+      "modified_lf_sha256": "c80b3b3f82290ac7bafee90e7fd83348aba87eb1325c2eb99792261456d8d78e"
+    },
+    {
+      "path": "src/lottery_corner.c",
+      "status": "modified",
+      "original_lf_sha256": "aa9e6fd55d8958b74a2989c5768696391693882b32a1fd3db0d009fbb27d8055",
+      "modified_lf_sha256": "ff0ccb7176d9b92faf45803baf1af38a134b039d068d426f283b1451e04aab80"
+    },
+    {
+      "path": "src/pokemon_storage_system.c",
+      "status": "modified",
+      "original_lf_sha256": "e0bf7f22cf675b1d7fc59e2181f2baf927a673deb56ea3b20a8f724b6c931b71",
+      "modified_lf_sha256": "b56105abb7ea059505656517363f566ceeb4538baaa8e1978e93e2369cea4a1c"
+    },
+    {
+      "path": "src/rogue_assistant.c",
+      "status": "modified",
+      "original_lf_sha256": "03657b54beae57e0a91034fd0625a1be78dcce9204dab4ddd556673c5f7b439c",
+      "modified_lf_sha256": "9f8d143ba10f405409b6f6a2a0403f09639513fb793c620362e1e674a02af00b"
+    },
+    {
+      "path": "src/rogue_assistantbox.c",
+      "status": "modified",
+      "original_lf_sha256": "db4372c54f7e2acc279d935c634f5a527ce94ade267323fe7ea22bbf68ffd130",
+      "modified_lf_sha256": "84bf72ebfa9a5efd1bcf90ed91e55779d58fa89f682d30ac94988e2580c6330f"
+    },
+    {
+      "path": "src/rogue_enhanced_memory.c",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "b36ef7acfd01c3d098c5de4d08e8c796031047a100bb822c4f32f2c9a4b87c84"
+    },
+    {
+      "path": "src/rogue_expanded_flash.c",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "0db9046a5ebb41e422897b28aece7d008b1bb019742a6fac9acd8433e4e9ac62"
+    },
+    {
+      "path": "src/rogue_expanded_storage.c",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "3517e9ec42f32154c5a5b867d88644b8c96cce7e504f3778633f3ab9445b8629"
+    },
+    {
+      "path": "src/rogue_hub.c",
+      "status": "modified",
+      "original_lf_sha256": "44c87144712030d97d6e50cb9cd53f6941d73c8d14ca27991554db339f954eda",
+      "modified_lf_sha256": "d11af0a121d04f83542f7df8ce8323095bf69f511c9b6266c082a6e5eef224eb"
+    },
+    {
+      "path": "src/rogue_save.c",
+      "status": "modified",
+      "original_lf_sha256": "c5524856ce571cba64ff4eed9a1c800e6ece473c2b42ec0bf33e8bff76f74b82",
+      "modified_lf_sha256": "52c486f827664319c7e6ed46505ded76951be021e17e60b78df1fcc4f083e18a"
+    },
+    {
+      "path": "src/rogue_trainers.c",
+      "status": "modified",
+      "original_lf_sha256": "1b33cb004db2474787cdec4f9662feb89c3bc60ef4a43349095a1d84a40165eb",
+      "modified_lf_sha256": "a25069ea998ca596d65c5d65b9dc25a24a0d33bfe55a88b381f93f31269be057"
+    },
+    {
+      "path": "src/rom_header.s",
+      "status": "modified",
+      "original_lf_sha256": "68443d47af3a3bed482d6cba1266a2c2ac0ecc9ed43564c4b0e5783f70941d61",
+      "modified_lf_sha256": "bf0d90f747498848d62e62d445747f5efc871295e21d64b80794808ebc12981c"
+    },
+    {
+      "path": "src/save.c",
+      "status": "modified",
+      "original_lf_sha256": "fd9893ef8a61cf6bc515d433aad357ac7ec7d9bcca3216a8b319594e7b597a0e",
+      "modified_lf_sha256": "b7d2373bed1bc117f51c3996dc56c182358b6f1221d88da5ecceec589c2ff1d4"
+    },
+    {
+      "path": "tools/gbagfx/convert_png.c",
+      "status": "modified",
+      "original_lf_sha256": "1e6b522aaf13793bee865f7be994171a5a30dd3faf7149803f1e372c05e3f4e9",
+      "modified_lf_sha256": "f2bc5ca44f9f5b0da146e88c0e0d19e03514e15f284189e4fad863b4e61dc775"
+    },
+    {
+      "path": "tools/png_compat_io.h",
+      "status": "added",
+      "original_lf_sha256": null,
+      "modified_lf_sha256": "4ed01f5d4b9fc3672f7d31d8713fc99db1c1817818bf1a42f4fe4e849c983322"
+    },
+    {
+      "path": "tools/rsfont/convert_png.c",
+      "status": "modified",
+      "original_lf_sha256": "9e85f63cb10a19b4bca861a487b9d3c9281f8aa05377707cd8c2e05195314fdc",
+      "modified_lf_sha256": "76b6fd5b7238b2da3b04e7a4d029d0b3d4001ab09465321a8be75f6cf59534ae"
+    }
+  ]
+}
