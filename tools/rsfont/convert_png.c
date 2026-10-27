@@ -6,6 +6,7 @@
 #include "global.h"
 #include "convert_png.h"
 #include "gfx.h"
+#include "../png_compat_io.h"
 
 void ReadPng(char *path, struct Image *image)
 {
@@ -35,7 +36,7 @@ void ReadPng(char *path, struct Image *image)
 	if (setjmp(png_jmpbuf(png_ptr)))
 		FATAL_ERROR("Failed to init I/O for reading \"%s\".\n", path);
 
-	png_init_io(png_ptr, fp);
+	png_set_read_fn(png_ptr, fp, PngReadData);
 	png_set_sig_bytes(png_ptr, 8);
 	png_read_info(png_ptr, info_ptr);
 
@@ -120,7 +121,7 @@ void WritePng(char *path, struct Image *image)
 	if (setjmp(png_jmpbuf(png_ptr)))
 		FATAL_ERROR("Failed to init I/O for writing \"%s\".\n", path);
 
-	png_init_io(png_ptr, fp);
+	png_set_write_fn(png_ptr, fp, PngWriteData, PngFlushData);
 
 	if (setjmp(png_jmpbuf(png_ptr)))
 		FATAL_ERROR("Error writing header for \"%s\".\n", path);
